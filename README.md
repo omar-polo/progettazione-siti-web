@@ -25,3 +25,8 @@
     sh build.sh serve [ port ]
 
 dove port di default è 8000
+
+
+## TODOs
+
+ - [ ] generare i titoli per le pagine
