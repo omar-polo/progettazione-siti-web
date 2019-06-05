@@ -2,6 +2,15 @@
 
 # some function definition
 
+# ED IS THE STANDARD TEXT EDITOR
+edit() {
+	if which ed 2>/dev/null; then
+		ed "$@"
+		return
+	fi
+	vim -e "$@"
+}
+
 # markdown2html file.md
 markdown2html() {
 	file=$1
@@ -14,8 +23,9 @@ markdown2html() {
 	out=$(echo $file | sed -e 's/md$/html/' -e 's/^src/build/')
 	
 	# ED IS THE STANDARD TEXT EDITOR!
+	# Git bash has vim but not ED!
 	cp template.html "$out"
-	ed "$out" <<EOF 2>&1 >/dev/null
+	edit "$out" <<EOF 2>&1 >/dev/null
 /CONTENT
 d
 -1
