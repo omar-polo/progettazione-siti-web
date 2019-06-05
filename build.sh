@@ -38,6 +38,8 @@ fi
 
 case "$action" in
 	build)
+		rm -rf build/*
+		cp style.css build
 		for i in src/*.md; do
 			echo "compiling $i..."
 			markdown2html "$i"
