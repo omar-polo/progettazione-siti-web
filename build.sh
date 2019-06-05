@@ -4,11 +4,20 @@
 
 # ED IS THE STANDARD TEXT EDITOR
 edit() {
-	if which ed 2>/dev/null; then
+	if which ed 2>&1 >/dev/null; then
 		ed "$@"
 		return
 	fi
 	vim -e "$@"
+}
+
+# markdown input output
+markdown() {
+	if which lowdown 2>&1 >/dev/null; then
+		lowdown -o "$2" "$1"
+		return
+	fi
+	pandoc -o "$2" "$1"
 }
 
 # markdown2html file.md
@@ -17,8 +26,7 @@ markdown2html() {
 	
 	tmpfile=$(mktemp)
 	
-	# TODO: use pandoc if lowdown is not available
-	lowdown -o "$tmpfile" "$file"
+	markdown "$file" "$tmpfile"
 	
 	out=$(echo $file | sed -e 's/md$/html/' -e 's/^src/build/')
 	
