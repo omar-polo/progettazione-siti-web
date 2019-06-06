@@ -76,11 +76,25 @@ case "$action" in
 			python3 -m http.server $port; } 2>&1 >/dev/null
 		;;
 		
+	fmt)
+		if [ -n "$1" ]; then
+			prettier --write "$1"
+			exit 0
+		fi
+		
+		prettier --write template.html
+		prettier --write style.css
+		for i in build/*.html; do
+			prettier --write "$i"
+		done
+		;;
+		
 	*)
-		echo USAGE: $0 [action] [args...]
-		echo where action can be one of:
+		echo "USAGE: $0 [action] [args...]"
+		echo "where action can be one of:"
 		echo "build: builds the site (no args)"
-		echo serve: the first option is the port, by default 8000
+		echo "serve: the first option is the port, by default 8000"
+		echo "fmt: by default re-format all html and css files (even in build/), but accepts the name of the file to re-format (in-place)"
 		exit 1
 		;;
 esac
