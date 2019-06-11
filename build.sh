@@ -62,6 +62,8 @@ clean)
 build)
 	rm -rf build/*
 	cp -r css build/
+	cp -r img build/
+	cp -r js build/
 	for i in src/*.md; do
 		echo "compiling $i..."
 		markdown2html "$i"
