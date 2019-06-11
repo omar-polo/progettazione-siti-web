@@ -2,38 +2,34 @@
 
 # some function definition
 
-# ED IS THE STANDARD TEXT EDITOR
-edit() {
-	if which ed 2>&1 >/dev/null; then
-		ed "$@"
-		return
-	fi
-	vim -e "$@"
-}
-
-# markdown input output
-markdown() {
-	if which lowdown 2>&1 >/dev/null; then
-		lowdown -o "$2" "$1"
-		return
-	fi
-	pandoc -o "$2" "$1"
-}
-
 # markdown2html file.md
 markdown2html() {
 	file=$1
 
+	copy=$(mktemp)
+	sed '1d' "$file" > "$copy"
+	title=$(head -n 1 "$file" | awk -F: '{ print $2 }')
+	
 	tmpfile=$(mktemp)
-
-	markdown "$file" "$tmpfile"
+	
+	# special rules for wcag report
+	if [ "$file" = "src/wcag.md" ]; then
+		sed \
+			-e 's,^livello: \(.*\)$,<span>\1</span>,' \
+			-e 's,^source: \(.*\)$,<span>\1</span>,' \
+			-i'' \
+			"$copy"
+	fi
+	
+	$md -o "$tmpfile" "$copy"
 
 	out=$(echo $file | sed -e 's/md$/html/' -e 's/^src/build/')
 
 	# ED IS THE STANDARD TEXT EDITOR!
 	# Git bash has vim but not ED!
 	cp template.html "$out"
-	edit "$out" <<EOF 2>&1 >/dev/null
+	$ed "$out" <<EOF 2>&1 >/dev/null
+%s#TITLE#$title#
 /CONTENT
 d
 -1
@@ -42,8 +38,32 @@ w
 q
 EOF
 
-	rm "$tmpfile"
+	rm "$copy" "$tmpfile"
 }
+
+# setup
+
+# ED IS THE STANDARD TEXT EDITOR
+if which ed 2>&1 >/dev/null; then
+	ed=ed
+elif which vi 2>&1 >/dev/null; then
+	ed="vi -e"
+elif which vim 2>&1 >/dev/null; then
+	ed="vim -e"
+else
+	echo "ed, vi or vim not found. One of them is needed to generate the HTML files."
+	exit 1
+fi
+
+# markdown input output
+if which lowdown 2>&1 >/dev/null; then
+	md=lowdown
+elif which pandoc 2>&1 >/dev/null; then
+	md=pandoc
+else
+	echo "lowdown or pandoc are needed to tranlate markdown to HTML. Install one of them"
+	exit 1
+fi
 
 # main:
 
