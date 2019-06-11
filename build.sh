@@ -57,6 +57,7 @@ case "$action" in
 clean)
 	rm -rf build
 	touch build/.gitkeep
+	rm -f progetto.tar.gz
 	;;
 
 build)
@@ -68,6 +69,11 @@ build)
 		echo "compiling $i..."
 		markdown2html "$i"
 	done
+	;;
+
+archive)
+	./build.sh build
+	tar czvf progetto.tar.gz build
 	;;
 
 serve)
@@ -98,8 +104,9 @@ fmt)
 *)
 	echo "USAGE: $0 [action] [args...]"
 	echo "where action can be one of:"
-	echo "build: builds the site (no args)"
 	echo "clean: clean the previous build"
+	echo "build: builds the site (no args)"
+	echo "archive: create progetto.tar.gz from build"
 	echo "serve: the first option is the port, by default 8000"
 	echo "fmt: by default re-format all html and css files (even in build/), but accepts the name of the file to re-format (in-place)"
 	exit 1
