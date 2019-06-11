@@ -54,9 +54,14 @@ if [ $# -ne 0 ]; then
 fi
 
 case "$action" in
+clean)
+	rm -rf build
+	touch build/.gitkeep
+	;;
+
 build)
 	rm -rf build/*
-	cp style.css build
+	cp -r css build/
 	for i in src/*.md; do
 		echo "compiling $i..."
 		markdown2html "$i"
@@ -92,6 +97,7 @@ fmt)
 	echo "USAGE: $0 [action] [args...]"
 	echo "where action can be one of:"
 	echo "build: builds the site (no args)"
+	echo "clean: clean the previous build"
 	echo "serve: the first option is the port, by default 8000"
 	echo "fmt: by default re-format all html and css files (even in build/), but accepts the name of the file to re-format (in-place)"
 	exit 1
