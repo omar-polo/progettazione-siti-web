@@ -136,8 +136,8 @@ table {
 	box-sizing: border-box;
 }
 
-body,
-html {
+html,
+body {
 	min-height: 100vh;
 }
 
@@ -146,7 +146,7 @@ body {
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
-	background: #fafafa;
+	background: #f8f8f8;
 	color: #444;
 }
 
@@ -154,6 +154,34 @@ body {
 	max-width: 1200px;
 	width: 100%;
 	margin: 0 auto;
+}
+
+.navigation {
+	display: flex;
+	flex-direction: row;
+	padding: 2rem 1rem;
+	justify-content: flex-end;
+}
+
+.navigation ul {
+	list-style: none;
+}
+
+.navigation li {
+	display: inline;
+}
+
+.navigation a:hover {
+	text-decoration: underline;
+}
+
+.navigation li a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.navigation li:nth-child(2) {
+	margin: 0 3rem;
 }
 
 main {
@@ -187,38 +215,4 @@ main {
 
 .footer a:hover {
 	text-decoration: underline;
-}
-
-.content {
-	max-width: 1200px;
-	width: 100%;
-	margin: 0 auto;
-}
-
-.navigation {
-	display: flex;
-	flex-direction: row;
-	padding: 2rem 1rem;
-	justify-content: flex-end;
-}
-
-.navigation ul {
-	list-style: none;
-}
-
-.navigation li {
-	display: inline;
-}
-
-.navigation a:hover {
-	text-decoration: underline;
-}
-
-.navigation li a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.navigation li:nth-child(2) {
-	margin: 0 3rem;
 }
