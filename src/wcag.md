@@ -1,3 +1,5 @@
+title:WCAG
+
 # Percepibile
 
 ## Alternative testuali
