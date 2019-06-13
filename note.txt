@@ -1,0 +1,7 @@
+pagine analizzate:
+
+ - home page
+ - pagina del meteo
+ - pagina di un articolo
+ - login page
+ - archivi
