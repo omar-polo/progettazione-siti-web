@@ -30,3 +30,4 @@ dove port di default è 8000
 ## TODOs
 
  - [ ] generare i titoli per le pagine
+ - [ ] verificare gli aria landmark nelle nostre pagine

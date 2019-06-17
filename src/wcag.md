@@ -119,6 +119,155 @@ source: orientation
 
 Rispettato (il sito funziona su monitor di diverse forme e orientamenti.)
 
+### Identificare lo scopo degli input
+livello: AA
+source: identify-input-purpose
+
+in alcuni punti no:
+ - il campo di ricerca non ha nessuna descrizione/label/... per permettere all'utente di identificare lo scopo dell'input.
+ - alla textarea per i commenti manca un label/aria-label/aria-labelledby. In javascript viene aggiunta una scritta "Partecipa alla discussione" ma non sono presenti indicazioni per collegare tale scritta alla texarea
+
+in alcuni punti male:
+ - il campo di ricerca nella pagina meteo mette la scritta "Inserisci qui la tua località" come `value` dei un input di tipo testo. Bisognerebbe usare un label/aria-label/aria-labelledby
+
+in altri casi sì:
+ - gli input per il login hanno sia un placeholder che un label associato.
+
+### Identificare lo scopo
+livello: AAA
+source: identify-purpose
+outcome: no
+
+ - utilizzano alcuni tag HTML5 correttamente (footer, header, nav, aside..) ma manca un tag main per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente (vedi punti precedenti) e quindi non tutte le aree della pagina sono comprensibili.
+
+## Distinguibile
+
+### Uso del colore
+livello: A
+source: use-of-color
+outcome: pass
+
+Il colore non è l'unico modo con il quale le differenti aree della pagina sono divise. Vengono usati appropriati tag HTML5 (section e/o aside) per differenziare le aree anche da un punto di vista semantico.
+
+### Controllo del sonoro
+livello: A
+source: audio-control
+outcome: pass
+
+Sono presenti video con riproduzione automatica che forniscono la possibilità di modificare il livello del volume, di mettere in pausa e interrompere la riproduzione audiosonora.
+
+### Contrasto (minimo)
+livello: AA
+source: contrast-minimum
+outcome: no
+
+Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto adeguato come:
+ - tasto condividi e numero di commenti nelle preview degli articoli nella home page e nelle pagine di archivio
+ - l'ora e il punteggio dei commenti
+ - i tasti per cambiare giornata nel meteo
+ - i titoli delle preview degli articoli nella sezione "Top Blog"
+ - nella sezione "FQ in edicola" (a scomparsa nell'header) tutte le scritte quando con hover hanno un livello di contrasto insufficiente
+
+### Ridimensionamento del testo
+livello: AA
+source: resize-text
+outcome: pass
+
+Il sito rimane funzionante una volta impostato il livello di zoom a 200%.
+
+Ci preme comunque sottolineare che nonostante sia funzionante sono presenti delle fastidiose barre di scrolling orizzontali: sarebbe opportuno modificare il CSS in modo tale che le pagine rimangano larghe al più quanto il monitor.
+
+### Immagini di testo
+livello: AA
+source: images-of-text
+outcome: no
+
+Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili) quando un testo sarebbe stato più opportuno, come:
+ - box "abbonati" nella homepage
+ - logo "meteo" dove la scritta non è necessario sia inclusa nell'immagine
+ - la scritta 'vignetta di' nel box della vignetta di Natangelo non è necessaria sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali)
+
+### Contrasto (avanzato)
+livello: AAA
+source: contrast-enhanced
+outcome: no
+
+alcuni esempi:
+ - nella pagina di login:
+    - la stellina per il richiesto non ha un contrasto sufficiente
+    - tutti i pulsanti
+    - la scritta 'non sei ancora registrato...'
+ - nella pagina meteo (oltre a quelli citati nel punto 'Contrasto'):
+    - il pulsante accedi
+    - la scritta 'modifica località'
+    - tutti i pulsanti per selezionare le varie tipologie (Italia, Europa, Mondo, ...)
+    - il selettore dell'ora
+ - nella pagina di un articolo
+    - il numero dei commenti
+    - le categorie nell'aside
+
+### Sottofondo sonoro basso o non presente
+livello: AAA
+source: low-or-no-background-audio
+outcome: pass
+
+non esistono pagine con solo audio preregistrato e i video con autoplay sono mutati in partenza.
+
+### Presentazione visiva
+livello: AAA
+source: visual-presentation
+outcome: no
+
+l'unico punto passato è 'testo non giustificato'
+
+ - [ ] il sito non permette di cambiare i colori in primo piano e dello sfondo
+ - [ ] la larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
+ - [x] il testo non è giustificato
+ - [x] lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
+ - [ ] non è possibile ingrandire il testo e se si zooma con il browser al 200% compaiono delle barre di scorrimento orizzontali
+
+### Immagini di testo (senza eccezioni)
+livello: AAA
+source: images-of-text-no-exception
+outcome: no
+
+No anche per i punti elencati in precedenza.
+
+### Ricalcolo del flusso
+livello: AA
+source: reflow
+outcome: no
+
+TODO: riverificare
+
+a 400% il sito è usabile e rispetta di sicuro le richieste, ma intorno al 200% bisogna scrollare orizzontalmente e testi importanti come titoli, sottotitoli ecc sono "tagliati fuori"
+
+### Contrasto in conenuti non testuali
+livello: AA
+source: non-text-contrast
+outcome: pass
+
+tutte le immagini testuali hanno un livello di contrasto adeguato, oppure sono loghi.
+
+### Spaziatura del testo
+livello: AA
+source: text-spacing
+outcome: no
+
+ - [x] l'altezza della linea è di 1.5 volte la dimensione del carattere
+ - [ ] la spaziatura tra i caratteri è pari alla dimensione del carattere (dovrebbe essere il doppio)
+ - [ ] a discrezione dell'UA
+ - [ ] a discrezione dell'UA
+
+### Contenuto con Hover o Focus
+livello: AA
+source: content-on-hover-or-focus
+outcome: pass
+
+ - [x] congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
+ - [x] passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
+ - [x] persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso
+
 # Utilizzabile
 
 # Comprensibile
