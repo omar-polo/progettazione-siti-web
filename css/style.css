@@ -149,6 +149,10 @@ body {
 	color: #444;
 }
 
+a.skip-to-content {
+	/* TODO */
+}
+
 .container {
 	max-width: 1200px;
 	width: 100%;
