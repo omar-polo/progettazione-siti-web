@@ -236,9 +236,10 @@ No anche per i punti elencati in precedenza.
 ### Ricalcolo del flusso
 livello: AA
 source: reflow
-outcome: no
+outcome: yes
 
-TODO: riverificare
+ - [x] il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
+ - [x] non c'è contenuto a scorrimento orizzontale
 
 a 400% il sito è usabile e rispetta di sicuro le richieste, ma intorno al 200% bisogna scrollare orizzontalmente e testi importanti come titoli, sottotitoli ecc sono "tagliati fuori"
 
@@ -269,6 +270,168 @@ outcome: pass
  - [x] persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso
 
 # Utilizzabile
+
+## Accessibile da tastiera
+
+Rendere disponibili tutte le funzionalità tramite tastiera
+
+### Tastiera
+livello: A
+source: keyboard
+outcome: no
+
+Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non sono navigabili da tastiera in quanto l'area a scomparsa non si apre.
+
+### Nessun impedimento all'uso della tastiera
+livello: A
+source: no-keyboard-trap
+outcome: yes
+
+Il focus da tastiera può essere spostato da/verso qualunque componente che supporta il focus della pagina.
+
+### Tastiera (nessuna eccezione)
+livello: AAA
+source: keyboard-no-exception
+outcome: no
+
+Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
+
+### Tasti di scelta rapida
+livello: A
+source: character-key-shortcuts
+outcome: yes
+
+Non hanno implementato nessuna scorciatoia da tastiera quindi questo punto è banalmente rispettato.
+
+## Adeguata disponibilità di tempo
+
+Fornire agli utenti tempo sufficiente per leggere e utilizzare i contenuti.
+
+### Regolazione tempi di esecuzione
+livello: A
+source: timing-adjustable
+outcome: no
+
+La home page si auto-ricarica e:
+ - non è possibile disattivarlo
+ - non è possibile regolarlo
+ - l'utente non viene avvisato prima dello scadere del tempo e non è possibile estendere il limite
+ - il limite di tempo non è un evento fondamentale
+ - il limite di tempo non è essenziale per l'attività
+ - il limite di tempo è inferiore alle 20 ore (sono 10 minuti)
+
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
+
+### Pauso, stop, nascondi
+livello: A
+source: pasue-stop-hide
+outcome: no
+
+ - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
+ - [ ] non è possibile disattivare l'autoaggiornamento
+
+### Nessun tempo di esecuzione
+livello: AAA
+source: no-timing
+outcome: no
+
+Nonostante il refresh non sia una parte esseziale del contenuto, la home
+page si auto-ricarica ogni 10 minuti.
+
+
+### Interruzioni
+livello: AAA
+source: interruptions
+outcome: no
+
+La home page viene ricaricata ogni 10 minuti: tale azione non è
+considerabile un'emergenza.
+
+### Riautenticazione
+livello: AAA
+source: re-authenticating
+outcome: yes
+
+TODO: specificare che i commenti sono l'unica tipologia di informazione
+inseribile dall'utente nelle pagine che abbiamo testato.
+
+Se uno scrive un commento, la sessione scade, il commento non viene
+perso ma viene riproposto tale e quale dopo un login.
+
+#### Termine del tempo
+livello: AAA
+source: timeouts
+outcome: yes
+
+L'inattività non permette di perdere i commenti.
+
+## Convulsioni e reazioni fisiche
+
+Non sviluppare contenuti con tecniche che sia noto causino attacchi
+epilettici o reazioni fisiche
+
+### Tre lampeggiamenti o inferiore alla soglia
+livello: A
+source: three-flashes-or-below-threshold
+outcome: yes
+
+Le pagine esaminate non contengono nulla che lampeggi per più di
+tre volte in un secondo oppure il lampeggiamento è al di sotto della
+soglia. Va sottolineato però che i video che compaiono a lato cambiano
+spesso: durante la nostra ispezione i video non contenevano elementi che
+potessero invalidare questo punto, ma nulla vieta che in futuro ci siano.
+
+### Tre lampeggiamenti
+livello: AAA
+source: three-flashes
+outcome: yes
+
+La pagina web non contiene nulla che lampeggi per più di tre volte in
+un secondo. Si faccia riferimento comunque al punto precedente per il
+discorso dei video.
+
+
+### Animazione da interazioni
+livello: AAA
+source: animation-from-interaction
+outcome: no
+
+Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
+disabilitare l'animazione (transazione) e non è essenziale.
+
+## Navigabile
+
+Fornire delle funizonalità di supporto all'utente per navigar, trovare
+contenuti e determinare la propria posizione.
+
+### Salto di blocchi
+livello: A
+source: bypass-blocks
+outcome: no
+
+Non è presente nessun meccanismo per saltare i blocchi di contenuto che si ripetono su piu pagine.
+
+### Titolazione della pagina
+livello: A
+source: page-titled
+outcome: yes
+
+Le pagine web hanno titoli che ne descrivono l'argomento.
+
+### Ordine del focus
+livello: A
+source: focus-order
+outcome: yes
+
+Rispettato banalmente: la pagine viene navigata in modo sequenziale usando il tab ma l'ordine di navigazione non influisce sul significato.
+
+### Scopo del collegamento
+livello: A
+source: link-purpose-in-context
+outcome: yes
+
+Lo scopo di ogni collegamento nelle pagine esaminate può essere dal solo testo del collegamento o dal contenuto dell'attributo `alt` dell'immagine.
 
 # Comprensibile
 
