@@ -410,7 +410,8 @@ livello: A
 source: bypass-blocks
 outcome: no
 
-Non è presente nessun meccanismo per saltare i blocchi di contenuto che si ripetono su piu pagine.
+Non è presente nessun meccanismo per saltare i blocchi di contenuto
+che si ripetono su piu pagine.
 
 ### Titolazione della pagina
 livello: A
@@ -424,14 +425,44 @@ livello: A
 source: focus-order
 outcome: yes
 
-Rispettato banalmente: la pagine viene navigata in modo sequenziale usando il tab ma l'ordine di navigazione non influisce sul significato.
+Rispettato banalmente: la pagine viene navigata in modo sequenziale
+usando il tab ma l'ordine di navigazione non influisce sul significato.
 
 ### Scopo del collegamento
 livello: A
 source: link-purpose-in-context
 outcome: yes
 
-Lo scopo di ogni collegamento nelle pagine esaminate può essere dal solo testo del collegamento o dal contenuto dell'attributo `alt` dell'immagine.
+Lo scopo di ogni collegamento nelle pagine esaminate può essere dal solo
+testo del collegamento o dal contenuto dell'attributo `alt` dell'immagine.
+
+### Differenti modalità
+livello: AA
+source: multiple-ways
+outcome: yes
+
+Questo punto è rispettato, confrontando con la lista di tecniche
+sufficienti per il successo del criterio:
+
+ - [x] forniscono link per navigare a pagine correlati
+ - [ ] non forniscono una TOC
+ - [ ] non hanno una site map
+ - [x] forniscono una funzionalità di ricerca
+ - [ ] non forniscono una lista di link a tutte le altre pagine
+ - non tutte le pagine sono linkate dalla home page
+
+### Intestazioni ed etichette
+livello: AA
+source: headings-and-labels
+outcome: yes
+
+Le sezioni esaminate hanno intestazioni che ne specificano il contenuto:
+ - nella pagina di un articolo l'h1 descrive l'articolo, e gli h2 introducono gli articoli correlati
+ - nella pagina del meteo gli h2 introducono i riquadri a lato
+ - nella pagina di login l'h3 introduce lo scopo della pagina
+
+TODO: nella pagina di login ci dovrebbe essere un h1 però...
+
 
 # Comprensibile
 
