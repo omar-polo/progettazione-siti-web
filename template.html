@@ -45,6 +45,10 @@
 					<li class="menu-Test">
 						<a href="ut.html">User testing</a>
 					</li>
+					<li>
+						<input id="search-input" list="search" placeholder="Cerca" type="search">
+						<div id="results"></div>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -72,5 +76,24 @@
 				</ul>
 			</nav>
 		</footer>
+
+		<script>
+			var data = [
+				{
+					page: "wcag.html",
+					anchor: "contenuti-non-testuali",
+					title: "Contenuti non testuali"
+				},
+
+				{
+					page: "wcag.html",
+					anchor: "solo-audio-e-solo-titolo",
+					title: "Solo audio e solo titolo"
+				},
+			];
+		</script>
+
+		<script src="js/search.js"></script>
+
 	</body>
 </html>
