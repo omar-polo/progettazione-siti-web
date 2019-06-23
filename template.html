@@ -1,9 +1,10 @@
+{{ define "main" -}}
 <!doctype html>
 <html lang="it" dir="ltr">
 	<head>
 		<meta charset="UTF-8">
-		<title>TITLE</title>
-		
+		<title>{{.Title}}</title>
+
 		<!-- Meta-tag -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +55,9 @@
 		</header>
 	
 		<main class="container" id="content">
-			CONTENT
+			{{ with .Content }}
+				{{ block "content" .}}{{ end }}
+			{{ end }}
 		</main>
 
 		<footer class="footer container">
@@ -97,3 +100,4 @@
 
 	</body>
 </html>
+{{ end }}

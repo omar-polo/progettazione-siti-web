@@ -2,32 +2,37 @@
 
 ## struttura del progetto
 
- - in src ci sono tutti le pagine, ognuna scritta in markdown
- 
-   **IMPORTANTE**: non mettere spazi nei nomi dei file;
+ - in src ci sono tutti le pagine, ognuna scritta in markdown (con alcune
+   estensioni alla sintassi per quanto riguarda la pagina del wcag.)
    
  - in build vengono generati i file;
  
- - build.sh è uno script che compila il sito (si legga più avanti per info);
- 
- - style.css è il foglio di stile;
+ - le cartelle css e js vengono copiate nella cartella build
  
  - template.html è il template con il quale vengono renderizzate le pagine.
+ 
+#### compilare il programma d'aiuto
+
+> richiede go
+
+    go build
 
 #### compilare il report
+    
+    ./progettazione-siti-web build
 
-    sh build.sh
+#### servire e (contemporaneamente) compilare quando i file cambiano
+
+    ./progettazione-siti-web dev
 
 #### servire il report
 
-> richiede python
-
-    sh build.sh serve [ port ]
+    ./progettazione-siti-web serve
 
 dove port di default è 8000
 
 
 ## TODOs
 
- - [ ] generare i titoli per le pagine
+ - [X] generare i titoli per le pagine
  - [ ] verificare gli aria landmark nelle nostre pagine
