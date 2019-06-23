@@ -1,6 +1,20 @@
 {{ define "content" }}
-<h1>WCag</h1>
+<h1>WCag 2.1</h1>
 
-{{ . }}
+{{ range .SubSections }}
+	<h2>{{ .Title }}</h2>
+	{{ .Content | markdown }}
+	
+	{{ range .SubSections }}
+		<h3>{{ .Title }}</h3>
+		{{ .Content | markdown }}
+		
+		{{ range .SubSections }}
+			<h4>{{ .Title }}</h4>
+			{{ .Content | markdown }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+
 
 {{ end }}
