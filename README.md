@@ -29,7 +29,7 @@
 
     ./progettazione-siti-web serve
 
-dove port di default è 8000
+la porta di default è 8000
 
 
 ## TODOs
