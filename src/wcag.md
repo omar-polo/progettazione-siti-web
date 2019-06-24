@@ -7,8 +7,10 @@ title:WCAG
 ### Contenuti non testuali
 livello: A
 outcome: no
+source: non-text-content
 
 violazioni:
+
  - manca una descrizione testuale per l'icona (font) cerca nella barra in alto del titolo
  - mancano svariati attributi "alt" alle immagini (in particolare le foto degli articoli)
 
@@ -18,6 +20,8 @@ violazioni:
 // lista delle immagini alle quali manca l'attributo alt
 Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
 ```
+
+![Esempio di icone senza descrizione testuale](img/contenuti-non-testuali.png)
 
 ## Media temporizzati
 
@@ -146,14 +150,14 @@ outcome: no
 ### Uso del colore
 livello: A
 source: use-of-color
-outcome: pass
+outcome: yes
 
 Il colore non è l'unico modo con il quale le differenti aree della pagina sono divise. Vengono usati appropriati tag HTML5 (section e/o aside) per differenziare le aree anche da un punto di vista semantico.
 
 ### Controllo del sonoro
 livello: A
 source: audio-control
-outcome: pass
+outcome: yes
 
 Sono presenti video con riproduzione automatica che forniscono la possibilità di modificare il livello del volume, di mettere in pausa e interrompere la riproduzione audiosonora.
 
@@ -172,7 +176,7 @@ Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono a
 ### Ridimensionamento del testo
 livello: AA
 source: resize-text
-outcome: pass
+outcome: yes
 
 Il sito rimane funzionante una volta impostato il livello di zoom a 200%.
 
@@ -184,6 +188,7 @@ source: images-of-text
 outcome: no
 
 Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili) quando un testo sarebbe stato più opportuno, come:
+
  - box "abbonati" nella homepage
  - logo "meteo" dove la scritta non è necessario sia inclusa nell'immagine
  - la scritta 'vignetta di' nel box della vignetta di Natangelo non è necessaria sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali)
@@ -210,7 +215,7 @@ alcuni esempi:
 ### Sottofondo sonoro basso o non presente
 livello: AAA
 source: low-or-no-background-audio
-outcome: pass
+outcome: yes
 
 non esistono pagine con solo audio preregistrato e i video con autoplay sono mutati in partenza.
 
@@ -247,7 +252,7 @@ a 400% il sito è usabile e rispetta di sicuro le richieste, ma intorno al 200% 
 ### Contrasto in conenuti non testuali
 livello: AA
 source: non-text-contrast
-outcome: pass
+outcome: yes
 
 tutte le immagini testuali hanno un livello di contrasto adeguato, oppure sono loghi.
 
@@ -264,7 +269,7 @@ outcome: no
 ### Contenuto con Hover o Focus
 livello: AA
 source: content-on-hover-or-focus
-outcome: pass
+outcome: yes
 
  - [x] congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
  - [x] passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
