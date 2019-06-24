@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"flag"
 	"fmt"
 	"html/template"
@@ -39,46 +38,38 @@ type Section struct {
 	SubSections []Section
 }
 
-func simplePage(file string) (Page, error) {
+func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	p := Page{}
 
 	f, err := os.Open(file)
 	if err != nil {
-		return p, err
+		return p, nil, nil, err
 	}
-	defer f.Close()
 
 	reader := bufio.NewReader(f)
 	title, err := reader.ReadString('\n')
 	if err != nil {
-		return p, err
+		return p, reader, f, err
 	}
 
 	q := strings.Split(title, ":")
 	if len(q) != 2 {
-		return p, fmt.Errorf("Cannot parse %q", title)
+		return p, reader, f, fmt.Errorf("Cannot parse %q", title)
 	}
 	p.Title = strings.Trim(q[1], " \t\n")
-
-	content, err := ioutil.ReadAll(reader)
-	if err != nil {
-		return p, err
-	}
-
-	p.Content = content
-
-	return p, nil
+	return p, reader, f, nil
 }
 
 func indexPage() (Page, error) {
-	p, err := simplePage("src/index.md")
+	p, reader, f, err := initParser("src/index.md")
+	if f != nil {
+		defer f.Close()
+	}
 	if err != nil {
 		return p, err
 	}
-	c := p.Content.([]byte)
-
-	p.Content = blackfriday.Run(c)
-	return p, nil
+	p.Content, err = ioutil.ReadAll(reader)
+	return p, err
 }
 
 func newSection() Section {
@@ -87,7 +78,7 @@ func newSection() Section {
 	return s
 }
 
-func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) ([]Section, string, int, error) {
+func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Section, string, int, error) {
 	type status int
 	const (
 		init status = iota
@@ -96,22 +87,27 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 	)
 
 	s := init
-	var ss []Section
 	cs := newSection()
 
-	for scanner.Scan() {
+	for {
 		var line string
 
 		if firstline != "" {
-			line = firstline
-			firstline = ""
+			line, firstline = firstline, ""
 		} else {
-			line = scanner.Text()
-			lineNo++
-		}
+			l, err := reader.ReadString('\n')
+			if err == io.EOF {
+				return cs, line, lineNo, nil
+			} else if err != nil {
+				return cs, line, lineNo, err
+			}
 
-		if *verbose {
-			log.Printf("src/wcag.md:%v\t%q\n", lineNo, line)
+			line = strings.Trim(l, "\n")
+			lineNo++
+
+			/*if *verbose {
+				log.Printf("src/wcag.md:%v\t%q\n", lineNo, line)
+			}*/
 		}
 
 		switch s {
@@ -128,30 +124,36 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 				l = 1
 			} else {
 				err := fmt.Errorf("src/wcag.md:%d expected a title or an empty line", lineNo)
-				return ss, line, lineNo, err
+				return cs, line, lineNo, err
 			}
 
 			if l == level {
 				// same level, continue!
+				//fmt.Println("heading same level:", line)
+
+				if cs.Title != "" {
+					return cs, line, lineNo, nil
+				}
+
 				s = metadata
 				t := strings.Fields(line)
 				cs.Title = strings.Join(t[1:], " ")
 			} else if l > level {
 				// recursion
-				var ns []Section
+				//fmt.Println("heading level lower -> recursion", line)
+				var ns Section
 				var l string
 				var err error
 
-				ns, l, lineNo, err = wcagParseRec(scanner, line, level+1, lineNo)
-				cs.SubSections = ns
-				ss = append(ss, cs)
-				cs = newSection()
+				ns, l, lineNo, err = wcagParseRec(reader, line, level+1, lineNo)
+				cs.SubSections = append(cs.SubSections, ns)
 				if err != nil {
-					return ss, l, lineNo, err
+					return cs, l, lineNo, err
 				}
 				firstline = l
 			} else {
-				return ss, line, lineNo, nil
+				//fmt.Println("heading level upper -> end recursion", line)
+				return cs, line, lineNo, nil
 			}
 
 		case metadata:
@@ -161,22 +163,22 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 			}
 
 			if strings.HasPrefix(line, "#") { // it's a title!
-				ss = append(ss, cs)
-				firstline = line
+				//return cs, line, lineNo, nil
 				s = init
+				firstline = line
 				break
 			}
 
 			fields := strings.Split(line, ":")
 			if len(fields) != 2 {
-				//return ss, line, lineNo, fmt.Errorf("src/wcag.md:%d cannot parse metadata block", lineNo)
-				if *verbose {
-					log.Println("line", lineNo, "assuming it's content")
+				return cs, line, lineNo, fmt.Errorf("src/wcag.md:%d cannot parse metadata block", lineNo)
+				/*if *verbose {
+					//log.Println("line", lineNo, "assuming it's content")
 				}
 
 				s = content
 				firstline = line
-				break
+				break*/
 			}
 
 			k := strings.Trim(fields[0], " \t")
@@ -185,34 +187,45 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 
 		case content:
 			if strings.HasPrefix(line, "#") { // it's a title!
-				ss = append(ss, cs)
-				firstline = line
+				//return cs, line, lineNo, nil
 				s = init
+				firstline = line
 				break
 			}
 
 			cs.Content = cs.Content + "\n" + line
 		}
 	}
-
-	return ss, "", lineNo, scanner.Err()
 }
 
 func wcagPage() (Page, error) {
-	p, err := simplePage("src/wcag.md")
-	reader := bytes.NewReader(p.Content.([]byte))
-	scanner := bufio.NewScanner(reader)
+	p, scanner, f, err := initParser("src/wcag.md")
+	if f != nil {
+		defer f.Close()
+	}
+	if err != nil {
+		return p, err
+	}
 
-	var l string
-	p.Content, l, _, err = wcagParseRec(scanner, "", 0, 1)
+	content, l, _, err := wcagParseRec(scanner, "", 0, 1)
 	if err != nil && *verbose {
 		log.Println("Malformed line:", l)
 	}
+	p.Content = content
 	return p, err
+}
+
+func markdown(c string) template.HTML {
+	return template.HTML(blackfriday.Run([]byte(c)))
 }
 
 func loadTemplate(name string) *template.Template {
 	return template.Must(template.New("main").ParseFiles("template.gohtml", name))
+	fmap := template.FuncMap{
+		"markdown": markdown,
+	}
+
+	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.html", name))
 }
 
 func loadTemplates() {
@@ -301,6 +314,8 @@ func render(p Page, page string) {
 }
 
 func build() {
+	loadTemplates()
+
 	copyDir("build/js", "js")
 	copyDir("build/css", "css")
 	//copyDir("build/img", "img")
@@ -362,9 +377,11 @@ func watch() {
 					log.Println("Event:", event)
 				}
 
-				if event.Op&fsnotify.Write == fsnotify.Write {
+				/*if event.Op&fsnotify.Write == fsnotify.Write {
 					build()
-				}
+				}*/
+				log.Println("building...")
+				build()
 
 			case err, ok := <-watcher.Errors:
 				if !ok {
@@ -380,7 +397,7 @@ func watch() {
 		done <- true
 	}()
 
-	ds := []string{".", "js", "css", "src", "pages"}
+	ds := []string{".", "./js", "./css", "./src", "./pages"}
 
 	for _, d := range ds {
 		err = watcher.Add(d)
@@ -421,14 +438,12 @@ func main() {
 
 	switch args[0] {
 	case "build":
-		loadTemplates()
 		build()
 
 	case "serve":
 		serve()
 
 	case "dev":
-		loadTemplates()
 		dev()
 
 	case "help":
