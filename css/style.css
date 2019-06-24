@@ -257,6 +257,7 @@ a:hover {
 .wcag h2 {
 	font-size: 1.5rem;
 	padding: 10px;
+	padding-left: 38px;
 }
 
 .wcag h2::before {
@@ -271,6 +272,7 @@ a:hover {
 .wcag h3 {
 	font-size: 1.4rem;
 	padding: 10px;
+	padding-left: 25px;
 }
 
 .wcag h3::before {
@@ -284,7 +286,6 @@ a:hover {
 
 .wcag h4 {
 	font-size: 1.3rem;
-	padding: 10px;
 }
 
 .wcag h4::before {
@@ -293,20 +294,23 @@ a:hover {
 }
 
 .wcag .success-criterion {
-	padding-left: 10px;
+	padding: 10px;
 	margin: 10px 0;
+	border-left: 4px solid transparent;
 }
 
 .wcag .success-criterion.passed {
-	border-left: 2px solid green;
+	border-color: #86CE67; /* dollar bill */
 }
 
 .wcag .success-criterion.not-passed {
-	border-left: 2px solid red;
+	border-color: #FF7070; /* coral reef */
 }
 
 .wcag .success-criterion header h4 {
+	padding-bottom: 5px;
 	border-bottom: 3px solid #ebebeb;
+	margin-bottom: 4px;
 }
 
 .wcag .success-criterion header {
@@ -321,11 +325,11 @@ a:hover {
 }
 
 .wcag .success-criterion header p {
-	margin: 0 1rem;
+	margin: 0;
 }
 
 .wcag .success-criterion header a {
-	color: blue;
+	color: #6B95D3; /* livid */
 }
 
 .wcag .success-criterion header {
@@ -333,7 +337,7 @@ a:hover {
 }
 
 .wcag p {
-	margin: 1rem;
+	margin: 2rem;
 }
 
 .wcag ul {
