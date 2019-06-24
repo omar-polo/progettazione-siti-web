@@ -201,6 +201,14 @@ main {
 	flex-grow: 2;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 .footer {
 	display: flex;
 	flex-direction: column;
@@ -226,12 +234,10 @@ main {
 }
 
 .footer a {
-	text-decoration: none;
 	color: inherit;
 }
 
 .footer a:hover {
-	text-decoration: underline;
 	text-decoration-color: #fa7268;
 }
 
@@ -241,3 +247,98 @@ main {
 		justify-content: space-between;
 	}
 }
+
+/* pagina wcag */
+
+.wcag {
+	counter-reset: principle;
+}
+
+.wcag h2 {
+	font-size: 1.5rem;
+	padding: 10px;
+}
+
+.wcag h2::before {
+	counter-increment: principle;
+	content: counter(principle) ". ";
+}
+
+.wcag .principle {
+	counter-reset: guideline;
+}
+
+.wcag h3 {
+	font-size: 1.4rem;
+	padding: 10px;
+}
+
+.wcag h3::before {
+	counter-increment: guideline;
+	content: counter(principle) "." counter(guideline) " ";
+}
+
+.wcag .guideline {
+	counter-reset: success-criterion;
+}
+
+.wcag h4 {
+	font-size: 1.3rem;
+	padding: 10px;
+}
+
+.wcag h4::before {
+	counter-increment: success-criterion;
+	content: counter(principle) "." counter(guideline) "." counter(success-criterion) " ";
+}
+
+.wcag .success-criterion {
+	padding-left: 10px;
+	margin: 10px 0;
+}
+
+.wcag .success-criterion.passed {
+	border-left: 2px solid green;
+}
+
+.wcag .success-criterion.not-passed {
+	border-left: 2px solid red;
+}
+
+.wcag .success-criterion header h4 {
+	border-bottom: 3px solid #ebebeb;
+}
+
+.wcag .success-criterion header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.wcag .success-criterion header h4 {
+	width: 100%;
+}
+
+.wcag .success-criterion header p {
+	margin: 0 1rem;
+}
+
+.wcag .success-criterion header a {
+	color: blue;
+}
+
+.wcag .success-criterion header {
+	margin-bottom: 10px;
+}
+
+.wcag p {
+	margin: 1rem;
+}
+
+.wcag ul {
+	list-style: disc;
+	padding: 20px;
+}
+
+/* fine wcag */
