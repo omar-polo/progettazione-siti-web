@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/fsnotify/fsnotify"
@@ -108,7 +109,7 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 			line = scanner.Text()
 			lineNo++
 		}
-		
+
 		if *verbose {
 			log.Printf("src/wcag.md:%v\t%q\n", lineNo, line)
 		}
@@ -140,7 +141,7 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 				var ns []Section
 				var l string
 				var err error
-				
+
 				ns, l, lineNo, err = wcagParseRec(scanner, line, level+1, lineNo)
 				cs.SubSections = ns
 				ss = append(ss, cs)
@@ -158,7 +159,7 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 				s = content
 				break
 			}
-			
+
 			if strings.HasPrefix(line, "#") { // it's a title!
 				ss = append(ss, cs)
 				firstline = line
@@ -172,16 +173,16 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 				if *verbose {
 					log.Println("line", lineNo, "assuming it's content")
 				}
-				
+
 				s = content
 				firstline = line
 				break
 			}
-			
+
 			k := strings.Trim(fields[0], " \t")
 			v := strings.Trim(fields[1], " \t")
 			cs.Metadata[k] = v
-			
+
 		case content:
 			if strings.HasPrefix(line, "#") { // it's a title!
 				ss = append(ss, cs)
@@ -189,7 +190,7 @@ func wcagParseRec(scanner *bufio.Scanner, firstline string, level, lineNo int) (
 				s = init
 				break
 			}
-			
+
 			cs.Content = cs.Content + "\n" + line
 		}
 	}
@@ -211,11 +212,11 @@ func wcagPage() (Page, error) {
 }
 
 func loadTemplate(name string) *template.Template {
-	return template.Must(template.New("main").ParseFiles("template.html", name))
+	return template.Must(template.New("main").ParseFiles("template.gohtml", name))
 }
 
 func loadTemplates() {
-	ps := []string{"pages/index.html", "pages/wcag.html"}
+	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml"}
 
 	for _, p := range ps {
 		pages[p] = loadTemplate(p)
@@ -275,7 +276,10 @@ func copyDir(dst, src string) {
 
 func render(p Page, page string) {
 	src := fmt.Sprintf("pages/%v", page)
-	dst := fmt.Sprintf("build/%v", page)
+	d := fmt.Sprintf("build/%v", page)
+
+	r := regexp.MustCompile(`\.gohtml`)
+	dst := r.ReplaceAllString(d, ".html")
 
 	f, err := os.Create(dst)
 	if err != nil {
@@ -306,25 +310,25 @@ func build() {
 
 	// render index.html
 	if *verbose {
-		log.Println("Compiling pages/index.html")
+		log.Println("Compiling pages/index.gohtml")
 	}
 	p, err = indexPage()
 	if err != nil {
-		log.Println("Cannot render pages/index.html", err)
+		log.Println("Cannot render pages/index.gohtml", err)
 		return
 	}
-	render(p, "index.html")
+	render(p, "index.gohtml")
 
 	// render wcag.html
 	if *verbose {
-		log.Println("Compiling pages/wcag.html")
+		log.Println("Compiling pages/wcag.gohtml")
 	}
 	p, err = wcagPage()
 	if err != nil {
-		log.Println("Cannot render pages/wcag.html", err)
+		log.Println("Cannot render pages/wcag.gohtml", err)
 		return
 	}
-	render(p, "wcag.html")
+	render(p, "wcag.gohtml")
 }
 
 func serve() {
