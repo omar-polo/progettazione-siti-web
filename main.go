@@ -220,12 +220,11 @@ func markdown(c string) template.HTML {
 }
 
 func loadTemplate(name string) *template.Template {
-	return template.Must(template.New("main").ParseFiles("template.gohtml", name))
 	fmap := template.FuncMap{
 		"markdown": markdown,
 	}
 
-	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.html", name))
+	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.gohtml", name))
 }
 
 func loadTemplates() {
