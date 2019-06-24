@@ -1,20 +1,35 @@
 {{ define "content" }}
-<h1>WCag 2.1</h1>
+	<h1>WCag 2.1</h1>
 
-{{ range .SubSections }}
-	<h2>{{ .Title }}</h2>
-	{{ .Content | markdown }}
-	
-	{{ range .SubSections }}
-		<h3>{{ .Title }}</h3>
-		{{ .Content | markdown }}
-		
+	<div class="wcag">
 		{{ range .SubSections }}
-			<h4>{{ .Title }}</h4>
-			{{ .Content | markdown }}
+			<section class="principle">
+				<h2>{{ .Title }}</h2>
+				{{ .Content | markdown }}
+				
+				{{ range .SubSections }}
+					<section class="guideline">
+						<h3>{{ .Title }}</h3>
+						{{ .Content | markdown }}
+						
+						{{ range .SubSections }}
+							<section class="success-criterion {{if .Outcome}}passed{{else}}not-passed{{end}}">
+								<header>
+									<h4>{{ .Title }}</h4>
+									<p>Livello: {{.Level}}</p>
+									<p><a target="_blank" title="apri link esterno" href="https://www.w3.org/Translations/WCAG21-it/#{{.Source}}">
+										spec
+										<i aria-hidden="true" class="fas fa-external-link-alt"></i>
+										<span class="sr-only">(apri link esterno)</span>
+									</a></p>
+								</header>
+								{{ .Content | markdown }}
+							</section>
+						{{ end }}
+					</section>
+				{{ end }}
+			</section>
 		{{ end }}
-	{{ end }}
-{{ end }}
-
+	</div>
 
 {{ end }}
