@@ -38,6 +38,18 @@ type Section struct {
 	SubSections []Section
 }
 
+func (s Section) Source() string {
+	return s.Metadata["source"]
+}
+
+func (s Section) Level() string {
+	return s.Metadata["livello"]
+}
+
+func (s Section) Outcome() bool {
+	return s.Metadata["outcome"] == "yes"
+}
+
 func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	p := Page{}
 
@@ -102,7 +114,7 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 				return cs, line, lineNo, err
 			}
 
-			line = strings.Trim(l, "\n")
+			line = strings.Trim(l, "\n\r")
 			lineNo++
 
 			/*if *verbose {
@@ -159,6 +171,21 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 		case metadata:
 			if line == "" {
 				s = content
+
+				if level == 3 {
+					if _, ok := cs.Metadata["livello"]; !ok {
+						fmt.Printf("pages/wcag.md:%v manca il livello\n", lineNo)
+					}
+
+					if _, ok := cs.Metadata["source"]; !ok {
+						fmt.Printf("pages/wcag.md:%v manca la source\n", lineNo)
+					}
+
+					if _, ok := cs.Metadata["outcome"]; !ok {
+						fmt.Printf("pages/wcag.md:%v manca l'outcome\n", lineNo)
+					}
+				}
+
 				break
 			}
 
@@ -317,7 +344,7 @@ func build() {
 
 	copyDir("build/js", "js")
 	copyDir("build/css", "css")
-	//copyDir("build/img", "img")
+	copyDir("build/img", "img")
 
 	var p Page
 	var err error
@@ -396,7 +423,7 @@ func watch() {
 		done <- true
 	}()
 
-	ds := []string{".", "./js", "./css", "./src", "./pages"}
+	ds := []string{".", "./js", "./css", "./src", "./pages", "./img"}
 
 	for _, d := range ds {
 		err = watcher.Add(d)
