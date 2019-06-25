@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"encoding/json"
 
 	"github.com/fsnotify/fsnotify"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
@@ -29,13 +30,14 @@ var pages = make(map[string]*template.Template)
 type Page struct {
 	Title   string
 	Content interface{}
+	WCAGResult Section
 }
 
 type Section struct {
-	Title       string
-	Metadata    map[string]string
-	Content     string
-	SubSections []Section
+	Title       string            `json:"title"`
+	Metadata    map[string]string `json:"metadata"`
+	Content     string            `json:"-"`
+	SubSections []Section         `json:"subsections"`
 }
 
 func (s Section) Source() string {
@@ -48,6 +50,15 @@ func (s Section) Level() string {
 
 func (s Section) Outcome() bool {
 	return s.Metadata["outcome"] == "yes"
+}
+
+func (p Page) Results() string {
+	j, err := json.Marshal(p.WCAGResult)
+	if err != nil {
+		log.Println("Cannot generate json", err)
+		return ""
+	}
+	return string(j)
 }
 
 func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
@@ -313,7 +324,9 @@ func copyDir(dst, src string) {
 	}
 }
 
-func render(p Page, page string) {
+func render(p Page, page string, res Section) {
+	p.WCAGResult = res
+
 	src := fmt.Sprintf("pages/%v", page)
 	d := fmt.Sprintf("build/%v", page)
 
@@ -348,6 +361,19 @@ func build() {
 
 	var p Page
 	var err error
+	var results Section
+
+	// first render wcag, so we load all results for the search function
+	if *verbose {
+		log.Println("Compiling pages/wcag.gohtml")
+	}
+	p, err = wcagPage()
+	if err != nil {
+		log.Println("Cannot render pages/wcag.gohtml", err)
+		return
+	}
+	results = p.Content.(Section)
+	render(p, "wcag.gohtml", results)
 
 	// render index.html
 	if *verbose {
@@ -358,18 +384,7 @@ func build() {
 		log.Println("Cannot render pages/index.gohtml", err)
 		return
 	}
-	render(p, "index.gohtml")
-
-	// render wcag.html
-	if *verbose {
-		log.Println("Compiling pages/wcag.gohtml")
-	}
-	p, err = wcagPage()
-	if err != nil {
-		log.Println("Cannot render pages/wcag.gohtml", err)
-		return
-	}
-	render(p, "wcag.gohtml")
+	render(p, "index.gohtml", results)
 }
 
 func serve() {
