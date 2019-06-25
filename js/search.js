@@ -1,6 +1,7 @@
 /**
  * Takes a json representation of a `Section' and flatten it into a list
- * of sections.
+ * of sections. Since we're there, attach also to the SC a couple of extra
+ * info.
  */
 flattenData = data => {
     const r = []
@@ -14,8 +15,20 @@ flattenData = data => {
             continue
         }
 
-        for (lg of p.subsections) {
-            r.push(...lg.subsections)
+        for (gl of p.subsections) {
+            for (sc of gl.subsections) {
+                const { title, metadata } = sc
+                const { livello, source, outcome } = metadata
+
+                r.push({
+                    title,
+                    level: livello,
+                    source,
+                    outcome,
+                    principle: p.title,
+                    guideline: gl.title,
+                })
+            }
         }
     }
 
@@ -52,16 +65,31 @@ const searchResults = (query, data, results) => {
 
     for (d of data) {
         if (d.title.toLowerCase().indexOf(query.toLowerCase()) != -1) {
-            if (d.metadata.source == null)
-                console.log("Metadata for", d.title, "is missing")
+            if (d.source == null)
+                console.log("source for", d.title, "is missing")
+                
+            const li   = document.createElement("li")
+            const a    = document.createElement("a")
+            const span = document.createElement("span")
             
-            const i = document.createElement("a")
-            i.setAttribute("href", "wcag.html#" + d.metadata.source)
-            i.setAttribute("title", d.title)
-            i.innerText = d.title
-            
-            i.addEventListener('click', toggleSearchBar)
-            results.appendChild(i)
+            span.innerText = `${d.principle} » ${d.guideline} — livello ${d.level}`
+
+            a.setAttribute("href", "wcag.html#" + d.source)
+            a.setAttribute("title", d.title)
+            a.innerText = d.title
+
+            a.addEventListener('click', (e) => {
+                toggleSearchBar()
+                e.stopPropagation()
+            })
+            li.appendChild(a)
+            li.appendChild(span)
+            li.addEventListener('click', function (e) {
+                toggleSearchBar()
+                console.log("this is", this)
+                location.href = this.querySelector('a').href
+            })
+            results.appendChild(li)
         }
     }
 
@@ -83,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(){
         .addEventListener("click", toggleSearchBar)
 
     const search = document.querySelector("#search-input")
-    const results = document.querySelector("#results")
+    const results = document.querySelector("#results ul")
     const searchfn = debounce(searchResults, 300)
 
     searchfn("", data, results)

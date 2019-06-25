@@ -231,7 +231,6 @@ a:hover {
 
 .navigation li.search:hover {
 	border-bottom-color: transparent;
-	cursor: pointer;
 }
 
 body > header {
@@ -253,7 +252,7 @@ body > header {
 
 .searchbox.open {
 	/* height: 250px; */
-	max-height: 300px;
+	max-height: 350px;
 	/* overflow: auto; */
 	box-shadow: 0 7px 20px #bdbdbd;
 }
@@ -272,17 +271,29 @@ body > header {
 	overflow: auto;
 }
 
-.searchbox #results a {
+.searchbox #results li {
 	display: block;
 	padding: 10px;
 	margin: 5px 0;
 	background-color: transparent;
 	transition: background-color ease-in-out .3s;
+	cursor: pointer;
+}
+
+.searchbox #results li:hover {
+	background-color: #e8e8e8;
+}
+
+.searchbox #results li a {
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
 	text-transform: capitalize;
 }
 
-.searchbox #results a:hover {
-	background-color: gray;
+.searchbox #results li span {
+	font-size: 0.9rem;
+	padding: 0 1rem;
 }
 
 .footer {
