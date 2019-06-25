@@ -95,6 +95,22 @@ func indexPage() (Page, error) {
 	return p, err
 }
 
+func mappaPage() (Page, error) {
+	p := Page{
+		Title: "Mappa del sito",
+		Content: "",
+	}
+	return p, nil
+}
+
+func infoPage() (Page, error) {
+	p := Page{
+		Title: "Info",
+		Content: "",
+	}
+	return p, nil
+}
+
 func newSection() Section {
 	s := Section{}
 	s.Metadata = make(map[string]string)
@@ -266,7 +282,7 @@ func loadTemplate(name string) *template.Template {
 }
 
 func loadTemplates() {
-	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml"}
+	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml", "pages/info.gohtml", "pages/mappa.gohtml"}
 
 	for _, p := range ps {
 		pages[p] = loadTemplate(p)
@@ -385,6 +401,28 @@ func build() {
 		return
 	}
 	render(p, "index.gohtml", results)
+	
+	// render mappa.html
+	if *verbose {
+		log.Println("Compiling pages/mappa.gohtml")
+	}
+	p, err = mappaPage()
+	if err != nil {
+		log.Println("Cannot render pages/mappa.gohtml", err)
+		return
+	}
+	render(p, "mappa.gohtml", results)
+	
+	// render info.html
+	if *verbose {
+		log.Println("Compiling pages/info.gohtml")
+	}
+	p, err = infoPage()
+	if err != nil {
+		log.Println("Cannot render pages/info.gohtml", err)
+		return
+	}
+	render(p, "info.gohtml", results)
 }
 
 func serve() {
