@@ -348,7 +348,7 @@ body > header {
 
 .wcag h2::before {
 	counter-increment: principle;
-	content: counter(principle) ". ";
+	content: counter(principle) " ";
 }
 
 .wcag .principle {
