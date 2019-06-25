@@ -31,10 +31,10 @@
 	</head>
 	
 	<body>
-		<a href="#content" class="skip-to-content">Salta al contenuto</a>
+		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
 
-		<header>
-			<nav class="navigation container">
+		<header class="container">
+			<nav class="navigation">
 				<!-- Menu -->
 				<ul class="menu">
 					<li class="menu-Home">
@@ -46,12 +46,17 @@
 					<li class="menu-Test">
 						<a href="ut.html">User testing</a>
 					</li>
-					<li>
-						<input id="search-input" list="search" placeholder="Cerca" type="search">
-						<div id="results"></div>
+					<li class="search">
+						<i aria-hidden="true" class="fas fa-search" title="search"></i>
+						<span class="sr-only">Ricerca</span>
 					</li>
 				</ul>
 			</nav>
+			
+			<div class="searchbox">
+				<input id="search-input" list="search" placeholder="Cerca" type="search">
+				<div id="results"></div>
+			</div>
 		</header>
 	
 		<main class="container" id="content">
@@ -81,19 +86,7 @@
 		</footer>
 
 		<script>
-			var data = [
-				{
-					page: "wcag.html",
-					anchor: "contenuti-non-testuali",
-					title: "Contenuti non testuali"
-				},
-
-				{
-					page: "wcag.html",
-					anchor: "solo-audio-e-solo-titolo",
-					title: "Solo audio e solo titolo"
-				},
-			];
+			var data = JSON.parse({{ .Results }});
 		</script>
 
 		<script src="js/search.js"></script>
