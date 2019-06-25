@@ -278,6 +278,7 @@ body > header {
 	margin: 5px 0;
 	background-color: transparent;
 	transition: background-color ease-in-out .3s;
+	text-transform: capitalize;
 }
 
 .searchbox #results a:hover {
@@ -334,6 +335,10 @@ body > header {
 	width: 50px;
 	text-align: right;
 	padding-right: 5px;
+}
+
+.wcag h2, .wcag h3, .wcag h4 {
+	text-transform: capitalize;
 }
 
 .wcag h2 {
