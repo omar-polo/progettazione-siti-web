@@ -253,7 +253,8 @@ body > header {
 	flex-direction: column;
 }
 
-.searchbox.open {
+.searchbox.open,
+.searchbox:focus-within {
 	/* height: 250px; */
 	max-height: 350px;
 	/* overflow: auto; */
