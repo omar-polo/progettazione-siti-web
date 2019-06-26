@@ -19,20 +19,23 @@ import (
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
-// flags
+// Definisce alcuni parametri da riga di comando 
 var (
 	port    = flag.Int("p", 8000, `La porta da bindare per il server web.`)
 	verbose = flag.Bool("v", false, `Stampa più log`)
 )
 
+// pages contiene i template
 var pages = make(map[string]*template.Template)
 
+// Page rappresenta una pagina Web
 type Page struct {
 	Title   string
 	Content interface{}
 	WCAGResult Section
 }
 
+// Section rappresenta una sezione del report WCAG
 type Section struct {
 	Title       string            `json:"title"`
 	Metadata    map[string]string `json:"metadata"`
@@ -52,6 +55,7 @@ func (s Section) Outcome() bool {
 	return s.Metadata["outcome"] == "yes"
 }
 
+// Results ritorna una stringa contenente una rappresentazione Json dei possibili risultati della ricerca
 func (p Page) Results() string {
 	j, err := json.Marshal(p.WCAGResult)
 	if err != nil {
@@ -61,6 +65,8 @@ func (p Page) Results() string {
 	return string(j)
 }
 
+
+// Inizializza il parser
 func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	p := Page{}
 
@@ -83,6 +89,7 @@ func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	return p, reader, f, nil
 }
 
+// Ritorna la pagina index
 func indexPage() (Page, error) {
 	p, reader, f, err := initParser("src/index.md")
 	if f != nil {
@@ -95,6 +102,7 @@ func indexPage() (Page, error) {
 	return p, err
 }
 
+// Ritorna la pagina della mappa
 func mappaPage() (Page, error) {
 	p := Page{
 		Title: "Mappa del sito",
@@ -103,6 +111,7 @@ func mappaPage() (Page, error) {
 	return p, nil
 }
 
+// Ritorna la pagina di info
 func infoPage() (Page, error) {
 	p := Page{
 		Title: "Info",
@@ -111,12 +120,14 @@ func infoPage() (Page, error) {
 	return p, nil
 }
 
+// Inizializza e ritorna una stuct section
 func newSection() Section {
 	s := Section{}
 	s.Metadata = make(map[string]string)
 	return s
 }
 
+// Effettua il parsing della pagina del report WCAG ricorsivamente
 func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Section, string, int, error) {
 	type status int
 	const (
@@ -252,6 +263,7 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 	}
 }
 
+// Ritorna la pagina del WCAG
 func wcagPage() (Page, error) {
 	p, scanner, f, err := initParser("src/wcag.md")
 	if f != nil {
@@ -269,10 +281,12 @@ func wcagPage() (Page, error) {
 	return p, err
 }
 
+// Prende come input una stringa con testo markdown e ritorna la rappresentazione in HTML
 func markdown(c string) template.HTML {
 	return template.HTML(blackfriday.Run([]byte(c)))
 }
 
+// Carica il template con il nome dato
 func loadTemplate(name string) *template.Template {
 	fmap := template.FuncMap{
 		"markdown": markdown,
@@ -281,6 +295,7 @@ func loadTemplate(name string) *template.Template {
 	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.gohtml", name))
 }
 
+// Carica tutti i template
 func loadTemplates() {
 	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml", "pages/info.gohtml", "pages/mappa.gohtml"}
 
@@ -289,6 +304,7 @@ func loadTemplates() {
 	}
 }
 
+// Funzione di utility che copia un file
 func copyFile(dst, src string) {
 	if *verbose {
 		log.Println("coping", src, "to", dst)
@@ -325,6 +341,8 @@ func copyFile(dst, src string) {
 	}
 }
 
+// Funzione di utility che copia una Directory. 
+// Non copia ricorsivamente le sotto Directory
 func copyDir(dst, src string) {
 	os.Mkdir(dst, 0700)
 
@@ -340,6 +358,7 @@ func copyDir(dst, src string) {
 	}
 }
 
+// Renderizza una pagina
 func render(p Page, page string, res Section) {
 	p.WCAGResult = res
 
@@ -368,6 +387,7 @@ func render(p Page, page string, res Section) {
 	}
 }
 
+// Compila tutto il sito
 func build() {
 	loadTemplates()
 
@@ -425,6 +445,7 @@ func build() {
 	render(p, "info.gohtml", results)
 }
 
+// Crea un Server Web che serve la cartella build
 func serve() {
 	fs := http.FileServer(http.Dir("./build"))
 	http.Handle("/", fs)
@@ -435,6 +456,7 @@ func serve() {
 	}
 }
 
+// Invoca la funzione build quando i sorgenti vengono modificati
 func watch() {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
@@ -488,6 +510,7 @@ func watch() {
 	<-done
 }
 
+// Avvia sia il server Web che la funzione watch
 func dev() {
 	// first round of build
 	build()
@@ -506,6 +529,7 @@ func usage() {
 }
 
 func main() {
+	// Effettua il parsing degli argomenti da riga di comando
 	flag.Parse()
 
 	args := flag.Args()
