@@ -442,3 +442,17 @@ body > header {
 }
 
 /* fine wcag */
+
+/* pagina user testing */
+
+.ut h1 {
+	font-size: 1.5rem;
+	padding: 10px;
+}
+
+.ut h2 {
+	font-size: 1.3rem;
+	padding: 10px;
+}
+
+/* fine pagina user testing */
