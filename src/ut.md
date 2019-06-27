@@ -12,6 +12,7 @@ tempo massimo per i tester: 2 minuti. Il background è:
 > all'Arena.
 
 Il percorso compiuto da noi è
+
  - home page
  - cliccare sul box "calcolo pedaggi"
  - inserire le informazioni e premere il tasto "calcola"
@@ -24,6 +25,7 @@ tempo impiegato da noi è un minuto e 10 secondi, il tempo massimo per
 i tester è quindi di 3 minuti e mezzo.
 
 Il percorso compiuto da noi è
+
  - home page
  - servizi
  - previsioni meteo
@@ -35,6 +37,7 @@ per una specifica data. Il tempo impiegato da noi è di 1 minuto, quindi
 per i tester sono 3 minuti.
 
 Il percorso compiuto da noi è
+
  - home page
  - uso del widget per il traffico
 
@@ -45,6 +48,7 @@ Viene richiesto all'utente di trovare e guardare le foto di una telecamera
 secondi, quindi per i tester è un minuto.
 
 Il percorso compiuto da noi è stato
+
  - home page
  - telecamere
  - uso della mappa
@@ -56,6 +60,7 @@ ad un punto (e.g. Udine venendo da Venezia.) Il tempo impiegato da noi
 è 40 secondi quindi per i tester sono 2 minuti.
 
 Il percorso compiuto da noi è
+
  - home page
  - infrastrutture
  - uso della mappa
@@ -68,13 +73,14 @@ impiegato da noi è stato di 50 secondi, quindi per gli utenti è di 2
 minuti e 30 secondi.
 
 Il percorso compiuto da noi è
+
  - home page
  - infrastrutture
  - ricerca manuale nella lista
 
 # Utente 1
 
-maschio - 25 anni - studente
+maschio - 25 anni - studente - esperienza pc 3 - ore su internet 12
 
 ## task numero 1
 
