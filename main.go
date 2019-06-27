@@ -120,6 +120,20 @@ func infoPage() (Page, error) {
 	return p, nil
 }
 
+// Ritorna la pagina dell'user testing
+func utPage() (Page, error) {
+	p, reader, f, err := initParser("src/ut.md")
+	if f != nil {
+		defer f.Close()
+	}
+	if err != nil {
+		return p, err
+	}
+	content, err := ioutil.ReadAll(reader)
+	p.Content = string(content)
+	return p, err
+}
+
 // Inizializza e ritorna una stuct section
 func newSection() Section {
 	s := Section{}
@@ -297,7 +311,7 @@ func loadTemplate(name string) *template.Template {
 
 // Carica tutti i template
 func loadTemplates() {
-	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml", "pages/info.gohtml", "pages/mappa.gohtml"}
+	ps := []string{"pages/index.gohtml", "pages/wcag.gohtml", "pages/info.gohtml", "pages/mappa.gohtml", "pages/ut.gohtml"}
 
 	for _, p := range ps {
 		pages[p] = loadTemplate(p)
@@ -443,6 +457,17 @@ func build() {
 		return
 	}
 	render(p, "info.gohtml", results)
+
+	// render ut.html
+	if *verbose {
+		log.Println("Compiling pages/ut.gohtml")
+	}
+	p, err = utPage()
+	if err != nil {
+		log.Println("Cannot render pages/ut.gohtml", err)
+		return
+	}
+	render(p, "ut.gohtml", results)
 }
 
 // Crea un Server Web che serve la cartella build
