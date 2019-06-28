@@ -133,6 +133,7 @@ table {
 	--blue: #6B95D3; /* livid */
 	--red: #FF7070; /* coral reef */
 	--green: #86CE67; /* dollar bill */
+	--light-gray: #ebebeb;
 }
 
 *,
@@ -305,7 +306,8 @@ body > header {
 	flex-direction: column;
 	text-align: center;
 	padding: 1.5rem 1rem;
-	border-top: 6px solid #ebebeb;
+	border-top: 6px solid var(--light-gray);
+	margin-top: 30px;
 }
 
 .footer > * {
@@ -328,10 +330,6 @@ body > header {
 	color: inherit;
 }
 
-.footer a:hover {
-	text-decoration-color: #fa7268;
-}
-
 @media only screen and (min-width: 640px) {
 	.footer {
 		flex-direction: row;
@@ -339,7 +337,98 @@ body > header {
 	}
 }
 
-/* pagina wcag */
+/* Pagina Home */
+
+.intro {
+	height: 500px;
+	background-image: url(../img/home_1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.intro h1 {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 2.5rem;
+	letter-spacing: 2px;
+}
+
+.intro p {
+	padding: 10px;
+}
+
+@media only screen and (min-width: 640px) {
+	.intro p {
+		width: 90%;
+		padding: 10px 0;
+		font-size: 1.3rem;
+		max-width: 610px;
+	}
+}
+
+.boxes section {
+	text-align: center;
+	padding: 0 10px;
+	margin-top: 50px;
+}
+
+@media only screen and (min-width: 640px) {
+	.boxes {
+		display: flex;
+		flex-direction: row;
+		padding: 10px;
+	}
+
+	.boxes section {
+		padding: 30px 10px;
+		width: 50%;
+		margin: 30px 0;
+	}
+
+	.boxes section:first-child {
+		border-right: 3px solid var(--light-gray);
+	}
+	
+	.boxes section:last-child {
+		border-left: 3px solid var(--light-gray);
+	}
+}
+
+.boxes p:last-child {
+	margin: 30px 0;
+}
+
+.boxes a {
+	border: 3px solid var(--blue);
+	border-radius: 9px;
+	padding: 9px 14px;
+	background: white;
+}
+
+.boxes a i {
+	transition: transform .2s ease-in-out;
+}
+
+.boxes a:hover {
+	text-decoration: none;
+}
+
+.boxes a:hover i {
+	transform: translateX(3px);
+}
+
+.boxes h2 {
+	font-size: 1.5rem;
+	margin: 20px 0;
+}
+
+/* Fine pagina Home */
+
+/* Pagina wcag */
 
 .wcag {
 	counter-reset: principle;
