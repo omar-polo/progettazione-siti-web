@@ -46,22 +46,26 @@
 					<li class="menu-Test">
 						<a href="ut.html">User testing</a>
 					</li>
-					<li class="search">
-						<i aria-hidden="true" class="fas fa-search" title="search"></i>
-						<span class="sr-only">Ricerca</span>
-					</li>
+					{{ if .IsWCAG }}
+						<li class="search">
+							<i aria-hidden="true" class="fas fa-search" title="search"></i>
+							<span class="sr-only">Ricerca</span>
+						</li>
+					{{ end }}
 				</ul>
 			</nav>
 			
-			<div class="searchbox">
-				<input id="search-input" list="search" placeholder="Cerca" type="search">
-				<div id="results">
-					<ul></ul>
+			{{ if .IsWCAG }}
+				<div class="searchbox">
+					<input id="search-input" list="search" placeholder="Cerca" type="search">
+					<div id="results">
+						<ul></ul>
+					</div>
 				</div>
-			</div>
+			{{ end }}
 		</header>
 	
-		<main class="container" id="content">
+		<main id="content">
 			{{ with .Content }}
 				{{ block "content" .}}{{ end }}
 			{{ end }}
