@@ -27,12 +27,11 @@
 	
 		<!-- stylesheet -->
 		<link rel="stylesheet" href="css/style.css" type="text/css">
-		<!-- /stylesheet -->
 	</head>
 	
 	<body>
 		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
-
+		<!-- header -->
 		<header class="container">
 			<nav class="navigation">
 				<!-- Menu -->
@@ -53,8 +52,8 @@
 						</li>
 					{{ end }}
 				</ul>
+				<!--End  Menu -->
 			</nav>
-			
 			{{ if .IsWCAG }}
 				<div class="searchbox">
 					<input id="search-input" list="search" placeholder="Cerca" type="search">
@@ -64,13 +63,17 @@
 				</div>
 			{{ end }}
 		</header>
-	
+		<!--End header -->
+
+		<!-- Main -->
 		<main id="content">
 			{{ with .Content }}
 				{{ block "content" .}}{{ end }}
 			{{ end }}
 		</main>
+		<!--End Main -->
 
+		<!-- Footer -->
 		<footer class="footer container">
 			<p>Copyright &copy; 2019</p>
 			<p>
@@ -90,13 +93,12 @@
 				</ul>
 			</nav>
 		</footer>
+		<!--End  Footer -->	
 
 		<script>
 			var data = JSON.parse({{ .Results }});
 		</script>
-
 		<script src="js/search.js"></script>
-
 	</body>
 </html>
 {{ end }}
