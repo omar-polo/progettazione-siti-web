@@ -89,7 +89,7 @@ func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	if len(q) != 2 {
 		return p, reader, f, fmt.Errorf("Cannot parse %q", title)
 	}
-	p.Title = strings.Trim(q[1], " \t\n")
+	p.Title = strings.Trim(q[1], " \t\n\r")
 	return p, reader, f, nil
 }
 
