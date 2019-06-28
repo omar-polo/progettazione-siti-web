@@ -55,6 +55,10 @@ func (s Section) Outcome() bool {
 	return s.Metadata["outcome"] == "yes"
 }
 
+func (p Page) IsWCAG() bool {
+	return p.Title == "WCAG"
+}
+
 // Results ritorna una stringa contenente una rappresentazione Json dei possibili risultati della ricerca
 func (p Page) Results() string {
 	j, err := json.Marshal(p.WCAGResult)
