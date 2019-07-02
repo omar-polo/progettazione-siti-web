@@ -2,86 +2,242 @@ title:WCAG
 
 # Percepibile
 
+> Le informazioni e i componenti dell'interfaccia utente devono essere presentati agli utenti in modi in cui essi possano percepirli.
+
 ## Alternative testuali
+
+Fornire alternative testuali per qualsiasi contenuto non di testo in modo che questo possa essere trasformato in altre forme fruibili secondo le necessità degli utenti come stampa a caratteri ingranditi, Braille, sintesi vocale, simboli o un linguaggio più semplice.
 
 ### Contenuti non testuali
 livello: A
 outcome: no
 source: non-text-content
 
-violazioni:
+Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione dei seguenti casi
 
- - manca una descrizione testuale per l'icona (font) cerca nella barra in alto del titolo
- - mancano svariati attributi "alt" alle immagini (in particolare le foto degli articoli)
+**Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
 
-   al momento, le foto senza alt sono 64 (poco più della metà)
+**Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
+
+**Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+
+**Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+
+**CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
+
+**Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
+
+Esito:
+
+Negativo
+
+Violazioni riscontrate:
+
+Manca una descrizione testuale per l'icona "search" nella barra di navigazione.
+
+Non sono presenti gli attributi "alt" che forniscono una descrizione testuale dell'immagine, la quale ne descrive i contenuti per chi non può vederla (in particolare nelle foto degli articoli).
+
+Al momento, le immagini senza l'attributo "alt" sono 64.
+
+Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini senza l'attributo "alt"
 
 ```js
-// lista delle immagini alle quali manca l'attributo alt
-Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
+  // Lista delle immagini alle quali manca l'attributo alt
+  Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
 ```
 
+Screen d'esempio
+
 ![Esempio di icone senza descrizione testuale](img/contenuti-non-testuali.png)
+
+![Esempio di icone senza descrizione testuale](img/../../img/social-non-testuali.png)
+
+Code snippets
+
+```html
+  <!-- Logo Home page -->
+  <img src="https://st.ilfattoquotidiano.it/wp-content/themes/ifq/assets/img/logo-header-navbar.png" alt="">
+
+  <!-- Articoli -->
+  <img class="attachment-primopiano img-landscape" src="https://st.ilfattoquotid…/2015/04/finanza-990.jpg" alt="" width="990" height="192">
+  <img class="lazyload" data-src="https://st.ilfattoquotid…adalajara675-320x132.jpg" alt="" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…2/bersani675-320x132.jpg" alt="" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…2/viagola675-320x132.jpg" alt="" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="" width="320" height="132">
+  <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="" width="320" height="132">
+
+  <!-- Social Icons -->
+  <a href="http://www.facebook.com/ilFattoQuotidiano" target="_blank" itemprop="sameAs">
+  <i class="icon-fb"></i>Facebook</a>
+  <a href="http://www.twitter.com/FattoQuotidiano" target="_blank" itemprop="sameAs">
+  <i class="icon-tw"></i>Twitter</a>
+  <a href="http://www.youtube.com/antefattoblog" target="_blank" itemprop="sameAs">
+  <i class="icon-yt"></i>YouTube</a>
+  <a href="https://www.instagram.com/ilfattoquotidianoit/" target="_blank" itemprop="sameAs">
+  <i class="icon-instagram"></i>Instagram</a>
+```
 
 ## Media temporizzati
 
 > Fornire alternative per i media temporizzati
 
-### solo audio e solo titolo
+### Solo audio e solo video (preregistrati)
 livello: A
+outcome: no
+source: audio-only-and-video-only-prerecorded
 
- - i video pre-registrati non hanno una trascrizione testuale equivalente
-   (l'articolo che discute un evento mostrato nel video)
+Per i tipi di media preregistrati di solo audio e di solo video, a meno che questi non costituiscano un tipo di media alternativo ad un contenuto testuale chiaramente etichettato come tale, sono soddisfatti i seguenti punti:
 
- - al momento nel sito non sono presenti contenuti di solo audio.
+**Solo audio preregistrato**: È fornita un'alternativa per il tipo di media temporizzato che presenti informazioni equivalenti al contenuto di solo audio preregistrato.
+
+**Solo video preregistrato**: È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+I video pre-registrati non hanno una trascrizione testuale equivalente.
+
+Al momento della nostra analisi, nel sito non sono presenti contenuti di solo audio.
 
 ### sottotitoli (preregistrati)
 livello: A
+outcome: no
+source: captions-prerecorded
 
-I video presenti non hanno sottotitoli
+Per tutti i contenuti audio preregistrati presenti in tipi di media sincronizzati sono forniti sottotitoli, eccetto quando tali contenuti sono alternativi ad un contenuto testuale e sono chiaramente etichettati come tali.
 
-### audiodescrizione o tipo di media alternativo (preregistrato)
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+I video presenti nelle pagine del sito non hanno sottotitoli.
+
+### Audiodescrizione o tipo di media alternativo (preregistrato)
 livello: A
+outcome: no
+source: audio-description-or-media-alternative-prerecorded
 
-nada
+Per i media sincronizzati è fornita un'alternativa ai media temporizzati, oppure una audiodescrizione dei contenuti video preregistrati, eccetto quando il contenuto audio o video è alternativo ad un contenuto testuale ed è chiaramente etichettato come tale.
 
-### sottotitoli (in tempo reale)
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Non sono state fornite alternative ai media temporizzati e non vi sono audiodescrizioni dei contenuti video preregistrati.
+
+### Sottotitoli (in tempo reale)
 livello: AA
+outcome: no
+source: captions-live
 
-al momento sono presenti solo video preregistrati, quindi questo punto
+Per tutti i contenuti audio in tempo reale sotto forma di media sincronizzati sono forniti sottotitoli.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Al momento sono presenti solo video preregistrati, quindi questo punto
 non si applica.
 
-### audiodecrizione (preregistrata)
+### Audiodescrizione (preregistrata)
 livello: AA
+outcome: no
+source: audio-description-prerecorded
 
-nada
+Per tutti i contenuti video preregistrati sotto forma di media sincronizzati è fornita una audiodescrizione.
 
-### lingua dei segni
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Non sono presenti audiodescrizioni in nessun video preregistrato.
+
+
+### Lingua dei segni (preregistrato)
 livello: AAA
+outcome: no
+source: sign-language-prerecorded
 
-nada
+Per tutti i contenuti audio preregistrati sotto forma di media sincronizzati è fornita l'interpretazione tramite lingua dei segni.
 
-### audiodescrizione estesa (preregistrata)
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Non sono presenti contenuti audio preregistrati, quindi questo criterio di successo non si applica.
+
+### Audiodescrizione estesa (preregistrata)
 livello: AAA
+outcome: no
+source: extended-audio-description-prerecorded
 
-nada
+Per tutti i contenuti video preregistrati in media sincronizzati, se le pause nell'audio principale sono troppo brevi per consentire alle audiodescrizioni di comunicare il senso del video, sono fornite delle audiodescrizioni estese.
 
-### tipo di media alternativo (preregistrato)
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Non sono presenti audiodescrizioni, quindi nemmeno audiodescrizioni estese.
+
+### Tipo di media alternativo (preregistrato)
 livello: AAA
+outcome: no
+source: media-alternative-prerecorded
 
-nada
+Esito
 
-### solo audio (in tempo reale)
+Negativo
+
+Violazioni riscontrate:
+
+Per tutti i contenuti preregistrati di media sincronizzati e per tutti i tipi di media preregistrati di solo video è fornito un tipo di media alternativo.
+
+### Solo audio (in tempo reale)
 livello: AAA
+outcome: no
+source: audio-only-live
 
-nada
+Per i media temporizzati che presentano informazioni equivalenti a contenuti solo audio in tempo reale è fornita un'alternativa.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Non è presente nessuna alternativa ai contenuti di solo audio in tempo reale.
 
 ## Adattabile
 
+Creare contenuti che possano essere rappresentati in modalità differenti (ad esempio, con layout più semplici), senza perdere informazioni o struttura.
+
 ### Informazioni e correlazioni
 livello: A
-source: info-and-relationships
 outcome: no
+source: info-and-relationships
+
+Le informazioni, la struttura e le correlazioni trasmesse dalla presentazione possono essere determinate programmaticamente oppure sono disponibili tramite testo.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
 
 TODO: prendere la lista degli errori dal validator.w3.org
 
@@ -107,43 +263,87 @@ TL;DR rispettato solo in parte
 
 ### Sequenza significativa
 livello: A
+outcome: no
 source: meaningful-sequence
 
-non applicabile: la lista nella quale gli articoli vengono mostrati non
-influisce sul significato dei singoli articoli.
+Quando la sequenza in cui il contenuto è presentato influisce sul suo significato, la corretta sequenza di lettura può essere determinata programmaticamente.
 
-### caratteristiche sensoriali
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+La lista nella quale gli articoli vengono mostrati non influisce sul significato dei singoli articoli, quindi questo criterio di successo non si applica.
+
+### Caratteristiche sensoriali
 livello: A
+outcome: no
 source: sensory-characteristics
 
-I video e le foto non hanno descrizioni testuali, quindi questo punto è violato.
+Le istruzioni fornite per comprendere ed operare sui contenuti non si basano unicamente su caratteristiche sensoriali dei componenti quali forma, colore, dimensione, ubicazione visiva, orientamento o suono.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+I video e le foto non hanno descrizioni testuali e si basano unicamente su caratteristiche sensoriali, quindi questo punto non è rispettato.
 
 ### Orientamento
 livello: AA
+outcome: yes
 source: orientation
 
-Rispettato (il sito funziona su monitor di diverse forme e orientamenti.)
+La visualizzazione e il funzionamento di un contenuto non dipendono dall'orientamento dello schermo, ad esempio verticale o orizzontale, a meno che questo non sia essenziale.
+
+Esito
+
+Positivo
+
+Osservazioni
+
+Il sito funziona su monitor di diverse forme e orientamenti, quindi questo punto è rispettato.
 
 ### Identificare lo scopo degli input
 livello: AA
+outcome: no
 source: identify-input-purpose
 
-in alcuni punti no:
- - il campo di ricerca non ha nessuna descrizione/label/... per permettere all'utente di identificare lo scopo dell'input.
- - alla textarea per i commenti manca un label/aria-label/aria-labelledby. In javascript viene aggiunta una scritta "Partecipa alla discussione" ma non sono presenti indicazioni per collegare tale scritta alla texarea
+Lo scopo di ciascun campo di input per le informazioni sull'utente può essere determinato programmaticamente quando:
 
-in alcuni punti male:
- - il campo di ricerca nella pagina meteo mette la scritta "Inserisci qui la tua località" come `value` dei un input di tipo testo. Bisognerebbe usare un label/aria-label/aria-labelledby
+- Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
+  
+- Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
 
-in altri casi sì:
- - gli input per il login hanno sia un placeholder che un label associato.
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Il campo di ricerca non ha nessuna descrizione/label per permettere all'utente di identificare lo scopo dell'input.
+
+Alla textarea per i commenti manca una label/aria-label/aria-labelledby. In JavaScript viene inserita una scritta "Partecipa alla discussione", ma non sono presenti indicazioni per collegare tale scritta alla texarea.
+
+Il campo di ricerca nella pagina meteo presenta la dicitura "Inserisci qui la tua località" come `value` di un input di tipo testo. Invece, bisognerebbe usare un label/aria-label/aria-labelledby.
 
 ### Identificare lo scopo
 livello: AAA
-source: identify-purpose
 outcome: no
+source: identify-purpose
 
- - utilizzano alcuni tag HTML5 correttamente (footer, header, nav, aside..) ma manca un tag main per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente (vedi punti precedenti) e quindi non tutte le aree della pagina sono comprensibili.
+Nei contenuti implementati utilizzando i linguaggi di markup, è possibile determinare programmaticamente lo scopo dei componenti dell'interfaccia utente, delle icone e delle aree.
+
+Esito
+
+Negativo
+
+Violazioni riscontrate:
+
+Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag <main> per indentificare il contenuto primario della pagina.
+Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
 ## Distinguibile
 
