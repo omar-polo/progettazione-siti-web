@@ -527,6 +527,10 @@ body > header {
 	padding: 20px;
 }
 
+.language-html {
+	background-color: aquamarine;
+}
+
 /* fine wcag */
 
 /* pagina user testing */
