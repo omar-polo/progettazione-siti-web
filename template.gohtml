@@ -15,20 +15,21 @@
 		<meta name="robots" content="index,follow">
 		<meta name="keywords" content="web site, ui, ux, webdesign, italy, designer, udine, graphic design, website design, website builder, web developer, user testing, accessibility, WCAG">
 		<!-- End Meta-tag -->
-	
+
 		<!-- Embed Font-->
 		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-	
+
 		<!-- Place your kit's code here -->
 		<script src="https://kit.fontawesome.com/25485af4cf.js"></script>
-	
+
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/">
-	
+
 		<!-- stylesheet -->
 		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="stylesheet" href="css/atelier-cave-light.css" type="text/css">
 	</head>
-	
+
 	<body>
 		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
 		<!-- header -->
@@ -93,12 +94,15 @@
 				</ul>
 			</nav>
 		</footer>
-		<!--End  Footer -->	
+		<!--End  Footer -->
 
 		<script>
 			var data = JSON.parse({{ .Results }});
 		</script>
 		<script src="js/search.js"></script>
+
+		<script src="js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 	</body>
 </html>
 {{ end }}
