@@ -27,11 +27,7 @@ Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testua
 
 **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
-Esito:
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Manca una descrizione testuale per l'icona "search" nella barra di navigazione.
 
@@ -41,7 +37,7 @@ Al momento, le immagini senza l'attributo "alt" sono 64.
 
 Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini senza l'attributo "alt"
 
-```js
+```javascript
   // Lista delle immagini alle quali manca l'attributo alt
   Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
 ```

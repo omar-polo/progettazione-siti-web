@@ -51,8 +51,39 @@ func (s Section) Level() string {
 	return s.Metadata["livello"]
 }
 
-func (s Section) Outcome() bool {
+func (s Section) IsPassed() bool {
 	return s.Metadata["outcome"] == "yes"
+}
+
+func (s Section) IsFailed() bool {
+	return s.Metadata["outcome"] == "no"
+}
+
+func (s Section) IsNa() bool {
+	return s.Metadata["outcome"] == "na"
+}
+
+// OutcomeClassName ritorna l'esito come stringa da usare come classe CSS.
+func (s Section) OutcomeClassName() string {
+	if s.IsPassed() {
+		return "passed"
+	} else if s.IsFailed() {
+		return "failed"
+	} else {
+		return "na"
+	}
+}
+
+// OutcomeNL ritorna l'esito come stringa in linguaggio naturale
+// (italiano).
+func (s Section) OutcomeNL() string {
+	if s.IsPassed() {
+		return "positivo"
+	} else if s.IsFailed() {
+		return "negativo"
+	} else {
+		return "non applicabile"
+	}
 }
 
 func (p Page) IsWCAG() bool {
@@ -225,7 +256,7 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 			}
 
 		case metadata:
-			if line == "" {
+			if line == "" || strings.HasPrefix(line, "####") {
 				s = content
 
 				if level == 3 {
@@ -237,8 +268,17 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 						fmt.Printf("pages/wcag.md:%v manca la source\n", lineNo)
 					}
 
-					if _, ok := cs.Metadata["outcome"]; !ok {
+					if o, ok := cs.Metadata["outcome"]; !ok {
 						fmt.Printf("pages/wcag.md:%v manca l'outcome\n", lineNo)
+					} else {
+						switch o {
+						case "yes":
+						case "no":
+						case "na":
+							// vanno tutti bene!
+						default:
+							fmt.Printf("pages/wgac.md:%v outcome non valido!\n", lineNo)
+						}
 					}
 				}
 
@@ -269,7 +309,9 @@ func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Se
 			cs.Metadata[k] = v
 
 		case content:
-			if strings.HasPrefix(line, "#") { // it's a title!
+			if strings.HasPrefix(line, "####") {
+				line = "#" + line // add a level
+			} else if strings.HasPrefix(line, "#") { // it's a title!
 				//return cs, line, lineNo, nil
 				s = init
 				firstline = line

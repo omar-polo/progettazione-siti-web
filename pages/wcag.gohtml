@@ -11,7 +11,7 @@
 						{{ .Content | markdown }}
 						
 						{{ range .SubSections }}
-							<section class="success-criterion {{if .Outcome}}passed{{else}}not-passed{{end}}">
+							<section class="success-criterion {{ .OutcomeClassName }}">
 								<header>
 									<h4 id="{{.Source}}">{{ .Title }}</h4>
 									<p>Livello: {{.Level}}</p>
@@ -23,6 +23,7 @@
 										</a>
 									</p>
 								</header>
+								<p class="outcome">Esito: {{ .OutcomeNL }}</p>
 								{{ .Content | markdown }}
 							</section>
 						{{ end }}
