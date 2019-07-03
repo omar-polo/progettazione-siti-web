@@ -6,26 +6,26 @@ title:WCAG
 
 ## Alternative testuali
 
-Fornire alternative testuali per qualsiasi contenuto non di testo in modo che questo possa essere trasformato in altre forme fruibili secondo le necessità degli utenti come stampa a caratteri ingranditi, Braille, sintesi vocale, simboli o un linguaggio più semplice.
+> Fornire alternative testuali per qualsiasi contenuto non di testo in modo che questo possa essere trasformato in altre forme fruibili secondo le necessità degli utenti come stampa a caratteri ingranditi, Braille, sintesi vocale, simboli o un linguaggio più semplice.
 
 ### Contenuti non testuali
 livello: A
 outcome: no
 source: non-text-content
 
-Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione dei seguenti casi
+> Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione dei seguenti casi
 
-**Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
+  > **Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
 
-**Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
+  > **Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
 
-**Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+  > **Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
 
-**Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+  > **Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
 
-**CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
+  > **CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
 
-**Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
+  > **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
 #### Violazioni riscontrate:
 
@@ -82,17 +82,13 @@ livello: A
 outcome: no
 source: audio-only-and-video-only-prerecorded
 
-Per i tipi di media preregistrati di solo audio e di solo video, a meno che questi non costituiscano un tipo di media alternativo ad un contenuto testuale chiaramente etichettato come tale, sono soddisfatti i seguenti punti:
+> Per i tipi di media preregistrati di solo audio e di solo video, a meno che questi non costituiscano un tipo di media alternativo ad un contenuto testuale chiaramente etichettato come tale, sono soddisfatti i seguenti punti:
 
-**Solo audio preregistrato**: È fornita un'alternativa per il tipo di media temporizzato che presenti informazioni equivalenti al contenuto di solo audio preregistrato.
+  > **Solo audio preregistrato**: È fornita un'alternativa per il tipo di media temporizzato che presenti informazioni equivalenti al contenuto di solo audio preregistrato.
 
-**Solo video preregistrato**: È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
+  > **Solo video preregistrato**: È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 I video pre-registrati non hanno una trascrizione testuale equivalente.
 
@@ -103,13 +99,9 @@ livello: A
 outcome: no
 source: captions-prerecorded
 
-Per tutti i contenuti audio preregistrati presenti in tipi di media sincronizzati sono forniti sottotitoli, eccetto quando tali contenuti sono alternativi ad un contenuto testuale e sono chiaramente etichettati come tali.
+> Per tutti i contenuti audio preregistrati presenti in tipi di media sincronizzati sono forniti sottotitoli, eccetto quando tali contenuti sono alternativi ad un contenuto testuale e sono chiaramente etichettati come tali.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 I video presenti nelle pagine del sito non hanno sottotitoli.
 
@@ -118,28 +110,20 @@ livello: A
 outcome: no
 source: audio-description-or-media-alternative-prerecorded
 
-Per i media sincronizzati è fornita un'alternativa ai media temporizzati, oppure una audiodescrizione dei contenuti video preregistrati, eccetto quando il contenuto audio o video è alternativo ad un contenuto testuale ed è chiaramente etichettato come tale.
+> Per i media sincronizzati è fornita un'alternativa ai media temporizzati, oppure una audiodescrizione dei contenuti video preregistrati, eccetto quando il contenuto audio o video è alternativo ad un contenuto testuale ed è chiaramente etichettato come tale.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Non sono state fornite alternative ai media temporizzati e non vi sono audiodescrizioni dei contenuti video preregistrati.
 
 ### Sottotitoli (in tempo reale)
 livello: AA
-outcome: no
+outcome: na
 source: captions-live
 
-Per tutti i contenuti audio in tempo reale sotto forma di media sincronizzati sono forniti sottotitoli.
+> Per tutti i contenuti audio in tempo reale sotto forma di media sincronizzati sono forniti sottotitoli.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Al momento sono presenti solo video preregistrati, quindi questo punto
 non si applica.
@@ -149,29 +133,20 @@ livello: AA
 outcome: no
 source: audio-description-prerecorded
 
-Per tutti i contenuti video preregistrati sotto forma di media sincronizzati è fornita una audiodescrizione.
+> Per tutti i contenuti video preregistrati sotto forma di media sincronizzati è fornita una audiodescrizione.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Non sono presenti audiodescrizioni in nessun video preregistrato.
 
-
 ### Lingua dei segni (preregistrato)
 livello: AAA
-outcome: no
+outcome: na
 source: sign-language-prerecorded
 
-Per tutti i contenuti audio preregistrati sotto forma di media sincronizzati è fornita l'interpretazione tramite lingua dei segni.
+> Per tutti i contenuti audio preregistrati sotto forma di media sincronizzati è fornita l'interpretazione tramite lingua dei segni.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Non sono presenti contenuti audio preregistrati, quindi questo criterio di successo non si applica.
 
@@ -180,13 +155,9 @@ livello: AAA
 outcome: no
 source: extended-audio-description-prerecorded
 
-Per tutti i contenuti video preregistrati in media sincronizzati, se le pause nell'audio principale sono troppo brevi per consentire alle audiodescrizioni di comunicare il senso del video, sono fornite delle audiodescrizioni estese.
+> Per tutti i contenuti video preregistrati in media sincronizzati, se le pause nell'audio principale sono troppo brevi per consentire alle audiodescrizioni di comunicare il senso del video, sono fornite delle audiodescrizioni estese.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Non sono presenti audiodescrizioni, quindi nemmeno audiodescrizioni estese.
 
@@ -195,45 +166,35 @@ livello: AAA
 outcome: no
 source: media-alternative-prerecorded
 
-Esito
+> Per tutti i contenuti preregistrati di media sincronizzati e per tutti i tipi di media preregistrati di solo video è fornito un tipo di media alternativo.
 
-Negativo
+#### Violazioni riscontrate:
 
-Violazioni riscontrate:
-
-Per tutti i contenuti preregistrati di media sincronizzati e per tutti i tipi di media preregistrati di solo video è fornito un tipo di media alternativo.
+Non sono forniti media alternativi per nessuno dei media preregistrati di solo video.
 
 ### Solo audio (in tempo reale)
 livello: AAA
 outcome: no
 source: audio-only-live
 
-Per i media temporizzati che presentano informazioni equivalenti a contenuti solo audio in tempo reale è fornita un'alternativa.
+> Per i media temporizzati che presentano informazioni equivalenti a contenuti solo audio in tempo reale è fornita un'alternativa.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Non è presente nessuna alternativa ai contenuti di solo audio in tempo reale.
 
 ## Adattabile
 
-Creare contenuti che possano essere rappresentati in modalità differenti (ad esempio, con layout più semplici), senza perdere informazioni o struttura.
+> Creare contenuti che possano essere rappresentati in modalità differenti (ad esempio, con layout più semplici), senza perdere informazioni o struttura.
 
 ### Informazioni e correlazioni
 livello: A
 outcome: no
 source: info-and-relationships
 
-Le informazioni, la struttura e le correlazioni trasmesse dalla presentazione possono essere determinate programmaticamente oppure sono disponibili tramite testo.
+> Le informazioni, la struttura e le correlazioni trasmesse dalla presentazione possono essere determinate programmaticamente oppure sono disponibili tramite testo.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 TODO: prendere la lista degli errori dal validator.w3.org
 
@@ -259,16 +220,12 @@ TL;DR rispettato solo in parte
 
 ### Sequenza significativa
 livello: A
-outcome: no
+outcome: na
 source: meaningful-sequence
 
-Quando la sequenza in cui il contenuto è presentato influisce sul suo significato, la corretta sequenza di lettura può essere determinata programmaticamente.
+> Quando la sequenza in cui il contenuto è presentato influisce sul suo significato, la corretta sequenza di lettura può essere determinata programmaticamente.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 La lista nella quale gli articoli vengono mostrati non influisce sul significato dei singoli articoli, quindi questo criterio di successo non si applica.
 
@@ -277,13 +234,9 @@ livello: A
 outcome: no
 source: sensory-characteristics
 
-Le istruzioni fornite per comprendere ed operare sui contenuti non si basano unicamente su caratteristiche sensoriali dei componenti quali forma, colore, dimensione, ubicazione visiva, orientamento o suono.
+> Le istruzioni fornite per comprendere ed operare sui contenuti non si basano unicamente su caratteristiche sensoriali dei componenti quali forma, colore, dimensione, ubicazione visiva, orientamento o suono.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 I video e le foto non hanno descrizioni testuali e si basano unicamente su caratteristiche sensoriali, quindi questo punto non è rispettato.
 
@@ -292,13 +245,9 @@ livello: AA
 outcome: yes
 source: orientation
 
-La visualizzazione e il funzionamento di un contenuto non dipendono dall'orientamento dello schermo, ad esempio verticale o orizzontale, a meno che questo non sia essenziale.
+> La visualizzazione e il funzionamento di un contenuto non dipendono dall'orientamento dello schermo, ad esempio verticale o orizzontale, a meno che questo non sia essenziale.
 
-Esito
-
-Positivo
-
-Osservazioni
+#### Osservazioni
 
 Il sito funziona su monitor di diverse forme e orientamenti, quindi questo punto è rispettato.
 
@@ -307,17 +256,13 @@ livello: AA
 outcome: no
 source: identify-input-purpose
 
-Lo scopo di ciascun campo di input per le informazioni sull'utente può essere determinato programmaticamente quando:
+> Lo scopo di ciascun campo di input per le informazioni sull'utente può essere determinato programmaticamente quando:
 
-- Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
+> Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
   
-- Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
+> Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
 
-Esito
-
-Negativo
-
-Violazioni riscontrate:
+#### Violazioni riscontrate:
 
 Il campo di ricerca non ha nessuna descrizione/label per permettere all'utente di identificare lo scopo dell'input.
 
@@ -330,146 +275,258 @@ livello: AAA
 outcome: no
 source: identify-purpose
 
-Nei contenuti implementati utilizzando i linguaggi di markup, è possibile determinare programmaticamente lo scopo dei componenti dell'interfaccia utente, delle icone e delle aree.
+> Nei contenuti implementati utilizzando i linguaggi di markup, è possibile determinare programmaticamente lo scopo dei componenti dell'interfaccia utente, delle icone e delle aree.
 
-Esito
+#### Violazioni riscontrate:
 
-Negativo
-
-Violazioni riscontrate:
-
-Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag <main> per indentificare il contenuto primario della pagina.
-Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
+Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag 'main' per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
 ## Distinguibile
 
+> Rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo.
+
 ### Uso del colore
 livello: A
-source: use-of-color
 outcome: yes
+source: use-of-color
 
-Il colore non è l'unico modo con il quale le differenti aree della pagina sono divise. Vengono usati appropriati tag HTML5 (section e/o aside) per differenziare le aree anche da un punto di vista semantico.
+> Il colore non deve essere utilizzato come unica modalità visiva per rappresentare informazioni, indicare azioni, richiedere risposte o come elemento di distinzione visiva.
+
+#### Osservazioni
+
+Il colore non è l'unico modo con il quale le differenti aree della pagina sono divise. Vengono usati appropriati tag HTML5 (section e/o aside) per differenziare le diverse aree anche da un punto di vista semantico.
 
 ### Controllo del sonoro
 livello: A
-source: audio-control
 outcome: yes
+source: audio-control
+
+> Se un contenuto audio all'interno di una pagina Web è eseguito automaticamente per più di tre secondi o si fornisce una funzionalità per metterlo in pausa o interromperlo, oppure si fornisce una modalità per il controllo dell'audio che sia indipendente dal controllo predefinito del sistema.
+
+#### Osservazioni
 
 Sono presenti video con riproduzione automatica che forniscono la possibilità di modificare il livello del volume, di mettere in pausa e interrompere la riproduzione audiosonora.
 
 ### Contrasto (minimo)
 livello: AA
-source: contrast-minimum
 outcome: no
+source: contrast-minimum
 
-Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto adeguato come:
- - tasto condividi e numero di commenti nelle preview degli articoli nella home page e nelle pagine di archivio
- - l'ora e il punteggio dei commenti
- - i tasti per cambiare giornata nel meteo
- - i titoli delle preview degli articoli nella sezione "Top Blog"
- - nella sezione "FQ in edicola" (a scomparsa nell'header) tutte le scritte quando con hover hanno un livello di contrasto insufficiente
+> La rappresentazione visiva del testo e di immagini contenenti testo ha un rapporto di contrasto di almeno 4.5:1, fatta eccezione per i seguenti casi:
+
+  > **Testo grande**: Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 3:1;
+
+  > **Testo non essenziale**: Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto.
+
+  > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
+
+#### Violazioni riscontrate:
+
+Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto ottimale come:
+ - Il tasto condividi e il numero di commenti nelle preview degli articoli della Home page e nelle pagine di archivio;
+ - L'ora e il punteggio dei commenti;
+ - I tasti per cambiare giornata nella pagina del meteo;
+ - I titoli degli articoli nella sezione "Top Blog";
 
 ### Ridimensionamento del testo
 livello: AA
-source: resize-text
 outcome: yes
+source: resize-text
 
-Il sito rimane funzionante una volta impostato il livello di zoom a 200%.
+> Il testo, ad eccezione dei sottotitoli e delle immagini contenenti testo, può essere ridimensionato fino al 200 percento senza l'ausilio di tecnologie assistive e senza perdita di contenuto e funzionalità.
 
+#### Osservazioni
+
+Il sito rimane funzionante una volta impostato il livello di Zoom a 200%.
 Ci preme comunque sottolineare che nonostante sia funzionante sono presenti delle fastidiose barre di scrolling orizzontali: sarebbe opportuno modificare il CSS in modo tale che le pagine rimangano larghe al più quanto il monitor.
 
 ### Immagini di testo
 livello: AA
-source: images-of-text
 outcome: no
+source: images-of-text
 
-Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili) quando un testo sarebbe stato più opportuno, come:
+> Se le tecnologie utilizzate consentono la rappresentazione visiva dei contenuti, per veicolare informazioni è usato il testo, e non le immagini di testo, ad eccezione dei seguenti casi:
 
- - box "abbonati" nella homepage
- - logo "meteo" dove la scritta non è necessario sia inclusa nell'immagine
- - la scritta 'vignetta di' nel box della vignetta di Natangelo non è necessaria sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali)
+  > **Personalizzabile**: L'immagine di testo può essere personalizzata visivamente per le esigenze dell'utente;
+
+  > **Essenziale**: Una particolare rappresentazione del testo è essenziale per il tipo di informazioni veicolate.
+
+#### Violazioni riscontrate:
+
+Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili), quando un testo sarebbe stato più opportuno, come:
+
+ - Il box "Abbonati" nella Homepage;
+ - Il logo "Meteo" dove la scritta non è necessaria che sia inclusa nell'immagine;
+ - La scritta 'la vignetta di' nel box della vignetta di Natangelo non è necessaria che sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali).
 
 ### Contrasto (avanzato)
 livello: AAA
-source: contrast-enhanced
 outcome: no
+source: contrast-enhanced
 
-alcuni esempi:
- - nella pagina di login:
-    - la stellina per il richiesto non ha un contrasto sufficiente
+> La rappresentazione visiva del testo e immagini contenenti testo ha un rapporto di contrasto di almeno 7:1, fatta eccezione per i seguenti casi:
+
+  > **Testo grande**: Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 4.5:1;
+
+  > **Testo non essenziale**: Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto.
+
+  > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
+
+#### Violazioni riscontrate:
+
+Alcuni esempi:
+
+ - Nella pagina di login:
+  
+    - la stellina accanto alle voci 'Nome utente o email' e 'Password' non ha un contrasto sufficiente
+  
     - tutti i pulsanti
-    - la scritta 'non sei ancora registrato...'
- - nella pagina meteo (oltre a quelli citati nel punto 'Contrasto'):
-    - il pulsante accedi
+  
+    - la scritta 'Non sei ancora registrato?'
+  
+ - Nella pagina del meteo
+  
+    - il pulsante 'Accedi'
+  
     - la scritta 'modifica località'
-    - tutti i pulsanti per selezionare le varie tipologie (Italia, Europa, Mondo, ...)
+  
+    - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo, ...)
+  
     - il selettore dell'ora
- - nella pagina di un articolo
+  
+ - Nella pagina di un articolo
+  
     - il numero dei commenti
+  
     - le categorie nell'aside
 
 ### Sottofondo sonoro basso o non presente
 livello: AAA
-source: low-or-no-background-audio
 outcome: yes
+source: low-or-no-background-audio
 
-non esistono pagine con solo audio preregistrato e i video con autoplay sono mutati in partenza.
+> Per i contenuti di solo audio preregistrato che (1) contengano principalmente parlato in primo piano (2) non siano CAPTCHA audio o loghi audio e (3) non siano una vocalizzazione intesa per essere principalmente espressione musicale come canto o rap, si applica almeno uno dei seguenti casi:
+
+  > **Nessun sottofondo**: Il sonoro non contiene suoni di sottofondo.
+
+  > **Spegnimento**: Il sottofondo sonoro può essere disattivato.
+
+  > **20 dB**: Il sottofondo sonoro deve essere inferiore di almeno 20 decibel rispetto al parlato in primo piano, con l'eccezione di suoni occasionali di durata massima di uno o due secondi.
+
+#### Osservazioni
+
+Non esistono pagine con solo audio preregistrato e i video con autoplay sono muti in partenza, quindi questo punto è rispettato.
 
 ### Presentazione visiva
 livello: AAA
-source: visual-presentation
 outcome: no
+source: visual-presentation
 
-l'unico punto passato è 'testo non giustificato'
+> Per la presentazione visiva di blocchi di testo, è disponibile una modalità per conseguire i seguenti obiettivi:
 
- - [ ] il sito non permette di cambiare i colori in primo piano e dello sfondo
- - [ ] la larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
- - [x] il testo non è giustificato
- - [x] lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
- - [ ] non è possibile ingrandire il testo e se si zooma con il browser al 200% compaiono delle barre di scorrimento orizzontali
+  > I colori del testo in primo piano e dello sfondo possono essere scelti dall'utente.
+  > La larghezza non supera gli 80 caratteri o glifi (40 se CJK).
+  > Il testo non è giustificato (allineato sia al margine destro che al sinistro).
+  > Lo spazio tra righe (interlinea) è almeno di uno spazio e mezzo all'interno del paragrafo e lo spazio tra paragrafi, è almeno una volta e mezzo l'interlinea.
+  > Il testo può essere ridimensionato fino al 200 percento senza il supporto di tecnologie assistive in modo da non richiedere all'utente di dover scorrere orizzontalmente per leggere una riga di testo in una finestra a tutto schermo.
+
+#### Violazioni riscontrate:
+
+L'unico punto passato è 'il testo non è giustificato'
+
+ - [ ] Il sito non permette di cambiare i colori in primo piano e dello sfondo
+ - [ ] La larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
+ - [x] Il testo non è giustificato
+ - [x] Lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
+ - [ ] Non è possibile ingrandire il testo e se si ingrandisce con lo Zoom con il browser al 200% compaiono delle barre di scorrimento orizzontali
 
 ### Immagini di testo (senza eccezioni)
 livello: AAA
-source: images-of-text-no-exception
 outcome: no
+source: images-of-text-no-exception
 
-No anche per i punti elencati in precedenza.
+> Le immagini contenenti testo sono utilizzate soltanto per pura decorazione o quando una particolare presentazione del testo sia essenziale per il tipo di informazione veicolata.
+
+#### Violazioni riscontrate:
+
+Le immagini contenenti testo non sono utilizzate per pura decorazione e non sono essenziali per il tipo di informazione veicolata.
 
 ### Ricalcolo del flusso
 livello: AA
+outcome: yes
 source: reflow
-outcome: yes
 
- - [x] il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
- - [x] non c'è contenuto a scorrimento orizzontale
+> Il contenuto può essere ripresentato senza perdita di informazioni o funzionalità e senza richiedere lo scorrimento in due dimensioni per:
 
-a 400% il sito è usabile e rispetta di sicuro le richieste, ma intorno al 200% bisogna scrollare orizzontalmente e testi importanti come titoli, sottotitoli ecc sono "tagliati fuori"
+  > Contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel;
 
-### Contrasto in conenuti non testuali
+  > Contenuto a scorrimento orizzontale ad un'altezza equivalente a 256 CSS pixel.
+
+> Tranne per le parti del contenuto che richiedono layout bidimensionale per l'utilizzo o per comprenderne il senso.
+
+#### Osservazioni
+
+ - [x] Il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
+ - [x] Non c'è contenuto a scorrimento orizzontale
+
+Ingrandendo a 400% il sito è usabile e rispetta le richieste, ma intorno al 200% bisogna scrollare orizzontalmente ed i testi importanti come titoli, sottotitoli sono "tagliati fuori".
+
+### Contrasto in contenuti non testuali
 livello: AA
-source: non-text-contrast
 outcome: yes
+source: non-text-contrast
 
-tutte le immagini testuali hanno un livello di contrasto adeguato, oppure sono loghi.
+> Nella presentazione visiva il rapporto di contrasto è di almeno 3:1 rispetto al colore o ai colori adiacenti per:
+
+  > **Componenti dell'interfaccia utente**: Le informazioni visive richieste per identificare i componenti dell'interfaccia utente e gli stati (ad eccezione dei componenti inattivi o dove l'aspetto del componente è determinato dal programma utente e non modificato dall'autore);
+
+  > **Oggetti grafici**: Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
+
+#### Osservazioni
+
+Tutte le immagini testuali hanno un livello di contrasto adeguato, oppure sono loghi.
 
 ### Spaziatura del testo
 livello: AA
-source: text-spacing
 outcome: no
+source: text-spacing
 
- - [x] l'altezza della linea è di 1.5 volte la dimensione del carattere
- - [ ] la spaziatura tra i caratteri è pari alla dimensione del carattere (dovrebbe essere il doppio)
- - [ ] a discrezione dell'UA
- - [ ] a discrezione dell'UA
+> Nei contenuti implementati utilizzando linguaggi di markup che supportano le seguenti proprietà di stile per il testo, non si verifica alcuna perdita di contenuto o funzionalità impostando quanto segue senza modificare altre proprietà di stile:
 
+  > Altezza della linea (interlinea) di almeno 1,5 volte la dimensione del carattere;
+  > Spaziatura dopo i paragrafi di almeno 2 volte la dimensione del carattere;
+  > Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere;
+  > Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere.
+
+> Eccezione: le lingue e le scritture che non utilizzano una o più di queste proprietà nel testo scritto sono conformi quando si può applicare il criterio alle sole proprietà esistenti per quella combinazione di lingua e scrittura.
+
+#### Violazioni riscontrate:
+
+ - [x] L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere;
+ - [x] La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere;
+ - [ ] Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere;
+ - [ ] Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere.
+   
 ### Contenuto con Hover o Focus
 livello: AA
-source: content-on-hover-or-focus
 outcome: yes
+source: content-on-hover-or-focus
 
- - [x] congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
- - [x] passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
- - [x] persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso
+> Nel caso in cui il passaggio del puntatore del mouse (hover) o il focus della tastiera rendono visibili e nascosti dei contenuti, sono soddisfatte le seguenti condizioni:
+
+  > **Congedabile**: È disponibile un meccanismo per eliminare il contenuto aggiuntivo senza spostare il puntatore del mouse o il focus della tastiera, a meno che il contenuto aggiuntivo non comunichi un errore di immissione dei dati o non oscuri o sostituisca altri contenuti;
+
+  > **Passabile**: Se il passaggio del puntatore del mouse sul contenuto può attivare il contenuto aggiuntivo, il puntatore può essere spostato sul contenuto aggiuntivo senza che questo scompaia;
+
+  > **Persistente**: Il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso, l'utente lo elimina o le sue informazioni non sono più valide.
+
+> Eccezione: la presentazione visiva del contenuto aggiuntivo è controllata dal programma utente e non viene modificata dall'autore.
+
+#### Osservazioni
+
+ - [x] Congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
+ - [x] Passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
+ - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
 # Utilizzabile
 
