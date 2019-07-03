@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"html/template"
@@ -13,13 +14,12 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	"encoding/json"
 
 	"github.com/fsnotify/fsnotify"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
-// Definisce alcuni parametri da riga di comando 
+// Definisce alcuni parametri da riga di comando
 var (
 	port    = flag.Int("p", 8000, `La porta da bindare per il server web.`)
 	verbose = flag.Bool("v", false, `Stampa più log`)
@@ -30,8 +30,8 @@ var pages = make(map[string]*template.Template)
 
 // Page rappresenta una pagina Web
 type Page struct {
-	Title   string
-	Content interface{}
+	Title      string
+	Content    interface{}
 	WCAGResult Section
 }
 
@@ -78,11 +78,11 @@ func (s Section) OutcomeClassName() string {
 // (italiano).
 func (s Section) OutcomeNL() string {
 	if s.IsPassed() {
-		return "positivo"
+		return "Positivo"
 	} else if s.IsFailed() {
-		return "negativo"
+		return "Negativo"
 	} else {
-		return "non applicabile"
+		return "Non applicabile"
 	}
 }
 
@@ -99,7 +99,6 @@ func (p Page) Results() string {
 	}
 	return string(j)
 }
-
 
 // Inizializza il parser
 func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
@@ -140,7 +139,7 @@ func indexPage() (Page, error) {
 // Ritorna la pagina della mappa
 func mappaPage() (Page, error) {
 	p := Page{
-		Title: "Mappa del sito",
+		Title:   "Mappa del sito",
 		Content: "",
 	}
 	return p, nil
@@ -149,7 +148,7 @@ func mappaPage() (Page, error) {
 // Ritorna la pagina di info
 func infoPage() (Page, error) {
 	p := Page{
-		Title: "Info",
+		Title:   "Info",
 		Content: "",
 	}
 	return p, nil
@@ -401,7 +400,7 @@ func copyFile(dst, src string) {
 	}
 }
 
-// Funzione di utility che copia una Directory. 
+// Funzione di utility che copia una Directory.
 // Non copia ricorsivamente le sotto Directory
 func copyDir(dst, src string) {
 	os.Mkdir(dst, 0700)
@@ -481,7 +480,7 @@ func build() {
 		return
 	}
 	render(p, "index.gohtml", results)
-	
+
 	// render mappa.html
 	if *verbose {
 		log.Println("Compiling pages/mappa.gohtml")
@@ -492,7 +491,7 @@ func build() {
 		return
 	}
 	render(p, "mappa.gohtml", results)
-	
+
 	// render info.html
 	if *verbose {
 		log.Println("Compiling pages/info.gohtml")
