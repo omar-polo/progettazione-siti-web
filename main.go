@@ -33,64 +33,11 @@ type Page struct {
 	Title      string
 	Content    interface{}
 	WCAGResult Section
+	HasSearch  bool
 }
 
-// Section rappresenta una sezione del report WCAG
-type Section struct {
-	Title       string            `json:"title"`
-	Metadata    map[string]string `json:"metadata"`
-	Content     string            `json:"-"`
-	SubSections []Section         `json:"subsections"`
-}
-
-func (s Section) Source() string {
-	return s.Metadata["source"]
-}
-
-func (s Section) Level() string {
-	return s.Metadata["livello"]
-}
-
-func (s Section) IsPassed() bool {
-	return s.Metadata["outcome"] == "yes"
-}
-
-func (s Section) IsFailed() bool {
-	return s.Metadata["outcome"] == "no"
-}
-
-func (s Section) IsNa() bool {
-	return s.Metadata["outcome"] == "na"
-}
-
-// OutcomeClassName ritorna l'esito come stringa da usare come classe CSS.
-func (s Section) OutcomeClassName() string {
-	if s.IsPassed() {
-		return "passed"
-	} else if s.IsFailed() {
-		return "failed"
-	} else {
-		return "na"
-	}
-}
-
-// OutcomeNL ritorna l'esito come stringa in linguaggio naturale
-// (italiano).
-func (s Section) OutcomeNL() string {
-	if s.IsPassed() {
-		return "Positivo"
-	} else if s.IsFailed() {
-		return "Negativo"
-	} else {
-		return "Non applicabile"
-	}
-}
-
-func (p Page) IsWCAG() bool {
-	return p.Title == "WCAG"
-}
-
-// Results ritorna una stringa contenente una rappresentazione Json dei possibili risultati della ricerca
+// Results ritorna una stringa contenente una rappresentazione Json
+// dei possibili risultati della ricerca
 func (p Page) Results() string {
 	j, err := json.Marshal(p.WCAGResult)
 	if err != nil {
@@ -175,156 +122,9 @@ func newSection() Section {
 	return s
 }
 
-// Effettua il parsing della pagina del report WCAG ricorsivamente
-func wcagParseRec(reader *bufio.Reader, firstline string, level, lineNo int) (Section, string, int, error) {
-	type status int
-	const (
-		init status = iota
-		metadata
-		content
-	)
-
-	s := init
-	cs := newSection()
-
-	for {
-		var line string
-
-		if firstline != "" {
-			line, firstline = firstline, ""
-		} else {
-			l, err := reader.ReadString('\n')
-			if err == io.EOF {
-				return cs, line, lineNo, nil
-			} else if err != nil {
-				return cs, line, lineNo, err
-			}
-
-			line = strings.Trim(l, "\n\r")
-			lineNo++
-
-			/*if *verbose {
-				log.Printf("src/wcag.md:%v\t%q\n", lineNo, line)
-			}*/
-		}
-
-		switch s {
-		case init:
-			var l int
-
-			if line == "" {
-				break
-			} else if strings.HasPrefix(line, "###") {
-				l = 3
-			} else if strings.HasPrefix(line, "##") {
-				l = 2
-			} else if strings.HasPrefix(line, "#") {
-				l = 1
-			} else {
-				err := fmt.Errorf("src/wcag.md:%d expected a title or an empty line", lineNo)
-				return cs, line, lineNo, err
-			}
-
-			if l == level {
-				// same level, continue!
-				//fmt.Println("heading same level:", line)
-
-				if cs.Title != "" {
-					return cs, line, lineNo, nil
-				}
-
-				s = metadata
-				t := strings.Fields(line)
-				cs.Title = strings.Join(t[1:], " ")
-			} else if l > level {
-				// recursion
-				//fmt.Println("heading level lower -> recursion", line)
-				var ns Section
-				var l string
-				var err error
-
-				ns, l, lineNo, err = wcagParseRec(reader, line, level+1, lineNo)
-				cs.SubSections = append(cs.SubSections, ns)
-				if err != nil {
-					return cs, l, lineNo, err
-				}
-				firstline = l
-			} else {
-				//fmt.Println("heading level upper -> end recursion", line)
-				return cs, line, lineNo, nil
-			}
-
-		case metadata:
-			if line == "" || strings.HasPrefix(line, "####") {
-				s = content
-
-				if level == 3 {
-					if _, ok := cs.Metadata["livello"]; !ok {
-						fmt.Printf("pages/wcag.md:%v manca il livello\n", lineNo)
-					}
-
-					if _, ok := cs.Metadata["source"]; !ok {
-						fmt.Printf("pages/wcag.md:%v manca la source\n", lineNo)
-					}
-
-					if o, ok := cs.Metadata["outcome"]; !ok {
-						fmt.Printf("pages/wcag.md:%v manca l'outcome\n", lineNo)
-					} else {
-						switch o {
-						case "yes":
-						case "no":
-						case "na":
-							// vanno tutti bene!
-						default:
-							fmt.Printf("pages/wgac.md:%v outcome non valido!\n", lineNo)
-						}
-					}
-				}
-
-				break
-			}
-
-			if strings.HasPrefix(line, "#") { // it's a title!
-				//return cs, line, lineNo, nil
-				s = init
-				firstline = line
-				break
-			}
-
-			fields := strings.Split(line, ":")
-			if len(fields) != 2 {
-				return cs, line, lineNo, fmt.Errorf("src/wcag.md:%d cannot parse metadata block", lineNo)
-				/*if *verbose {
-					//log.Println("line", lineNo, "assuming it's content")
-				}
-
-				s = content
-				firstline = line
-				break*/
-			}
-
-			k := strings.Trim(fields[0], " \t")
-			v := strings.Trim(fields[1], " \t")
-			cs.Metadata[k] = v
-
-		case content:
-			if strings.HasPrefix(line, "####") {
-				line = "#" + line // add a level
-			} else if strings.HasPrefix(line, "#") { // it's a title!
-				//return cs, line, lineNo, nil
-				s = init
-				firstline = line
-				break
-			}
-
-			cs.Content = cs.Content + "\n" + line
-		}
-	}
-}
-
 // Ritorna la pagina del WCAG
 func wcagPage() (Page, error) {
-	p, scanner, f, err := initParser("src/wcag.md")
+	p, reader, f, err := initParser("src/wcag.md")
 	if f != nil {
 		defer f.Close()
 	}
@@ -332,11 +132,18 @@ func wcagPage() (Page, error) {
 		return p, err
 	}
 
-	content, l, _, err := wcagParseRec(scanner, "", 0, 1)
-	if err != nil && *verbose {
-		log.Println("Malformed line:", l)
+	parser := WCAGParser{
+		p: Parser{
+			reader:     reader,
+			filename:   "src/wcag.md",
+			lineNumber: 1,
+		},
+		Level: 1,
 	}
-	p.Content = content
+
+	s, err := WCAGParse(&parser)
+	p.Content = s
+	p.HasSearch = true
 	return p, err
 }
 
