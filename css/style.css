@@ -12,7 +12,7 @@ output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 1rem;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -356,6 +356,11 @@ em {
 	counter-reset: principle;
 }
 
+.wcag h1 {
+	font-size: 1.6rem;
+	padding: 8px;
+}
+
 .wcag h2::before, .wcag h3::before, .wcag h4::before {
 	display: inline-block;
 	width: 50px;
@@ -429,8 +434,8 @@ em {
 	border-color: var(--red);
 }
 
-.wgac .success-criterion.na {
-	border-color: var(--blue);
+.wcag .success-criterion.na {
+	border-color: var(--light-gray); /* TODO: cambiare! */
 }
 
 .wcag .success-criterion header h4 {
