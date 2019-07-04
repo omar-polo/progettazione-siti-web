@@ -1,8 +1,4 @@
-title:Mappa del sito
+title:Mappa del sito Progetto di siti e portali Web
 
-# Mappa del sito
+# Mappa del sito Progetto di siti e portali Web
 
- - home
- - wcag
- - user testing
- - ...
