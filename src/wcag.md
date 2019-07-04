@@ -1,14 +1,49 @@
 title:WCAG
 
-# Percepibile
+# Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
+
+Valutazione di conformità in relazione alle linee guida WCAG 2.1.
+
+# Introduzione
+
+La valutazione di conformità si è basata sulle linee guida **WCAG 2.1** che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee* guida generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
+
+- **Principi** - Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
+
+- **Linee guida** - Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse. 
+
+- **Criteri di successo** - Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. 
+  - Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
+
+- **Tecniche sufficienti e consigliate** -  Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida. 
+
+Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile. 
+
+Sono stati utilizzati diversi strumenti come supporto alla valutazione di conformità alle linee guida WCAG 2.1.
+
+- I browser Web [Mozilla Firefox Developer Edition](https://www.mozilla.org/it/firefox/channel/desktop/) e [Google Chrome](https://www.google.com/intl/it/chrome/)
+
+- Markup Validation Service [W3C](https://validator.w3.org/)
+
+- CSS Validation Service [W3C](https://jigsaw.w3.org/css-validator/)
+
+- Web Accessibility Evaluation Tool [WAVE](http://wave.webaim.org/)
+
+- Color Contrast Accessibility Validator [a11y](https://color.a11y.com/?wc3)
+
+- [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità. 
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) che è uno strumento automatizzato open-source per migliorare la qualità delle pagine web. Ha Audits per prestazioni, accessibilità, buone pratiche, applicazioni web progressive e altro.
+
+## Percepibile
 
 > Le informazioni e i componenti dell'interfaccia utente devono essere presentati agli utenti in modi in cui essi possano percepirli.
 
-## Alternative testuali
+### Alternative testuali
 
 > Fornire alternative testuali per qualsiasi contenuto non di testo in modo che questo possa essere trasformato in altre forme fruibili secondo le necessità degli utenti come stampa a caratteri ingranditi, Braille, sintesi vocale, simboli o un linguaggio più semplice.
 
-### Contenuti non testuali
+#### Contenuti non testuali
 livello: A
 outcome: no
 source: non-text-content
@@ -27,7 +62,7 @@ source: non-text-content
 
   > **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Manca una descrizione testuale per l'icona "search" nella barra di navigazione.
 
@@ -42,13 +77,13 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
   Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
 ```
 
-Screen d'esempio
+**Screen d'esempio**
 
 ![Esempio di icone senza descrizione testuale](img/contenuti-non-testuali.png)
 
 ![Esempio di icone senza descrizione testuale](img/../../img/social-non-testuali.png)
 
-Code snippets
+**Code snippets**
 
 ```html
   <!-- Logo Home page -->
@@ -73,11 +108,11 @@ Code snippets
   <i class="icon-instagram"></i>Instagram</a>
 ```
 
-## Media temporizzati
+### Media temporizzati
 
 > Fornire alternative per i media temporizzati
 
-### Solo audio e solo video (preregistrati)
+#### Solo audio e solo video (preregistrati)
 livello: A
 outcome: no
 source: audio-only-and-video-only-prerecorded
@@ -88,115 +123,138 @@ source: audio-only-and-video-only-prerecorded
 
   > **Solo video preregistrato**: È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 I video pre-registrati non hanno una trascrizione testuale equivalente.
 
 Al momento della nostra analisi, nel sito non sono presenti contenuti di solo audio.
 
-### sottotitoli (preregistrati)
+#### sottotitoli (preregistrati)
 livello: A
 outcome: no
 source: captions-prerecorded
 
 > Per tutti i contenuti audio preregistrati presenti in tipi di media sincronizzati sono forniti sottotitoli, eccetto quando tali contenuti sono alternativi ad un contenuto testuale e sono chiaramente etichettati come tali.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 I video presenti nelle pagine del sito non hanno sottotitoli.
 
-### Audiodescrizione o tipo di media alternativo (preregistrato)
+#### Audiodescrizione o tipo di media alternativo (preregistrato)
 livello: A
 outcome: no
 source: audio-description-or-media-alternative-prerecorded
 
 > Per i media sincronizzati è fornita un'alternativa ai media temporizzati, oppure una audiodescrizione dei contenuti video preregistrati, eccetto quando il contenuto audio o video è alternativo ad un contenuto testuale ed è chiaramente etichettato come tale.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non sono state fornite alternative ai media temporizzati e non vi sono audiodescrizioni dei contenuti video preregistrati.
 
-### Sottotitoli (in tempo reale)
+#### Sottotitoli (in tempo reale)
 livello: AA
 outcome: na
 source: captions-live
 
 > Per tutti i contenuti audio in tempo reale sotto forma di media sincronizzati sono forniti sottotitoli.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Al momento sono presenti solo video preregistrati, quindi questo punto
 non si applica.
 
-### Audiodescrizione (preregistrata)
+#### Audiodescrizione (preregistrata)
 livello: AA
 outcome: no
 source: audio-description-prerecorded
 
 > Per tutti i contenuti video preregistrati sotto forma di media sincronizzati è fornita una audiodescrizione.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non sono presenti audiodescrizioni in nessun video preregistrato.
 
-### Lingua dei segni (preregistrato)
+#### Lingua dei segni (preregistrato)
 livello: AAA
 outcome: na
 source: sign-language-prerecorded
 
 > Per tutti i contenuti audio preregistrati sotto forma di media sincronizzati è fornita l'interpretazione tramite lingua dei segni.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non sono presenti contenuti audio preregistrati, quindi questo criterio di successo non si applica.
 
-### Audiodescrizione estesa (preregistrata)
+#### Audiodescrizione estesa (preregistrata)
 livello: AAA
 outcome: no
 source: extended-audio-description-prerecorded
 
 > Per tutti i contenuti video preregistrati in media sincronizzati, se le pause nell'audio principale sono troppo brevi per consentire alle audiodescrizioni di comunicare il senso del video, sono fornite delle audiodescrizioni estese.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non sono presenti audiodescrizioni, quindi nemmeno audiodescrizioni estese.
 
-### Tipo di media alternativo (preregistrato)
+#### Tipo di media alternativo (preregistrato)
 livello: AAA
 outcome: no
 source: media-alternative-prerecorded
 
 > Per tutti i contenuti preregistrati di media sincronizzati e per tutti i tipi di media preregistrati di solo video è fornito un tipo di media alternativo.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non sono forniti media alternativi per nessuno dei media preregistrati di solo video.
 
-### Solo audio (in tempo reale)
+#### Solo audio (in tempo reale)
 livello: AAA
 outcome: no
 source: audio-only-live
 
 > Per i media temporizzati che presentano informazioni equivalenti a contenuti solo audio in tempo reale è fornita un'alternativa.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Non è presente nessuna alternativa ai contenuti di solo audio in tempo reale.
 
-## Adattabile
+### Adattabile
 
 > Creare contenuti che possano essere rappresentati in modalità differenti (ad esempio, con layout più semplici), senza perdere informazioni o struttura.
 
-### Informazioni e correlazioni
+#### Informazioni e correlazioni
 livello: A
 outcome: no
 source: info-and-relationships
 
 > Le informazioni, la struttura e le correlazioni trasmesse dalla presentazione possono essere determinate programmaticamente oppure sono disponibili tramite testo.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
-TODO: prendere la lista degli errori dal validator.w3.org
+L'elemento *p* non può essere figlio di un *h2*
+
+**Code snippets**
+
+```html
+<h2 class="title" data-vr-excerpttitle id="desktop-1-1-strilli-row1-1-secondopiano2col-title">
+  <p>
+    <a href="https://www.ilfattoquotidiano.it/2019/07/04/ndrangheta-le-mani-su-tre-parcheggi-di-malpensa-34-arresti-in-8-province-anche-un-consigliere-comunale-di-ferno/5300253/">Le mani della &#8216;ndrangheta sui parcheggi<br/>
+    dell&#8217;aeroporto di Malpensa: 34 arrestati<br/>
+    <span style="color: #dd0015;">Ombre su elezione ex sindaco di Lonate</span>
+    </a>
+  </p>
+</h2>
+```
+
+L'elemento *p* non può essere figlio di un elemento di tipo *span*
+
+**Code snippets**
+
+```html
+<span class="no-mobile">
+  <p>Si è spesso discusso del rapporto dei trattati europei con la Costituzione italiana. Di solito,&hellip;</p>
+</span>
+```
 
 TL;DR rispettato solo in parte
 
@@ -218,40 +276,40 @@ TL;DR rispettato solo in parte
    cambiare proprietà visuali degli elementi (come colore del testo
    e allineamento)
 
-### Sequenza significativa
+#### Sequenza significativa
 livello: A
 outcome: na
 source: meaningful-sequence
 
 > Quando la sequenza in cui il contenuto è presentato influisce sul suo significato, la corretta sequenza di lettura può essere determinata programmaticamente.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 La lista nella quale gli articoli vengono mostrati non influisce sul significato dei singoli articoli, quindi questo criterio di successo non si applica.
 
-### Caratteristiche sensoriali
+#### Caratteristiche sensoriali
 livello: A
 outcome: no
 source: sensory-characteristics
 
 > Le istruzioni fornite per comprendere ed operare sui contenuti non si basano unicamente su caratteristiche sensoriali dei componenti quali forma, colore, dimensione, ubicazione visiva, orientamento o suono.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 I video e le foto non hanno descrizioni testuali e si basano unicamente su caratteristiche sensoriali, quindi questo punto non è rispettato.
 
-### Orientamento
+#### Orientamento
 livello: AA
 outcome: yes
 source: orientation
 
 > La visualizzazione e il funzionamento di un contenuto non dipendono dall'orientamento dello schermo, ad esempio verticale o orizzontale, a meno che questo non sia essenziale.
 
-#### Osservazioni
+##### Osservazioni
 
 Il sito funziona su monitor di diverse forme e orientamenti, quindi questo punto è rispettato.
 
-### Identificare lo scopo degli input
+#### Identificare lo scopo degli input
 livello: AA
 outcome: no
 source: identify-input-purpose
@@ -262,7 +320,7 @@ source: identify-input-purpose
   
 > Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Il campo di ricerca non ha nessuna descrizione/label per permettere all'utente di identificare lo scopo dell'input.
 
@@ -270,44 +328,44 @@ Alla textarea per i commenti manca una label/aria-label/aria-labelledby. In Java
 
 Il campo di ricerca nella pagina meteo presenta la dicitura "Inserisci qui la tua località" come `value` di un input di tipo testo. Invece, bisognerebbe usare un label/aria-label/aria-labelledby.
 
-### Identificare lo scopo
+#### Identificare lo scopo
 livello: AAA
 outcome: no
 source: identify-purpose
 
 > Nei contenuti implementati utilizzando i linguaggi di markup, è possibile determinare programmaticamente lo scopo dei componenti dell'interfaccia utente, delle icone e delle aree.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag 'main' per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
-## Distinguibile
+### Distinguibile
 
 > Rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo.
 
-### Uso del colore
+#### Uso del colore
 livello: A
 outcome: yes
 source: use-of-color
 
 > Il colore non deve essere utilizzato come unica modalità visiva per rappresentare informazioni, indicare azioni, richiedere risposte o come elemento di distinzione visiva.
 
-#### Osservazioni
+##### Osservazioni
 
 Il colore non è l'unico modo con il quale le differenti aree della pagina sono divise. Vengono usati appropriati tag HTML5 (section e/o aside) per differenziare le diverse aree anche da un punto di vista semantico.
 
-### Controllo del sonoro
+#### Controllo del sonoro
 livello: A
 outcome: yes
 source: audio-control
 
 > Se un contenuto audio all'interno di una pagina Web è eseguito automaticamente per più di tre secondi o si fornisce una funzionalità per metterlo in pausa o interromperlo, oppure si fornisce una modalità per il controllo dell'audio che sia indipendente dal controllo predefinito del sistema.
 
-#### Osservazioni
+##### Osservazioni
 
 Sono presenti video con riproduzione automatica che forniscono la possibilità di modificare il livello del volume, di mettere in pausa e interrompere la riproduzione audiosonora.
 
-### Contrasto (minimo)
+#### Contrasto (minimo)
 livello: AA
 outcome: no
 source: contrast-minimum
@@ -320,27 +378,31 @@ source: contrast-minimum
 
   > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto ottimale come:
- - Il tasto condividi e il numero di commenti nelle preview degli articoli della Home page e nelle pagine di archivio;
- - L'ora e il punteggio dei commenti;
- - I tasti per cambiare giornata nella pagina del meteo;
- - I titoli degli articoli nella sezione "Top Blog";
 
-### Ridimensionamento del testo
+ - Il tasto condividi e il numero di commenti nelle preview degli articoli della Home page e nelle pagine di archivio
+  
+ - L'ora e il punteggio dei commenti
+  
+ - I tasti per cambiare giornata nella pagina del meteo
+  
+ - I titoli degli articoli nella sezione "Top Blog"
+
+#### Ridimensionamento del testo
 livello: AA
 outcome: yes
 source: resize-text
 
 > Il testo, ad eccezione dei sottotitoli e delle immagini contenenti testo, può essere ridimensionato fino al 200 percento senza l'ausilio di tecnologie assistive e senza perdita di contenuto e funzionalità.
 
-#### Osservazioni
+##### Osservazioni
 
 Il sito rimane funzionante una volta impostato il livello di Zoom a 200%.
 Ci preme comunque sottolineare che nonostante sia funzionante sono presenti delle fastidiose barre di scrolling orizzontali: sarebbe opportuno modificare il CSS in modo tale che le pagine rimangano larghe al più quanto il monitor.
 
-### Immagini di testo
+#### Immagini di testo
 livello: AA
 outcome: no
 source: images-of-text
@@ -351,15 +413,17 @@ source: images-of-text
 
   > **Essenziale**: Una particolare rappresentazione del testo è essenziale per il tipo di informazioni veicolate.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili), quando un testo sarebbe stato più opportuno, come:
 
- - Il box "Abbonati" nella Homepage;
- - Il logo "Meteo" dove la scritta non è necessaria che sia inclusa nell'immagine;
+ - Il box "Abbonati" nella Homepage
+  
+ - Il logo "Meteo" dove la scritta non è necessaria che sia inclusa nell'immagine
+  
  - La scritta 'la vignetta di' nel box della vignetta di Natangelo non è necessaria che sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali).
 
-### Contrasto (avanzato)
+#### Contrasto (avanzato)
 livello: AAA
 outcome: no
 source: contrast-enhanced
@@ -372,7 +436,7 @@ source: contrast-enhanced
 
   > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Alcuni esempi:
 
@@ -382,13 +446,13 @@ Alcuni esempi:
   
     - tutti i pulsanti
   
-    - la scritta 'Non sei ancora registrato?'
+    - la scritta 'Non sei ancora registrato?' non ha un contrasto adeguato
   
  - Nella pagina del meteo
   
     - il pulsante 'Accedi'
   
-    - la scritta 'modifica località'
+    - la scritta 'modifica località' è poco visibile
   
     - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo, ...)
   
@@ -400,7 +464,7 @@ Alcuni esempi:
   
     - le categorie nell'aside
 
-### Sottofondo sonoro basso o non presente
+#### Sottofondo sonoro basso o non presente
 livello: AAA
 outcome: yes
 source: low-or-no-background-audio
@@ -413,11 +477,11 @@ source: low-or-no-background-audio
 
   > **20 dB**: Il sottofondo sonoro deve essere inferiore di almeno 20 decibel rispetto al parlato in primo piano, con l'eccezione di suoni occasionali di durata massima di uno o due secondi.
 
-#### Osservazioni
+##### Osservazioni
 
 Non esistono pagine con solo audio preregistrato e i video con autoplay sono muti in partenza, quindi questo punto è rispettato.
 
-### Presentazione visiva
+#### Presentazione visiva
 livello: AAA
 outcome: no
 source: visual-presentation
@@ -430,28 +494,32 @@ source: visual-presentation
   > Lo spazio tra righe (interlinea) è almeno di uno spazio e mezzo all'interno del paragrafo e lo spazio tra paragrafi, è almeno una volta e mezzo l'interlinea.
   > Il testo può essere ridimensionato fino al 200 percento senza il supporto di tecnologie assistive in modo da non richiedere all'utente di dover scorrere orizzontalmente per leggere una riga di testo in una finestra a tutto schermo.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 L'unico punto passato è 'il testo non è giustificato'
 
  - [ ] Il sito non permette di cambiare i colori in primo piano e dello sfondo
+  
  - [ ] La larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
+  
  - [x] Il testo non è giustificato
+  
  - [x] Lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
+  
  - [ ] Non è possibile ingrandire il testo e se si ingrandisce con lo Zoom con il browser al 200% compaiono delle barre di scorrimento orizzontali
 
-### Immagini di testo (senza eccezioni)
+#### Immagini di testo (senza eccezioni)
 livello: AAA
 outcome: no
 source: images-of-text-no-exception
 
 > Le immagini contenenti testo sono utilizzate soltanto per pura decorazione o quando una particolare presentazione del testo sia essenziale per il tipo di informazione veicolata.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
 Le immagini contenenti testo non sono utilizzate per pura decorazione e non sono essenziali per il tipo di informazione veicolata.
 
-### Ricalcolo del flusso
+#### Ricalcolo del flusso
 livello: AA
 outcome: yes
 source: reflow
@@ -464,14 +532,15 @@ source: reflow
 
 > Tranne per le parti del contenuto che richiedono layout bidimensionale per l'utilizzo o per comprenderne il senso.
 
-#### Osservazioni
+##### Osservazioni
 
  - [x] Il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
+  
  - [x] Non c'è contenuto a scorrimento orizzontale
 
 Ingrandendo a 400% il sito è usabile e rispetta le richieste, ma intorno al 200% bisogna scrollare orizzontalmente ed i testi importanti come titoli, sottotitoli sono "tagliati fuori".
 
-### Contrasto in contenuti non testuali
+#### Contrasto in contenuti non testuali
 livello: AA
 outcome: yes
 source: non-text-contrast
@@ -482,11 +551,11 @@ source: non-text-contrast
 
   > **Oggetti grafici**: Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
 
-#### Osservazioni
+##### Osservazioni
 
 Tutte le immagini testuali hanno un livello di contrasto adeguato, oppure sono loghi.
 
-### Spaziatura del testo
+#### Spaziatura del testo
 livello: AA
 outcome: no
 source: text-spacing
@@ -500,14 +569,17 @@ source: text-spacing
 
 > Eccezione: le lingue e le scritture che non utilizzano una o più di queste proprietà nel testo scritto sono conformi quando si può applicare il criterio alle sole proprietà esistenti per quella combinazione di lingua e scrittura.
 
-#### Violazioni riscontrate:
+##### Violazioni riscontrate:
 
- - [x] L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere;
- - [x] La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere;
- - [ ] Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere;
- - [ ] Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere.
+ - [x] L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere
+  
+ - [x] La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere
+  
+ - [ ] Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere
+  
+ - [ ] Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere
    
-### Contenuto con Hover o Focus
+#### Contenuto con Hover o Focus
 livello: AA
 outcome: yes
 source: content-on-hover-or-focus
@@ -522,10 +594,12 @@ source: content-on-hover-or-focus
 
 > Eccezione: la presentazione visiva del contenuto aggiuntivo è controllata dal programma utente e non viene modificata dall'autore.
 
-#### Osservazioni
+##### Osservazioni
 
  - [x] Congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
+  
  - [x] Passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
+  
  - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
 # Utilizzabile
