@@ -1,10 +1,6 @@
-title:WCAG
+title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
-
-Valutazione di conformità in relazione alle linee guida WCAG 2.1.
-
-# Introduzione
 
 La valutazione di conformità si è basata sulle linee guida **WCAG 2.1** che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee* guida generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
@@ -602,45 +598,45 @@ source: content-on-hover-or-focus
   
  - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
-# Utilizzabile
+## Utilizzabile
 
-## Accessibile da tastiera
+### Accessibile da tastiera
 
 Rendere disponibili tutte le funzionalità tramite tastiera
 
-### Tastiera
+#### Tastiera
 livello: A
 source: keyboard
 outcome: no
 
 Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non sono navigabili da tastiera in quanto l'area a scomparsa non si apre.
 
-### Nessun impedimento all'uso della tastiera
+#### Nessun impedimento all'uso della tastiera
 livello: A
 source: no-keyboard-trap
 outcome: yes
 
 Il focus da tastiera può essere spostato da/verso qualunque componente che supporta il focus della pagina.
 
-### Tastiera (nessuna eccezione)
+#### Tastiera (nessuna eccezione)
 livello: AAA
 source: keyboard-no-exception
 outcome: no
 
 Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
 
-### Tasti di scelta rapida
+#### Tasti di scelta rapida
 livello: A
 source: character-key-shortcuts
 outcome: yes
 
 Non hanno implementato nessuna scorciatoia da tastiera quindi questo punto è banalmente rispettato.
 
-## Adeguata disponibilità di tempo
+### Adeguata disponibilità di tempo
 
 Fornire agli utenti tempo sufficiente per leggere e utilizzare i contenuti.
 
-### Regolazione tempi di esecuzione
+#### Regolazione tempi di esecuzione
 livello: A
 source: timing-adjustable
 outcome: no
@@ -656,7 +652,7 @@ La home page si auto-ricarica e:
 Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
 che permetta almeno uno dei punti sopra citati.
 
-### Pauso, stop, nascondi
+#### Pauso, stop, nascondi
 livello: A
 source: pasue-stop-hide
 outcome: no
@@ -664,7 +660,7 @@ outcome: no
  - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
  - [ ] non è possibile disattivare l'autoaggiornamento
 
-### Nessun tempo di esecuzione
+#### Nessun tempo di esecuzione
 livello: AAA
 source: no-timing
 outcome: no
@@ -673,7 +669,7 @@ Nonostante il refresh non sia una parte esseziale del contenuto, la home
 page si auto-ricarica ogni 10 minuti.
 
 
-### Interruzioni
+#### Interruzioni
 livello: AAA
 source: interruptions
 outcome: no
@@ -681,7 +677,7 @@ outcome: no
 La home page viene ricaricata ogni 10 minuti: tale azione non è
 considerabile un'emergenza.
 
-### Riautenticazione
+#### Riautenticazione
 livello: AAA
 source: re-authenticating
 outcome: yes
@@ -699,12 +695,12 @@ outcome: yes
 
 L'inattività non permette di perdere i commenti.
 
-## Convulsioni e reazioni fisiche
+### Convulsioni e reazioni fisiche
 
 Non sviluppare contenuti con tecniche che sia noto causino attacchi
 epilettici o reazioni fisiche
 
-### Tre lampeggiamenti o inferiore alla soglia
+#### Tre lampeggiamenti o inferiore alla soglia
 livello: A
 source: three-flashes-or-below-threshold
 outcome: yes
@@ -715,7 +711,7 @@ soglia. Va sottolineato però che i video che compaiono a lato cambiano
 spesso: durante la nostra ispezione i video non contenevano elementi che
 potessero invalidare questo punto, ma nulla vieta che in futuro ci siano.
 
-### Tre lampeggiamenti
+#### Tre lampeggiamenti
 livello: AAA
 source: three-flashes
 outcome: yes
@@ -725,7 +721,7 @@ un secondo. Si faccia riferimento comunque al punto precedente per il
 discorso dei video.
 
 
-### Animazione da interazioni
+#### Animazione da interazioni
 livello: AAA
 source: animation-from-interaction
 outcome: no
@@ -733,12 +729,12 @@ outcome: no
 Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
 disabilitare l'animazione (transazione) e non è essenziale.
 
-## Navigabile
+### Navigabile
 
 Fornire delle funizonalità di supporto all'utente per navigar, trovare
 contenuti e determinare la propria posizione.
 
-### Salto di blocchi
+#### Salto di blocchi
 livello: A
 source: bypass-blocks
 outcome: no
@@ -746,14 +742,14 @@ outcome: no
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
 che si ripetono su piu pagine.
 
-### Titolazione della pagina
+#### Titolazione della pagina
 livello: A
 source: page-titled
 outcome: yes
 
 Le pagine web hanno titoli che ne descrivono l'argomento.
 
-### Ordine del focus
+#### Ordine del focus
 livello: A
 source: focus-order
 outcome: yes
@@ -761,7 +757,7 @@ outcome: yes
 Rispettato banalmente: la pagine viene navigata in modo sequenziale
 usando il tab ma l'ordine di navigazione non influisce sul significato.
 
-### Scopo del collegamento
+#### Scopo del collegamento
 livello: A
 source: link-purpose-in-context
 outcome: no
@@ -769,7 +765,7 @@ outcome: no
 Mancano dei aria-label sui box del meteo e della vignetta in homepage. Le
 altre pagine sono a posto.
 
-### Differenti modalità
+#### Differenti modalità
 livello: AA
 source: multiple-ways
 outcome: yes
@@ -784,7 +780,7 @@ sufficienti per il successo del criterio:
  - [ ] non forniscono una lista di link a tutte le altre pagine
  - non tutte le pagine sono linkate dalla home page
 
-### Intestazioni ed etichette
+#### Intestazioni ed etichette
 livello: AA
 source: headings-and-labels
 outcome: yes
@@ -796,7 +792,7 @@ Le sezioni esaminate hanno intestazioni che ne specificano il contenuto:
 
 TODO: nella pagina di login ci dovrebbe essere un h1 però...
 
-### Focus visibile
+#### Focus visibile
 livello: AA
 source: focus-visible
 outcome: yes
@@ -804,7 +800,7 @@ outcome: yes
 Le parti dell'interfaccia vengono evidenziate dallo user agent quando
 ricevono focus.
 
-### Posizione
+#### Posizione
 livello: AAA
 source: location
 outcome: yes
@@ -813,7 +809,7 @@ Nelle pagine di archivio e degli articoli sono presenti delle
 *breadcrumb*. Nella pagina del meteo la posizione corrente viene mostrata
 nella nav.
 
-### Scopo del collegamento (solo collegamento)
+#### Scopo del collegamento (solo collegamento)
 livello: AAA
 source: link-purpose-link-only
 outcome: no
@@ -821,7 +817,7 @@ outcome: no
 Nella homepage il box del meteo è un'immagine senza testo descrittivo,
 così come anche il box della vignetta.
 
-### Intestazioni di sezione
+#### Intestazioni di sezione
 livello: AAA
 source: section-headings
 outcome: yes
@@ -830,26 +826,26 @@ I titoli vengono usati correttamente (ma si veda comunque il punto
 [Informazioni e correlazioni](#informazioni-e-correlazioni) per gli
 errori semantici)
 
-## Modalità di input
+### Modalità di input
 
 Rendere più facile agli utenti l'utilizzo di funzionalità attraverso
 input diversi dalla tastiera.
 
-### Movimenti del puntatore
+#### Movimenti del puntatore
 livello: A
 source: pointer-gestures
 outcome: yes
 
 Non sono richiesti gisti multi punto o basati su percorsi.
 
-### Cancellazione delle azioni del puntatore
+#### Cancellazione delle azioni del puntatore
 livello: A
 source: pointer-cancellation
 outcome: yes
 
 non sono presenti down-event nelle pagine esaminate.
 
-### Etichetta nel nome
+#### Etichetta nel nome
 livello: A
 source: label-in-name
 outcome: no
@@ -857,7 +853,7 @@ outcome: no
  - il controllo di ricerca ha il nome ha nome 'q'
  - nella schermata di login i controlli hanno nome 'username' ma il testo mostrato è 'Nome utente o email'
 
-### Azionamento da movimento
+#### Azionamento da movimento
 livello: A
 source: motion-actuation
 outcome: yes
@@ -865,30 +861,30 @@ outcome: yes
 Non sono presenti funzionalità che richiedano di essere attivate dal
 movimento del dispositivo o dell'utente.
 
-### Dimensione dell'obbiettivo
+#### Dimensione dell'obbiettivo
 livello: AAA
 source: target-size
 outcome: no
 
 Il link vuoto nella barra laterale non è alto abbastanza (0px)
 
-### Meccanismi di input simultanei
+#### Meccanismi di input simultanei
 livello: AAA
 source: concurrent-input-mechanisms
 outcome: yes
 
 L'unica modalità di input richiesta è il click e l'hover.
 
-# Comprensibile
+## Comprensibile
 
 Le informazioni e le operazioni dell'interfaccia utente devono essere
 comprensibili.
 
-## Leggibile
+### Leggibile
 
 Rendere il testo leggibile e comprensibile.
 
-### Lingua della pagina
+#### Lingua della pagina
 livello: A
 source: language-of-page
 outcome: no
@@ -897,7 +893,7 @@ l'unica violazione è la pagina del meteo che non ha un attributo lang
 sull'elemento html, non ha un meta Content-Language e, quando viene
 servita, non è presente  un header Content-Language.
 
-### Parti in lingua
+#### Parti in lingua
 livello: AA
 source: language-of-parts
 outcome: yes
@@ -906,7 +902,7 @@ Negli articoli esaminati, il testo è sempre in italiano fatta eccezione
 per i nomi propri, alcune terminologie tecniche od alcune espressioni
 diventate parte integrante del parlato.
 
-### Parole inusuali
+#### Parole inusuali
 livello: AAA
 source: unusual-words
 outcome: no
@@ -914,7 +910,7 @@ outcome: no
 Non è presente nessun meccanismo per identificare parole o frasi usate
 in modo insolito o ristretto.
 
-### Abbreviazioni
+#### Abbreviazioni
 livello: AAA
 source: abbreviations
 outcome: no
@@ -922,7 +918,7 @@ outcome: no
 Non è presente nessun meccanismo per identificare la forma espansa o
 il significato delle abbreviazioni.
 
-### Livello di lettura
+#### Livello di lettura
 livello: AAA
 source: reading-level
 outcome: yes
@@ -931,18 +927,18 @@ Negli articoli esaminati il testo non ci sembra richieda capacità
 di lettura più avanzata rispetto al livello di istruzione secondaria
 inferiore.
 
-### Pronuncia
+#### Pronuncia
 livello: AAA
 source: pronunciation
 outcome: yes
 
 Si perchè il contenunto prevalente è in italiano e non abbiamo i *false friends*.
 
-## Prevedibile
+### Prevedibile
 
 Creare pagine web che abbiano aspetto e funzionalità prevedibili.
 
-### Al Focus
+#### Al Focus
 livello: A
 source: on-focus
 outcome: yes
@@ -950,7 +946,7 @@ outcome: yes
 Nelle pagine esaminate quando un componente dell'interfaccia utente
 riceve il focus non si avvia nessun cambiamento del contesto.
 
-### All'input
+#### All'input
 livello: A
 source: on-input
 outcome: yes
@@ -958,7 +954,7 @@ outcome: yes
 
 TODO: tenere a mente quando si progetta il campo di ricerca
 
-### Navigazione Coerente
+#### Navigazione Coerente
 livello: AA
 source: consistent-navigation
 outcome: yes
@@ -968,7 +964,7 @@ web sono i seguenti e appaiono sempre nello stesso ordine relativo:
  - menu a scomparsa laterale
  - link del footer
 
-### Identificazione coerente
+#### Identificazione coerente
 livello: AA
 source: consistent-identification
 outcome: yes
@@ -977,7 +973,7 @@ I componenti che hanno la stessa funzionalità (come i controlli 'Articolo
 successivo/precedente', il menu a scomparsa, il footer) sono identificati
 consistentemente.
 
-### Cambiamenti su richiesta
+#### Cambiamenti su richiesta
 livello: AAA
 source: change-on-demand
 outcome: no
@@ -987,11 +983,11 @@ aggiorna la pagina. Questo provoca un cambiamento di contesto (la
 posizione relativa all'interno della pagina viene persa, così come
 anche il focus).
 
-## Assistenza nell'inserimento
+### Assistenza nell'inserimento
 
 Aiutare gli utenti a evitare gli errori e agevolarli nella loro correzione.
 
-### Identificazione di errori
+#### Identificazione di errori
 livello: A
 source: error-identification
 outcome: no
@@ -1004,7 +1000,7 @@ testo.
 Nella pagina di login invece, se vengono fornite credenziali errate,
 viene fornito un messaggio di errore.
 
-### Etichette o istruzioni
+#### Etichette o istruzioni
 livello: A
 source: labels-or-instructions
 outcome: no
@@ -1015,14 +1011,14 @@ in sovraimpressione ma viene aggiunta con javascript e posizionata lì
 sopra, non ha nessuna vicinanza all'elemento che permetta di comprenderne
 l'associazione se non il risultato grafico).
 
-### Seggerimenti per gli errori
+#### Seggerimenti per gli errori
 livello: AA
 source: error-suggestion
 outcome: no
 
 Si veda ad esempio la già citata textarea per i commenti.
 
-### Prevenzione degli errori
+#### Prevenzione degli errori
 livello: AA
 source: error-prevention-legal-financial-data
 outcome: yes
@@ -1031,7 +1027,7 @@ Nelle pagine controllate non sono presenti pagine con vincoli di tipo
 giuridico, transazioni finanziarie o la modifica/cancellazione o gestione
 di dati controllabili dall'utente.
 
-### Aiuto
+#### Aiuto
 livello: AAA
 source: help
 outcome: yes
@@ -1039,18 +1035,18 @@ outcome: yes
  - è presente una pagina (seppur limitata) di aiuto (linkata sempre nel footer)
  - ci sono degli aiuti contestuali
 
-# Robusto
+## Robusto
 
 Il contenuto deve essere abbastanza robusto per essere interpretato in
 maniera affidabile da una grande varietà di programmi utente, comprese
 le tecnologie assitive.
 
-## Compatibile
+### Compatibile
 
 Garantire la massima compatibilità con i programmi utente attuali e
 futuri, comprese le tecnologie assistive.
 
-### Analisi sintattica (parsing)
+#### Analisi sintattica (parsing)
 livello: A
 source: parsing
 outcome: no
@@ -1063,7 +1059,7 @@ copiare dal validatore:
 sappiamo per certo che i tag non sono corretti (chiusi due volti i p
 per esempio).
 
-### Nome, ruolo, valore
+#### Nome, ruolo, valore
 livello: A
 source: name-role-value
 outcome: no
@@ -1072,7 +1068,7 @@ Non è possibile calcolare name e ruolo per ogni componente
 dell'interfaccia utente (verificato con gli strumenti di accessibilità
 di firefox: la barra di ricerca per esempio non viene riconosciuta).
 
-### Messaggi di stato
+#### Messaggi di stato
 livello: AA
 source: status-messages@
 outcome: no
@@ -1083,4 +1079,4 @@ programmaticamente.
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
 
-# Conformità
+## Conformità

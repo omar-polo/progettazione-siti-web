@@ -1,5 +1,8 @@
 {{ define "content" }}
 	<div class="wcag container">
+		<h1>{{ .Title }}</h1>
+		{{ .Content | markdown }}
+	
 		{{ range .SubSections }}
 			<section class="principle">
 				<h2>{{ .Title }}</h2>
