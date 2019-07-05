@@ -517,6 +517,53 @@ pre code {
 	border-radius: 5px;
 }
 
+/* toc */
+.table-of-contents {
+	width: 70%;
+	margin: 0 auto;
+	
+	counter-reset: toc-principle;
+}
+
+.table-of-contents h5 {
+	margin: .5rem 0;
+	padding: 0;
+}
+
+.table-of-contents > ol > li {
+	counter-reset: toc-guidelines;
+}
+
+.table-of-contents > ol > li > ol > li {
+	counter-reset: toc-success-criterion;
+}
+
+.table-of-contents > ol > li > a::before {
+	counter-increment: toc-principle;
+	content: counter(toc-principle) " ";
+}
+
+.table-of-contents > ol > li > ol > li > a::before {
+	counter-increment: toc-guidelines;
+	content: counter(toc-principle) "." counter(toc-guidelines) " ";
+}
+
+.table-of-contents > ol > li > ol > li > ol > li > a::before {
+	counter-increment: toc-success-criterion;
+	content: counter(toc-principle) "." counter(toc-guidelines) "." counter(toc-success-criterion) " ";
+}
+
+.table-of-contents li a::before {
+	display: inline-block;
+	width: 40px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.table-of-contents li a:hover::before {
+	text-decoration: underline;
+}
+
 /* fine wcag */
 
 /* pagina User testing */
