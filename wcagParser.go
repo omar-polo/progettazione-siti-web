@@ -279,6 +279,21 @@ func WCAGParseTitle(p *WCAGParser) (string, int, error) {
 
 func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 	m := make(map[string]string)
+	
+	defer func() {
+		if _, ok := m["source"]; !ok {
+			fmt.Println(p.SyntaxError("missing `source'"))
+		}
+		
+		if p.Level == 4 {
+			if _, ok := m["livello"]; !ok {
+				fmt.Println(p.SyntaxError("missing `livello'"))
+			}
+			if _, ok := m["outcome"]; !ok {
+				fmt.Println(p.SyntaxError("missing `outcome'"))
+			}
+		}
+	}()
 
 	for {
 		line, err := p.ReadLine()
