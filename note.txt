@@ -1,7 +1,7 @@
 pagine analizzate:
 
- - home page
+ - //home page
  - pagina del meteo
- - pagina di un articolo ("https://www.ilfattoquotidiano.it/2019/06/12/corruzione-arrestati-paolo-arata-e-il-figlio-soci-occulti-del-re-delleolico-nicastri-finanziatore-di-messina-denaro/5249362/#")
- - login page
- - archivi
+ - //pagina di un articolo ("https://www.ilfattoquotidiano.it/2019/06/12/corruzione-arrestati-paolo-arata-e-il-figlio-soci-occulti-del-re-delleolico-nicastri-finanziatore-di-messina-denaro/5249362/#")
+ - //login page
+ - //archivi
