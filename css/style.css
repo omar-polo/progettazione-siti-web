@@ -521,7 +521,7 @@ img {
 
 .wcag blockquote > p {
 	margin: 1rem 0;
-	line-height: 1.5rem;
+	line-height: 2rem;
 }
 
 .wcag blockquote > p:first-of-type,
@@ -542,7 +542,7 @@ img {
 
 .wcag p {
 	margin: 1rem;
-	line-height: 1.5rem;
+	line-height: 2rem;
 }
 
 .wcag ul {
