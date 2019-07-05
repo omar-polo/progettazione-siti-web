@@ -29,13 +29,45 @@ Sono stati utilizzati diversi strumenti come supporto alla valutazione di confor
 
 - [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità. 
 
+- [Color Contrast Checker - WebAIM](https://webaim.org/resources/contrastchecker/) che fornisce un rapporto per sapere quanto è accessibile un sito Web e come migliorarlo.
+
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) che è uno strumento automatizzato open-source per migliorare la qualità delle pagine web. Ha Audits per prestazioni, accessibilità, buone pratiche, applicazioni web progressive e altro.
 
+##### Perimetro dell'indagine
+
+Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono state selezionate le seguenti pagine:
+
+- Home page del sito [il Fatto Quotidiano](https://www.ilfattoquotidiano.it/)
+
+- Un articolo estratto dalla Home page
+
+- La pagina [Archivi](https://www.ilfattoquotidiano.it/archivi/)
+
+- La pagina di [Login](https://shop.ilfattoquotidiano.it/login/)
+
+- La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
+
+##### Risultati del report
+
+Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
+
+I video preregistrati non forniscono nessuna trascrizione testuale equivalente, nè presentano sottotitoli.
+
+Le informazioni trasmesse determinate programmaticamente non rispettano la semantica del Web. Il vantaggio della scrittura di HTML semantico deriva da quello che dovrebbe essere l'obiettivo principale di qualsiasi pagina web: il desiderio di comunicare.
+
+Il sito fa largo uso di immagini di testo che non sono essenziali per le informazioni che intendono veicolare, quando sarebbe stato più opportuno utilizzare puro testo.
+
+Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è possibile accedere tramite la tastiera.
+
+Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
+
 ## Percepibile
+source: perceivable
 
 > Le informazioni e i componenti dell'interfaccia utente devono essere presentati agli utenti in modi in cui essi possano percepirli.
 
 ### Alternative testuali
+source: text-alternatives
 
 > Fornire alternative testuali per qualsiasi contenuto non di testo in modo che questo possa essere trasformato in altre forme fruibili secondo le necessità degli utenti come stampa a caratteri ingranditi, Braille, sintesi vocale, simboli o un linguaggio più semplice.
 
@@ -104,6 +136,7 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
 ```
 
 ### Media temporizzati
+source: time-based-media
 
 > Fornire alternative per i media temporizzati
 
@@ -124,7 +157,7 @@ I video pre-registrati non hanno una trascrizione testuale equivalente.
 
 Al momento della nostra analisi, nel sito non sono presenti contenuti di solo audio.
 
-#### sottotitoli (preregistrati)
+#### Sottotitoli (preregistrati)
 livello: A
 outcome: no
 source: captions-prerecorded
@@ -214,6 +247,7 @@ source: audio-only-live
 Non è presente nessuna alternativa ai contenuti di solo audio in tempo reale.
 
 ### Adattabile
+source: adaptable
 
 > Creare contenuti che possano essere rappresentati in modalità differenti (ad esempio, con layout più semplici), senza perdere informazioni o struttura.
 
@@ -335,6 +369,7 @@ source: identify-purpose
 Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag 'main' per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
 ### Distinguibile
+source: distinguishable
 
 > Rendere più semplice agli utenti la visione e l'ascolto dei contenuti, separando i contenuti in primo piano dallo sfondo.
 
@@ -449,7 +484,7 @@ Alcuni esempi:
   
     - la scritta 'modifica località' è poco visibile
   
-    - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo, ...)
+    - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo)
   
     - il selettore dell'ora
   
@@ -598,8 +633,10 @@ source: content-on-hover-or-focus
  - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
 ## Utilizzabile
+source: operable
 
 ### Accessibile da tastiera
+source: keyboard-accessible
 
 Rendere disponibili tutte le funzionalità tramite tastiera
 
@@ -632,6 +669,7 @@ outcome: yes
 Non hanno implementato nessuna scorciatoia da tastiera quindi questo punto è banalmente rispettato.
 
 ### Adeguata disponibilità di tempo
+source: enough-time
 
 Fornire agli utenti tempo sufficiente per leggere e utilizzare i contenuti.
 
@@ -695,6 +733,7 @@ outcome: yes
 L'inattività non permette di perdere i commenti.
 
 ### Convulsioni e reazioni fisiche
+source: seizures-and-physical-reactions
 
 Non sviluppare contenuti con tecniche che sia noto causino attacchi
 epilettici o reazioni fisiche
@@ -729,8 +768,9 @@ Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
 disabilitare l'animazione (transazione) e non è essenziale.
 
 ### Navigabile
+source: navigable
 
-Fornire delle funizonalità di supporto all'utente per navigar, trovare
+Fornire delle funizonalità di supporto all'utente per navigare, trovare
 contenuti e determinare la propria posizione.
 
 #### Salto di blocchi
@@ -826,6 +866,7 @@ I titoli vengono usati correttamente (ma si veda comunque il punto
 errori semantici)
 
 ### Modalità di input
+source: input-modalities
 
 Rendere più facile agli utenti l'utilizzo di funzionalità attraverso
 input diversi dalla tastiera.
@@ -835,7 +876,7 @@ livello: A
 source: pointer-gestures
 outcome: yes
 
-Non sono richiesti gisti multi punto o basati su percorsi.
+Non sono richiesti gesti multi punto o basati su percorsi.
 
 #### Cancellazione delle azioni del puntatore
 livello: A
@@ -875,11 +916,13 @@ outcome: yes
 L'unica modalità di input richiesta è il click e l'hover.
 
 ## Comprensibile
+source: understandable
 
 > Le informazioni e le operazioni dell'interfaccia utente devono essere
 > comprensibili.
 
 ### Leggibile
+source: readable
 
 > Rendere il testo leggibile e comprensibile.
 
@@ -934,6 +977,7 @@ outcome: yes
 Si perchè il contenunto prevalente è in italiano e non abbiamo i *false friends*.
 
 ### Prevedibile
+source: predictable
 
 Creare pagine web che abbiano aspetto e funzionalità prevedibili.
 
@@ -983,6 +1027,7 @@ posizione relativa all'interno della pagina viene persa, così come
 anche il focus).
 
 ### Assistenza nell'inserimento
+source: input-assistance
 
 Aiutare gli utenti a evitare gli errori e agevolarli nella loro correzione.
 
@@ -1035,12 +1080,14 @@ outcome: yes
  - ci sono degli aiuti contestuali
 
 ## Robusto
+source: robust
 
 Il contenuto deve essere abbastanza robusto per essere interpretato in
 maniera affidabile da una grande varietà di programmi utente, comprese
 le tecnologie assitive.
 
 ### Compatibile
+source: compatible
 
 Garantire la massima compatibilità con i programmi utente attuali e
 futuri, comprese le tecnologie assistive.
@@ -1077,5 +1124,3 @@ programmaticamente.
 
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
-
-## Conformità
