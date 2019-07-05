@@ -53,6 +53,7 @@ table {
 	--red: #FF7070; /* coral reef */
 	--green: #86CE67; /* dollar bill */
 	--light-gray: #ebebeb;
+	--bg-color: #f8f8f8;
 }
 
 *,
@@ -70,7 +71,7 @@ body {
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
-	background: #f8f8f8;
+	background: var(--bg-color);
 	color: #444;
 }
 
@@ -373,10 +374,6 @@ em {
 	padding: 8px;
 }
 
-.principle blockquote:nth-child(2) {
-	padding-left: 15px;
-}
-
 .wcag h2::before {
 	counter-increment: principle;
 	content: counter(principle) " ";
@@ -461,6 +458,49 @@ em {
 
 .wcag .success-criterion header {
 	margin-bottom: 10px;
+}
+
+.wcag blockquote {
+	display: block;
+	border-width: 2px 0;
+	border-style: solid;
+	border-color: #ddd;
+	padding: 1.5rem .5rem 1.5rem 2rem;
+	margin: 1.5em auto;
+	position: relative;
+	font-style: italic;
+	width: 80%;
+	max-width: 700px;
+}
+
+/* .wcag blockquote:after {
+	content: "\2013 \2003" attr(cite);
+	display: block;
+	text-align: right;
+	font-size: 0.875em;
+	color: #e74c3c;
+}*/
+
+.wcag blockquote > p:nth-child(1) {
+	position: relative;
+}
+
+.wcag blockquote > p:nth-child(1)::before {
+	content: '\201C';
+	font-size: 5rem;
+	color: #666;
+	position: absolute;
+	top: -20px;
+	left: -40px;
+}
+
+.wcag blockquote > p {
+	margin: 1rem 0;
+}
+
+.wcag blockquote > p:first-of-type,
+.wcag blockquote > p:last-of-type {
+	margin: 0;
 }
 
 .wcag p {
