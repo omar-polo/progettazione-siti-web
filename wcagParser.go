@@ -326,7 +326,7 @@ func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 		k := trimm(f[0])
 		v := trimm(f[1])
 		m[k] = v
-		fmt.Println(p.SyntaxError(k, " -> ", v))
+		//fmt.Println(p.SyntaxError(k, " -> ", v))
 	}
 }
 
