@@ -40,12 +40,12 @@
 	
 		{{ range .SubSections }}
 			<section class="principle">
-				<h2>{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h2>
+				<h2 id="{{ .Source }}">{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h2>
 				{{ block "wcag_quote" .Quote }}{{ end }}
 				
 				{{ range .SubSections }}
 					<section class="guideline">
-						<h3>{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h3>
+						<h3 id="{{ .Source }}">{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h3>
 						{{ block "wcag_quote" .Quote }}{{ end }}
 						
 						{{ range .SubSections }}
