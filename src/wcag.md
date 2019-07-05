@@ -168,7 +168,7 @@ source: captions-prerecorded
 
 I video presenti nelle pagine del sito non hanno sottotitoli.
 
-#### Audiodescrizione o tipo di media alternativo (preregistrato)
+#### Audiodescrizione (preregistrato)
 livello: A
 outcome: no
 source: audio-description-or-media-alternative-prerecorded
