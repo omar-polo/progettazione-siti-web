@@ -364,7 +364,7 @@ em {
 
 .wcag h2::before, .wcag h3::before, .wcag h4::before {
 	display: inline-block;
-	width: 50px;
+	width: 70px;
 	text-align: right;
 	padding-right: 5px;
 }
