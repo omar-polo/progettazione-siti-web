@@ -22,7 +22,7 @@ type Parser struct {
 }
 
 func trim(s string) string {
-	return strings.Trim(s, " \t\n\r")
+	return strings.TrimRight(s, " \t\n\r")
 }
 
 func (p *Parser) ReadLine() (string, error) {
