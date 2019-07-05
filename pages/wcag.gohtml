@@ -30,8 +30,12 @@
 
 {{ define "content" }}
 	<div class="wcag container">
-		<h1>{{ .Title }}</h1>
-		{{ .Content | markdown }}
+	
+		<!-- intro -->
+		<section class="introduction">
+			<h1>{{ .Title }}</h1>
+			{{ .Content | markdown }}
+		</section>
 		
 		<!-- Table of contents -->
 		<section class="table-of-contents" id="toc">

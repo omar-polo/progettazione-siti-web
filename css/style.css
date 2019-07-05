@@ -70,7 +70,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	background: var(--bg-color);
 	color: #444;
 }
@@ -357,6 +357,13 @@ em {
 	counter-reset: principle;
 }
 
+@media (min-width: 1015px) {
+	.wcag {
+		text-align: justify;
+		hyphens: auto;
+	}
+}
+
 img {
 	-webkit-box-shadow: 0px 0px 8px #777777;
 	-moz-box-shadow: 0px 0px 8px #777777;
@@ -365,7 +372,7 @@ img {
 
 .wcag h1 {
 	font-size: 1.6rem;
-	padding: 8px;
+	margin: 2rem 0 1rem 0;
 }
 
 .wcag h2::before, .wcag h3::before, .wcag h4::before {
@@ -466,17 +473,29 @@ img {
 	margin-bottom: 10px;
 }
 
+/* fix line width
+ * lines should be in the 40-80 characters
+ */
+/*.wcag .principle > blockquote,
+.wcag .guidelines > blockquote,
+.wcag .success-criterion > p,
+.wcag .success-criterion > blockquote,
+.wcag .success-criterion > ul */
+.wcag .principle, .wcag .introduction {
+	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .wcag blockquote {
 	display: block;
-	border-width: 2px 0;
+	border-width: 2px 0 0;
 	border-style: solid;
 	border-color: #ddd;
 	padding: 1.5rem .5rem 1.5rem 2rem;
 	margin: 1.5em auto;
 	position: relative;
 	font-style: italic;
-	width: 80%;
-	max-width: 700px;
 }
 
 /* .wcag blockquote:after {
@@ -532,7 +551,7 @@ img {
 }
 
 pre code {
-	border-radius: 5px;
+	border: 1px solid #888;
 }
 
 /* Table of contents */
@@ -590,7 +609,7 @@ pre code {
 	}
 	
 	.table-of-contents nav div {
-		padding: 0 5px;
+		padding: 0 7px;
 	}
 	
 	.table-of-contents nav div > ol:nth-child(2) {
