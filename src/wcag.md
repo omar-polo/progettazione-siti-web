@@ -45,18 +45,17 @@ outcome: no
 source: non-text-content
 
 > Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione dei seguenti casi
-
-  > **Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
-
-  > **Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
-
-  > **Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
-
-  > **Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
-
-  > **CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
-
-  > **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
+>
+> **Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
+>
+> **Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
+> **Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+>
+> **Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+>
+> **CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
+>
+> **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
 ##### Violazioni riscontrate:
 
@@ -877,12 +876,12 @@ L'unica modalità di input richiesta è il click e l'hover.
 
 ## Comprensibile
 
-Le informazioni e le operazioni dell'interfaccia utente devono essere
-comprensibili.
+> Le informazioni e le operazioni dell'interfaccia utente devono essere
+> comprensibili.
 
 ### Leggibile
 
-Rendere il testo leggibile e comprensibile.
+> Rendere il testo leggibile e comprensibile.
 
 #### Lingua della pagina
 livello: A

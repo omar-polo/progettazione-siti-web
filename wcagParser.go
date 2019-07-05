@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"strings"
+	"regexp"
 )
 
 // Parser definisce un semplice tipo `parser' su cui sono definite
@@ -79,6 +80,7 @@ func (p *Parser) SyntaxError(reasons ...interface{}) error {
 type Section struct {
 	Title       string            `json:"title"`
 	Metadata    map[string]string `json:"metadata"`
+	Quote       string            `json:"-"`
 	Content     string            `json:"-"`
 	SubSections []Section         `json:"subsections"`
 }
@@ -165,7 +167,7 @@ func WCAGParse(p *WCAGParser) (Section, error) {
 			return s, err
 		}
 	}*/
-	
+
 	s, err := WCAGSection(p)
 	if err != nil && err != io.EOF {
 		return s, err
@@ -192,15 +194,22 @@ func WCAGSection(p *WCAGParser) (Section, error) {
 	if err != nil {
 		return s, err
 	}
+	
+	// 3. Read quote
+	q, err := WCAGQuote(p)
+	s.Quote = q
+	if err != nil {
+		return s, err
+	}
 
-	// 3. Read content
+	// 4. Read content
 	content, err := WCAGContent(p)
 	s.Content = content
 	if err != nil {
 		return s, err
 	}
 
-	// 4. (try to) read subsections
+	// 5. (try to) read subsections
 	for {
 		line, err := p.ReadLine()
 		if err != nil {
@@ -214,7 +223,7 @@ func WCAGSection(p *WCAGParser) (Section, error) {
 		if !strings.HasPrefix(line, "#") {
 			return s, p.SyntaxError("expected title")
 		}
-		
+
 		p.Rollback()
 		if level(line) > p.Level {
 			//fmt.Println("subtitle-> recursion", line)
@@ -279,12 +288,12 @@ func WCAGParseTitle(p *WCAGParser) (string, int, error) {
 
 func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 	m := make(map[string]string)
-	
+
 	defer func() {
 		if _, ok := m["source"]; !ok {
 			fmt.Println(p.SyntaxError("missing `source'"))
 		}
-		
+
 		if p.Level == 4 {
 			if _, ok := m["livello"]; !ok {
 				fmt.Println(p.SyntaxError("missing `livello'"))
@@ -314,6 +323,37 @@ func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 		v := trim(f[1])
 		m[k] = v
 	}
+}
+
+var quoteRe = regexp.MustCompile(`\s*>\s*`)
+
+func WCAGQuote(p *WCAGParser) (string, error) {
+	var l []string
+	var err error
+	var line string
+
+	for {
+		line, err = p.ReadLine()
+		if err != nil {
+			break
+		}
+
+		if line == "" {
+			l = append(l, line)
+			continue
+		}
+
+		// stop when it's not a quote!
+		if !quoteRe.MatchString(line) {
+			p.Rollback()
+			break
+		}
+		
+		line = quoteRe.ReplaceAllString(line, "")
+		l = append(l, line)
+	}
+
+	return strings.Join(l, "\n"), err
 }
 
 func WCAGContent(p *WCAGParser) (string, error) {

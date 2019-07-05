@@ -503,6 +503,17 @@ em {
 	margin: 0;
 }
 
+.wcag blockquote footer {
+	margin-top: 0;
+	text-align: right;
+	font-size: .9rem;
+	margin-bottom: -.5rem;
+}
+
+.wcag blockquote footer cite::before {
+	content: "\2014 ";
+}
+
 .wcag p {
 	margin: 1rem;
 	line-height: auto;

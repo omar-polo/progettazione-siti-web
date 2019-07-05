@@ -1,3 +1,13 @@
+{{ define "wcag_quote" }}
+	<blockquote>
+		{{ . | markdown }}
+
+		<footer>
+			<cite>WCAG 2.1</cite>
+		</footer>
+	</blockquote>
+{{ end }}
+
 {{ define "content" }}
 	<div class="wcag container">
 		<h1>{{ .Title }}</h1>
@@ -30,12 +40,12 @@
 		{{ range .SubSections }}
 			<section class="principle">
 				<h2>{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h2>
-				{{ .Content | markdown }}
+				{{ block "wcag_quote" .Quote }}{{ end }}
 				
 				{{ range .SubSections }}
 					<section class="guideline">
 						<h3>{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h3>
-						{{ .Content | markdown }}
+						{{ block "wcag_quote" .Quote }}{{ end }}
 						
 						{{ range .SubSections }}
 							<section class="success-criterion {{ .OutcomeClassName }}">
@@ -50,7 +60,8 @@
 										</a>
 									</p>
 								</header>
-								<strong><p class="outcome">Esito:</strong> {{ .OutcomeNL }}</p>
+								{{ block "wcag_quote" .Quote }}{{ end }}
+								<p class="outcome"><strong>Esito:</strong> {{ .OutcomeNL }}</p>
 								{{ .Content | markdown }}
 								
 								<p class="goto-toc"><a href="#toc">&uarr; Ritorna all'indice</a></p>
