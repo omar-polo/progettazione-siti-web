@@ -26,6 +26,10 @@ func trim(s string) string {
 	return strings.TrimRight(s, " \t\n\r")
 }
 
+func trimm(s string) string {
+	return strings.Trim(s, " \t\n\r")
+}
+
 func (p *Parser) ReadLine() (string, error) {
 	p.lineNumber++
 	if p.line == "" {
@@ -319,9 +323,10 @@ func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 			return m, p.SyntaxError("metadata should have two field:", len(f), "found")
 		}
 
-		k := trim(f[0])
-		v := trim(f[1])
+		k := trimm(f[0])
+		v := trimm(f[1])
 		m[k] = v
+		fmt.Println(p.SyntaxError(k, " -> ", v))
 	}
 }
 
