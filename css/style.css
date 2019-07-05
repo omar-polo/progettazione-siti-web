@@ -482,14 +482,14 @@ img {
 .wcag .success-criterion > blockquote,
 .wcag .success-criterion > ul */
 .wcag .principle, .wcag .introduction {
-	max-width: 750px;
+	max-width: 960px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .wcag blockquote {
 	display: block;
-	border-width: 2px 0 0;
+	border-width: 2px 0 0 0;
 	border-style: solid;
 	border-color: #ddd;
 	padding: 1.5rem .5rem 1.5rem 2rem;
@@ -542,7 +542,7 @@ img {
 
 .wcag p {
 	margin: 1rem;
-	line-height: 1.2rem;
+	line-height: 1.5rem;
 }
 
 .wcag ul {
@@ -590,7 +590,6 @@ pre code {
 	.table-of-contents div:nth-child(3) {
 		margin-top: 1.5rem;
 		width: 100%;
-		
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -645,7 +644,7 @@ pre code {
 	width: 50px;
 	text-align: right;
 	margin-right: 10px;
-	line-height: 1.5rem;
+	line-height: 2rem;
 }
 
 .table-of-contents li a:hover::before {
