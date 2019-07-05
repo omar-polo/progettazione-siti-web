@@ -13,9 +13,10 @@
 		<h1>{{ .Title }}</h1>
 		{{ .Content | markdown }}
 		
-		<!-- TOC -->
+		<!-- Table of contents -->
 		<nav role="navigation" class="table-of-contents" id="toc">
-			<h5>Indice</h5>
+			<p class="goto-toc"><a href="#perceivable">&uarr; Salta indice contenuti</a></p>
+			<h5>Indice dei contenuti</h5>
 			<ol>
 				{{ range .SubSections }}
 					<li>
