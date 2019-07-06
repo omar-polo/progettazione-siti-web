@@ -95,7 +95,7 @@ Manca una descrizione testuale per l'icona "search" nella barra di navigazione.
 
 Non sono presenti gli attributi "alt" che forniscono una descrizione testuale dell'immagine, la quale ne descrive i contenuti per chi non può vederla (in particolare nelle foto degli articoli).
 
-Al momento, le immagini senza l'attributo "alt" sono 64.
+Al momento, le immagini senza l'attributo "alt" sono 69.
 
 Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini senza l'attributo "alt"
 
@@ -122,7 +122,6 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/bersani675-320x132.jpg" alt="" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/viagola675-320x132.jpg" alt="" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="" width="320" height="132">
-  <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="" width="320" height="132">
 
   <!-- Social Icons -->
   <a href="http://www.facebook.com/ilFattoQuotidiano" target="_blank" itemprop="sameAs">
@@ -133,6 +132,34 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
   <i class="icon-yt"></i>YouTube</a>
   <a href="https://www.instagram.com/ilfattoquotidianoit/" target="_blank" itemprop="sameAs">
   <i class="icon-instagram"></i>Instagram</a>
+```
+
+**Rimedi proposti**
+
+Inserire il valore dell'attributo **alt** sugli elementi *img*
+
+Usare gli *aria-label* per fornire etichette agli oggetti
+
+```html
+  <!-- Logo Home page -->
+  <img src="https://st.ilfattoquotidiano.it/wp-content/themes/ifq/assets/img/logo-header-navbar.png" alt="ilfattoquotidiano">
+
+  <!-- Articoli -->
+  <img class="attachment-primopiano img-landscape" src="https://st.ilfattoquotid…/2015/04/finanza-990.jpg" alt="Lavoro: Liberalizzare il mercato non spinge l'economia" width="990" height="192">
+  <img class="lazyload" data-src="https://st.ilfattoquotid…adalajara675-320x132.jpg" alt="Un uomo contro un muro in Autostrada" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…2/bersani675-320x132.jpg" alt="Incontro tra Bersani e Renzi" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…2/viagola675-320x132.jpg" alt="Di Battista: ho rosicato vedere amici giurare come ministri" width="320" height="132">​
+  <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="Servizio pubblico: Malasanità" width="320" height="132">
+
+  <!-- Social Icons -->
+  <a href="http://www.facebook.com/ilFattoQuotidiano" target="_blank" itemprop="sameAs">
+  <i class="icon-fb" aria-label="Facebook"></i>Facebook</a>
+  <a href="http://www.twitter.com/FattoQuotidiano" target="_blank" itemprop="sameAs">
+  <i class="icon-tw" aria-label="Twitter"></i>Twitter</a>
+  <a href="http://www.youtube.com/antefattoblog" target="_blank" itemprop="sameAs">
+  <i class="icon-yt" aria-label="YouTube"></i>YouTube</a>
+  <a href="https://www.instagram.com/ilfattoquotidianoit/" target="_blank" itemprop="sameAs">
+  <i class="icon-instagram" aria-label="Instagram"></i>Instagram</a>
 ```
 
 ### Media temporizzati
@@ -157,6 +184,16 @@ I video pre-registrati non hanno una trascrizione testuale equivalente.
 
 Al momento della nostra analisi, nel sito non sono presenti contenuti di solo audio.
 
+**Rimedi proposti**
+
+Le didascalie forniscono una trascrizione e possibilmente una traduzione dell'audio.
+
+```html
+<video controls width="400" height="500" src="/media/IlFattoQuotidiano.it/Politica/video.mp4 ">
+  <track default kind="captions" srclang="it" src="/media/IlFattoQuotidiano.it/Politica/video.vtt"/>
+</video>
+```
+
 #### Sottotitoli (preregistrati)
 livello: A
 outcome: no
@@ -167,6 +204,16 @@ source: captions-prerecorded
 ##### Violazioni riscontrate:
 
 I video presenti nelle pagine del sito non hanno sottotitoli.
+
+**Rimedi proposti**
+
+I sottotitoli forniscono la traduzione di contenuti che non possono essere compresi da chi visualizza il video.
+
+```html
+<video controls width="400" height="500" src="/media/IlFattoQuotidiano.it/Politica/video.mp4 ">
+  <track default kind="subtitles" srclang="it" src="/media/IlFattoQuotidiano.it/Politica/video.vtt"/>
+</video>
+```
 
 #### Audiodescrizione (preregistrato)
 livello: A
@@ -179,6 +226,16 @@ source: audio-description-or-media-alternative-prerecorded
 
 Non sono state fornite alternative ai media temporizzati e non vi sono audiodescrizioni dei contenuti video preregistrati.
 
+**Rimedi proposti**
+
+Descrizione testuale del contenuto del video, adatto per utenti non vedenti o dove non è possibile vedere il video.
+
+```html
+<video controls width="400" height="500" src="/media/IlFattoQuotidiano.it/Politica/video.mp4 ">
+  <track default kind="descriptions" srclang="it" src="/media/IlFattoQuotidiano.it/Politica/video.vtt"/>
+</video>
+```
+
 #### Sottotitoli (in tempo reale)
 livello: AA
 outcome: na
@@ -188,8 +245,7 @@ source: captions-live
 
 ##### Violazioni riscontrate:
 
-Al momento sono presenti solo video preregistrati, quindi questo punto
-non si applica.
+Al momento sono presenti solo video preregistrati, quindi questo punto non si applica.
 
 #### Audiodescrizione (preregistrata)
 livello: AA
@@ -281,29 +337,21 @@ L'elemento *p* non può essere figlio di un elemento di tipo *span*
 
 ```html
 <span class="no-mobile">
-  <p>Si è spesso discusso del rapporto dei trattati europei con la Costituzione italiana. Di solito,&hellip;</p>
+  <p>Si è spesso discusso del rapporto dei trattati europei con la Costituzione italiana.</p>
 </span>
 ```
 
-TL;DR rispettato solo in parte
+- Non vengono utilizzati i punti di riferimento ARIA per identificare le regioni di una pagina
 
- - aria: non vengono usati
- - G115 semantic markup: usato solo in parte
+- Non vengono implementati i *`role="heading"`* per identificare i titoli
 
-  viene usato un markup semantico in alcuni punti (es: aside) ma si
-  fallisce miseramente in altri punti della pagina (es. molti titoli
-  sono un `p` dentro un `h2`)
+- Non c'è un utilizzo appropriato di elementi semantici per contrassegnare la struttura delle pagine (es: molti titoli sono un *`p`* dentro un *`h2`*)
+  
+- Non viene utilizzata della marcatura semantica per contrassegnare il testo enfatizzato o speciale (es: non usano correttamente il tag *`quote`* per le citazioni)
 
- - H49 usare il markup semantico per enfatizzare testo speciale: in
-   parte. usano tag come `strong` per il testo in grossetto, ma non usano
-   correttamente i `quote` per le citazioni.
+- Violata la separazione delle informazioni e della struttura dalla presentazione per abilitare presentazioni diverse
 
- - G117 violato: i contenuti nuovi (aggiornamenti di articoli e/o nuovi
-   articoli) non vengono segnalati.
-
- - G140 violato: si fa largo uso di attributi `style` nell'html per
-   cambiare proprietà visuali degli elementi (come colore del testo
-   e allineamento)
+  - Si fa largo uso degli attributi *`style`* nell'HTML per cambiare le proprietà visuali degli elementi
 
 #### Sequenza significativa
 livello: A
@@ -357,6 +405,32 @@ Alla textarea per i commenti manca una label/aria-label/aria-labelledby. In Java
 
 Il campo di ricerca nella pagina meteo presenta la dicitura "Inserisci qui la tua località" come `value` di un input di tipo testo. Invece, bisognerebbe usare un label/aria-label/aria-labelledby.
 
+**Code snippets**
+
+```html
+<div class="input-wrap">
+  <input type="text" name="q" id="q" onfocus="this.value = '';" wfd-id="5112">
+</div>
+```
+
+```html
+<button class="basicBtn" type="submit" wfd-id="5115">Cerca</button>
+```
+
+**Rimedi proposti**
+
+Per identificare lo scopo degli input è necessario inserire un *`aria-labelledby`* e un *`aria-label`*
+
+```html
+<div class="input-wrap" aria-labelledby="q">
+  <input type="text" name="q" id="q" onfocus="this.value = '';" wfd-id="5112" aria-label="Campo per cercare contenuti del sito">
+</div>
+```
+
+```html
+<button class="basicBtn" aria-label="Cerca" type="submit" wfd-id="5115">Cerca</button>
+```
+
 #### Identificare lo scopo
 livello: AAA
 outcome: no
@@ -366,7 +440,7 @@ source: identify-purpose
 
 ##### Violazioni riscontrate:
 
-Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag 'main' per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
+Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag `main` per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
 ### Distinguibile
 source: distinguishable
