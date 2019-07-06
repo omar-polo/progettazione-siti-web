@@ -551,7 +551,8 @@ img {
 }
 
 pre code {
-	border: 1px solid #888;
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 
 /* Table of contents */
