@@ -667,3 +667,12 @@ pre code {
 }
 
 /* fine pagina User testing */
+
+/* Pagina Info */
+
+.info h1 {
+	font-size: 1.5rem;
+	padding: 10px;
+}
+
+/* Fine pagina Info */
