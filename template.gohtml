@@ -33,10 +33,10 @@
 	<body>
 		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
 		<!-- header -->
-		<header class="container" role="banner">
-			<nav class="navigation" role="navigation">
+		<header class="container" role="group">
+			<nav class="navigation" role="doc-pagelist">
 				<!-- Menu -->
-				<ul class="menu">
+				<ul class="menu" role="group">
 					<li class="menu-Home">
 						<a href="index.html">Home</a>
 					</li>
@@ -67,7 +67,7 @@
 		<!--End header -->
 
 		<!-- Main -->
-		<main id="content" role="main">
+		<main id="content" aria-label="main content">
 			{{ with .Content }}
 				{{ block "content" .}}{{ end }}
 			{{ end }}
