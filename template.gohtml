@@ -33,8 +33,8 @@
 	<body>
 		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
 		<!-- header -->
-		<header class="container">
-			<nav class="navigation">
+		<header class="container" role="banner">
+			<nav class="navigation" role="navigation">
 				<!-- Menu -->
 				<ul class="menu">
 					<li class="menu-Home">
@@ -48,7 +48,7 @@
 					</li>
 					{{ if .HasSearch }}
 						<li class="search">
-							<i aria-hidden="true" class="fas fa-search" title="search"></i>
+							<i aria-hidden="true" class="fas fa-search" title="Search" aria-label="Search"></i>
 							<span class="sr-only">Ricerca</span>
 						</li>
 					{{ end }}
@@ -56,8 +56,8 @@
 				<!--End  Menu -->
 			</nav>
 			{{ if .HasSearch }}
-				<div class="searchbox">
-					<input id="search-input" list="search" placeholder="Cerca" type="search">
+				<div class="searchbox" role="search" aria-labelledby="search-input">
+					<input id="search-input" list="search" placeholder="Cerca" type="search" aria-label="Campo per cercare del contenuto del sito">
 					<div id="results">
 						<ul></ul>
 					</div>
@@ -67,7 +67,7 @@
 		<!--End header -->
 
 		<!-- Main -->
-		<main id="content">
+		<main id="content" role="main">
 			{{ with .Content }}
 				{{ block "content" .}}{{ end }}
 			{{ end }}
@@ -75,15 +75,15 @@
 		<!--End Main -->
 
 		<!-- Footer -->
-		<footer class="footer container">
+		<footer class="footer container" aria-label="Customer information">
 			<p>Copyright &copy; 2019</p>
 			<p>
 				<a href="https://github.com/omar-polo/progettazione-siti-web" target="_blank">
-					Code hosted on <i aria-hidden="true" class="fab fa-github" title="GitHub"></i>
+					Code hosted on <i aria-hidden="true" aria-label="GitHub" class="fab fa-github" title="GitHub"></i>
 					<span class="sr-only">GitHub</span>
 				</a>
 			</p>
-			<nav class="footer-nav">
+			<nav class="footer-nav" role="navigation" aria-label="Customer service">
 				<ul class="down-menu">
 					<li>
 						<a href="info.html">Info</a>
