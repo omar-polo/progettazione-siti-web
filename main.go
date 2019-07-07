@@ -85,20 +85,30 @@ func indexPage() (Page, error) {
 
 // Ritorna la pagina della mappa
 func mappaPage() (Page, error) {
-	p := Page{
-		Title:   "Mappa del sito",
-		Content: "",
+	p, reader, f, err := initParser("src/mappa.md")
+	if f != nil {
+		defer f.Close()
 	}
-	return p, nil
+	if err != nil {
+		return p, err
+	}
+	content, err := ioutil.ReadAll(reader)
+	p.Content = string(content)
+	return p, err
 }
 
 // Ritorna la pagina di info
 func infoPage() (Page, error) {
-	p := Page{
-		Title:   "Info",
-		Content: "",
+	p, reader, f, err := initParser("src/info.md")
+	if f != nil {
+		defer f.Close()
 	}
-	return p, nil
+	if err != nil {
+		return p, err
+	}
+	content, err := ioutil.ReadAll(reader)
+	p.Content = string(content)
+	return p, err
 }
 
 // Ritorna la pagina dell'user testing
