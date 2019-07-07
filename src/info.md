@@ -12,8 +12,7 @@ Livello di conformità soddisfatto: Livello AA
 
 Tecnologie usate per i contenuti Web: [HTML5](https://w3c.github.io/html/), [CSS3](https://www.w3.org/TR/css3-roadmap/#intro), [JavaScript](https://www.ecma-international.org/ecma-262/), [Go Language](https://golang.org/)
 
-
-
+![W3C Web Content Accessibility Guidelines 2.1 Conformance](img/../../img/wcag.jpg)
 
 ### Validazione del codice
 
