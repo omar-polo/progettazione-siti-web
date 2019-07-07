@@ -47,6 +47,39 @@ func (p Page) Results() string {
 	return string(j)
 }
 
+// SkipCR implements io.Reader and automatically skips ONLY \r in the
+// src reader.  Pretend it's UNIX everywhere!
+type SkipCR struct {
+	src io.Reader
+}
+
+// Read fills the p slice with data from SkipCR. n is the numer of bytes
+// read and err is the eventual error.
+func (s SkipCR) Read(p []byte) (n int, err error) {
+	b := make([]byte, 1)
+	n = 0
+
+	for i := 0; i < len(p); i++ {
+		r, err := s.src.Read(b)
+		if err != nil {
+			return n, err
+		}
+
+		if b[0] == '\r' { /* skip carriage returns */
+			i--
+			continue
+		}
+
+		if r == 0 {
+			return n, nil
+		}
+
+		n += r
+		p[i] = b[0]
+	}
+	return n, nil
+}
+
 // Inizializza il parser
 func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 	p := Page{}
@@ -56,7 +89,7 @@ func initParser(file string) (Page, *bufio.Reader, *os.File, error) {
 		return p, nil, nil, err
 	}
 
-	reader := bufio.NewReader(f)
+	reader := bufio.NewReader(SkipCR{src: f})
 	title, err := reader.ReadString('\n')
 	if err != nil {
 		return p, reader, f, err
