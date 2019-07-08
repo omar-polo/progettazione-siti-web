@@ -677,24 +677,26 @@ pre code {
 
 .info h2 {
 	font-size: 1.5rem;
-	padding: 10px;
+	padding: 10px 0;
 	font-weight: bold;
 }
 
 .info h3 {
 	font-size: 1.5rem;
-	padding: 10px;
+	padding: 10px 0;
 	font-weight: bold;
+	margin-top: 30px;
 }
 
 .info h4 {
 	font-size: 1.5rem;
-	padding: 10px;
+	padding: 10px 0;
 	font-weight: bold;
+	margin-top: 30px;
 }
 
 .info p {
-	padding-left: 10px;
+	padding-left: 1rem;
 	line-height: 2rem;
 }
 
@@ -705,8 +707,50 @@ pre code {
 }
 
 .info img {
-	width: 200px;
+	width: 150px;
 	height: auto;
+}
+
+.info ul {
+	list-style: square;
+	padding: .5rem 2rem;
+}
+
+.info .shortcut {
+	margin: 2rem auto;
+	max-width: 600px;
+	width: 100%;
+}
+
+.info .shortcut caption {
+	display: table-caption;
+	text-align: center;
+	font-style: italic;
+	padding: 15px 0;
+}
+
+.info .shortcut thead th {
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: var(--blue);
+	padding: 15px 0;
+}
+
+.info .shortcut tbody > tr > td {
+	padding: 15px 0;
+	text-align: center;
+}
+
+.info .shortcut tbody > tr > th {
+	text-align: left;
+}
+
+kbd {
+	padding: .2rem .4rem;
+    font-size: 87.5%;
+    color: #fff;
+    background-color: #212529;
+    border-radius: .2rem;
 }
 
 /* Fine pagina Info */
