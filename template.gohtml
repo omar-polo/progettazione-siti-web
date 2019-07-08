@@ -34,17 +34,17 @@
 		<a href="#content" class="skip-to-content">Salta al contenuto (premi Invio)</a>
 		<!-- header -->
 		<header class="container" role="group">
-			<nav class="navigation" role="doc-pagelist">
+			<nav class="navigation" aria-label="main navigation" role="doc-pagelist">
 				<!-- Menu -->
 				<ul class="menu" role="group">
 					<li class="menu-Home">
-						<a href="index.html">Home</a>
+						<a href="index.html" accesskey="h">[H] Home</a>
 					</li>
 					<li class="menu-WCAG">
-						<a href="wcag.html"><abbr title="Web Content Accessibility Guidelines">WCAG</abbr></a>
+						<a href="wcag.html" accesskey="w"><abbr title="Web Content Accessibility Guidelines">[W] WCAG</abbr></a>
 					</li>
 					<li class="menu-Test">
-						<a href="ut.html">User testing</a>
+						<a href="ut.html" accesskey="u">[U] User testing</a>
 					</li>
 					{{ if .HasSearch }}
 						<li class="search">
@@ -76,20 +76,20 @@
 
 		<!-- Footer -->
 		<footer class="footer container" aria-label="Customer information" role ="contentinfo">
-			<p>Copyright &copy; 2019</p>
+			<p>Copyright &copy; 2019 Tutti i diritti riservati.</p>
 			<p>
-				<a href="https://github.com/omar-polo/progettazione-siti-web" target="_blank">
-					Code hosted on <i aria-hidden="true" aria-label="GitHub" class="fab fa-github" title="GitHub"></i>
+				<a href="https://github.com/omar-polo/progettazione-siti-web" target="_blank" accesskey="G">
+					[G] Code hosted on <i aria-hidden="true" aria-label="GitHub" class="fab fa-github" title="GitHub"></i>
 					<span class="sr-only">GitHub</span>
 				</a>
 			</p>
 			<nav class="footer-nav" role="doc-pagelist" aria-label="Customer service">
 				<ul class="down-menu" role="group">
 					<li>
-						<a href="info.html">Info</a>
+						<a href="info.html" accesskey="i">[I] Info</a>
 					</li>
 					<li>
-						<a href="mappa.html">Mappa del sito</a>
+						<a href="mappa.html" accesskey="m">[M] Mappa del sito</a>
 					</li>
 				</ul>
 			</nav>
