@@ -729,7 +729,7 @@ pre code {
 	padding: 15px 0;
 }
 
-.info .shortcut thead th {
+.info .shortcut thead > tr > th {
 	font-size: 1.3rem;
 	font-weight: bold;
 	color: var(--blue);
