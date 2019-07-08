@@ -763,9 +763,9 @@ La home page si auto-ricarica e:
 Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
 che permetta almeno uno dei punti sopra citati.
 
-#### Pauso, stop, nascondi
+#### Pausa, stop, nascondi
 livello: A
-source: pasue-stop-hide
+source: pause-stop-hide
 outcome: no
 
  - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
