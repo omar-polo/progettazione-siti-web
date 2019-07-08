@@ -1,5 +1,53 @@
 {{ define "content" }}
 	<div class="info container">
 		{{ . | markdown }}
+
+	<table class="shortcut">
+    	<caption>Tabella riassuntiva scorciatoie da tastiera</caption>
+
+		<thead class="browsers">
+			<td></td> 
+			<th scope="col">Mozilla Firefox</th> 
+			<th scope="col">Google Chrome</th>
+		</thead>
+
+    	<tbody>
+			<tr>
+				<th scope="row">Home page</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>H</kbd></kbd></td>
+			</tr>
+
+			<tr>
+				<th scope="row">WCAG</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>W</kbd></kbd></td>
+			</tr>
+
+			<tr>
+				<th scope="row">User testing</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>U</kbd></kbd></td>
+			</tr>
+
+			<tr>
+				<th scope="row">GitHub</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>G</kbd></kbd></td>
+			</tr>
+
+			<tr>
+				<th scope="row">Info</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>I</kbd></kbd></td>
+			</tr>
+
+			<tr>
+				<th scope="row">Mappa</th> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></kbd></td> 
+				<td><kbd><kbd>Alt</kbd> + <kbd>M</kbd></kbd></td>
+			</tr>
+    	</tbody>
+	</table>
 	</div>
 {{ end }}
