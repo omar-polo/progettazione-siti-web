@@ -103,7 +103,31 @@ const toggleSearchBar = () => {
     document.querySelector(".searchbox").classList.toggle("open")
 }
 
+/**
+ * Show/hide the arrow to scroll up based on how far the user scrolled
+ * down.
+ */
+function showArrow(e) {
+    return () => {
+        const s = window.scrollY
+        console.log("window.scrollY:", s, e)		
+        if (s > 300) {
+            e.classList.add("show")
+        } else {
+            e.classList.remove("show")	
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(){
+    /* react on window scroll event */
+	const arrow = document.getElementById("toTop")
+    window.addEventListener('scroll', debounce(showArrow(arrow), 300))
+    
+    /* trigger a scroll event to make sure the arrow is showed (if needed) */
+    window.dispatch(new Event('scroll'))
+
+    /* handle the search */
     const data = flattenData(window.data.subsections)
 
     document
