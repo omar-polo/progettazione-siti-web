@@ -123,24 +123,23 @@ document.addEventListener("DOMContentLoaded", function(){
     /* react on window scroll event */
 	const arrow = document.getElementById("toTop")
     window.addEventListener('scroll', debounce(showArrow(arrow), 300))
-    
-    /* trigger a scroll event to make sure the arrow is showed (if needed) */
-    window.dispatch(new Event('scroll'))
 
     /* handle the search */
-    const data = flattenData(window.data.subsections)
+    if (document.querySelector("li.search")) {
+        const data = flattenData(window.data.subsections)
 
-    document
-        .querySelector("li.search")
-        .addEventListener("click", toggleSearchBar)
+        document
+            .querySelector("li.search")
+            .addEventListener("click", toggleSearchBar)
 
-    const search = document.querySelector("#search-input")
-    const results = document.querySelector("#results ul")
-    const searchfn = debounce(searchResults, 300)
+        const search = document.querySelector("#search-input")
+        const results = document.querySelector("#results ul")
+        const searchfn = debounce(searchResults, 300)
 
-    searchfn("", data, results)
+        searchfn("", data, results)
 
-    search.addEventListener("input", () => {
-        searchfn(search.value, data, results)
-    })
+        search.addEventListener("input", () => {
+            searchfn(search.value, data, results)
+        })
+    }
 });
