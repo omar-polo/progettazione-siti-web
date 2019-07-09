@@ -24,7 +24,10 @@ La validità dei fogli di stile a cascata (CSS) è stata verificata con lo strum
 
 #### Scorciatoie da tastiera
 
-In questa sezione sono elencate le combinazioni da tastiera che possono essere utilizzate in Mozilla Firefox e Google Chrome
+In questa sezione sono elencate le combinazioni da tastiera che possono essere utilizzate in Mozilla Firefox e Google Chrome.
+
+
+
 
 
 
