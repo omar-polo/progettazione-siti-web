@@ -263,6 +263,24 @@ em {
 	}
 }
 
+#toTop {
+	display: block;
+	text-decoration: none;
+	position: fixed;
+	z-index: 100;
+	right: 20px;
+	bottom: 60px;
+	transition: transform .3s ease-in-out;
+	transform: translateY(100px);	
+	font-size: 2rem;
+	box-shadow: 0 4px 10px #8a8a8a;
+	border-radius: 100%;
+}
+
+#toTop.show {
+	transform: translateY(0);
+}
+
 /* Pagina Home */
 
 .intro {
@@ -743,17 +761,6 @@ kbd {
     color: #fff;
     background-color: #212529;
     border-radius: .2rem;
-}
-
-#toTop {
-	text-decoration: none;
-	display: inline-flex;
-	position: fixed;
-	z-index: 100;
-	right: 200px;
-	bottom: 200px;
-	transition: all .3s ease-in-out;
-	font-size: 2rem;
 }
 
 /* Fine pagina Info */

@@ -1,67 +1,69 @@
 {{ define "content" }}
-	<div class="info container" id="inizio-pagina">
+	<div class="info container">
 		{{ . | markdown }}
 
-	<table class="shortcut">
-    	<caption>Tabella riassuntiva scorciatoie da tastiera</caption>
+		<table class="shortcut">
+	    	<caption>Tabella riassuntiva scorciatoie da tastiera</caption>
 
-		<thead class="browsers">
-			<tr>
-				<td></td> 
-				<th scope="col">Mozilla Firefox</th> 
-				<th scope="col">Google Chrome</th>
-			</tr>
-		</thead>
+			<thead class="browsers">
+				<tr>
+					<td></td> 
+					<th scope="col">Mozilla Firefox</th> 
+					<th scope="col">Google Chrome</th>
+				</tr>
+			</thead>
 
-    	<tbody>
-			<tr>
-				<th scope="row">Home page</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>H</kbd></kbd></td>
-			</tr>
+	    	<tbody>
+				<tr>
+					<th scope="row">Home page</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>H</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">WCAG</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>W</kbd></kbd></td>
-			</tr>
+				<tr>
+					<th scope="row">WCAG</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>W</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">User testing</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>U</kbd></kbd></td>
-			</tr>
+				<tr>
+					<th scope="row">User testing</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>U</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">GitHub</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>G</kbd></kbd></td>
-			</tr>
+				<tr>
+					<th scope="row">GitHub</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>G</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">Info</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>I</kbd></kbd></td>
-			</tr>
+				<tr>
+					<th scope="row">Info</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>I</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">Mappa</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>M</kbd></kbd></td>
-			</tr>
+				<tr>
+					<th scope="row">Mappa</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>M</kbd></kbd></td>
+				</tr>
 
-			<tr>
-				<th scope="row">Contenuto principale</th> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd></kbd></td> 
-				<td><kbd><kbd>Alt</kbd> + <kbd>0</kbd></kbd></td>
-			</tr>
-    	</tbody>
-	</table>
+				<tr>
+					<th scope="row">Contenuto principale</th> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd></kbd></td> 
+					<td><kbd><kbd>Alt</kbd> + <kbd>0</kbd></kbd></td>
+				</tr>
+	    	</tbody>
+		</table>
 
-	<p>Queste scorciatoie da tastiera sono valide per i sistemi operativi Windows e Linux.<br>
-	Per i sistemi IOS si utilizza <kbd><kbd>Comando</kbd> + <kbd>Alt</kbd> + <kbd>accesskey</kbd></kbd>
-	</p>
-
-	<a id="toTop" href="#inizio-pagina" role="button" title="Torna Sopra" accesskey="t"><i class="fas fa-arrow-circle-up" aria-hidden="true" aria-label="Torna Sopra"></i></a>
+		<p>
+			Queste scorciatoie da tastiera sono valide per i sistemi operativi
+Windows e Linux.<br>
+			Per i sistemi IOS si utilizza
+			<kbd><kbd>Comando</kbd> + <kbd>Alt</kbd> +
+			<kbd>accesskey</kbd></kbd>
+		</p>
 	</div>
 {{ end }}

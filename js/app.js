@@ -103,20 +103,43 @@ const toggleSearchBar = () => {
     document.querySelector(".searchbox").classList.toggle("open")
 }
 
+/**
+ * Show/hide the arrow to scroll up based on how far the user scrolled
+ * down.
+ */
+function showArrow(e) {
+    return () => {
+        const s = window.scrollY
+        console.log("window.scrollY:", s, e)		
+        if (s > 300) {
+            e.classList.add("show")
+        } else {
+            e.classList.remove("show")	
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(){
-    const data = flattenData(window.data.subsections)
+    /* react on window scroll event */
+	const arrow = document.getElementById("toTop")
+    window.addEventListener('scroll', debounce(showArrow(arrow), 300))
 
-    document
-        .querySelector("li.search")
-        .addEventListener("click", toggleSearchBar)
+    /* handle the search */
+    if (document.querySelector("li.search")) {
+        const data = flattenData(window.data.subsections)
 
-    const search = document.querySelector("#search-input")
-    const results = document.querySelector("#results ul")
-    const searchfn = debounce(searchResults, 300)
+        document
+            .querySelector("li.search")
+            .addEventListener("click", toggleSearchBar)
 
-    searchfn("", data, results)
+        const search = document.querySelector("#search-input")
+        const results = document.querySelector("#results ul")
+        const searchfn = debounce(searchResults, 300)
 
-    search.addEventListener("input", () => {
-        searchfn(search.value, data, results)
-    })
+        searchfn("", data, results)
+
+        search.addEventListener("input", () => {
+            searchfn(search.value, data, results)
+        })
+    }
 });
