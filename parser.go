@@ -16,10 +16,11 @@ import (
 // parser per la pagina del WCAG.
 type Parser struct {
 	lineNumber int
-	line       string
-	lastLine   string
+	line       string // used for rollback
+	lastLine   string // last line read
 	reader     *bufio.Reader
 	filename   string
+	rollback   bool // a rollback was done
 }
 
 func trim(s string) string {
@@ -32,6 +33,7 @@ func trimm(s string) string {
 
 func (p *Parser) ReadLine() (string, error) {
 	p.lineNumber++
+	p.rollback = false
 	if p.line == "" {
 		l, err := p.reader.ReadString('\n')
 		l = trim(l)
@@ -48,17 +50,43 @@ func (p *Parser) ReadLine() (string, error) {
 }
 
 func (p *Parser) Rollback() {
-	if p.lastLine == "" {
+	if p.rollback {
 		panic(fmt.Errorf("Parser: cannot Rollback()!"))
 	}
 
 	p.lineNumber--
 	p.line = p.lastLine
 	p.lastLine = ""
+	p.rollback = true
 }
 
 func (p *Parser) SyntaxError(reasons ...interface{}) error {
 	return fmt.Errorf("%v:%v %v", p.filename, p.lineNumber, fmt.Sprint(reasons...))
+}
+
+func (p *Parser) ParseMetadata() (map[string]string, error) {
+	m := make(map[string]string)
+	
+	for {
+		line, err := p.ReadLine()
+		if err != nil {
+			return m, err
+		}
+
+		if line == "" {
+			return m, nil
+		}
+
+		f := strings.Split(line, ":")
+		if len(f) != 2 {
+			return m, p.SyntaxError("metadata should have two field:", len(f), "found")
+		}
+
+		k := trimm(f[0])
+		v := trimm(f[1])
+		m[k] = v
+		//fmt.Println(p.SyntaxError(k, " -> ", v))
+	}
 }
 
 // La pagina del WCAG ha una grammatica abbastanza semplice:
@@ -142,9 +170,12 @@ type WCAGParser struct {
 	Level int
 }
 
+// Questo workaround è necessario in quanto devo poter giocare con i
+// puntatori, cosa che altrimenti non potrei fare.
 func (w *WCAGParser) ReadLine() (string, error)          { return (&w.p).ReadLine() }
 func (w *WCAGParser) Rollback()                          { (&w.p).Rollback() }
 func (w *WCAGParser) SyntaxError(e ...interface{}) error { return (&w.p).SyntaxError(e...) }
+func (w *WCAGParser) ParseMetadata() (map[string]string, error) { return (&w.p).ParseMetadata() }
 
 // Effettua il parsing dell'intera pagina. La pagina viene vista come
 // una sezione (vuota) contenente la lista di subsections.
@@ -291,43 +322,22 @@ func WCAGParseTitle(p *WCAGParser) (string, int, error) {
 }
 
 func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
-	m := make(map[string]string)
-
-	defer func() {
-		if _, ok := m["source"]; !ok {
-			fmt.Println(p.SyntaxError("missing `source'"))
-		}
-
-		if p.Level == 4 {
-			if _, ok := m["livello"]; !ok {
-				fmt.Println(p.SyntaxError("missing `livello'"))
-			}
-			if _, ok := m["outcome"]; !ok {
-				fmt.Println(p.SyntaxError("missing `outcome'"))
-			}
-		}
-	}()
-
-	for {
-		line, err := p.ReadLine()
-		if err != nil {
-			return m, err
-		}
-
-		if line == "" {
-			return m, nil
-		}
-
-		f := strings.Split(line, ":")
-		if len(f) != 2 {
-			return m, p.SyntaxError("metadata should have two field:", len(f), "found")
-		}
-
-		k := trimm(f[0])
-		v := trimm(f[1])
-		m[k] = v
-		//fmt.Println(p.SyntaxError(k, " -> ", v))
+	m, err := p.ParseMetadata()
+	
+	if _, ok := m["source"]; !ok {
+		fmt.Println(p.SyntaxError("missing `source'"))
 	}
+
+	if p.Level == 4 {
+		if _, ok := m["livello"]; !ok {
+			fmt.Println(p.SyntaxError("missing `livello'"))
+		}
+		if _, ok := m["outcome"]; !ok {
+			fmt.Println(p.SyntaxError("missing `outcome'"))
+		}
+	}
+	
+	return m, err
 }
 
 var quoteRe = regexp.MustCompile(`\s*>\s*`)
@@ -382,4 +392,291 @@ func WCAGContent(p *WCAGParser) (string, error) {
 	}
 
 	return strings.Join(l, "\n"), err
+}
+
+// User Testing
+
+// Un Task rappresenta un task richiesto all'utente
+type Task struct {
+	Background string
+	Timing     string
+	Path       string
+}
+
+func TasksParse(p *Parser) ([]Task, error) {
+	var t []Task
+	
+	// skip the intro
+	TaskReadUntilSep(p)
+	
+	for {
+		tt, err := TaskParse(p)
+		t = append(t, tt)
+		if err == io.EOF {
+			return t, nil
+		} else if err != nil {
+			return t, err
+		}
+	}
+}
+
+func TaskParse(p *Parser) (Task, error) {
+	t := Task{}
+	tt := make(map[string]string)
+	
+	var err error
+	var k, v string
+	
+	// 1. read all the key-value pairs
+	for i := 0; i < 3; i++ {
+		k, v, err = TaskKV(p)
+		tt[k] = v
+		if err != nil {
+			break
+		}
+	}
+	
+	// 2. read up until the sep
+	TaskReadUntilSep(p)
+	
+	// 3. reassemble the task and return
+	
+	var ok bool
+
+	// 3.1 get the background
+	t.Background, ok = tt["storia"]
+	if !ok {
+		return t, p.SyntaxError("missing `story' field!")
+	}
+	
+	// 3.2 get the timing
+	t.Timing, ok = tt["tempo"]
+	if !ok {
+		return t, p.SyntaxError("missing `tempo' field!")
+	}
+	
+	// 3.3 get the path
+	t.Path, ok = tt["percorso"]
+	if !ok {
+		return t, p.SyntaxError("missing `path' field!")
+	}
+	
+	return t, err
+}
+
+var sepRe = regexp.MustCompile("^#+.*$")
+
+func TaskKV(p *Parser) (key string, val string, err error) {
+	var line string
+	var l []string
+	
+	kRe := regexp.MustCompile(`^[a-zA-Z]+:$`)
+	
+	// 1. get the key
+	for {
+		line, err = p.ReadLine()
+		
+		if err != nil {
+			break
+		}
+		
+		if line == "" {
+			continue
+		}
+		
+		if kRe.MatchString(line) {
+			// save the key, but drop the ':'
+			key = line[:len(line)-1]
+			break
+		}
+	}
+	
+	// 2. get the value
+	for {
+		line, err = p.ReadLine()
+		
+		if err != nil {
+			break
+		}
+		
+		if kRe.MatchString(line) || sepRe.MatchString(line) {
+			p.Rollback()
+			break
+		}
+		
+		l = append(l, line)
+	}
+	
+	// 3. join the value and return
+	val = strings.Join(l, "\n")
+
+	return
+}
+
+func TaskReadUntilSep(p *Parser) (string, error) {
+	var l []string
+	var err error
+	var line string
+
+	for {
+		line, err = p.ReadLine()
+		if err != nil {
+			break
+		}
+		
+		if sepRe.MatchString(line) {
+			break
+		}
+		
+		l = append(l, line)
+	}
+	
+	return strings.Join(l, "\n"), err
+}
+
+// parser per i risultati
+
+type UTResult struct {
+	Outcome  string
+	Level    string
+	Timing   string
+	Path     string
+	Problems string
+	Opinions string
+}
+
+type UserResults struct {
+	Metadata map[string]string
+	Results  []UTResult
+}
+
+// parse the whole src/ut-results.md
+func UTParse(p *Parser) ([]UserResults, error) {
+	// skip the introduction
+	TaskReadUntilSep(p)
+	
+	// Rewind so the next ReadLine will return "## utente X"
+	p.Rollback()
+	
+	var urs []UserResults
+	for {
+		ur, err := UTUserResults(p)
+		if err == io.EOF {
+			return urs, nil
+		} else if err != nil {
+			return urs, err
+		}
+		urs = append(urs, ur)
+	}
+}
+
+// parse a sigle user block 
+func UTUserResults(p *Parser) (UserResults, error) {
+	ur := UserResults{}
+
+	// the first line should be the heading
+	line, err := p.ReadLine()
+	if err != nil {
+		return ur, err
+	}
+	
+	if !sepRe.MatchString(line) {
+		return ur, p.SyntaxError("Expecting a heading for the user")
+	}
+	
+	// read the metadata
+	ur.Metadata, err = p.ParseMetadata()
+	if err != nil {
+		return ur, err
+	}
+	
+	for {
+		// Peek next line
+		line, err := p.ReadLine()
+		if err != nil {
+			return ur, err
+		}
+		if line == "" { // but skip empty lines
+			continue
+		}
+		p.Rollback()
+		
+		// if it's a new user, return
+		if strings.HasPrefix(line, "## ") {
+			return ur, nil
+		}
+		
+		// otherwise, read the next section
+		r, err := UTParseResult(p)
+		ur.Results = append(ur.Results, r)
+		if err != nil {
+			return ur, nil
+		}
+	}
+}
+
+// parse a single UTResult
+func UTParseResult(p *Parser) (UTResult, error) {
+	ut := UTResult{}
+	m := make(map[string]string)
+
+	// the first line should be the heading
+	line, err := p.ReadLine()
+	if err != nil {
+		return ut, err
+	}
+	
+	if !sepRe.MatchString(line) {
+		return ut, p.SyntaxError("Expecting a heading for the task")
+	}
+	
+	for {
+		// Peek next line
+		line, err = p.ReadLine()
+		if err != nil {
+			break
+		}
+		p.Rollback()
+		
+		// if it's a heading, exit loop
+		if strings.HasPrefix(line, "##") {
+			break
+		}
+		
+		// otherwise read the KVs
+		var k, v string
+		k, v, err = TaskKV(p)
+		if err != nil {
+			break
+		}
+		m[k] = v
+	}
+	
+	var ok bool
+	
+	if ut.Outcome, ok = m["esito"]; !ok {
+		return ut, p.SyntaxError("missing `esito'")
+	}
+	
+	if ut.Level, ok = m["livello"]; !ok {
+		return ut, p.SyntaxError("missing `livello'")
+	}
+	
+	if ut.Timing, ok = m["tempo"]; !ok {
+		return ut, p.SyntaxError("missing `tempo'")
+	}
+	
+	if ut.Path, ok = m["percorso"]; !ok {
+		return ut, p.SyntaxError("missing `percorso'")
+	}
+	
+	if ut.Problems, ok = m["problemi"]; !ok {
+		return ut, p.SyntaxError("missing `problemi'")
+	}
+	
+	if ut.Opinions, ok = m["opinioni"]; !ok {
+		return ut, p.SyntaxError("missing `opinioni'")
+	}
+	
+	return ut, err
 }

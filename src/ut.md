@@ -1,135 +1,122 @@
-title:User Testing
+title: User Testing
 
-# Descrizione dei Task
+## Introduzione
 
-## Calcolo dei pedaggi tra A e B
+cose...
 
-Viene richiesto all'utente di calcolare il costo del pedaggio tra due
-punti (e.g. Udine Nord - Verona Est). Tempo impiegato da noi: 40 secondi,
-tempo massimo per i tester: 2 minuti. Il background è:
+## Perimetro dell'indagine
 
-> stai organizzando un viaggio a Verona per assistere a un concerto
-> all'Arena.
+## Sommario dei risultati
 
-Il percorso compiuto da noi è
+## Metodologia
 
- - home page
- - cliccare sul box "calcolo pedaggi"
- - inserire le informazioni e premere il tasto "calcola"
+### Briefing
 
-## Previsioni meteo
+Domande del questionario:
 
-Viene richiesto all'utente di controllare le previsioni meteo per una
-certa città (e.g. Venezia) in una certa data (e.g. domenica prossima). Il
-tempo impiegato da noi è un minuto e 10 secondi, il tempo massimo per
-i tester è quindi di 3 minuti e mezzo.
+ - Età
+ - Professione
+ - Competenze digitali
+ - Frequenza di utilizzo del web
+ - Hai mai usato un sito di informazioni sui viaggi?
+ - Hai mai usato il sito "infoviaggiando.it"?
 
-Il percorso compiuto da noi è
+### Profili utente
 
- - home page
- - servizi
- - previsioni meteo
+{{ range .Surveys }}
+#### Utente x
 
-## Controllo del traffico per una specifica data
+TODO: {{ . }}
+{{ end }}
 
-Viene richiesto all'utente di controllare il traffico su una autostrada
-per una specifica data. Il tempo impiegato da noi è di 1 minuto, quindi
-per i tester sono 3 minuti.
+### Situazione operativa
 
-Il percorso compiuto da noi è
+Dove e come sono stati effettuati i test.
 
- - home page
- - uso del widget per il traffico
+Per farla breve:
 
-## ricerca di una specifica telecamera
+ - giardino dei rizzi
+ - all'ombra
+ - situazione silenziosa, non c'erano persone nei dintorni
+ - pc di daniele (inserire le spec)
 
-Viene richiesto all'utente di trovare e guardare le foto di una telecamera
-(e.g. quella più vicina a mestre). Il tempo impiegato da noi è di 20
-secondi, quindi per i tester è un minuto.
+I partecipanti sono stati invitati a pensare ad alta voce, per compredere
+come ragione e le motivazioni di una certa azione. In alcune occasioni,
+sono state poste delle domande, prive di indizi, all'utente per stimolarlo
+a parlare. Nei momenti di difficoltà, lo sperimentatore ha calmato
+l'utente invitandolo a provare a proseguire.
 
-Il percorso compiuto da noi è stato
+### Indici di valutazione
 
- - home page
- - telecamere
- - uso della mappa
+#### Indice di successo
 
-## Stazione di menzina più vicina ad A
+ - basso: <!-- TODO definizione -->
+ - medio: <!-- TODO definizione -->
+ - alto: <!-- TODO definizione -->
 
-Viene richiesto all'utente di trovare la stazione di benzina più vicina
-ad un punto (e.g. Udine venendo da Venezia.) Il tempo impiegato da noi
-è 40 secondi quindi per i tester sono 2 minuti.
+#### Indice di gravità del problema
 
-Il percorso compiuto da noi è
+impatto:
 
- - home page
- - infrastrutture
- - uso della mappa
+ 1. il problema riscontrato dall'utente è facilmente superabile
+ 2. il problema richiede un notevol sforzo per essere aggirato
+ 3. il problema blocca la possibilità di completare il compito
 
-## Area di servizio con carburante più economico
+frequenza:
+ 1. il problema si verifica poche volte
+ 2. il problema si verifica ogni volta durante lo svolgimento del compito
+ 3. il problema si verifica molte volte durante lo svolgimento del compito
 
-Viene richiesto all'utente di trovare la stazione di servizio con benzia
-(o disel) con costo minore su una tratta di un'autostrada. Il tempo
-impiegato da noi è stato di 50 secondi, quindi per gli utenti è di 2
-minuti e 30 secondi.
+In base all'impatto e alla frequenza si definisce la gravità:
 
-Il percorso compiuto da noi è
+<!-- TODO: forse questa tabella la rifacciamo in HTML per poterci mettere
+           un po' di stile -->
 
- - home page
- - infrastrutture
- - ricerca manuale nella lista
+| gravità    | impatto | frequenza |
+|------------|--------:|----------:|
+| minore     |       1 |         1 |
+| minore     |       1 |         2 |
+| importante |       1 |         3 |
+| importante |       2 |         1 |
+| importante |       2 |         2 |
+| critico    |       2 |         3 |
+| critico    |       3 |         1 |
+| critico    |       3 |         2 |
+| critico    |       3 |         3 |
 
-# Utente 1
+## Risultati
 
-maschio - 25 anni - studente - esperienza pc 3 - ore su internet 12
 
-## task numero 1
+{{ range $i, $v := .Results }}
+{{ with $v }}
+### Caso d'uso {{ $i | inc }}
 
-tempo: 4 minuti 12 secondi
+{{ .Task.Background }}
 
-## task numero 2
+Tempo previsto: {{ .Task.Timing }}
 
-tempo 45 secondi
+Percorso previsto: {{ .Task.Path }}
 
-## task numero 3
+{{ range $j, $u := .Users }}
+{{ with $u }}
+#### Utente {{ $j | inc }}
 
-tempo 1 minuto e 42
+Esito: {{ .Outcome }}
 
-## task numero 4
+Tempo impiegato: {{ .Timing }}
 
-tempo 10 secondi
+Livello di successo: {{ .Level }}
 
-## task numero 5
+Percorso dell'utente: {{ .Path }}
 
-tempo: 30 secondi
+Problemi: {{ .Problems }}
 
-## task numero 6
+Opinioni del partecipante: {{ .Opinions }}
 
-tempo: 1 minuto 15 secondi
+{{ end }} <!-- with $u -->
 
-# Utente 2
+{{ end }} <!-- range .Users -->
 
-maschio - 22 anni - studente - esperienza pc 4 - ore su internet 15-16
+{{ end }} <!-- with $v -->
 
-## task numero 1
-
-tempo: 30 secondi
-
-## task numero 2
-
-tempo 1 minuto e 45 secondi
-
-## task numero 3
-
-tempo 1 minuto e 50 secondi
-
-## task numero 4
-
-tempo 30 secondi
-
-## task numero 5
-
-tempo: 2 minuti e 15 secondi
-
-## task numero 6
-
-tempo: 3 minuti e 4 secondi
+{{ end }} <!-- range .Results -->

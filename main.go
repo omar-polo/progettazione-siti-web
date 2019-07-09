@@ -2,10 +2,12 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"html/template"
+	tt "text/template"
 	"io"
 	"io/ioutil"
 	"log"
@@ -144,8 +146,101 @@ func infoPage() (Page, error) {
 	return p, err
 }
 
+type Survey map[string]string
+
+type Result struct {
+	Task  Task     // definizione del task
+	Users []UTResult // risultati degli utenti
+}
+
+type UTPage struct {
+	Surveys []Survey // uno per ogni utente
+	Results []Result // uno per ogni caso d'uso testato
+}
+
 // Ritorna la pagina dell'user testing
 func utPage() (Page, error) {
+	p, reader, uf, err := initParser("src/ut.md")
+	if err != nil {
+		return p, err
+	}
+	defer uf.Close()
+	
+	// Parse the tasks
+	f, err := os.Open("src/tasks.md")
+	if err != nil {
+		return p, err
+	}
+	defer f.Close()
+	
+	taskParser := Parser{
+		reader: bufio.NewReader(SkipCR{src: f}),
+		filename: "src/tasks.md",
+		lineNumber: 1,
+	}
+	
+	tasks, err := TasksParse(&taskParser)
+	if err != nil {
+		return p, err
+	}
+	
+	// Parse the results
+	ff, err := os.Open("src/ut-results.md")
+	if err != nil {
+		return p, err
+	}
+	defer ff.Close()
+	
+	uParser := Parser{
+		reader: bufio.NewReader(SkipCR{src: ff}),
+		filename: "src/ut-results.md",
+		lineNumber: 1,
+	}
+
+	utresults, err := UTParse(&uParser)
+	if err != nil {
+		return p, err
+	}
+	
+	pp := UTPage{}
+
+	// build the surveys
+	for _, utresult := range utresults {
+		pp.Surveys = append(pp.Surveys, (Survey(utresult.Metadata)))
+	}
+	
+	// and the results
+	for i, t := range tasks {
+		r := Result{
+			Task: t,
+		}
+		
+		for _, utresult := range utresults {
+			if len(tasks) != len(utresult.Results) {
+				return p, fmt.Errorf("per l'utente %d non sono stati inseriti un numero corretto di task (%d invece che %d)", i, len(utresult.Results), len(tasks))
+			}
+			r.Users = append(r.Users, utresult.Results[i])
+		}
+		
+		pp.Results = append(pp.Results, r)
+	}
+	
+	content, err := ioutil.ReadAll(reader)
+	if err != nil {
+		return p, err
+	}
+	
+	fmap := tt.FuncMap{
+		"inc": inc,
+	}
+	
+	t := tt.Must(tt.New("src/ut.md").Funcs(fmap).Parse(string(content)))
+	var b bytes.Buffer
+	err = t.Execute(&b, pp)
+	p.Content = string(b.Bytes())
+	return p, err
+
+	/*
 	p, reader, f, err := initParser("src/ut.md")
 	if f != nil {
 		defer f.Close()
@@ -156,6 +251,7 @@ func utPage() (Page, error) {
 	content, err := ioutil.ReadAll(reader)
 	p.Content = string(content)
 	return p, err
+	*/
 }
 
 // Inizializza e ritorna una stuct section
@@ -195,10 +291,16 @@ func markdown(c string) template.HTML {
 	return template.HTML(blackfriday.Run([]byte(c)))
 }
 
+// Incrementa il numero passato
+func inc(c int) int {
+	return c + 1
+}
+
 // Carica il template con il nome dato
 func loadTemplate(name string) *template.Template {
 	fmap := template.FuncMap{
 		"markdown": markdown,
+		"inc": inc,
 	}
 
 	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.gohtml", name))
