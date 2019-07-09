@@ -753,4 +753,15 @@ kbd {
     border-radius: .2rem;
 }
 
+#toTop {
+	text-decoration: none;
+	display: inline-flex;
+	position: fixed;
+	z-index: 100;
+	right: 200px;
+	bottom: 200px;
+	transition: all .3s ease-in-out;
+	font-size: 2rem;
+}
+
 /* Fine pagina Info */
