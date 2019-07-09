@@ -1,12 +1,5 @@
 {{ define "content" }}
-	<h1>Mappa del sito Progetto di siti e portali Web</h1>
-	
-	<nav>
-		<a href="index.html" title="home">Home</a>
-		<a href="wcag.html">
-			<abbr title="Web Content Accessibility Guide">WCAG 2.1</abbr>
-			Report
-		</a>
-		<a href="ut.html" title="User Testing">User Testing</a>
-	</nav>
+	<div class="mappa container">
+		{{ . | markdown }}
+	</div>
 {{ end }}
