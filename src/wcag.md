@@ -2,6 +2,8 @@ title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
+##### Introduzione
+
 La valutazione di conformità si è basata sulle linee guida **WCAG 2.1** che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
 - **Principi** - Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
