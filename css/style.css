@@ -264,6 +264,7 @@ em {
 }
 
 #toTop {
+	display: block;
 	text-decoration: none;
 	position: fixed;
 	z-index: 100;
@@ -272,6 +273,8 @@ em {
 	transition: transform .3s ease-in-out;
 	transform: translateY(100px);	
 	font-size: 2rem;
+	box-shadow: 0 4px 10px #8a8a8a;
+	border-radius: 100%;
 }
 
 #toTop.show {
