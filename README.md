@@ -2,20 +2,23 @@
 
 ## struttura del progetto
 
- - in src ci sono tutti le pagine, ognuna scritta in markdown (con alcune
-   estensioni alla sintassi per quanto riguarda la pagina del wcag.)
+ - in `src` ci sono tutti i dati. La maggior parte sono scritte in markdown, altre con formati specifici.
    
  - in build vengono generati i file;
  
- - le cartelle css e js vengono copiate nella cartella build
+ - le cartelle `css`, `js` e `img` vengono copiate nella cartella build
  
- - template.html è il template con il quale vengono renderizzate le pagine.
+ - template.gohtml è il template con il quale vengono renderizzate le pagine.
  
 #### compilare il programma d'aiuto
 
 > richiede go
 
     go build
+
+dovrebbe produrre un eseguibile dal nome `progettazione-siti-web`
+(prende il nome dalla cartella che lo contiene). Su windows tale file
+avrà estensione `.exe`.
 
 #### compilare il report
     
@@ -30,9 +33,3 @@
     ./progettazione-siti-web serve
 
 la porta di default è 8000
-
-
-## TODOs
-
- - [X] generare i titoli per le pagine
- - [ ] verificare gli aria landmark nelle nostre pagine
