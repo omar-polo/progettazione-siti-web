@@ -575,17 +575,6 @@ dt {
 	line-height: 2rem;
 }
 
-.wcag dt,
-.wcag dd {
-	float: left;
-}
-
-.wcag dl::after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
 .wcag dt {
 	margin-top: 10px;
 }
