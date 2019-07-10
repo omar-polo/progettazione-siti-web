@@ -120,7 +120,7 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
 
 ![Esempio di icone senza descrizione testuale](img/contenuti-non-testuali.png)
 
-![Esempio di icone senza descrizione testuale](img/../../img/social-non-testuali.png)
+![Esempio di icone senza descrizione testuale](img/social-non-testuali.png)
 
 **Code snippets**
 
@@ -1033,60 +1033,113 @@ livello: A
 source: language-of-page
 outcome: no
 
-l'unica violazione è la pagina del meteo che non ha un attributo lang
-sull'elemento html, non ha un meta Content-Language e, quando viene
-servita, non è presente  un header Content-Language.
+> L'impostazione della lingua predefinita di ogni pagina Web può essere
+> determinata programmaticamente.
+
+L'unica violazione riscontrata è nella pagina meteo.
+
+##### Rimedio proposto
+
+ - aggingere l'attributo `lang`
+ - aggiungere un *header* HTTP `Content-Language`
 
 #### Parti in lingua
 livello: AA
 source: language-of-parts
 outcome: yes
 
-Negli articoli esaminati, il testo è sempre in italiano fatta eccezione
-per i nomi propri, alcune terminologie tecniche od alcune espressioni
-diventate parte integrante del parlato.
+> La lingua di ogni passaggio o frase nel contenuto può essere
+> determinata programmaticamente ad eccezione di nomi propri, termini
+> tecnici, parole in lingue indeterminate e parole o frasi che sono
+> diventate parte integrante del gergo del testo immediatamente circostante.
+
+Negli articoli esaminati la lingua del testo è sempre in italiano, fatta
+eccezione per i nomi propri, alcune terminologie tecniche od espressioni
+diventate parte integrante del parlato (ad esempio "social network").
 
 #### Parole inusuali
 livello: AAA
 source: unusual-words
 outcome: no
 
-Non è presente nessun meccanismo per identificare parole o frasi usate
-in modo insolito o ristretto.
+> È reso disponibile un meccanismo per identificare specifiche
+> definizioni di parole o frasi usate in modo insolito o ristretto,
+> compresi espressioni idiomatiche e gergali.
+
+##### Violazioni riscontrate
+
+Non è disponibile nessun meccanismo per identificare le espressioni
+idiomatiche e gergali, e nemmeno per modi di dire o parole usate in
+modo insolito.
+
+##### Rimedio Proposto
+
+Si possono usare più tecniche per risolvere questa problematica,
+ad esempio
+
+ - inserire dei link a delle pagine esplicative (wikipedia ad esempio)
+ - aggiungere una tabella di definizione in calce agli articoli
 
 #### Abbreviazioni
 livello: AAA
 source: abbreviations
 outcome: no
 
-Non è presente nessun meccanismo per identificare la forma espansa o
-il significato delle abbreviazioni.
+> È reso disponibile un meccanismo per identificare la forma espansa
+> o il significato delle abbreviazioni.
+
+##### Violazioni riscontrate
+
+Tale meccanismo non è presente.
+
+![Esempio di titolo di articolo con uso abbreviazioni](img/abbreviazioni.png)
+
+Nello screenshot di esempio, non è presente nessun elemento nella pagina
+che spieghi il significato di "PIL" od "UE".
+
+##### Rimedio proposto
+
+Si potrebbe far uso del tag `abbr`, oppure fornire un glossario o link
+a pagine esplicative.
 
 #### Livello di lettura
 livello: AAA
 source: reading-level
 outcome: yes
 
-Negli articoli esaminati il testo non ci sembra richieda capacità
-di lettura più avanzata rispetto al livello di istruzione secondaria
-inferiore.
+> Quando il testo richiede capacità di lettura più avanzata rispetto
+> al livello di istruzione secondaria inferiore dopo aver rimosso i nomi
+> propri e i titoli, sono resi disponibili contenuti supplementari oppure
+> una versione che non richieda la capacità di lettura più avanzata
+> rispetto al livello di istruzione secondaria inferiore.
+
+Nelle pagine esaminate il testo non richiede una capacità di lettura
+più avanzata rispetto al livello di istruzione secondaria inferiore.
 
 #### Pronuncia
 livello: AAA
 source: pronunciation
 outcome: yes
 
-Si perchè il contenunto prevalente è in italiano e non abbiamo i *false friends*.
+> È reso disponibile un meccanismo per identificare specifiche pronunce
+> per le parole il cui significato, nel contesto, è ambiguo se non se ne
+> conosce la pronuncia.
+
+Nelle pagine esaminate non sono stati riscontrate frasi il quali contesto
+risulti ambiguo se non si conosce la pronuncia di una parola.
 
 ### Prevedibile
 source: predictable
 
-Creare pagine web che abbiano aspetto e funzionalità prevedibili.
+> Creare pagine web che abbiano aspetto e funzionalità prevedibili.
 
 #### Al Focus
 livello: A
 source: on-focus
 outcome: yes
+
+> Quando qualsiasi componente dell'interfaccia utente riceve il focus,
+> non avvia un cambiamento del contesto.
 
 Nelle pagine esaminate quando un componente dell'interfaccia utente
 riceve il focus non si avvia nessun cambiamento del contesto.
@@ -1096,93 +1149,169 @@ livello: A
 source: on-input
 outcome: yes
 
+> Cambiare l'impostazione di qualsiasi componente nell'interfaccia
+> utente non provoca automaticamente un cambiamento di contesto, a meno
+> che l'utente sia stato informato del comportamento prima di utilizzare
+> il componente.
 
-TODO: tenere a mente quando si progetta il campo di ricerca
+Non ci sono componenti le quali, dopo aver cambiato una loro impostazione,
+provochino cambiamenti di contesto.
 
 #### Navigazione Coerente
 livello: AA
 source: consistent-navigation
 outcome: yes
 
-Gli unici meccanismi di navigazioni che sono ripetuti su più pagine
-web sono i seguenti e appaiono sempre nello stesso ordine relativo:
- - menu a scomparsa laterale
- - link del footer
+> I meccanismi di navigazione che sono ripetuti su più pagine Web
+> all'interno di un insieme di pagine Web, appaiono nello stesso ordine
+> relativo ogni volta che si ripetono, a meno che un cambiamento sia stato
+> avviato da un utente.
+
+I meccanismi di navigazioni ripetuti su più pagine sono
+
+ - il menu a scomparsa laterale
+ - i link nel footer
+
+ed entrambi appaiono sempre nello stesso ordine relativo.
 
 #### Identificazione coerente
 livello: AA
 source: consistent-identification
 outcome: yes
 
-I componenti che hanno la stessa funzionalità (come i controlli 'Articolo
-successivo/precedente', il menu a scomparsa, il footer) sono identificati
-consistentemente.
+> I componenti che hanno la stessa funzionalità all'interno di un
+> insieme di pagine Web sono identificati in modo coerente.
+
+I componenti con la stessa funzionalità (come i controlli "Articolo
+successivo/precedente", o il menu a scomparsa) sono identificati
+consistentemente in tutte le pagine esaminate.
 
 #### Cambiamenti su richiesta
 livello: AAA
-source: change-on-demand
+source: change-on-request
 outcome: no
 
-La home page ha una funzione di auto-refresh attiva che periodicamente
-aggiorna la pagina. Questo provoca un cambiamento di contesto (la
-posizione relativa all'interno della pagina viene persa, così come
-anche il focus).
+> I cambiamenti di contesto sono avviati solo su richiesta dell'utente,
+> oppure è disponibile un meccanismo per disattivarli.
+
+##### Violazioni riscontrate
+
+Nella home page è presente una funzione di *auto-refresh* che
+periodicamente aggiorna la pagina. Questo provoca un cambiamento di
+contesto e non è possibile disattivarlo.
+
+##### Rimedi proposti
+
+Disattivare l'autorefresh (rimuovendo l'apposito meta tag) oppure gestirlo
+con JavaScript, fornendo un meccanismo all'utente per disattivarlo.
 
 ### Assistenza nell'inserimento
 source: input-assistance
 
-Aiutare gli utenti a evitare gli errori e agevolarli nella loro correzione.
+> Aiutare gli utenti a evitare gli errori e agevolarli nella loro correzione.
 
 #### Identificazione di errori
 livello: A
 source: error-identification
 outcome: no
 
-Provare a postare un commento (vuoto) da loggati non risulta in nessuna
-forma di feedback che permetta all'utente di capire che l'azione non è
-permessa. Non viene identificato nessun elemento e non compare nessun
-testo.
+> Se viene rilevato automaticamente un errore di inserimento, l'elemento
+> in errore viene identificato e l'errore descritto tramite testo.
 
-Nella pagina di login invece, se vengono fornite credenziali errate,
-viene fornito un messaggio di errore.
+##### Violazioni riscontrate
+
+Provare a inviare un commento vuoto non risulta in nessuna forma di
+feedback che permetta all'utente di capire che tale azione non sia
+permessa.
+
+Nella pagina di login, invece, vengono proposto un adeguato messaggio
+di errore.
+
+##### Rimedi proposti
+
+Fornire un feedback se il testo del commento è troppo breve.
 
 #### Etichette o istruzioni
 livello: A
 source: labels-or-instructions
 outcome: no
 
-Nonostante nella schermata di login ci siano appropriati etichette, la
-textarea per i commenti non ha etichette adeguate (è presente una scritta
-in sovraimpressione ma viene aggiunta con javascript e posizionata lì
-sopra, non ha nessuna vicinanza all'elemento che permetta di comprenderne
-l'associazione se non il risultato grafico).
+> Sono fornite etichette o istruzioni quando il contenuto richiede azioni
+> di input da parte dell'utente.
+
+##### Violazioni riscontrate
+
+Nonostante nella schermata di login ci siano etichette appropriate, la
+`textarea` per i commenti non ha etichette. È presente un elemento
+testuale che viene posizionato al di sopra della textarea, ma non ha
+nessun legame con essa (vicinanza o appropriati aria-attribute) se non
+il posizionamento.
+
+##### Rimedi proposti
+
+Fornire un `label` per la textarea per i commenti.
 
 #### Seggerimenti per gli errori
 livello: AA
 source: error-suggestion
 outcome: no
 
-Si veda ad esempio la già citata textarea per i commenti.
+> Se viene identificato un errore di inserimento e sono noti dei
+> suggerimenti per correggerlo, tali suggerimenti vengono forniti
+> all'utente, a meno che ciò non pregiudichi la sicurezza o la finalità
+> del contenuto.
+
+##### Violazioni riscontrate
+
+La già citata textarea per i commenti.
+
+##### Rimedi proposti
+
+Fornire un messaggio di errore accurato quando l'utente prova ad inviare
+un commento vuoto.
+
 
 #### Prevenzione degli errori
 livello: AA
 source: error-prevention-legal-financial-data
-outcome: yes
+outcome: na
 
-Nelle pagine controllate non sono presenti pagine con vincoli di tipo
-giuridico, transazioni finanziarie o la modifica/cancellazione o gestione
-di dati controllabili dall'utente.
+> Per le pagine Web che contengono vincoli di tipo giuridico o transazioni
+> finanziarie per l'utente che gestiscono la modifica o la cancellazione e
+> gestione di dati controllabili dall'utente in un sistema di archiviazione
+> oppure che inoltrano le risposte degli utenti a test, è soddisfatta
+> almeno una delle seguenti condizioni:
+>
+> Reversibilità
+> : Le azioni sono reversibili.
+>
+> Controllo
+> : I dati inseriti dall’utente vengono verificati e all’utente viene
+> data l’opportunità di correggere gli errori.
+>
+> Conferma
+> : È disponibile un meccanismo per la revisione, conferma e correzione
+> delle informazioni prima del loro invio definitivo.
+
+Le pagine controllate non contengono vincoli di tipo giuridico o
+transazioni finanziarie per l'utente.
 
 #### Aiuto
 livello: AAA
 source: help
 outcome: yes
 
- - è presente una pagina (seppur limitata) di aiuto (linkata sempre nel footer)
- - ci sono degli aiuti contestuali
+> Fornire degli aiuti contestuali.
+
+È presente una pagina di aiuto (il cui link è presente nel footer)
+e ci sono degli aiuti contestuali.
 
 ## Robusto
 source: robust
+
+> Il contenuto deve essere abbastanza robusto per essere interpretato in
+> maniera affidabile da una grande varietà di programmi utente, comprese
+> le tecnologie assistive.
 
 Il contenuto deve essere abbastanza robusto per essere interpretato in
 maniera affidabile da una grande varietà di programmi utente, comprese
@@ -1191,15 +1320,24 @@ le tecnologie assitive.
 ### Compatibile
 source: compatible
 
-Garantire la massima compatibilità con i programmi utente attuali e
-futuri, comprese le tecnologie assistive.
+> Garantire la massima compatibilità con i programmi utente attuali e
+> futuri, comprese le tecnologie assistive.
 
 #### Analisi sintattica (parsing)
 livello: A
 source: parsing
 outcome: no
 
+> Nel contenuto implementato utilizzando linguaggi di marcatura gli
+> elementi possiedono tag di apertura e chiusura completi, sono annidati in
+> conformità alle proprie specifiche, non contengono attributi duplicati
+> e tutti gli ID sono univoci, salvo i casi in cui le specifiche permettano
+> eccezioni.
+
+##### Violazioni riscontrate
+
 copiare dal validatore:
+
  - apertura e chiusura corretta dei tag
  - attributi non duplicati
  - id univoci
@@ -1207,22 +1345,53 @@ copiare dal validatore:
 sappiamo per certo che i tag non sono corretti (chiusi due volti i p
 per esempio).
 
+##### Rimedi proposti
+
+Correggere gli errori sintattici e semantici della pagina.
+
 #### Nome, ruolo, valore
 livello: A
 source: name-role-value
 outcome: no
 
-Non è possibile calcolare name e ruolo per ogni componente
-dell'interfaccia utente (verificato con gli strumenti di accessibilità
-di firefox: la barra di ricerca per esempio non viene riconosciuta).
+> Per tutti i componenti dell'interfaccia utente (inclusi ma non limitati
+> a: elementi di un modulo, collegamenti e componenti generati da script),
+> nome e ruolo possono essere determinati programmaticamente; stati,
+> proprietà e valori che possono essere impostati dall'utente possono
+> essere impostabili da programma; e le notifiche sui cambi di stato di
+> questi elementi sono rese disponibili ai programmi utente, incluse le
+> tecnologie assistive.
+
+##### Violazioni riscontrate
+
+Non è stato possibile calcolare nome e ruolo per ogni componente
+dell'interfaccia utente. Per la verifica è stato usato lo strumento di
+accessibilità del browser web Mozilla Firefox Developer Edition.
+
+##### Rimedi proposti
+
+Usare gli attributi ARIA (in particolare `aria-labelledby` e `aria-label`)
+per fornire etichette, oltre a un completo uso dei label per gli input
+(campo di ricerca e dei commenti).
 
 #### Messaggi di stato
 livello: AA
-source: status-messages@
+source: status-messages
 outcome: no
+
+> Nei contenuti implementati utilizzando i linguaggi di marcatura, i
+> messaggi di stato possono essere determinati programmaticamente tramite
+> ruolo o proprietà in modo tale che possano essere presentati all'utente
+> mediante tecnologie assistive senza ricevere il focus.
+
+##### Violazioni riscontrare
 
 Non sono presenti messaggi di stato che possano essere determinati
 programmaticamente.
+
+##### Rimedi proposti
+
+Usare l'attributo `role` nella pagina per indicare 
 
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
