@@ -65,6 +65,7 @@ table {
 html {
 	font-size: 18px;
 }
+git status
 
 html, body {
 	min-height: 100vh;
@@ -192,9 +193,15 @@ em {
 	box-shadow: 0 7px 20px #bdbdbd;
 }
 
+.searchbox p {
+	padding: 20px 0 0px;
+	width: 70%;
+	margin: 0 auto;
+}
+
 .searchbox #search-input {
 	display: block;
-	margin: 40px auto;
+	margin: 20px auto;
 	padding: 7px 10px;
 	font-size: 1rem;
 	width: 70%;
@@ -556,6 +563,10 @@ dt {
 
 .wcag blockquote footer cite::before {
 	content: "\2014 ";
+}
+
+.wcag dl {
+	clear: both;
 }
 
 .wcag p,
