@@ -288,7 +288,8 @@ func wcagPage() (Page, error) {
 
 // Prende come input una stringa con testo markdown e ritorna la rappresentazione in HTML
 func markdown(c string) template.HTML {
-	return template.HTML(blackfriday.Run([]byte(c)))
+	extensions := blackfriday.WithExtensions(blackfriday.AutoHeadingIDs | blackfriday.DefinitionLists | blackfriday.FencedCode)
+	return template.HTML(blackfriday.Run([]byte(c), extensions))
 }
 
 // Incrementa il numero passato
