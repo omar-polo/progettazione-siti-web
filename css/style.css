@@ -62,6 +62,10 @@ table {
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 18px;
+}
+
 html, body {
 	min-height: 100vh;
 }
@@ -70,7 +74,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
-	font-size: 18px;
 	background: var(--bg-color);
 	color: #444;
 }
@@ -225,6 +228,10 @@ em {
 .searchbox #results li span {
 	font-size: 0.9rem;
 	padding: 0 1rem;
+}
+
+dt {
+	font-weight: bold;
 }
 
 .footer {
@@ -550,9 +557,15 @@ em {
 	content: "\2014 ";
 }
 
-.wcag p {
+.wcag p,
+.wcag dl {
+	font-size: 1rem;
 	margin: 1rem;
 	line-height: 2rem;
+}
+
+.wcag dt {
+	margin-top: 10px;
 }
 
 .wcag ul {

@@ -6,14 +6,17 @@ title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
 La valutazione di conformità si è basata sulle linee guida **WCAG 2.1** che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
-- **Principi** - Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
+Principi
+: Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
 
-- **Linee guida** - Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse. 
+Linee guida
+: Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse. 
 
-- **Criteri di successo** - Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. 
-  - Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
+Criteri di successo
+: Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
 
-- **Tecniche sufficienti e consigliate** -  Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida. 
+Tecniche sufficienti e consigliate
+: Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida. 
 
 Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile. 
 
@@ -80,16 +83,23 @@ source: non-text-content
 
 > Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente che serve allo stesso scopo, ad eccezione dei seguenti casi
 >
-> **Controlli**, **input**: Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
+> Controlli, input
+> : Se il contenuto non testuale è un controllo o accetta l'input degli utenti, allora ha un nome che ne descrive la finalità.
 >
-> **Media temporizzati**: Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
-> **Test**: Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+> Media temporizzati
+> : Se il contenuto non testuale è un media temporizzato, allora le alternative testuali forniscono almeno una identificazione descrittiva per il contenuto non testuale.
 >
-> **Esperienze sensoriali**: Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
+> Test
+> : Se il contenuto non testuale è un test o un esercizio che potrebbe essere non valido se presentato come testo, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
 >
-> **CAPTCHA**: Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
+> Esperienze sensoriali
+> : Se il contenuto non testuale ha lo scopo primario di creare una specifica esperienza sensoriale, allora le alternative testuali forniscono almeno una descrizione identificativa del contenuto non testuale.
 >
-> **Decorazioni**, **formattazioni**, **contenuti invisibili**: Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
+> CAPTCHA
+> : Se la finalità del contenuto non testuale è confermare che il contenuto sia utilizzato da una persona e non da un computer, allora sono fornite alternative testuali che identifichino e descrivano lo scopo del contenuto non testuale, e forme alternative di CAPTCHA che usino diverse modalità di output per differenti tipologie di percezioni sensoriali al fine di soddisfare differenti disabilità.
+>
+> Decorazioni, formattazioni, contenuti invisibili
+> : Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
 ##### Violazioni riscontrate:
 
@@ -478,11 +488,14 @@ source: contrast-minimum
 
 > La rappresentazione visiva del testo e di immagini contenenti testo ha un rapporto di contrasto di almeno 4.5:1, fatta eccezione per i seguenti casi:
 
-  > **Testo grande**: Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 3:1;
-
-  > **Testo non essenziale**: Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto.
-
-  > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
+> Testo grande
+> : Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 3:1
+>
+> Testo non essenziale
+> : Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto
+>
+> Logotipi
+> : Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
 
 ##### Violazioni riscontrate:
 
@@ -515,9 +528,11 @@ source: images-of-text
 
 > Se le tecnologie utilizzate consentono la rappresentazione visiva dei contenuti, per veicolare informazioni è usato il testo, e non le immagini di testo, ad eccezione dei seguenti casi:
 
-  > **Personalizzabile**: L'immagine di testo può essere personalizzata visivamente per le esigenze dell'utente;
+> Personalizzabile
+> : L'immagine di testo può essere personalizzata visivamente per le esigenze dell'utente;
 
-  > **Essenziale**: Una particolare rappresentazione del testo è essenziale per il tipo di informazioni veicolate.
+> Essenziale
+> : Una particolare rappresentazione del testo è essenziale per il tipo di informazioni veicolate.
 
 ##### Violazioni riscontrate:
 
@@ -535,12 +550,15 @@ outcome: no
 source: contrast-enhanced
 
 > La rappresentazione visiva del testo e immagini contenenti testo ha un rapporto di contrasto di almeno 7:1, fatta eccezione per i seguenti casi:
+>
+> Testo grande
+> : Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 4.5:1
+>
+> Testo non essenziale
+> : Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto.
 
-  > **Testo grande**: Testo grande e immagini contenenti testo grande devono avere un rapporto di contrasto di almeno 4.5:1;
-
-  > **Testo non essenziale**: Testo o immagini contenenti testo che siano parti inattive di componenti dell'interfaccia utente, che siano di pura decorazione, non visibili a nessuno, oppure che facciano parte di immagini contenenti contenuti visuali maggiormente significativi, non hanno alcun requisito di contrasto.
-
-  > **Logotipi**: Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
+> Logotipi
+> : Un testo che sia parte di un logo o marchio non ha alcun requisito minimo di contrasto.
 
 ##### Violazioni riscontrate:
 
@@ -577,11 +595,14 @@ source: low-or-no-background-audio
 
 > Per i contenuti di solo audio preregistrato che (1) contengano principalmente parlato in primo piano (2) non siano CAPTCHA audio o loghi audio e (3) non siano una vocalizzazione intesa per essere principalmente espressione musicale come canto o rap, si applica almeno uno dei seguenti casi:
 
-  > **Nessun sottofondo**: Il sonoro non contiene suoni di sottofondo.
+> Nessun sottofondo
+> : Il sonoro non contiene suoni di sottofondo.
 
-  > **Spegnimento**: Il sottofondo sonoro può essere disattivato.
+> Spegnimento
+> : Il sottofondo sonoro può essere disattivato.
 
-  > **20 dB**: Il sottofondo sonoro deve essere inferiore di almeno 20 decibel rispetto al parlato in primo piano, con l'eccezione di suoni occasionali di durata massima di uno o due secondi.
+> 20 dB
+> : Il sottofondo sonoro deve essere inferiore di almeno 20 decibel rispetto al parlato in primo piano, con l'eccezione di suoni occasionali di durata massima di uno o due secondi.
 
 ##### Osservazioni
 
@@ -653,9 +674,11 @@ source: non-text-contrast
 
 > Nella presentazione visiva il rapporto di contrasto è di almeno 3:1 rispetto al colore o ai colori adiacenti per:
 
-  > **Componenti dell'interfaccia utente**: Le informazioni visive richieste per identificare i componenti dell'interfaccia utente e gli stati (ad eccezione dei componenti inattivi o dove l'aspetto del componente è determinato dal programma utente e non modificato dall'autore);
+> Componenti dell'interfaccia utente
+> : Le informazioni visive richieste per identificare i componenti dell'interfaccia utente e gli stati (ad eccezione dei componenti inattivi o dove l'aspetto del componente è determinato dal programma utente e non modificato dall'autore);
 
-  > **Oggetti grafici**: Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
+> Oggetti grafici
+> : Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
 
 ##### Osservazioni
 
@@ -692,11 +715,14 @@ source: content-on-hover-or-focus
 
 > Nel caso in cui il passaggio del puntatore del mouse (hover) o il focus della tastiera rendono visibili e nascosti dei contenuti, sono soddisfatte le seguenti condizioni:
 
-  > **Congedabile**: È disponibile un meccanismo per eliminare il contenuto aggiuntivo senza spostare il puntatore del mouse o il focus della tastiera, a meno che il contenuto aggiuntivo non comunichi un errore di immissione dei dati o non oscuri o sostituisca altri contenuti;
+> Congedabile
+> : È disponibile un meccanismo per eliminare il contenuto aggiuntivo senza spostare il puntatore del mouse o il focus della tastiera, a meno che il contenuto aggiuntivo non comunichi un errore di immissione dei dati o non oscuri o sostituisca altri contenuti;
 
-  > **Passabile**: Se il passaggio del puntatore del mouse sul contenuto può attivare il contenuto aggiuntivo, il puntatore può essere spostato sul contenuto aggiuntivo senza che questo scompaia;
+> Passabile
+> : Se il passaggio del puntatore del mouse sul contenuto può attivare il contenuto aggiuntivo, il puntatore può essere spostato sul contenuto aggiuntivo senza che questo scompaia;
 
-  > **Persistente**: Il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso, l'utente lo elimina o le sue informazioni non sono più valide.
+> Persistente
+> : Il contenuto aggiuntivo rimane visibile fino a quando l'evento hover o focus non viene rimosso, l'utente lo elimina o le sue informazioni non sono più valide.
 
 > Eccezione: la presentazione visiva del contenuto aggiuntivo è controllata dal programma utente e non viene modificata dall'autore.
 
