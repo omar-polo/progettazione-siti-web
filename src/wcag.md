@@ -52,6 +52,18 @@ Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono sta
 
 - La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
 
+Nella valutazione di conformità dei vari criteri di successo l'esito
+è stato espresso nei termini di:
+
+positivo
+: Tutte le pagine esaminate rispettano completamente le direttive espresse da quel criterio di successo
+
+non applicabile
+: Per tutte le pagine esaminate il criterio di successo non è applicabile
+
+negativo
+: Una o più pagine esaminate non rispettano il criterio di successo
+
 ##### Risultati del report
 
 Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
