@@ -186,9 +186,11 @@ source: audio-only-and-video-only-prerecorded
 
 > Per i tipi di media preregistrati di solo audio e di solo video, a meno che questi non costituiscano un tipo di media alternativo ad un contenuto testuale chiaramente etichettato come tale, sono soddisfatti i seguenti punti:
 
-  > **Solo audio preregistrato**: È fornita un'alternativa per il tipo di media temporizzato che presenti informazioni equivalenti al contenuto di solo audio preregistrato.
+  > **Solo audio preregistrato**
+  > : È fornita un'alternativa per il tipo di media temporizzato che presenti informazioni equivalenti al contenuto di solo audio preregistrato.
 
-  > **Solo video preregistrato**: È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
+  > **Solo video preregistrato**
+  > : È fornita un'alternativa per il tipo di media temporizzato oppure una traccia audio che presenti informazioni equivalenti al contenuto di solo video preregistrato.
 
 ##### Violazioni riscontrate:
 
@@ -1157,7 +1159,7 @@ in sovraimpressione ma viene aggiunta con javascript e posizionata lì
 sopra, non ha nessuna vicinanza all'elemento che permetta di comprenderne
 l'associazione se non il risultato grafico).
 
-#### Seggerimenti per gli errori
+#### Suggerimenti per gli errori
 livello: AA
 source: error-suggestion
 outcome: no
@@ -1218,7 +1220,7 @@ di firefox: la barra di ricerca per esempio non viene riconosciuta).
 
 #### Messaggi di stato
 livello: AA
-source: status-messages@
+source: status-messages
 outcome: no
 
 Non sono presenti messaggi di stato che possano essere determinati
@@ -1226,3 +1228,7 @@ programmaticamente.
 
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
+
+#####  Sommario dei risultati
+
+
