@@ -367,6 +367,7 @@ dt {
 
 .boxes a i {
 	transition: transform .2s ease-in-out;
+	margin-left: 5px;
 }
 
 .boxes a:hover {
@@ -463,6 +464,10 @@ dt {
 	padding-top: 20px;
 }
 
+.wcag h6 {
+	padding-left: 5px;
+}
+
 .wcag .success-criterion {
 	padding: 10px;
 	margin: 10px 0;
@@ -506,14 +511,6 @@ dt {
 	margin-bottom: 10px;
 }
 
-/* fix line width
- * lines should be in the 40-80 characters
- */
-/*.wcag .principle > blockquote,
-.wcag .guidelines > blockquote,
-.wcag .success-criterion > p,
-.wcag .success-criterion > blockquote,
-.wcag .success-criterion > ul */
 .wcag .principle, .wcag .introduction {
 	max-width: 960px;
 	margin-left: auto;
@@ -817,13 +814,13 @@ kbd {
 	margin-left: 2.5rem;
 }
 
-.mappa .third-list li a {
-	color: black;
+.mappa .third-list > li > a {
+	color: inherit;
 	padding-left: 20px;
 }
 
-.mappa .third-list li a::before {
-	content: "- ";
+.mappa .third-list > li > a::before {
+	content: "- "
 }
 
 .mappa .second-list > li {

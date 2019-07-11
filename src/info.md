@@ -1,36 +1,5 @@
 title:Info
 
-# Glossario
-
-TEMPORANEO: spostare su un'altra pagina?
-
-spec
-: Abbreviazione di "specifica"
-
-WCAG
-: Web Content Accessibility Guidelines, attualmente alla versione 2.1
-
-CHAPTCHA
-: ...
-
-link
-: collegamento tra due pagine web
-
-input
-: un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
-
-HTML
-: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine web
-
-CSS
-: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina web
-
-Pagina Web
-: vedere come il W3C lo definisce
-
-Browser Web
-: un programma usato per navigare tra pagine web
-
 # Informazioni sull'accesibilità del sito
 
 ## Dichiarazione di conformità

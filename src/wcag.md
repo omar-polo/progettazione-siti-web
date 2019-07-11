@@ -4,7 +4,7 @@ title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
 ##### Introduzione
 
-La valutazione di conformità si è basata sulle linee guida **WCAG 2.1** che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
+La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
 Principi
 : Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
@@ -63,6 +63,35 @@ Nella valutazione di conformità dei vari criteri di successo l'esito è stato e
 
 **Non applicabile**
 : Per tutte le pagine esaminate il criterio di successo non è applicabile
+
+##### Glossario
+
+spec
+: Abbreviazione di "specifica"
+
+WCAG
+: Web Content Accessibility Guidelines, attualmente alla versione 2.1
+
+CHAPTCHA
+: Sigla per "Completely Automated Public Turing test to tell Computers and Humans Apart" (Test di Turing pubblico e completamente automatizzato, allo scopo di distinguere gli esseri umani dai computer)
+
+link
+: Collegamento tra due pagine Web
+
+input
+: Un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
+
+HTML
+: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine Web
+
+CSS
+: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
+
+Pagina Web
+: Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
+
+Browser Web
+: Qualsiasi programma che recuperi e presenti contenuti Web agli utenti
 
 ##### Risultati del report
 
