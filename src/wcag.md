@@ -765,6 +765,10 @@ outcome: no
 
 Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non sono navigabili da tastiera in quanto l'area a scomparsa non si apre.
 
+**Screen d'esempio**
+
+![Esempio di icone senza descrizione testuale](img/tastiera.gif)
+
 #### Nessun impedimento all'uso della tastiera
 livello: A
 source: no-keyboard-trap
@@ -778,6 +782,10 @@ source: keyboard-no-exception
 outcome: no
 
 Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
+
+**Screen d'esempio**
+
+![Esempio di icone senza descrizione testuale](img/tastiera.gif)
 
 #### Tasti di scelta rapida
 livello: A
@@ -803,6 +811,17 @@ La home page si auto-ricarica e:
  - il limite di tempo non è un evento fondamentale
  - il limite di tempo non è essenziale per l'attività
  - il limite di tempo è inferiore alle 20 ore (sono 10 minuti)
+ 
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
 
 Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
 che permetta almeno uno dei punti sopra citati.
@@ -815,6 +834,17 @@ outcome: no
  - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
  - [ ] non è possibile disattivare l'autoaggiornamento
 
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
+
 #### Nessun tempo di esecuzione
 livello: AAA
 source: no-timing
@@ -823,6 +853,16 @@ outcome: no
 Nonostante il refresh non sia una parte esseziale del contenuto, la home
 page si auto-ricarica ogni 10 minuti.
 
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
 
 #### Interruzioni
 livello: AAA
@@ -831,6 +871,17 @@ outcome: no
 
 La home page viene ricaricata ogni 10 minuti: tale azione non è
 considerabile un'emergenza.
+
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
 
 #### Riautenticazione
 livello: AAA
@@ -885,6 +936,10 @@ outcome: no
 Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
 disabilitare l'animazione (transazione) e non è essenziale.
 
+**Screen d'esempio**
+
+![Esempio di icone senza descrizione testuale](img/animazione-da-interazioni.gif)
+
 ### Navigabile
 source: navigable
 
@@ -898,6 +953,10 @@ outcome: no
 
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
 che si ripetono su piu pagine.
+
+**Screen d'esempio**
+
+![Esempio di icone senza descrizione testuale](img/salto-di-blocchi.png)
 
 #### Titolazione della pagina
 livello: A
@@ -921,6 +980,15 @@ outcome: no
 
 Mancano dei aria-label sui box del meteo e della vignetta in homepage. Le
 altre pagine sono a posto.
+
+**Code snippets**
+
+```
+<div id="text-165" class="widget widget_text">
+   <div class="textwidget"><a href="http://meteo.ilfattoquotidiano.it/"><img class=" lazyloaded" src="https://st.ilfattoquotidiano.it/wp-content/uploads/2015/01/icona-sidebar.png" data-src="https://st.ilfattoquotidiano.it/wp-content/uploads/2015/01/icona-sidebar.png" width="230" height="55" scrolling="no" alt="Meteo" style="margin-top:-10px"></a></div>
+   <div class="clear"></div>
+</div>
+```
 
 #### Differenti modalità
 livello: AA
@@ -974,6 +1042,16 @@ outcome: no
 Nella homepage il box del meteo è un'immagine senza testo descrittivo,
 così come anche il box della vignetta.
 
+**Code snippets**
+
+```
+<div class="ifq-author-widget no-mobile" style="border:3px solid #b3000f; background: #b3000f;">
+   <a href="https://www.ilfattoquotidiano.it/2019/07/11/altri-nomi-eccellenti/5316506/">
+   <img class=" lazyloaded" data-src="https://st.ilfattoquotidiano.it/wp-content/uploads/2019/07/11/11-luglio-2019-senza.jpg" width="224" alt="Altri nomi eccellenti" src="https://st.ilfattoquotidiano.it/wp-content/uploads/2019/07/11/11-luglio-2019-senza.jpg">
+   <img class="signature" src="https://st.ilfattoquotidiano.it/wp-content/themes/ifq/assets/img/natangelo.png" alt="La vignetta di Natangelo">
+   </a>
+</div>
+```
 #### Intestazioni di sezione
 livello: AAA
 source: section-headings
@@ -1011,6 +1089,18 @@ outcome: no
  - il controllo di ricerca ha il nome ha nome 'q'
  - nella schermata di login i controlli hanno nome 'username' ma il testo mostrato è 'Nome utente o email'
 
+
+**Code snippets**
+
+```
+<div class="input-wrap">
+   <input type="text" name="q" id="q" onfocus="this.value = '';">
+</div>
+```	
+
+```
+<label for="username">Nome utente o email<span class="required">*</span></label>
+```
 #### Azionamento da movimento
 livello: A
 source: motion-actuation
@@ -1025,6 +1115,8 @@ source: target-size
 outcome: no
 
 Il link vuoto nella barra laterale non è alto abbastanza (0px)
+
+???????????????
 
 #### Meccanismi di input simultanei
 livello: AAA
