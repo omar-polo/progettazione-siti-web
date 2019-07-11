@@ -133,7 +133,7 @@ abbr {
 }
 
 .navigation li:nth-child(2) {
-	margin: 0 1rem;
+	margin: 0 1.5rem;
 }
 
 main {
@@ -820,6 +820,10 @@ kbd {
 .mappa .third-list li a {
 	color: black;
 	padding-left: 20px;
+}
+
+.mappa .third-list li a::before {
+	content: "- ";
 }
 
 .mappa .second-list > li {
