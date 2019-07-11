@@ -52,17 +52,17 @@ Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono sta
 
 - La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
 
-Nella valutazione di conformità dei vari criteri di successo l'esito
-è stato espresso nei termini di:
+##### Requisiti di conformità
+Nella valutazione di conformità dei vari criteri di successo l'esito è stato espresso nei termini di:
 
-positivo
+**Positivo**
 : Tutte le pagine esaminate rispettano completamente le direttive espresse da quel criterio di successo
 
-non applicabile
-: Per tutte le pagine esaminate il criterio di successo non è applicabile
-
-negativo
+**Negativo**
 : Una o più pagine esaminate non rispettano il criterio di successo
+
+**Non applicabile**
+: Per tutte le pagine esaminate il criterio di successo non è applicabile
 
 ##### Risultati del report
 
@@ -77,6 +77,8 @@ Il sito fa largo uso di immagini di testo che non sono essenziali per le informa
 Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è possibile accedere tramite la tastiera.
 
 Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
+
+#####  Sommario dei risultati
 
 ## Percepibile
 source: perceivable
@@ -1410,6 +1412,5 @@ Usare l'attributo `role` nella pagina per indicare
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
 
-#####  Sommario dei risultati
 
 
