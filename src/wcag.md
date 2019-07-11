@@ -959,7 +959,7 @@ discorso dei video.
 
 #### Animazione da interazioni
 livello: AAA
-source: animation-from-interaction
+source: animation-from-interactions
 outcome: no
 
 Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
