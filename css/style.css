@@ -356,6 +356,7 @@ dt {
 		font-size: 1.5rem;
 		max-width: 620px;
 		text-align: center;
+		line-height: 2rem;
 		color: var(--bg-color);
 		text-shadow: 0 0 3px  var(--blue);
 	}
