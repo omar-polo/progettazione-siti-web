@@ -7,7 +7,6 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
-	tt "text/template"
 	"io"
 	"io/ioutil"
 	"log"
@@ -16,6 +15,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	tt "text/template"
 
 	"github.com/fsnotify/fsnotify"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
@@ -149,7 +149,7 @@ func infoPage() (Page, error) {
 type Survey map[string]string
 
 type Result struct {
-	Task  Task     // definizione del task
+	Task  Task       // definizione del task
 	Users []UTResult // risultati degli utenti
 }
 
@@ -165,35 +165,35 @@ func utPage() (Page, error) {
 		return p, err
 	}
 	defer uf.Close()
-	
+
 	// Parse the tasks
 	f, err := os.Open("src/tasks.md")
 	if err != nil {
 		return p, err
 	}
 	defer f.Close()
-	
+
 	taskParser := Parser{
-		reader: bufio.NewReader(SkipCR{src: f}),
-		filename: "src/tasks.md",
+		reader:     bufio.NewReader(SkipCR{src: f}),
+		filename:   "src/tasks.md",
 		lineNumber: 1,
 	}
-	
+
 	tasks, err := TasksParse(&taskParser)
 	if err != nil {
 		return p, err
 	}
-	
+
 	// Parse the results
 	ff, err := os.Open("src/ut-results.md")
 	if err != nil {
 		return p, err
 	}
 	defer ff.Close()
-	
+
 	uParser := Parser{
-		reader: bufio.NewReader(SkipCR{src: ff}),
-		filename: "src/ut-results.md",
+		reader:     bufio.NewReader(SkipCR{src: ff}),
+		filename:   "src/ut-results.md",
 		lineNumber: 1,
 	}
 
@@ -201,39 +201,39 @@ func utPage() (Page, error) {
 	if err != nil {
 		return p, err
 	}
-	
+
 	pp := UTPage{}
 
 	// build the surveys
 	for _, utresult := range utresults {
 		pp.Surveys = append(pp.Surveys, (Survey(utresult.Metadata)))
 	}
-	
+
 	// and the results
 	for i, t := range tasks {
 		r := Result{
 			Task: t,
 		}
-		
+
 		for _, utresult := range utresults {
 			if len(tasks) != len(utresult.Results) {
 				return p, fmt.Errorf("per l'utente %d non sono stati inseriti un numero corretto di task (%d invece che %d)", i, len(utresult.Results), len(tasks))
 			}
 			r.Users = append(r.Users, utresult.Results[i])
 		}
-		
+
 		pp.Results = append(pp.Results, r)
 	}
-	
+
 	content, err := ioutil.ReadAll(reader)
 	if err != nil {
 		return p, err
 	}
-	
+
 	fmap := tt.FuncMap{
 		"inc": inc,
 	}
-	
+
 	t := tt.Must(tt.New("src/ut.md").Funcs(fmap).Parse(string(content)))
 	var b bytes.Buffer
 	err = t.Execute(&b, pp)
@@ -241,16 +241,16 @@ func utPage() (Page, error) {
 	return p, err
 
 	/*
-	p, reader, f, err := initParser("src/ut.md")
-	if f != nil {
-		defer f.Close()
-	}
-	if err != nil {
+		p, reader, f, err := initParser("src/ut.md")
+		if f != nil {
+			defer f.Close()
+		}
+		if err != nil {
+			return p, err
+		}
+		content, err := ioutil.ReadAll(reader)
+		p.Content = string(content)
 		return p, err
-	}
-	content, err := ioutil.ReadAll(reader)
-	p.Content = string(content)
-	return p, err
 	*/
 }
 
@@ -280,7 +280,7 @@ func wcagPage() (Page, error) {
 	if err != nil {
 		return p, err
 	}
-	
+
 	wf, err := os.Open("src/wcag.md")
 	if err != nil {
 		return p, err
@@ -298,7 +298,7 @@ func wcagPage() (Page, error) {
 
 	s, err := WCAGParse(&parser)
 	p.Content = WCAGReport{
-		Intro: string(c),
+		Intro:    string(c),
 		Sections: s.SubSections,
 	}
 
@@ -325,7 +325,7 @@ type SectionWithCounter struct {
 // filtra i risultati tornando solo quelli con esito specificato
 func filterResults(s []Section, outcome string) []SectionWithCounter {
 	var r []SectionWithCounter
-	
+
 	for pi, p := range s {
 		for li, l := range p.SubSections {
 			for ci, c := range l.SubSections {
@@ -339,15 +339,15 @@ func filterResults(s []Section, outcome string) []SectionWithCounter {
 			}
 		}
 	}
-	
+
 	return r
 }
 
 // Carica il template con il nome dato
 func loadTemplate(name string) *template.Template {
 	fmap := template.FuncMap{
-		"markdown": markdown,
-		"inc": inc,
+		"markdown":      markdown,
+		"inc":           inc,
 		"filterResults": filterResults,
 	}
 
