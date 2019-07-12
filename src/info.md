@@ -6,7 +6,7 @@ title:Info
 
 -   Data della dichiarazione: 15/07/2019
 
--   Nome delle linee guida, versione e URI: "Web Content Accessibility Guidelines **WCAG 2.1** su [W3C](https://www.w3.org/Translations/WCAG21-it/)
+-   Nome delle linee guida, versione e URI: "Web Content Accessibility Guidelines **WCAG 2.1** su [W3C](https://www.w3.org/Translations/WCAG21-it)
 
 -   Livello di conformità soddisfatto: Livello AA
 
