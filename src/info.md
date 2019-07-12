@@ -22,7 +22,7 @@ La validità dei fogli di stile a cascata (CSS) è stata verificata con lo strum
 
 ![CSS Validation Service](img/../../img/Valid_CSS.png)
 
-### Scorciatoie da tastiera
+#### Scorciatoie da tastiera
 
 In questa sezione sono elencate le combinazioni da tastiera che possono essere utilizzate in Mozilla Firefox e Google Chrome.
 
