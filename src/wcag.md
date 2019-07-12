@@ -1,113 +1,4 @@
-title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
-
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
-
-##### Introduzione
-
-La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
-
-Principi
-: Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
-
-Linee guida
-: Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse. 
-
-Criteri di successo
-: Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
-
-Tecniche sufficienti e consigliate
-: Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida. 
-
-Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile. 
-
-Sono stati utilizzati diversi strumenti come supporto alla valutazione di conformità alle linee guida WCAG 2.1.
-
-- I browser Web [Mozilla Firefox Developer Edition](https://www.mozilla.org/it/firefox/channel/desktop/) e [Google Chrome](https://www.google.com/intl/it/chrome/)
-
-- Markup Validation Service [W3C](https://validator.w3.org/)
-
-- CSS Validation Service [W3C](https://jigsaw.w3.org/css-validator/)
-
-- Web Accessibility Evaluation Tool [WAVE](http://wave.webaim.org/)
-
-- Color Contrast Accessibility Validator [a11y](https://color.a11y.com/?wc3)
-
-- [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità. 
-
-- [Color Contrast Checker - WebAIM](https://webaim.org/resources/contrastchecker/) che fornisce un rapporto per sapere quanto è accessibile un sito Web e come migliorarlo.
-
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) che è uno strumento automatizzato open-source per migliorare la qualità delle pagine web. Ha Audits per prestazioni, accessibilità, buone pratiche, applicazioni web progressive e altro.
-
-##### Perimetro dell'indagine
-
-Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono state selezionate le seguenti pagine:
-
-- Home page del sito [il Fatto Quotidiano](https://www.ilfattoquotidiano.it/)
-
-- Un articolo estratto dalla Home page
-
-- La pagina [Archivi](https://www.ilfattoquotidiano.it/archivi/)
-
-- La pagina di [Login](https://shop.ilfattoquotidiano.it/login/)
-
-- La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
-
-##### Requisiti di conformità
-Nella valutazione di conformità dei vari criteri di successo l'esito è stato espresso nei termini di:
-
-**Positivo**
-: Tutte le pagine esaminate rispettano completamente le direttive espresse da quel criterio di successo
-
-**Negativo**
-: Una o più pagine esaminate non rispettano il criterio di successo
-
-**Non applicabile**
-: Per tutte le pagine esaminate il criterio di successo non è applicabile
-
-##### Glossario
-
-spec
-: Abbreviazione di "specifica"
-
-WCAG
-: Web Content Accessibility Guidelines, attualmente alla versione 2.1
-
-CHAPTCHA
-: Sigla per "Completely Automated Public Turing test to tell Computers and Humans Apart" (Test di Turing pubblico e completamente automatizzato, allo scopo di distinguere gli esseri umani dai computer)
-
-link
-: Collegamento tra due pagine Web
-
-input
-: Un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
-
-HTML
-: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine Web
-
-CSS
-: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
-
-Pagina Web
-: Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
-
-Browser Web
-: Qualsiasi programma che recuperi e presenti contenuti Web agli utenti
-
-##### Risultati del report
-
-Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
-
-I video preregistrati non forniscono nessuna trascrizione testuale equivalente, nè presentano sottotitoli.
-
-Le informazioni trasmesse determinate programmaticamente non rispettano la semantica del Web. Il vantaggio della scrittura di HTML semantico deriva da quello che dovrebbe essere l'obiettivo principale di qualsiasi pagina web: il desiderio di comunicare.
-
-Il sito fa largo uso di immagini di testo che non sono essenziali per le informazioni che intendono veicolare, quando sarebbe stato più opportuno utilizzare puro testo.
-
-Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è possibile accedere tramite la tastiera.
-
-Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
-
-#####  Sommario dei risultati
 
 ## Percepibile
 source: perceivable
@@ -1173,26 +1064,36 @@ outcome: no
 > L'impostazione della lingua predefinita di ogni pagina Web può essere
 > determinata programmaticamente.
 
-L'unica violazione riscontrata è nella pagina meteo.
+##### Violazioni riscontrate
+
+Nella pagina del meteo non è possibile determinare programmaticamente
+la lingua.
 
 ##### Rimedio proposto
 
- - aggingere l'attributo `lang`
- - aggiungere un *header* HTTP `Content-Language`
+Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language`.
 
 #### Parti in lingua
 livello: AA
 source: language-of-parts
-outcome: yes
+outcome: no
 
 > La lingua di ogni passaggio o frase nel contenuto può essere
 > determinata programmaticamente ad eccezione di nomi propri, termini
 > tecnici, parole in lingue indeterminate e parole o frasi che sono
 > diventate parte integrante del gergo del testo immediatamente circostante.
 
-Negli articoli esaminati la lingua del testo è sempre in italiano, fatta
-eccezione per i nomi propri, alcune terminologie tecniche od espressioni
-diventate parte integrante del parlato (ad esempio "social network").
+##### Violazioni riscontrate
+
+Nonostante tutte le pagine esaminate contengano testo in italiano,
+fatta eccezione per i nomi propri, terminologie tecniche od espressioni
+diventate parte integrante del parlato comune, non è possibile
+determinare programmaticamente la lingua del documento.
+
+##### Rimedio proposto
+
+Come per il punto precedente, aggingere l'attributo `lang` oppure un
+*header* HTTP `Content-Language`.
 
 #### Parole inusuali
 livello: AAA
@@ -1242,7 +1143,7 @@ a pagine esplicative.
 #### Livello di lettura
 livello: AAA
 source: reading-level
-outcome: yes
+outcome: na
 
 > Quando il testo richiede capacità di lettura più avanzata rispetto
 > al livello di istruzione secondaria inferiore dopo aver rimosso i nomi
@@ -1256,7 +1157,7 @@ più avanzata rispetto al livello di istruzione secondaria inferiore.
 #### Pronuncia
 livello: AAA
 source: pronunciation
-outcome: yes
+outcome: na
 
 > È reso disponibile un meccanismo per identificare specifiche pronunce
 > per le parole il cui significato, nel contesto, è ambiguo se non se ne
@@ -1381,7 +1282,7 @@ outcome: no
 Nonostante nella schermata di login ci siano etichette appropriate, la
 `textarea` per i commenti non ha etichette. È presente un elemento
 testuale che viene posizionato al di sopra della textarea, ma non ha
-nessun legame con essa (vicinanza o appropriati aria-attribute) se non
+nessun legame con essa (vicinanza o appropriati attributi ARIA) se non
 il posizionamento.
 
 ##### Rimedi proposti
@@ -1440,8 +1341,27 @@ outcome: yes
 
 > Fornire degli aiuti contestuali.
 
-È presente una pagina di aiuto (il cui link è presente nel footer)
+È presente una pagina di aiuto, il cui link è presente nel footer,
 e ci sono degli aiuti contestuali.
+
+#### Prevenzione degli errori (tutti)
+livello: AAA
+source: error-prevention-all
+outcome: yes
+
+> Per le pagine Web che richiedano l'invio di informazioni da parte
+> dell'utente, è soddisfatta almeno una delle seguenti condizioni:
+> 
+> Reversibilità
+> : Le azioni sono reversibili.
+>
+> Controllo
+> : I dati inseriti dall’utente vengono verificati e all’utente viene data l’opportunità di correggere gli errori.
+>
+> Conferma
+> : È disponibile un meccanismo per la revisione, conferma e correzione delle informazioni prima del loro invio definitivo.
+
+TODO: ma pare di si
 
 ## Robusto
 source: robust

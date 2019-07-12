@@ -34,7 +34,7 @@ var pages = make(map[string]*template.Template)
 type Page struct {
 	Title      string
 	Content    interface{}
-	WCAGResult Section
+	WCAGResult []Section
 	HasSearch  bool
 }
 
@@ -261,9 +261,14 @@ func newSection() Section {
 	return s
 }
 
+type WCAGReport struct {
+	Intro    string
+	Sections []Section
+}
+
 // Ritorna la pagina del WCAG
 func wcagPage() (Page, error) {
-	p, reader, f, err := initParser("src/wcag.md")
+	p, reader, f, err := initParser("src/wcag-intro.md")
 	if f != nil {
 		defer f.Close()
 	}
@@ -271,9 +276,20 @@ func wcagPage() (Page, error) {
 		return p, err
 	}
 
+	c, err := ioutil.ReadAll(reader)
+	if err != nil {
+		return p, err
+	}
+	
+	wf, err := os.Open("src/wcag.md")
+	if err != nil {
+		return p, err
+	}
+	defer wf.Close()
+
 	parser := WCAGParser{
 		p: Parser{
-			reader:     reader,
+			reader:     bufio.NewReader(SkipCR{src: wf}),
 			filename:   "src/wcag.md",
 			lineNumber: 1,
 		},
@@ -281,7 +297,11 @@ func wcagPage() (Page, error) {
 	}
 
 	s, err := WCAGParse(&parser)
-	p.Content = s
+	p.Content = WCAGReport{
+		Intro: string(c),
+		Sections: s.SubSections,
+	}
+
 	p.HasSearch = true
 	return p, err
 }
@@ -303,10 +323,10 @@ type SectionWithCounter struct {
 }
 
 // filtra i risultati tornando solo quelli con esito specificato
-func filterResults(root Section, outcome string) []SectionWithCounter {
+func filterResults(s []Section, outcome string) []SectionWithCounter {
 	var r []SectionWithCounter
 	
-	for pi, p := range root.SubSections {
+	for pi, p := range s {
 		for li, l := range p.SubSections {
 			for ci, c := range l.SubSections {
 				if c.OutcomeNL() == outcome {
@@ -398,7 +418,7 @@ func copyDir(dst, src string) {
 }
 
 // Renderizza una pagina
-func render(p Page, page string, res Section) {
+func render(p Page, page string, res []Section) {
 	p.WCAGResult = res
 
 	src := fmt.Sprintf("pages/%v", page)
@@ -436,7 +456,7 @@ func build() {
 
 	var p Page
 	var err error
-	var results Section
+	var results []Section
 
 	// first render wcag, so we load all results for the search function
 	if *verbose {
@@ -447,7 +467,7 @@ func build() {
 		log.Println("Cannot render pages/wcag.gohtml", err)
 		return
 	}
-	results = p.Content.(Section)
+	results = p.Content.(WCAGReport).Sections
 	render(p, "wcag.gohtml", results)
 
 	// render index.html
