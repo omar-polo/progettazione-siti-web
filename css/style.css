@@ -62,6 +62,8 @@ table {
 	--grey-quote: #ddd;
 	--orange: #ffb570;
 	--shadow-color: #777777;
+	--navigation-color: #4fc08d;
+	--navigation-color-li: #35495e;
 }
 
 *,
@@ -115,7 +117,7 @@ abbr {
 	flex-direction: row;
 	padding: 1.5rem 1rem 0;
 	justify-content: flex-end;
-	border-bottom: 3px solid #f2d7d5;
+	border-bottom: 3px solid var(--navigation-color);
 }
 
 .navigation ul {
@@ -130,7 +132,7 @@ abbr {
 }
 
 .navigation li:hover {
-	border-bottom-color: #fa7268;
+	border-bottom-color: var(--navigation-color-li);
 }
 
 .navigation li a {
