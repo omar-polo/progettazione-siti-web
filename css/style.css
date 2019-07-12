@@ -361,10 +361,8 @@ dt {
 	}
 
 	.intro blockquote p > cite {
-		width: 100%;
-		max-width: 610px;
 		font-size: 1.3rem;
-		color: #ffffff;
+		color: var(--bg-color);
 	}
 }
 
