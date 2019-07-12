@@ -852,10 +852,6 @@ kbd {
 	text-align: center;
 }
 
-.summary thead > tr > th:nth-child(2) {
-	text-align: left;
-}
-
 .summary tbody > tr > th {
 	text-align: center;
 	font-size: 1rem;
@@ -865,14 +861,17 @@ kbd {
 .summary tbody > tr > td {
 	text-align: left;
 	line-height: 2.5rem;
+	padding-left: 110px;
 }
 
 .summary tbody > tr.not-passed {
 	background-color: #f5c6cb;
+	border-bottom: 3px solid var(--light-gray);
 }
 
 .summary tbody > tr.passed {
 	background-color: #c3e6cb;
+	border-bottom: 3px solid var(--light-gray);
 }
 
 .summary tbody > tr.na {
