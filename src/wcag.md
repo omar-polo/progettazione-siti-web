@@ -87,6 +87,9 @@ HTML
 CSS
 : Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
 
+CSS pixel
+: Un CSS pixel è l'unità di misura canonica per tutte le lunghezze e misure in CSS. Questa unità è indipendente dalla densità e distinta dai pixel hardware effettivi presenti in un display.
+
 Pagina Web
 : Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
 
