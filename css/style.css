@@ -347,7 +347,6 @@ dt {
 	color: #ffffff;
 	text-shadow: 0 0 3px var(--navigation-color), 0 0 5px var(--blue);
 	padding: 12px 20px;
-	border: 3px solid var(--navigation-color);
 }
 
 @media only screen and (min-width: 540px) {
