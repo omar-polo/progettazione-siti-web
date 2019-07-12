@@ -297,11 +297,38 @@ func inc(c int) int {
 	return c + 1
 }
 
+type SectionWithCounter struct {
+	Section
+	Counter string
+}
+
+// filtra i risultati tornando solo quelli con esito specificato
+func filterResults(root Section, outcome string) []SectionWithCounter {
+	var r []SectionWithCounter
+	
+	for pi, p := range root.SubSections {
+		for li, l := range p.SubSections {
+			for ci, c := range l.SubSections {
+				if c.OutcomeNL() == outcome {
+					n := SectionWithCounter{
+						Section: c,
+						Counter: fmt.Sprintf("%d.%d.%d", pi+1, li+1, ci+1),
+					}
+					r = append(r, n)
+				}
+			}
+		}
+	}
+	
+	return r
+}
+
 // Carica il template con il nome dato
 func loadTemplate(name string) *template.Template {
 	fmap := template.FuncMap{
 		"markdown": markdown,
 		"inc": inc,
+		"filterResults": filterResults,
 	}
 
 	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.gohtml", name))
