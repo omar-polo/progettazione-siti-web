@@ -51,9 +51,17 @@ table {
 :root {
 	--blue: #2D5695; /* livid blue */
 	--red: #FF7070; /* coral reef */
-	--green: #86CE67; /* dollar bill */
+	--green: #8ce565; /* dollar bill */
 	--light-gray: #ebebeb;
 	--bg-color: #f8f8f8;
+	--black: #444;
+	--light-red: #f5c6cb;
+	--light-green: #c6f5d2;
+	--light-orange: #f5dcc4;
+	--black-kdb: #212529;
+	--grey-quote: #ddd;
+	--orange: #ffb570;
+	--shadow-color: #777777;
 }
 
 *,
@@ -76,7 +84,7 @@ body {
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
 	background: var(--bg-color);
-	color: #444;
+	color: var(--black);
 }
 
 a.skip-to-content {
@@ -179,7 +187,7 @@ dd {
 
 img {
 	max-width: 100%;
-	height auto;
+	height: auto;
 }
 
 code {
@@ -418,9 +426,9 @@ dt {
 }
 
 .wcag img {
-	-webkit-box-shadow: 0px 0px 8px #777777;
-	-moz-box-shadow: 0px 0px 8px #777777;
-	box-shadow: 0px 0px 8px  #777777;
+	-webkit-box-shadow: 0px 0px 8px var(--shadow-color);
+	-moz-box-shadow: 0px 0px 8px var(--shadow-color);
+	box-shadow: 0px 0px 8px  var(--shadow-color);
 }
 
 .wcag h1 {
@@ -502,7 +510,7 @@ dt {
 }
 
 .wcag .success-criterion.na {
-	border-color: var(--light-gray); /* TODO: cambiare! */
+	border-color: var(--orange); /* TODO: cambiare! */
 }
 
 .wcag .success-criterion header h4 {
@@ -540,7 +548,7 @@ dt {
 	display: block;
 	border-width: 2px 0 0 0;
 	border-style: solid;
-	border-color: #ddd;
+	border-color: var(--grey-quote);
 	padding: 1.5rem .5rem 1.5rem 2rem;
 	margin: 1.5em auto;
 	position: relative;
@@ -799,8 +807,8 @@ pre code {
 kbd {
 	padding: .2rem .4rem;
     font-size: 87.5%;
-    color: #fff;
-    background-color: #212529;
+    color: #ffffff;
+    background-color: var(--black-kdb);
     border-radius: .2rem;
 }
 
@@ -884,17 +892,17 @@ kbd {
 }
 
 .summary tbody > tr.not-passed {
-	background-color: #f5c6cb;
+	background-color: var(--light-red);
 	border-bottom: 3px solid var(--light-gray);
 }
 
 .summary tbody > tr.passed {
-	background-color: #c3e6cb;
+	background-color: var(--light-green);
 	border-bottom: 3px solid var(--light-gray);
 }
 
 .summary tbody > tr.na {
-	background-color: #ffc083;
+	background-color: var(--light-orange);
 }
 	
 /* Fine Tabella */
