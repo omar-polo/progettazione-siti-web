@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* handle the search */
     if (document.querySelector("li.search")) {
-        const data = flattenData(window.data.subsections)
+        const data = flattenData(window.data)
 
         document
             .querySelector("li.search")
