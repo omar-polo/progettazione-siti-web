@@ -421,7 +421,7 @@ dt {
 	padding: 8px;
 }
 
-.wcag h2::before {
+.wcag .principle h2::before {
 	counter-increment: principle;
 	content: counter(principle) " ";
 }
@@ -435,7 +435,7 @@ dt {
 	padding: 8px;
 }
 
-.wcag h3::before {
+.wcag .principle  h3::before {
 	counter-increment: guideline;
 	content: counter(principle) "." counter(guideline) " ";
 }
@@ -448,7 +448,7 @@ dt {
 	font-size: 1.3rem;
 }
 
-.wcag h4::before {
+.wcag .principle  h4::before {
 	counter-increment: success-criterion;
 	content: counter(principle) "." counter(guideline) "." counter(success-criterion) " ";
 }
