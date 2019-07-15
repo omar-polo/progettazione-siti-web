@@ -345,7 +345,7 @@ dt {
 	letter-spacing: 2px;
 	text-align: center;
 	color: #ffffff;
-	text-shadow: 0 0 3px var(--navigation-color), 0 0 5px var(--blue);
+	text-shadow: 0 0 3px var(--black), 0 0 5px var(--black);
 	padding: 12px 20px;
 }
 
@@ -358,7 +358,7 @@ dt {
 		text-align: center;
 		line-height: 2rem;
 		color: var(--bg-color);
-		text-shadow: 0 0 3px  var(--blue);
+		text-shadow: 0 0 3px  var(--black);
 	}
 
 	.intro blockquote p > cite {
