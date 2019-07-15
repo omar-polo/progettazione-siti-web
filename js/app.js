@@ -119,6 +119,12 @@ function showArrow(e) {
     }
 }
 
+document.getElementById("root-map").addEventListener("click", function(e){
+    e.preventDefault();
+    var t = e.target;
+    t.innerHTML = "Ti Trovi qua!"
+});
+
 document.addEventListener("DOMContentLoaded", function(){
     /* react on window scroll event */
 	const arrow = document.getElementById("toTop")
