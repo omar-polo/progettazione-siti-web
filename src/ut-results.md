@@ -32,11 +32,11 @@ La grammatica dei risultati (`key-value`) è uguale a quella descritta in tasks.
 
 ## utente 1
 sesso: maschio
-età: 25
+età: 25 anni
 professione: studente
 frequenza-web: 12 ore al giorno
-siti-viaggi: yes
-infoviaggiando: no
+siti-viaggi: Sì
+infoviaggiando: No
 esperienza: 4
 
 ### Task 1
@@ -161,11 +161,11 @@ poche
 
 ## utente 2
 sesso: maschio
-età: 22
+età: 22 anni
 professione: studente
 frequenza-web: 15-16 ore al giorno
-siti-viaggi: yes
-infoviaggiando: no
+siti-viaggi: Sì
+infoviaggiando: No
 esperienza: 4
 
 ### Task 1
@@ -290,11 +290,11 @@ poche
 
 ## utente 2
 sesso: femmina
-età: 18
+età: 18 anni
 professione: studente
 frequenza-web: 5-6 ore al giorno
-siti-viaggi: yes
-infoviaggiando: no
+siti-viaggi: Sì
+infoviaggiando: No
 esperienza: 3
 
 ### Task 1
@@ -383,7 +383,7 @@ tempo:
 2 minuti e 12
 
 percorso:
- - cilck su "Vedi tutte le telecamere" (sotto la mappa)
+ - click su "Vedi tutte le telecamere" (sotto la mappa)
  - mette la mappa fullscreen
  - identifica il punto richiesto
  - torna nella home page
