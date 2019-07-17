@@ -308,7 +308,7 @@ func wcagPage() (Page, error) {
 
 // Prende come input una stringa con testo markdown e ritorna la rappresentazione in HTML
 func markdown(c string) template.HTML {
-	extensions := blackfriday.WithExtensions(blackfriday.AutoHeadingIDs | blackfriday.DefinitionLists | blackfriday.FencedCode)
+	extensions := blackfriday.WithExtensions(blackfriday.AutoHeadingIDs | blackfriday.DefinitionLists | blackfriday.FencedCode | blackfriday.Tables)
 	return template.HTML(blackfriday.Run([]byte(c), extensions))
 }
 
