@@ -108,6 +108,13 @@ a.skip-to-content:hover {
 	margin: 0 auto;
 }
 
+@media only screen and (max-width: 1014px) {
+	.wcag.container,
+	.ut.container {
+		padding: 10px;
+	}
+}
+
 abbr {
 	text-decoration: none;
 }
@@ -921,3 +928,65 @@ kbd {
 	
 /* Fine Tabella */
 
+/* pagina user testing */
+
+.ut h1 {
+	font-size: 1.6rem;
+	margin: 2rem 0 1rem 0;
+}
+
+.ut h2 {
+	font-size: 1.5rem;
+	padding: 8px;
+}
+
+.ut h3 {
+	font-size: 1.4rem;
+	padding: 8px;
+}
+
+.ut h4 {
+	font-size: 1.3rem;
+}
+
+.ut h5 {
+	font-size: 1.2rem;
+	padding-left: 14px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.ut ul {
+	list-style: disc;
+	padding-left: 2rem;
+	margin: 1rem 0;
+}
+
+.ut ol {
+	list-style: decimal;
+	padding-left: 2rem;
+	margin: 1rem 0;
+}
+
+.ut p {
+	margin: 1rem 5px;
+}
+
+.ut p,
+.ut dl {
+	line-height: 1rem;
+}
+
+.ut dl {
+	margin: 1rem 0;
+}
+
+.ut dt {
+	margin-top: .7rem;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.ut dd {
+	padding: 5px 0;
+}
