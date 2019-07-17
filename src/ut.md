@@ -107,7 +107,9 @@ Tempo impiegato: {{ .Timing }}
 
 Livello di successo: {{ .Level }}
 
-Percorso dell'utente: {{ .Path }}
+Percorso dell'utente:
+
+{{ .Path }}
 
 Problemi: {{ .Problems }}
 
