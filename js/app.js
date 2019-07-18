@@ -121,7 +121,7 @@ function showArrow(e) {
 
 document.addEventListener("DOMContentLoaded", function(){
     /* react on window scroll event */
-	const arrow = document.getElementById("toTop")
+    const arrow = document.getElementById("toTop")
     window.addEventListener('scroll', debounce(showArrow(arrow), 300))
 
     const rootMap = document.getElementById("root-map")
