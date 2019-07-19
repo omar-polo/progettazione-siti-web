@@ -453,6 +453,7 @@ func build() {
 	copyDir("build/js", "js")
 	copyDir("build/css", "css")
 	copyDir("build/img", "img")
+	copyFile("build/favicon.ico", "favicon.ico")
 
 	var p Page
 	var err error
