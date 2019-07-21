@@ -450,4 +450,4 @@ problemi:
 Zoom della mappa durante lo scrolling.
 
 opinioni:
-poche
+nessuno

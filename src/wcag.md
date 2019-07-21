@@ -808,6 +808,10 @@ Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non s
 
 ![Esempio di tastiera](img/tastiera.gif)
 
+##### Rimedi proposti
+
+Basterebbe ordinare il tabindex in modo tale che quei 3 componenti siano raggiungibili e quando il focus è su qui 3 componenti basta far si che il menù a scomparsa compaia.
+
 #### Nessun impedimento all'uso della tastiera
 livello: A
 source: no-keyboard-trap
@@ -833,6 +837,10 @@ Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
 **Screen d'esempio**
 
 ![Esempio di tastiera (nessuna eccezione)](img/tastiera.gif)
+
+##### Rimedi proposti
+
+Basterebbe ordinare il tabindex in modo tale che quei 3 componenti siano raggiungibili e quando il focus è su qui 3 componenti basta far si che il menù a scomparsa compaia.
 
 #### Tasti di scelta rapida
 livello: A
@@ -891,6 +899,8 @@ La home page si auto-ricarica e:
 <link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
 ```
 
+##### Rimedi proposti
+
 Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
 che permetta almeno uno dei punti sopra citati.
 
@@ -922,6 +932,11 @@ outcome: no
 <link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
 ```
 
+##### Rimedi proposti
+
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
+
 #### Nessun tempo di esecuzione
 livello: AAA
 source: no-timing
@@ -944,6 +959,11 @@ page si auto-ricarica ogni 10 minuti.
 <!-- DNS Prefetch -->
 <link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
 ```
+
+##### Rimedi proposti
+
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
 
 #### Interruzioni
 livello: AAA
@@ -968,6 +988,11 @@ considerabile un'emergenza.
 <link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
 ```
 
+##### Rimedi proposti
+
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
+
 #### Riautenticazione
 livello: AAA
 source: re-authenticating
@@ -976,9 +1001,6 @@ outcome: yes
 > Quando una sessione autenticata scade, l'utente può continuare l'attività senza perdita di dati dopo essersi autenticato nuovamente.
 
 ##### Osservazioni
-
-TODO: specificare che i commenti sono l'unica tipologia di informazione
-inseribile dall'utente nelle pagine che abbiamo testato.
 
 Se uno scrive un commento, la sessione scade, il commento non viene
 perso ma viene riproposto tale e quale dopo un login.
@@ -1044,6 +1066,10 @@ disabilitare l'animazione (transazione) e non è essenziale.
 
 ![Esempio di animazione da interazioni](img/animazione-da-interazioni.gif)
 
+##### Rimedi proposti
+
+Basterebbe aggiungere uno switch per attivare o diabilitare le animazioni
+
 ### Navigabile
 source: navigable
 
@@ -1064,6 +1090,10 @@ che si ripetono su piu pagine.
 **Screen d'esempio**
 
 ![Esempio di salto di blocchi](img/salto-di-blocchi.png)
+
+##### Rimedi proposti
+
+Per risolvere questo problema basta aggiungere all'inizio dei blocchi un link all'elemento successivo al blocco da saltare
 
 #### Titolazione della pagina
 livello: A
@@ -1109,6 +1139,10 @@ altre pagine sono a posto.
 </div>
 ```
 
+##### Rimedi proposti
+
+Basta aggiungere gli aria-label
+
 #### Differenti modalità
 livello: AA
 source: multiple-ways
@@ -1141,8 +1175,6 @@ Le sezioni esaminate hanno intestazioni che ne specificano il contenuto:
  - nella pagina di un articolo l'h1 descrive l'articolo, e gli h2 introducono gli articoli correlati
  - nella pagina del meteo gli h2 introducono i riquadri a lato
  - nella pagina di login l'h3 introduce lo scopo della pagina
-
-TODO: nella pagina di login ci dovrebbe essere un h1 però...
 
 #### Focus visibile
 livello: AA
@@ -1191,6 +1223,11 @@ così come anche il box della vignetta.
    </a>
 </div>
 ```
+
+##### Rimedi proposti
+
+Basta aggiungere una destrizione
+
 #### Intestazioni di sezione
 livello: AAA
 source: section-headings
@@ -1248,7 +1285,6 @@ outcome: no
  - il controllo di ricerca ha il nome ha nome 'q'
  - nella schermata di login i controlli hanno nome 'username' ma il testo mostrato è 'Nome utente o email'
 
-
 **Code snippets**
 
 ```
@@ -1260,6 +1296,11 @@ outcome: no
 ```
 <label for="username">Nome utente o email<span class="required">*</span></label>
 ```
+
+##### Rimedi proposti
+
+Basta cambiare il 'name' e il 'for'
+
 #### Azionamento da movimento
 livello: A
 source: motion-actuation
@@ -1289,11 +1330,15 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Il link vuoto nella barra laterale non è alto abbastanza (0px)
+Il link vuoto nella barra laterale non è alto abbastanza
 
 **Screen d'esempio**
 
 ![Esempio dimensione dell'obbiettivo](img/dimensione-dell-obbiettivo.gif)
+
+##### Rimedi proposti
+
+Basta rendere il link più visibile e cambiare le sue dimensioni
 
 #### Meccanismi di input simultanei
 livello: AAA
