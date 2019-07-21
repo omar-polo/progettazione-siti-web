@@ -122,7 +122,7 @@ abbr {
 .navigation {
 	display: flex;
 	flex-direction: row;
-	padding: 1.5rem 1rem 0;
+	padding: 1rem 1rem 0;
 	justify-content: flex-end;
 	border-bottom: 3px solid var(--navigation-color);
 }
@@ -333,6 +333,35 @@ dt {
 }
 
 /* Pagina Home */
+.color-square {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	width: 80px;
+	height: 20px;
+	margin: 1.4rem 0 0 1rem;
+}
+
+.square-1 .square-2 .square-3 {
+	flex-grow: 2;
+}
+
+.square-1 {
+	width: 20px;
+	background-color: #563b06;
+}
+
+.square-2 {
+	width: 20px;
+	background-color: #f58021;
+	margin: 0 10px;
+}
+
+.square-3 {
+	width: 20px;
+	background-color: #5e92a8;
+}
 
 .intro {
 	height: 450px;
