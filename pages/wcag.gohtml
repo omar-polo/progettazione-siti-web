@@ -33,327 +33,67 @@
 	
 		<!-- intro -->
 		<section class="introduction">
-			<h1>{{ .Title }}</h1>
-			{{ .Content | markdown }}
+			{{ .Intro | markdown }}
 		</section>
+		
+		{{ block "sezioni" .Sections}}{{ end }}
+	
+	</div>
+{{ end }}
 
+{{ define "sezioni" }}
 		<!-- SOMMARIO RISULTATI -->
-		<table class="summary">
-	    	<caption>Tabella riassuntiva dei risultati delle linee guida WCAG 2.1</caption>
-
+		<table class="summary" aria-label="Sommario dei risultati">
+			<caption>Tabella riassuntiva dei risultati delle linee guida WCAG 2.1</caption>
+			
 			<thead class="results">
 				<tr>
-					<th scope="col">Esito</th> 
+					<th scope="col">Esito</th>
 					<th scope="col">Criteri di successo</th>
 				</tr>
 			</thead>
-
+			
 			<tbody>
-				<tr class="not-pass">
-					<th scope="row" rowspan= "39">Negativo</th> 
-						<td><a href="#non-text-content">1.1.1 Contenuti non testuali - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#audio-only-and-video-only-prerecorded">1.2.1 Solo audio e solo video (preregistrati) - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#audio-description-or-media-alternative-prerecorded">1.2.3 Audiodescrizione (preregistrato) - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#audio-description-prerecorded">1.2.5 Audiodescrizione (preregistrata) - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#extended-audio-description-prerecorded">1.2.7 Audiodescrizione estesa (preregistrata) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#media-alternative-prerecorded">1.2.8 Tipo di media alternativo (preregistrato) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#audio-only-live">1.2.9 Solo audio (in tempo reale) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#info-and-relationships">1.3.1 Informazioni e correlazioni - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#sensory-characteristics">1.3.3 Caratteristiche sensoriali - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#identify-input-purpose">1.3.5 Identificare lo scopo degli input - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#identify-purpose">1.3.6 Identificare lo scopo - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#contrast-minimum">1.4.3 Contrasto (minimo) - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#images-of-text">1.4.5 Immagini di testo - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#contrast-enhanced">1.4.6 Contrasto (avanzato) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#visual-presentation">1.4.8 Presentazione visiva - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#images-of-text-no-exception">1.4.9 Immagini di testo (senza eccezioni) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#text-spacing">1.4.12Spaziatura del testo - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#keyboard">2.1.1 Tastiera - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#keyboard-no-exception">2.1.3 Tastiera (nessuna eccezione) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#timing-adjustable">2.2.1 Regolazione tempi di esecuzione - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#pause-stop-hide">2.2.2 Pausa, stop, nascondi - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#no-timing">2.2.3 Nessun tempo di esecuzione - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#interruptions">2.2.4 Interruzioni - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#animation-from-interaction">2.3.3 Animazione da interazioni - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#bypass-blocks">2.4.1 Salto di blocchi - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#link-purpose-in-context">2.4.4 Scopo del collegamento - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#link-purpose-link-only">2.4.9 Scopo del collegamento (solo collegamento) - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#label-in-name">2.5.3 Etichetta nel nome - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#target-size">2.5.5 Dimensione dell'obbiettivo - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#language-of-page">3.1.1 Lingua della pagina - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#unusual-words">3.1.3 Parole inusuali - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#abbreviations">3.1.4 Abbreviazioni - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#change-on-demand">3.2.5 Cambiamenti su richiesta - AAA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#error-identification">3.3.1 Identificazione di errori - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#labels-or-instructions">3.3.2 Etichette o istruzioni - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#error-suggestion">3.3.3 Suggerimenti per gli errori - AA</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#parsing">4.1.1 Analisi sintattica (parsing) - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#name-role-value">4.1.2 Nome, ruolo, valore - A</a></td>
-				</tr>
-
-				<tr class="not-pass">
-					<td><a href="#status-messages">4.1.3 Messaggi di stato - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<th scope="row" rowspan= "34">Positivo</th> 
-					<td><a href="#orientation">1.3.4 Orientamento - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#use-of-color">1.4.1 Uso del colore - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#audio-control">1.4.2 Controllo del sonoro - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#resize-text">1.4.4 Ridimensionamento del testo - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#low-or-no-background-audio">1.4.7 Sottofondo sonoro basso o non presente - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#reflow">1.4.10 Ricalcolo del flusso - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#non-text-contrast">1.4.11 Contrasto in contenuti non testuali - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#content-on-hover-or-focus">1.4.13 Contenuto con Hover o Focus - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#no-keyboard-trap">2.1.2 Nessun impedimento all'uso della tastiera - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#character-key-shortcuts">2.1.4 Tasti di scelta rapida - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#re-authenticating">2.2.5 Riautenticazione - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#timeouts">2.2.6 Termine del tempo - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#three-flashes-or-below-threshold">2.3.1 Tre lampeggiamenti o inferiore alla soglia - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#three-flashes">2.3.2 Tre lampeggiamenti</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#page-titled">2.4.2 Titolazione della pagina - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#focus-order">2.4.3 Ordine del focus - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#multiple-ways">2.4.5 Differenti modalità - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#headings-and-labels">2.4.6 Intestazioni ed etichette - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#focus-visible">2.4.7 Focus visibile - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#location">2.4.8 Posizione - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#section-headings">2.4.10 Intestazioni di sezione - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#pointer-gestures">2.5.1 Movimenti del puntatore - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#pointer-cancellation">2.5.2 Cancellazione delle azioni del puntatore - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#motion-actuation">2.5.4 Azionamento da movimento - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#concurrent-input-mechanisms">2.5.6 Meccanismi di input simultanei - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#language-of-parts">3.1.2 Parti in lingua - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#reading-level">3.1.5 Livello di lettura - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#pronunciation">3.1.6 Pronuncia - AAA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#on-focus">3.2.1 Al Focus - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#on-input">3.2.2 All'input - A</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#consistent-navigation">3.2.3 Navigazione Coerente - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#consistent-identification">3.2.4 Identificazione coerente - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#error-prevention-legal-financial-data">3.3.4 Prevenzione degli errori - AA</a></td>
-				</tr>
-
-				<tr class="pass">
-					<td><a href="#help">3.3.5 Aiuto - AAA</a></td>
-				</tr>
-
-				<tr class="not-applicable">
-					<th scope="row" rowspan= "3">Non applicabile</th> 
-						<td><a href="#captions-live">1.2.4 Sottotitoli (in tempo reale) - AA</a></td>
-				</tr>
-
-				<tr class="not-applicable">
-					<td><a href="#sign-language-prerecorded">1.2.6 Lingua dei segni (preregistrato) - AA</a></td>
-				</tr>
-
-				<tr class="not-applicable">
-					<td><a href="#meaningful-sequence">1.3.2 Sequenza significativa - A</a></td>
+				<!-- prima gli esiti negativi -->
+				<tr class="not-passed">
+					<th>Negativo</th>
+					<td>
+						<table>
+							{{ range filterResults . "Negativo" }}
+								<tr>
+									<td><a href="#{{ .Source }}">{{ .Counter }} {{ .Title }} - {{ .Level }}</a></td>
+								</tr>
+							{{ end }}
+						</table>
+					</td>
+				</tr>
+				
+				<!-- poi gli esiti positivi -->
+				<tr class="passed">
+					<th>Positivo</th>
+					<td>
+						<table>
+							{{ range filterResults . "Positivo" }}
+								<tr>
+									<td><a href="#{{ .Source }}">{{ .Counter }} {{ .Title }} - {{ .Level }}</a></td>
+								</tr>
+							{{ end }}
+						</table>
+					</td>
+				</tr>
+				
+				<!-- infine gli esiti non applicabili -->
+				<tr class="na">
+					<th>Non applicabile</th>
+					<td>
+						<table>
+							{{ range filterResults . "Non applicabile" }}
+								<tr>
+									<td><a href="#{{ .Source }}">{{ .Counter }} {{ .Title }} - {{ .Level }}</a></td>
+								</tr>
+							{{ end }}
+						</table>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -365,46 +105,21 @@
 			<p class="goto-toc"><a href="#perceivable">&darr; Salta indice contenuti</a></p>
 			<nav role="doc-pagelist">
 				<div>
-					{{ block "toc_piece" index .SubSections 0}}{{ end }}
+					{{ block "toc_piece" index . 0}}{{ end }}
 				</div>
 				
 				<div>
-					{{ block "toc_piece" index .SubSections 1}}{{ end }}
+					{{ block "toc_piece" index . 1}}{{ end }}
 				</div>
 				
 				<div>
-					{{ block "toc_piece" index .SubSections 2}}{{ end }}
-					{{ block "toc_piece" index .SubSections 3}}{{ end }}
+					{{ block "toc_piece" index . 2}}{{ end }}
+					{{ block "toc_piece" index . 3}}{{ end }}
 				</div>
-				
-				<!--
-				<ol>
-					{{ range .SubSections }}
-						<li>
-							<a href="#{{ .Source }}">{{ .Title }}</a>
-							<ol>
-								{{ range .SubSections }}
-									<li>
-										<a href="#{{ .Source }}">{{ .Title }}</a>
-										<ol>
-											{{ range .SubSections }}
-												<li><a href="#{{ .Source }}">{{ .Title }}</a></li>
-											{{ end }}
-										</ol>
-									</li>
-								{{ end }}
-							</ol>
-						</li>
-					{{ end }}
-				</ol>
-				-->
 			</nav>
 		</section>
 
-		
-
-	
-		{{ range .SubSections }}
+		{{ range . }}
 			<section class="principle">
 				<h2 id="{{ .Source }}">{{ .Title }} <a href="#{{ .Source }}" title="Link permanente a {{ .Title }}">§</a></h2>
 				{{ block "wcag_quote" .Quote }}{{ end }}
@@ -437,7 +152,4 @@
 				{{ end }}
 			</section>
 		{{ end }}
-
-		
-	</div>
 {{ end }}

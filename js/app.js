@@ -121,12 +121,21 @@ function showArrow(e) {
 
 document.addEventListener("DOMContentLoaded", function(){
     /* react on window scroll event */
-	const arrow = document.getElementById("toTop")
+    const arrow = document.getElementById("toTop")
     window.addEventListener('scroll', debounce(showArrow(arrow), 300))
+
+    const rootMap = document.getElementById("root-map")
+    if (rootMap != null) {
+        rootMap.addEventListener("click", function(e){
+            e.preventDefault();
+            var t = e.target;
+            t.innerHTML = "Ti Trovi qua!"
+        });
+    }
 
     /* handle the search */
     if (document.querySelector("li.search")) {
-        const data = flattenData(window.data.subsections)
+        const data = flattenData(window.data)
 
         document
             .querySelector("li.search")

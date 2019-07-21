@@ -15,18 +15,39 @@ cose...
 Domande del questionario:
 
  - Età
+ - Sesso
  - Professione
- - Competenze digitali
+ - Competenze digitali (1-5 con 1 scarso e 5 ottimo)
  - Frequenza di utilizzo del web
  - Hai mai usato un sito di informazioni sui viaggi?
  - Hai mai usato il sito "infoviaggiando.it"?
 
 ### Profili utente
 
-{{ range .Surveys }}
-#### Utente x
+{{ range $i, $v := .Surveys }}
+#### Utente {{ $i | inc }}
 
-TODO: {{ . }}
+Età
+: {{ index $v "età" }}
+
+Sesso
+: {{ index $v "sesso" }}
+
+Professione
+: {{ index $v "professione" }}
+
+Competenze digitali
+: {{ index $v "esperienza" }}
+
+Frequenza di utilizzo del web
+: {{ index $v "frequenza-web" }}
+
+Hai mai usato un sito di informazioni sui viaggi?
+: {{ index $v "siti-viaggi" }}
+
+Hai mai usato il sito infoviaggiando.it?
+: {{ index $v "infoviaggiando" }}
+
 {{ end }}
 
 ### Situazione operativa
@@ -63,6 +84,7 @@ impatto:
  3. il problema blocca la possibilità di completare il compito
 
 frequenza:
+
  1. il problema si verifica poche volte
  2. il problema si verifica ogni volta durante lo svolgimento del compito
  3. il problema si verifica molte volte durante lo svolgimento del compito
@@ -107,7 +129,9 @@ Tempo impiegato: {{ .Timing }}
 
 Livello di successo: {{ .Level }}
 
-Percorso dell'utente: {{ .Path }}
+Percorso dell'utente:
+
+{{ .Path }}
 
 Problemi: {{ .Problems }}
 

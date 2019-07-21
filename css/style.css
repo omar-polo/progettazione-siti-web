@@ -51,9 +51,19 @@ table {
 :root {
 	--blue: #2D5695; /* livid blue */
 	--red: #FF7070; /* coral reef */
-	--green: #86CE67; /* dollar bill */
+	--green: #8ce565; /* dollar bill */
 	--light-gray: #ebebeb;
 	--bg-color: #f8f8f8;
+	--black: #444;
+	--light-red: #f5c6cb;
+	--light-green: #c6f5d2;
+	--light-orange: #f5dcc4;
+	--black-kdb: #212529;
+	--grey-quote: #ddd;
+	--orange: #ffb570;
+	--shadow-color: #777777;
+	--navigation-color: #4fc08d;
+	--navigation-color-li: #35495e;
 }
 
 *,
@@ -76,7 +86,7 @@ body {
 	flex-direction: column;
 	font-family: 'Lato', sans-serif;
 	background: var(--bg-color);
-	color: #444;
+	color: var(--black);
 }
 
 a.skip-to-content {
@@ -98,6 +108,13 @@ a.skip-to-content:hover {
 	margin: 0 auto;
 }
 
+@media only screen and (max-width: 1014px) {
+	.wcag.container,
+	.ut.container {
+		padding: 10px;
+	}
+}
+
 abbr {
 	text-decoration: none;
 }
@@ -107,7 +124,7 @@ abbr {
 	flex-direction: row;
 	padding: 1.5rem 1rem 0;
 	justify-content: flex-end;
-	border-bottom: 3px solid #f2d7d5;
+	border-bottom: 3px solid var(--navigation-color);
 }
 
 .navigation ul {
@@ -122,7 +139,7 @@ abbr {
 }
 
 .navigation li:hover {
-	border-bottom-color: #fa7268;
+	border-bottom-color: var(--navigation-color-li);
 }
 
 .navigation li a {
@@ -167,6 +184,25 @@ strong {
 
 em {
 	font-style: italic;
+}
+
+a {
+	font-size: inherit;
+}
+
+dd {
+	padding-left: 20px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+code {
+	font-family: monospace;
+	font-size: inherit;
+	/* TODO: color! */
 }
 
 .search {
@@ -299,10 +335,11 @@ dt {
 /* Pagina Home */
 
 .intro {
-	height: 500px;
-	background-image: url(../img/home_1.jpg);
+	height: 450px;
+	background-image: url(../img/home_6.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -310,19 +347,30 @@ dt {
 }
 
 .intro h1 {
-	text-align: center;
 	text-transform: uppercase;
 	font-size: 2.5rem;
 	letter-spacing: 2px;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 0 0 3px var(--black), 0 0 5px var(--black);
+	padding: 12px 20px;
 }
 
-@media only screen and (min-width: 640px) {
-	.intro p {
-		width: 90%;
+@media only screen and (min-width: 540px) {
+	.intro blockquote p {
+		width: 100%;
 		padding: 12px 0;
-		font-size: 1.3rem;
-		max-width: 610px;
+		font-size: 1.5rem;
+		max-width: 620px;
 		text-align: center;
+		line-height: 2rem;
+		color: var(--bg-color);
+		text-shadow: 0 0 3px  var(--black);
+	}
+
+	.intro blockquote p > cite {
+		font-size: 1.3rem;
+		color: var(--bg-color);
 	}
 }
 
@@ -399,9 +447,9 @@ dt {
 }
 
 .wcag img {
-	-webkit-box-shadow: 0px 0px 8px #777777;
-	-moz-box-shadow: 0px 0px 8px #777777;
-	box-shadow: 0px 0px 8px  #777777;
+	-webkit-box-shadow: 0px 0px 8px var(--shadow-color);
+	-moz-box-shadow: 0px 0px 8px var(--shadow-color);
+	box-shadow: 0px 0px 8px  var(--shadow-color);
 }
 
 .wcag h1 {
@@ -421,7 +469,7 @@ dt {
 	padding: 8px;
 }
 
-.wcag h2::before {
+.wcag .principle h2::before {
 	counter-increment: principle;
 	content: counter(principle) " ";
 }
@@ -435,7 +483,7 @@ dt {
 	padding: 8px;
 }
 
-.wcag h3::before {
+.wcag .principle  h3::before {
 	counter-increment: guideline;
 	content: counter(principle) "." counter(guideline) " ";
 }
@@ -448,7 +496,7 @@ dt {
 	font-size: 1.3rem;
 }
 
-.wcag h4::before {
+.wcag .principle  h4::before {
 	counter-increment: success-criterion;
 	content: counter(principle) "." counter(guideline) "." counter(success-criterion) " ";
 }
@@ -483,7 +531,7 @@ dt {
 }
 
 .wcag .success-criterion.na {
-	border-color: var(--light-gray); /* TODO: cambiare! */
+	border-color: var(--orange); /* TODO: cambiare! */
 }
 
 .wcag .success-criterion header h4 {
@@ -521,7 +569,7 @@ dt {
 	display: block;
 	border-width: 2px 0 0 0;
 	border-style: solid;
-	border-color: #ddd;
+	border-color: var(--grey-quote);
 	padding: 1.5rem .5rem 1.5rem 2rem;
 	margin: 1.5em auto;
 	position: relative;
@@ -780,8 +828,8 @@ pre code {
 kbd {
 	padding: .2rem .4rem;
     font-size: 87.5%;
-    color: #fff;
-    background-color: #212529;
+    color: #ffffff;
+    background-color: var(--black-kdb);
     border-radius: .2rem;
 }
 
@@ -860,22 +908,85 @@ kbd {
 
 .summary tbody > tr > td {
 	text-align: left;
-	padding-left: 220px;
 	line-height: 2.5rem;
-	border-bottom: 2px solid var(--light-gray);
+	padding-left: 110px;
 }
 
-.summary tbody > tr[class="not-pass"]{
-	background-color: #f5c6cb;
+.summary tbody > tr.not-passed {
+	background-color: var(--light-red);
+	border-bottom: 3px solid var(--light-gray);
 }
 
-.summary tbody > tr[class="pass"]{
-	background-color: #c3e6cb;
+.summary tbody > tr.passed {
+	background-color: var(--light-green);
+	border-bottom: 3px solid var(--light-gray);
 }
 
-.summary tbody > tr[class="not-applicable"]{
-	background-color: #ffc083;
+.summary tbody > tr.na {
+	background-color: var(--light-orange);
 }
 	
 /* Fine Tabella */
 
+/* pagina user testing */
+
+.ut h1 {
+	font-size: 1.6rem;
+	margin: 2rem 0 1rem 0;
+}
+
+.ut h2 {
+	font-size: 1.5rem;
+	padding: 8px;
+}
+
+.ut h3 {
+	font-size: 1.4rem;
+	padding: 8px;
+}
+
+.ut h4 {
+	font-size: 1.3rem;
+}
+
+.ut h5 {
+	font-size: 1.2rem;
+	padding-left: 14px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.ut ul {
+	list-style: disc;
+	padding-left: 2rem;
+	margin: 1rem 0;
+}
+
+.ut ol {
+	list-style: decimal;
+	padding-left: 2rem;
+	margin: 1rem 0;
+}
+
+.ut p {
+	margin: 1rem 5px;
+}
+
+.ut p,
+.ut dl {
+	line-height: 1rem;
+}
+
+.ut dl {
+	margin: 1rem 0;
+}
+
+.ut dt {
+	margin-top: .7rem;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.ut dd {
+	padding: 5px 0;
+}

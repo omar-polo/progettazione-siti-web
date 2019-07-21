@@ -6,7 +6,7 @@ title:Info
 
 -   Data della dichiarazione: 15/07/2019
 
--   Nome delle linee guida, versione e URI: "Web Content Accessibility Guidelines **WCAG 2.1** su [W3C](https://www.w3.org/Translations/WCAG21-it/)
+-   Nome delle linee guida, versione e URI: "Web Content Accessibility Guidelines **WCAG 2.1** su [W3C](https://www.w3.org/Translations/WCAG21-it)
 
 -   Livello di conformità soddisfatto: Livello AA
 
@@ -22,7 +22,7 @@ La validità dei fogli di stile a cascata (CSS) è stata verificata con lo strum
 
 ![CSS Validation Service](img/../../img/Valid_CSS.png)
 
-### Scorciatoie da tastiera
+#### Scorciatoie da tastiera
 
 In questa sezione sono elencate le combinazioni da tastiera che possono essere utilizzate in Mozilla Firefox e Google Chrome.
 

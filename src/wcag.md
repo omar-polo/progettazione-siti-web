@@ -1,7 +1,6 @@
-title:Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
-
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
+<<<<<<< HEAD
 ##### Introduzione
 
 La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
@@ -87,6 +86,9 @@ HTML
 CSS
 : Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
 
+CSS pixel
+: Un CSS pixel è l'unità di misura canonica per tutte le lunghezze e misure in CSS. Questa unità è indipendente dalla densità e distinta dai pixel hardware effettivi presenti in un display.
+
 Pagina Web
 : Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
 
@@ -109,6 +111,8 @@ Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previs
 
 #####  Sommario dei risultati
 
+=======
+>>>>>>> 8b810ac2b33a6804c3d9646f044f7ebb649de6cf
 ## Percepibile
 source: perceivable
 
@@ -1321,26 +1325,36 @@ outcome: no
 > L'impostazione della lingua predefinita di ogni pagina Web può essere
 > determinata programmaticamente.
 
-L'unica violazione riscontrata è nella pagina meteo.
+##### Violazioni riscontrate
+
+Nella pagina del meteo non è possibile determinare programmaticamente
+la lingua.
 
 ##### Rimedio proposto
 
- - aggingere l'attributo `lang`
- - aggiungere un *header* HTTP `Content-Language`
+Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language`.
 
 #### Parti in lingua
 livello: AA
 source: language-of-parts
-outcome: yes
+outcome: no
 
 > La lingua di ogni passaggio o frase nel contenuto può essere
 > determinata programmaticamente ad eccezione di nomi propri, termini
 > tecnici, parole in lingue indeterminate e parole o frasi che sono
 > diventate parte integrante del gergo del testo immediatamente circostante.
 
-Negli articoli esaminati la lingua del testo è sempre in italiano, fatta
-eccezione per i nomi propri, alcune terminologie tecniche od espressioni
-diventate parte integrante del parlato (ad esempio "social network").
+##### Violazioni riscontrate
+
+Nonostante tutte le pagine esaminate contengano testo in italiano,
+fatta eccezione per i nomi propri, terminologie tecniche od espressioni
+diventate parte integrante del parlato comune, non è possibile
+determinare programmaticamente la lingua del documento.
+
+##### Rimedio proposto
+
+Come per il punto precedente, aggingere l'attributo `lang` oppure un
+*header* HTTP `Content-Language`.
 
 #### Parole inusuali
 livello: AAA
@@ -1390,7 +1404,7 @@ a pagine esplicative.
 #### Livello di lettura
 livello: AAA
 source: reading-level
-outcome: yes
+outcome: na
 
 > Quando il testo richiede capacità di lettura più avanzata rispetto
 > al livello di istruzione secondaria inferiore dopo aver rimosso i nomi
@@ -1404,7 +1418,7 @@ più avanzata rispetto al livello di istruzione secondaria inferiore.
 #### Pronuncia
 livello: AAA
 source: pronunciation
-outcome: yes
+outcome: na
 
 > È reso disponibile un meccanismo per identificare specifiche pronunce
 > per le parole il cui significato, nel contesto, è ambiguo se non se ne
@@ -1529,7 +1543,7 @@ outcome: no
 Nonostante nella schermata di login ci siano etichette appropriate, la
 `textarea` per i commenti non ha etichette. È presente un elemento
 testuale che viene posizionato al di sopra della textarea, ma non ha
-nessun legame con essa (vicinanza o appropriati aria-attribute) se non
+nessun legame con essa (vicinanza o appropriati attributi ARIA) se non
 il posizionamento.
 
 ##### Rimedi proposti
@@ -1588,8 +1602,27 @@ outcome: yes
 
 > Fornire degli aiuti contestuali.
 
-È presente una pagina di aiuto (il cui link è presente nel footer)
+È presente una pagina di aiuto, il cui link è presente nel footer,
 e ci sono degli aiuti contestuali.
+
+#### Prevenzione degli errori (tutti)
+livello: AAA
+source: error-prevention-all
+outcome: yes
+
+> Per le pagine Web che richiedano l'invio di informazioni da parte
+> dell'utente, è soddisfatta almeno una delle seguenti condizioni:
+> 
+> Reversibilità
+> : Le azioni sono reversibili.
+>
+> Controllo
+> : I dati inseriti dall’utente vengono verificati e all’utente viene data l’opportunità di correggere gli errori.
+>
+> Conferma
+> : È disponibile un meccanismo per la revisione, conferma e correzione delle informazioni prima del loro invio definitivo.
+
+TODO: ma pare di si
 
 ## Robusto
 source: robust

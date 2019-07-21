@@ -7,7 +7,6 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
-	tt "text/template"
 	"io"
 	"io/ioutil"
 	"log"
@@ -16,6 +15,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	tt "text/template"
 
 	"github.com/fsnotify/fsnotify"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
@@ -34,7 +34,7 @@ var pages = make(map[string]*template.Template)
 type Page struct {
 	Title      string
 	Content    interface{}
-	WCAGResult Section
+	WCAGResult []Section
 	HasSearch  bool
 }
 
@@ -149,7 +149,7 @@ func infoPage() (Page, error) {
 type Survey map[string]string
 
 type Result struct {
-	Task  Task     // definizione del task
+	Task  Task       // definizione del task
 	Users []UTResult // risultati degli utenti
 }
 
@@ -165,35 +165,35 @@ func utPage() (Page, error) {
 		return p, err
 	}
 	defer uf.Close()
-	
+
 	// Parse the tasks
 	f, err := os.Open("src/tasks.md")
 	if err != nil {
 		return p, err
 	}
 	defer f.Close()
-	
+
 	taskParser := Parser{
-		reader: bufio.NewReader(SkipCR{src: f}),
-		filename: "src/tasks.md",
+		reader:     bufio.NewReader(SkipCR{src: f}),
+		filename:   "src/tasks.md",
 		lineNumber: 1,
 	}
-	
+
 	tasks, err := TasksParse(&taskParser)
 	if err != nil {
 		return p, err
 	}
-	
+
 	// Parse the results
 	ff, err := os.Open("src/ut-results.md")
 	if err != nil {
 		return p, err
 	}
 	defer ff.Close()
-	
+
 	uParser := Parser{
-		reader: bufio.NewReader(SkipCR{src: ff}),
-		filename: "src/ut-results.md",
+		reader:     bufio.NewReader(SkipCR{src: ff}),
+		filename:   "src/ut-results.md",
 		lineNumber: 1,
 	}
 
@@ -201,39 +201,39 @@ func utPage() (Page, error) {
 	if err != nil {
 		return p, err
 	}
-	
+
 	pp := UTPage{}
 
 	// build the surveys
 	for _, utresult := range utresults {
 		pp.Surveys = append(pp.Surveys, (Survey(utresult.Metadata)))
 	}
-	
+
 	// and the results
 	for i, t := range tasks {
 		r := Result{
 			Task: t,
 		}
-		
+
 		for _, utresult := range utresults {
 			if len(tasks) != len(utresult.Results) {
 				return p, fmt.Errorf("per l'utente %d non sono stati inseriti un numero corretto di task (%d invece che %d)", i, len(utresult.Results), len(tasks))
 			}
 			r.Users = append(r.Users, utresult.Results[i])
 		}
-		
+
 		pp.Results = append(pp.Results, r)
 	}
-	
+
 	content, err := ioutil.ReadAll(reader)
 	if err != nil {
 		return p, err
 	}
-	
+
 	fmap := tt.FuncMap{
 		"inc": inc,
 	}
-	
+
 	t := tt.Must(tt.New("src/ut.md").Funcs(fmap).Parse(string(content)))
 	var b bytes.Buffer
 	err = t.Execute(&b, pp)
@@ -241,16 +241,16 @@ func utPage() (Page, error) {
 	return p, err
 
 	/*
-	p, reader, f, err := initParser("src/ut.md")
-	if f != nil {
-		defer f.Close()
-	}
-	if err != nil {
+		p, reader, f, err := initParser("src/ut.md")
+		if f != nil {
+			defer f.Close()
+		}
+		if err != nil {
+			return p, err
+		}
+		content, err := ioutil.ReadAll(reader)
+		p.Content = string(content)
 		return p, err
-	}
-	content, err := ioutil.ReadAll(reader)
-	p.Content = string(content)
-	return p, err
 	*/
 }
 
@@ -261,9 +261,14 @@ func newSection() Section {
 	return s
 }
 
+type WCAGReport struct {
+	Intro    string
+	Sections []Section
+}
+
 // Ritorna la pagina del WCAG
 func wcagPage() (Page, error) {
-	p, reader, f, err := initParser("src/wcag.md")
+	p, reader, f, err := initParser("src/wcag-intro.md")
 	if f != nil {
 		defer f.Close()
 	}
@@ -271,9 +276,20 @@ func wcagPage() (Page, error) {
 		return p, err
 	}
 
+	c, err := ioutil.ReadAll(reader)
+	if err != nil {
+		return p, err
+	}
+
+	wf, err := os.Open("src/wcag.md")
+	if err != nil {
+		return p, err
+	}
+	defer wf.Close()
+
 	parser := WCAGParser{
 		p: Parser{
-			reader:     reader,
+			reader:     bufio.NewReader(SkipCR{src: wf}),
 			filename:   "src/wcag.md",
 			lineNumber: 1,
 		},
@@ -281,14 +297,18 @@ func wcagPage() (Page, error) {
 	}
 
 	s, err := WCAGParse(&parser)
-	p.Content = s
+	p.Content = WCAGReport{
+		Intro:    string(c),
+		Sections: s.SubSections,
+	}
+
 	p.HasSearch = true
 	return p, err
 }
 
 // Prende come input una stringa con testo markdown e ritorna la rappresentazione in HTML
 func markdown(c string) template.HTML {
-	extensions := blackfriday.WithExtensions(blackfriday.AutoHeadingIDs | blackfriday.DefinitionLists | blackfriday.FencedCode)
+	extensions := blackfriday.WithExtensions(blackfriday.AutoHeadingIDs | blackfriday.DefinitionLists | blackfriday.FencedCode | blackfriday.Tables)
 	return template.HTML(blackfriday.Run([]byte(c), extensions))
 }
 
@@ -297,11 +317,38 @@ func inc(c int) int {
 	return c + 1
 }
 
+type SectionWithCounter struct {
+	Section
+	Counter string
+}
+
+// filtra i risultati tornando solo quelli con esito specificato
+func filterResults(s []Section, outcome string) []SectionWithCounter {
+	var r []SectionWithCounter
+
+	for pi, p := range s {
+		for li, l := range p.SubSections {
+			for ci, c := range l.SubSections {
+				if c.OutcomeNL() == outcome {
+					n := SectionWithCounter{
+						Section: c,
+						Counter: fmt.Sprintf("%d.%d.%d", pi+1, li+1, ci+1),
+					}
+					r = append(r, n)
+				}
+			}
+		}
+	}
+
+	return r
+}
+
 // Carica il template con il nome dato
 func loadTemplate(name string) *template.Template {
 	fmap := template.FuncMap{
-		"markdown": markdown,
-		"inc": inc,
+		"markdown":      markdown,
+		"inc":           inc,
+		"filterResults": filterResults,
 	}
 
 	return template.Must(template.New("main").Funcs(fmap).ParseFiles("template.gohtml", name))
@@ -371,7 +418,7 @@ func copyDir(dst, src string) {
 }
 
 // Renderizza una pagina
-func render(p Page, page string, res Section) {
+func render(p Page, page string, res []Section) {
 	p.WCAGResult = res
 
 	src := fmt.Sprintf("pages/%v", page)
@@ -406,10 +453,11 @@ func build() {
 	copyDir("build/js", "js")
 	copyDir("build/css", "css")
 	copyDir("build/img", "img")
+	copyFile("build/favicon.ico", "favicon.ico")
 
 	var p Page
 	var err error
-	var results Section
+	var results []Section
 
 	// first render wcag, so we load all results for the search function
 	if *verbose {
@@ -420,7 +468,7 @@ func build() {
 		log.Println("Cannot render pages/wcag.gohtml", err)
 		return
 	}
-	results = p.Content.(Section)
+	results = p.Content.(WCAGReport).Sections
 	render(p, "wcag.gohtml", results)
 
 	// render index.html
