@@ -782,26 +782,36 @@ source: content-on-hover-or-focus
 ## Utilizzabile
 source: operable
 
+> I componenti e la navigazione dell'interfaccia utente devono essere utilizzabili.
+
 ### Accessibile da tastiera
 source: keyboard-accessible
 
-Rendere disponibili tutte le funzionalità tramite tastiera
+> Rendere disponibili tutte le funzionalità tramite tastiera
 
 #### Tastiera
 livello: A
 source: keyboard
 outcome: no
 
+>Tutte le funzionalità del contenuto sono utilizzabili tramite un'interfaccia di tastiera senza richiedere tempi specifici per la pressione dei singoli tasti, salvo il caso in cui sia la funzionalità di fondo a richiedere un input che dipende dal percorso del movimento dell'utente e non solo dai suoi punti d'arrivo.
+
+##### Violazioni riscontrate:
+
 Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non sono navigabili da tastiera in quanto l'area a scomparsa non si apre.
 
 **Screen d'esempio**
 
-![Esempio di icone senza descrizione testuale](img/tastiera.gif)
+![Esempio di tastiera](img/tastiera.gif)
 
 #### Nessun impedimento all'uso della tastiera
 livello: A
 source: no-keyboard-trap
 outcome: yes
+
+> Se il focus di tastiera può essere spostato tramite una interfaccia di tastiera su un componente della pagina, deve anche poter essere tolto dallo stesso componente usando solo la stessa interfaccia e, se a tal fine non fosse sufficiente l'uso dei normali tasti freccia o tab o l'uso di altri metodi di uscita standard, l'utente deve essere informato sul metodo per spostare il focus.
+
+##### Osservazioni
 
 Il focus da tastiera può essere spostato da/verso qualunque componente che supporta il focus della pagina.
 
@@ -810,28 +820,53 @@ livello: AAA
 source: keyboard-no-exception
 outcome: no
 
+> Tutte le funzionalità del contenuto sono utilizzabili tramite un'interfaccia di tastiera senza richiedere tempi specifici per la pressione dei singoli tasti.
+
+##### Violazioni riscontrate:
+
 Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
 
 **Screen d'esempio**
 
-![Esempio di icone senza descrizione testuale](img/tastiera.gif)
+![Esempio di tastiera (nessuna eccezione)](img/tastiera.gif)
 
 #### Tasti di scelta rapida
 livello: A
 source: character-key-shortcuts
 outcome: yes
 
+> Se nel contenuto viene implementata una scorciatoia da tastiera utilizzando sole lettere (maiuscole e minuscole), segni di punteggiatura, numeri o simboli, allora è vera almeno una delle seguenti condizioni:
+>
+> - Disattivazione: È disponibile un meccanismo per disattivare la scorciatoia;
+> - Rimappatura: È disponibile un meccanismo per rimappare la scorciatoia in modo che usi uno o più caratteri non stampabili della tastiera (ad esempio Ctrl, Alt, ecc.);
+> - Attivazione solo al focus: La scorciatoia da tastiera per un componente dell'interfaccia utente è attiva solo quando questo è attivo.
+>
+
+##### Osservazioni
+
 Non hanno implementato nessuna scorciatoia da tastiera quindi questo punto è banalmente rispettato.
 
 ### Adeguata disponibilità di tempo
 source: enough-time
 
-Fornire agli utenti tempo sufficiente per leggere e utilizzare i contenuti.
+> Fornire agli utenti tempo sufficiente per leggere e utilizzare i contenuti.
 
 #### Regolazione tempi di esecuzione
 livello: A
 source: timing-adjustable
 outcome: no
+
+> Per ogni temporizzazione presente nel contenuto, è soddisfatto almeno uno dei seguenti casi:
+> 
+> - Spegnimento: All'utente è consentito disattivare il limite di tempo prima di raggiungerlo; oppure
+> - Regolazione: All'utente viene consentito di regolare il limite di tempo prima di raggiungerlo in un'ampia gamma che sia almeno dieci volte superiore alla durata dell'impostazione predefinita; oppure
+> - Estensione: L'utente viene avvisato prima dello scadere del tempo; gli sono dati almeno 20 secondi per estendere il limite tramite un'azione semplice (per esempio: "premere la barra spaziatrice") e gli è consentito di estendere il limite per almeno 10 volte; oppure
+> - Eccezione per eventi in tempo reale: Il limite di tempo è un elemento fondamentale di un evento in tempo reale (ad esempio, un'asta on line), e non è possibile eliminare questo vincolo; oppure
+> - Eccezione di essenzialità: Il limite di tempo è essenziale per l'attività (ad esempio: una verifica a tempo) ed estenderlo lo invaliderebbe; oppure
+> - Eccezione delle 20 ore: Il limite di tempo è superiore a 20 ore.
+>
+
+##### Violazioni riscontrate:
 
 La home page si auto-ricarica e:
  - non è possibile disattivarlo
@@ -860,6 +895,15 @@ livello: A
 source: pause-stop-hide
 outcome: no
 
+> Nei casi di animazioni, lampeggiamenti, scorrimenti o auto-aggiornamenti di informazioni, sono soddisfatti tutti i seguenti punti:
+>
+> - Spostamento, lampeggiamento, scorrimento: Per qualsiasi movimento, lampeggiamento o scorrimento di informazioni che (1) si avvia automaticamente, (2) dura più di cinque secondi e (3) è presentato in parallelo con altro contenuto, è presente un meccanismo per metterlo in pausa, interromperlo o nasconderlo, a meno che il movimento, il lampeggiamento o lo scorrimento siano parte essenziale dell'attività; e
+> - Auto-aggiornamento: Per qualsiasi auto-aggiornamento di informazioni che (1) si avvia automaticamente ed (2) è presentato in parallelo con altro contenuto, è presente un meccanismo per metterlo in pausa, interromperlo o nasconderlo o per controllare la frequenza dell'aggiornamento a meno che l'auto-aggiornamento sia parte essenziale dell'attività.
+>
+
+
+##### Violazioni riscontrate:
+
  - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
  - [ ] non è possibile disattivare l'autoaggiornamento
 
@@ -878,6 +922,10 @@ outcome: no
 livello: AAA
 source: no-timing
 outcome: no
+
+> Le temporizzazioni non sono parti essenziali dell'evento o dell'attività presentata dal contenuto, ad eccezione fatta dei tipi di media sincronizzati e degli eventi in tempo reale.
+
+##### Violazioni riscontrate:
 
 Nonostante il refresh non sia una parte esseziale del contenuto, la home
 page si auto-ricarica ogni 10 minuti.
@@ -898,6 +946,10 @@ livello: AAA
 source: interruptions
 outcome: no
 
+> Le interruzioni possono essere rinviate o annullate dall'utente ad eccezione di quelle che riguardano un'emergenza.
+
+##### Violazioni riscontrate:
+
 La home page viene ricaricata ogni 10 minuti: tale azione non è
 considerabile un'emergenza.
 
@@ -917,6 +969,10 @@ livello: AAA
 source: re-authenticating
 outcome: yes
 
+> Quando una sessione autenticata scade, l'utente può continuare l'attività senza perdita di dati dopo essersi autenticato nuovamente.
+
+##### Osservazioni
+
 TODO: specificare che i commenti sono l'unica tipologia di informazione
 inseribile dall'utente nelle pagine che abbiamo testato.
 
@@ -928,18 +984,25 @@ livello: AAA
 source: timeouts
 outcome: yes
 
+> Gli utenti sono avvisati della durata di qualsiasi inattività che potrebbe causare la perdita di dati, a meno che i dati non vengano conservati per più di 20 ore quando l'utente non intraprende alcuna azione.
+
+##### Osservazioni
+
 L'inattività non permette di perdere i commenti.
 
 ### Convulsioni e reazioni fisiche
 source: seizures-and-physical-reactions
 
-Non sviluppare contenuti con tecniche che sia noto causino attacchi
-epilettici o reazioni fisiche
+> Non sviluppare contenuti con tecniche che sia noto causino attacchi epilettici o reazioni fisiche.
 
 #### Tre lampeggiamenti o inferiore alla soglia
 livello: A
 source: three-flashes-or-below-threshold
 outcome: yes
+
+> Le pagine Web non contengono nulla che lampeggi per più di tre volte in un secondo oppure il lampeggiamento è al di sotto della soglia generale di lampeggiamento e della soglia del lampeggiamento rosso.
+
+##### Osservazioni
 
 Le pagine esaminate non contengono nulla che lampeggi per più di
 tre volte in un secondo oppure il lampeggiamento è al di sotto della
@@ -952,6 +1015,10 @@ livello: AAA
 source: three-flashes
 outcome: yes
 
+> Le pagine Web non contengono nulla che lampeggi per più di tre volte in un secondo.
+
+##### Osservazioni
+
 La pagina web non contiene nulla che lampeggi per più di tre volte in
 un secondo. Si faccia riferimento comunque al punto precedente per il
 discorso dei video.
@@ -962,35 +1029,46 @@ livello: AAA
 source: animation-from-interactions
 outcome: no
 
+> Un movimento animato innescato dall'interazione può essere disabilitato, a meno che l'animazione non sia essenziale per la funzionalità o le informazioni trasmesse.
+
+##### Violazioni riscontrate:
+
 Per menu a scomparsa delle sezioni e i video a scomparsa non è possibile
 disabilitare l'animazione (transazione) e non è essenziale.
 
 **Screen d'esempio**
 
-![Esempio di icone senza descrizione testuale](img/animazione-da-interazioni.gif)
+![Esempio di animazione da interazioni](img/animazione-da-interazioni.gif)
 
 ### Navigabile
 source: navigable
 
-Fornire delle funizonalità di supporto all'utente per navigare, trovare
-contenuti e determinare la propria posizione.
+>Un movimento animato innescato dall'interazione può essere disabilitato, a meno che l'animazione non sia essenziale per la funzionalità o le informazioni trasmesse.
 
 #### Salto di blocchi
 livello: A
 source: bypass-blocks
 outcome: no
 
+> È disponibile un meccanismo per saltare i blocchi di contenuto che si ripetono su più pagine Web.
+
+##### Violazioni riscontrate:
+
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
 che si ripetono su piu pagine.
 
 **Screen d'esempio**
 
-![Esempio di icone senza descrizione testuale](img/salto-di-blocchi.png)
+![Esempio di salto di blocchi](img/salto-di-blocchi.png)
 
 #### Titolazione della pagina
 livello: A
 source: page-titled
 outcome: yes
+
+> Le pagine Web hanno titoli che ne descrivono l'argomento o la finalità.
+
+##### Osservazioni
 
 Le pagine web hanno titoli che ne descrivono l'argomento.
 
@@ -999,6 +1077,10 @@ livello: A
 source: focus-order
 outcome: yes
 
+> Se una pagina Web può essere navigata in modo sequenziale e le sequenze di navigazione influiscono sul suo significato e sul suo funzionamento, gli oggetti che possono ricevere il focus lo ricevono in un ordine che ne conserva il senso e l'operatività.
+
+##### Osservazioni
+
 Rispettato banalmente: la pagine viene navigata in modo sequenziale
 usando il tab ma l'ordine di navigazione non influisce sul significato.
 
@@ -1006,6 +1088,10 @@ usando il tab ma l'ordine di navigazione non influisce sul significato.
 livello: A
 source: link-purpose-in-context
 outcome: no
+
+> Lo scopo di ogni collegamento può essere determinato dal solo testo del collegamento oppure dal testo del collegamento insieme a dei contenuti contestuali che possono essere determinati programmaticamente, salvo il caso in cui lo scopo del collegamento potrebbe risultare ambiguo per la gli utenti in generale.
+
+##### Violazioni riscontrate:
 
 Mancano dei aria-label sui box del meteo e della vignetta in homepage. Le
 altre pagine sono a posto.
@@ -1024,6 +1110,10 @@ livello: AA
 source: multiple-ways
 outcome: yes
 
+> Rendere disponibili più modalità per identificare una pagina Web all'interno di un insieme di pagine Web, salvo il caso in cui una pagina Web sia il risultato – o una fase – di un'azione.
+
+##### Osservazioni
+
 Questo punto è rispettato, confrontando con la lista di tecniche
 sufficienti per il successo del criterio:
 
@@ -1039,6 +1129,10 @@ livello: AA
 source: headings-and-labels
 outcome: yes
 
+> Utilizzare intestazioni ed etichette per descrivere argomenti o finalità.
+
+##### Osservazioni
+
 Le sezioni esaminate hanno intestazioni che ne specificano il contenuto:
  - nella pagina di un articolo l'h1 descrive l'articolo, e gli h2 introducono gli articoli correlati
  - nella pagina del meteo gli h2 introducono i riquadri a lato
@@ -1051,6 +1145,10 @@ livello: AA
 source: focus-visible
 outcome: yes
 
+> Qualsiasi interfaccia utente utilizzabile tramite tastiera ha una modalità operativa in cui è visibile l'indicatore del focus.
+
+##### Osservazioni
+
 Le parti dell'interfaccia vengono evidenziate dallo user agent quando
 ricevono focus.
 
@@ -1058,6 +1156,10 @@ ricevono focus.
 livello: AAA
 source: location
 outcome: yes
+
+> Rendere disponibili informazioni sulla posizione dell'utente all'interno di un insieme di pagine Web.
+
+##### Osservazioni
 
 Nelle pagine di archivio e degli articoli sono presenti delle
 *breadcrumb*. Nella pagina del meteo la posizione corrente viene mostrata
@@ -1067,6 +1169,10 @@ nella nav.
 livello: AAA
 source: link-purpose-link-only
 outcome: no
+
+>Rendere disponibile un meccanismo per comprendere lo scopo di ciascun collegamento basandosi sul solo testo del collegamento, salvo il caso in cui lo scopo del collegamento potrebbe risultare ambiguo per gli utenti in generale.
+
+##### Violazioni riscontrate:
 
 Nella homepage il box del meteo è un'immagine senza testo descrittivo,
 così come anche il box della vignetta.
@@ -1086,20 +1192,27 @@ livello: AAA
 source: section-headings
 outcome: yes
 
+> Le intestazioni di sezione sono utilizzate per organizzare il contenuto.
+
+##### Osservazioni
+
 I titoli vengono usati correttamente (ma si veda comunque il punto
-[Informazioni e correlazioni](#informazioni-e-correlazioni) per gli
+[Intestazioni di sezione](#informazioni-e-correlazioni) per gli
 errori semantici)
 
 ### Modalità di input
 source: input-modalities
 
-Rendere più facile agli utenti l'utilizzo di funzionalità attraverso
-input diversi dalla tastiera.
+> Rendere più facile agli utenti l'utilizzo di funzionalità attraverso input diversi dalla tastiera.
 
 #### Movimenti del puntatore
 livello: A
 source: pointer-gestures
 outcome: yes
+
+> Tutte le funzionalità che per il loro utilizzo richiedono gesti multi punto o basati su percorsi possono essere gestite con un puntatore singolo senza gesti basati sul percorso, a meno che questi non siano essenziali.
+
+##### Osservazioni
 
 Non sono richiesti gesti multi punto o basati su percorsi.
 
@@ -1108,12 +1221,25 @@ livello: A
 source: pointer-cancellation
 outcome: yes
 
+> Per le funzionalità che possono essere gestite utilizzando un singolo puntatore, si verifica almeno una delle seguenti condizioni:
+>
+> - Nessun evento di selezione (down-event): L'evento di selezione (down-event) del puntatore non è usato per eseguire alcuna parte della funzione;
+> - Interruzione o annullamento: La funzione viene portata a termine sull'evento di rilascio (up-event) ed è disponibile un meccanismo per interrompere la funzione prima del completamento o per annullarla dopo il completamento;
+> - Inversione: L'evento di rilascio (up-event) inverte qualsiasi risultato dell'evento di selezione (down-event) precedente;
+> - Essenziale: È essenziale completare la funzione sull'evento di selezione (down-event).
+
+##### Osservazioni
+
 non sono presenti down-event nelle pagine esaminate.
 
 #### Etichetta nel nome
 livello: A
 source: label-in-name
 outcome: no
+
+> Per i componenti dell'interfaccia utente con etichette che includono testo o immagini di testo, il nome contiene il testo che viene presentato visivamente.
+
+##### Violazioni riscontrate:
 
  - il controllo di ricerca ha il nome ha nome 'q'
  - nella schermata di login i controlli hanno nome 'username' ma il testo mostrato è 'Nome utente o email'
@@ -1135,6 +1261,13 @@ livello: A
 source: motion-actuation
 outcome: yes
 
+> Le funzionalità che possono essere azionate dal movimento del dispositivo o dell'utente possono anche essere attivate dai componenti dell'interfaccia utente e la risposta al movimento può essere disabilitata per impedire l'attivazione accidentale, tranne quando:
+> 
+> - Interfaccia supportata: Il movimento viene utilizzato per attivare la funzionalità attraverso un'interfaccia compatibile con l'accessibilità;
+> - Essenziale: Il movimento è essenziale per la funzione e non farlo invaliderebbe l'attività.
+
+##### Osservazioni
+
 Non sono presenti funzionalità che richiedano di essere attivate dal
 movimento del dispositivo o dell'utente.
 
@@ -1143,14 +1276,29 @@ livello: AAA
 source: target-size
 outcome: no
 
+> La dimensione dell'obiettivo per gli input tramite puntatore è di almeno 44 per 44 CSS pixel, tranne quando:
+> 
+> - Equivalente: L'obiettivo è disponibile attraverso un link o un controllo equivalenti sulla stessa pagina, di almeno 44 per 44 CSS pixel;
+> - In linea: L'obiettivo è in una frase o in un blocco di testo;
+> - Sotto controllo del programma utente: La dimensione dell'obiettivo è determinata dal programma utente e non viene modificata dall'autore;
+> - Essenziale: Una specifica presentazione dell'obiettivo è essenziale perché l'informazione venga trasmessa.
+
+##### Violazioni riscontrate:
+
 Il link vuoto nella barra laterale non è alto abbastanza (0px)
 
-???????????????
+**Screen d'esempio**
+
+![Esempio dimensione dell'obbiettivo](img/dimensione-dell-obbiettivo.gif)
 
 #### Meccanismi di input simultanei
 livello: AAA
 source: concurrent-input-mechanisms
 outcome: yes
+
+> Il contenuto Web non limita l'uso delle modalità di input disponibili su una piattaforma, tranne nei casi in cui la limitazione è essenziale, necessaria per garantire la sicurezza del contenuto o per rispettare le impostazioni dell'utente.
+
+##### Osservazioni
 
 L'unica modalità di input richiesta è il click e l'hover.
 
