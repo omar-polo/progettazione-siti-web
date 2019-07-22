@@ -1,6 +1,5 @@
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
-<<<<<<< HEAD
 ##### Introduzione
 
 La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
@@ -111,8 +110,6 @@ Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previs
 
 #####  Sommario dei risultati
 
-=======
->>>>>>> 8b810ac2b33a6804c3d9646f044f7ebb649de6cf
 ## Percepibile
 source: perceivable
 
