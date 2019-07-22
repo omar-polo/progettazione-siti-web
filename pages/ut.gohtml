@@ -50,35 +50,38 @@
 		</ul>
 		
 		<h3>Profili utente</h3>
-		{{ range $i, $v := .Surveys }}
-			<section class="user-survey-result">
+		
+		<div class="user-survey-results">
+			{{ range $i, $v := .Surveys }}
+				<section class="user-survey-result">
 
-				<h4>Utente {{ $i | inc }}</h4>
+					<h4>Utente {{ $i | inc }}</h4>
 
-				<dl>
-					<dt>Età</dt>
-					<dd>{{ index $v "età" }}</dd>
+					<dl>
+						<dt>Età</dt>
+						<dd>{{ index $v "età" }}</dd>
 
-					<dt>Sesso</dt>
-					<dd>{{ index $v "sesso" }}</dd>
+						<dt>Sesso</dt>
+						<dd>{{ index $v "sesso" }}</dd>
 
-					<dt>Professione</dt>
-					<dd>{{ index $v "professione" }}</dd>
+						<dt>Professione</dt>
+						<dd>{{ index $v "professione" }}</dd>
 
-					<dt>Competenze digitali</dt>
-					<dd>{{ index $v "esperienza" }}</dd>
+						<dt>Competenze digitali</dt>
+						<dd>{{ index $v "esperienza" }}</dd>
 
-					<dt>Frequenza di utilizzo del web</dt>
-					<dd>{{ index $v "frequenza-web" }}</dd>
+						<dt>Frequenza di utilizzo del web</dt>
+						<dd>{{ index $v "frequenza-web" }}</dd>
 
-					<dt>Hai mai usato un sito di informazioni sui viaggi?</dt>
-					<dd>{{ index $v "siti-viaggi" }}</dd>
+						<dt>Hai mai usato un sito di informazioni sui viaggi?</dt>
+						<dd>{{ index $v "siti-viaggi" }}</dd>
 
-					<dt>Hai mai usato il sito infoviaggiando.it?</dt>
-					<dd>{{ index $v "infoviaggiando" }}</dd>
-				</dl>
-			</section>
-		{{ end }}
+						<dt>Hai mai usato il sito infoviaggiando.it?</dt>
+						<dd>{{ index $v "infoviaggiando" }}</dd>
+					</dl>
+				</section>
+			{{ end }}
+		</div>
 		
 		<h3>Situazione operativa</h3>
 		<p>I test sono stati effettuati nel giardino dei rizzi, in un tavolo all'ombra di un albero. Dato anche il periodo dell'anno, c'era poca gente nei dintorni e i test si sono svolti in tranquillità.</p>

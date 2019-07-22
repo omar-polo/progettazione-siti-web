@@ -959,19 +959,20 @@ kbd {
 
 /* pagina user testing */
 
+.ut {
+	padding: 10px;
+}
+
 .ut h1 {
 	font-size: 1.6rem;
-	margin: 2rem 0 1rem 0;
 }
 
 .ut h2 {
 	font-size: 1.5rem;
-	padding: 8px;
 }
 
 .ut h3 {
 	font-size: 1.4rem;
-	padding: 8px;
 }
 
 .ut h4 {
@@ -980,9 +981,7 @@ kbd {
 
 .ut h5 {
 	font-size: 1.2rem;
-	padding-left: 14px;
 	font-weight: bold;
-	padding-top: 20px;
 }
 
 .ut ul {
@@ -997,25 +996,51 @@ kbd {
 	margin: 1rem 0;
 }
 
-.ut p {
-	margin: 1rem 5px;
-}
-
 .ut p,
 .ut dl {
+	margin: 1rem 5px;
 	line-height: 1rem;
-}
-
-.ut dl {
-	margin: 1rem 0;
 }
 
 .ut dt {
 	margin-top: .7rem;
-	font-weight: normal;
-	text-decoration: underline;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 .ut dd {
 	padding: 5px 0;
+	padding-left: 1rem;
 }
+
+.ut .user-survey-result {
+	border: 1px solid #dedede;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 4px;
+	background-color: #fefefe;
+	box-shadow: 0 5px 15px #dfdfdf;
+}
+
+@media only screen and (min-width: 880px) {
+	.ut .user-survey-results {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	
+	.ut .user-survey-result {
+		max-width: 999px;
+		max-width: unset;
+		
+		width: 44%;
+		margin: 10px 3%;
+	}
+
+	.ut .user-survey-result:last-of-type {
+		margin-right: auto;
+	}
+}
+
+
