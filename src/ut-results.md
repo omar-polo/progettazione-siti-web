@@ -51,18 +51,24 @@ tempo:
 4 minuti 12 secondi
 
 percorso:
-TODO
+ - sicurezza
+ - servizi
+ - infrastrutture
+ - telecamere
+ - notizie
+ - servizi
+ - calcolo pedaggi
 
 problemi:
-tanti
+Molto confusionario e poco chiaro nella divisione delle funzionalità
 
 opinioni:
-poche
+nessuno
 
 ### Task 2
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -71,18 +77,19 @@ tempo:
 45 secondi
 
 percorso:
-TODO
+ - servizi
+ - previsioni meteo
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+Diceva che era meglio fare una pagina apposita per il meteo perchè si aspettava cose diverse dalla pagina servizi
 
 ### Task 3
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -91,18 +98,19 @@ tempo:
 1 minuto e 42 secondi
 
 percorso:
-TODO
+ - servizi
+ - notizie
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+se ti serve il traffico dal punto A al punto B quando fai la ricerca ti mostra dov'é il traffico mostrandoti il percorso e i punti precisi in cui prevedono che ci sia il traffico
 
 ### Task 4
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -111,18 +119,18 @@ tempo:
 10 secondi
 
 percorso:
-TODO
+ - telecamere
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+nessuno
 
 ### Task 5
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -131,18 +139,18 @@ tempo:
 30 secondi
 
 percorso:
-TODO
+ - infrastrutture
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+nessuno
 
 ### Task 6
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -151,13 +159,16 @@ tempo:
 1 minuto e 15 secondi
 
 percorso:
-TODO
+ - infrastrutture
+ - sicurezza
+ - notizie
+ - infrastrutture
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+Sarebbe meglio darti l'opzione di selezionare un percorso e poi in automatico ti dice il benzinaio che si trova nbel percorso dove la benzina o il diesel costano meno
 
 ## utente 2
 sesso: maschio

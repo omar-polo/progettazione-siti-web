@@ -5,7 +5,14 @@
         margin: 15mm;
     }
 
-    * {background: transparent !important; color: black !important;}
+    * {
+        background: transparent !important; 
+        color: black !important;
+    }
+
+    .introduction h1 {
+        font-size: 18pt;
+    }
 
     h1 {
         page-break-before: always;
@@ -29,16 +36,15 @@
     }
 
     header {
-        display: none;
+        display: none !important;
     }
 
     .footer {
-        display: none;
+        display: none !important;
     }
 
     #toTop {
-        display: none;
-        
+        display: none !important;   
     }  
 
     /* evito che l’interruzione avvenga nel corpo della tabella */
@@ -46,7 +52,32 @@
         page-break-inside: avoid;
     }
 
+    .shortcut {
+        page-break-before: auto;
+    }
+
     .summary {
+        width: 100%;
+        line-height: .7rem;
+    }
+
+    .not-passed {
         page-break-inside: avoid;
+    }
+
+    .passed {
+        page-break-inside: avoid;
+    }
+
+    .na {
+        page-break-inside: avoid;
+    }
+
+    .second-list .third-list {
+        line-height: 1.5rem;
+    }
+
+    pre {
+        font-size: 12pt;
     }
 }
