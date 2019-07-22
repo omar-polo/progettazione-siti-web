@@ -332,7 +332,12 @@ dt {
 	transform: translateY(0);
 }
 
-/* Pagina Home */
+@keyframes unihover {
+	from { transform: translateY(0);     }
+	50%  { transform: translateY(-10px); }
+	to   { transform: translateY(0);     }
+}
+
 .color-square {
 	position: absolute;
 	display: flex;
@@ -342,6 +347,18 @@ dt {
 	height: 20px;
 	margin: 1.4rem 0 0 1rem;
 }
+
+.color-square:hover .square-1,
+.color-square:hover .square-2,
+.color-square:hover .square-3 {
+	animation-name: unihover;
+	animation-duration: .4s;
+	animation-timing-function: ease-in-out;
+}
+
+.color-square:hover .square-1 { animation-delay: .1s; }
+.color-square:hover .square-2 { animation-delay: .2s; }
+.color-square:hover .square-3 { animation-delay: .3s; }
 
 .square-1 .square-2 .square-3 {
 	flex-grow: 2;
@@ -362,6 +379,8 @@ dt {
 	width: 20px;
 	background-color: #5e92a8;
 }
+
+/* Pagina Home */
 
 .intro {
 	height: 450px;
