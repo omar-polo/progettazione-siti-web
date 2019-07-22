@@ -16,7 +16,7 @@ La grammatica è la seguente:
 dove `key` è una keyword (descritte sopra) e definition una sequenza
 di linee di testo.
 
-###
+### Caso d'uso 1
 
 storia:
 Stai progettando un viaggio (e.g. Udine - Verona) e vuoi sapere quanto
@@ -30,7 +30,7 @@ percorso:
  - click sul box "calcolo pedaggi"
  - inserire le informazioni e premere il tasto "calcola"
 
-###
+### Caso d'uso 2
 
 storia:
 Vuoi verificare il meteo per una certa città (e.g. Venezia) per domenica
@@ -44,7 +44,7 @@ percorso:
  - servizi
  - previsioni meteo
 
-###
+### Caso d'uso 3
 
 storia:
 Vuoi verificare il traffico su una autostrada per una specifica data.
@@ -56,7 +56,7 @@ percorso:
  - home page
  - uso del widget per il traffico
 
-###
+### Caso d'uso 4
 
 storia:
 Ricerca di una specifica telecamera
@@ -69,7 +69,7 @@ percorso:
  - telecamere
  - uso della mappa
 
-###
+### Caso d'uso 5
 
 storia:
 Viene richiesto all'utente di trovare la stazione di benzina più vicina
@@ -83,7 +83,7 @@ percorso:
  - infrastrutture
  - uso della mappa
 
-###
+### Caso d'uso 6
 
 storia:
 Viene richiesto all'utente di trovare la stazione di servizio con benzina
