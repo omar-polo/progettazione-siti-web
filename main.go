@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -15,7 +14,6 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	tt "text/template"
 
 	"github.com/fsnotify/fsnotify"
 	blackfriday "gopkg.in/russross/blackfriday.v2"
@@ -160,11 +158,7 @@ type UTPage struct {
 
 // Ritorna la pagina dell'user testing
 func utPage() (Page, error) {
-	p, reader, uf, err := initParser("src/ut.md")
-	if err != nil {
-		return p, err
-	}
-	defer uf.Close()
+	p := Page{Title: "User Testing"}
 
 	// Parse the tasks
 	f, err := os.Open("src/tasks.md")
@@ -225,33 +219,8 @@ func utPage() (Page, error) {
 		pp.Results = append(pp.Results, r)
 	}
 
-	content, err := ioutil.ReadAll(reader)
-	if err != nil {
-		return p, err
-	}
-
-	fmap := tt.FuncMap{
-		"inc": inc,
-	}
-
-	t := tt.Must(tt.New("src/ut.md").Funcs(fmap).Parse(string(content)))
-	var b bytes.Buffer
-	err = t.Execute(&b, pp)
-	p.Content = string(b.Bytes())
+	p.Content = pp
 	return p, err
-
-	/*
-		p, reader, f, err := initParser("src/ut.md")
-		if f != nil {
-			defer f.Close()
-		}
-		if err != nil {
-			return p, err
-		}
-		content, err := ioutil.ReadAll(reader)
-		p.Content = string(content)
-		return p, err
-	*/
 }
 
 // Inizializza e ritorna una stuct section
