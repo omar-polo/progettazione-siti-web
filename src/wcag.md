@@ -1,5 +1,115 @@
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
+##### Introduzione
+
+La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
+
+Principi
+: Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*.
+
+Linee guida
+: Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse.
+
+Criteri di successo
+: Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
+
+Tecniche sufficienti e consigliate
+: Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida.
+
+Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile.
+
+Sono stati utilizzati diversi strumenti come supporto alla valutazione di conformità alle linee guida WCAG 2.1.
+
+- I browser Web [Mozilla Firefox Developer Edition](https://www.mozilla.org/it/firefox/channel/desktop/) e [Google Chrome](https://www.google.com/intl/it/chrome/)
+
+- Markup Validation Service [W3C](https://validator.w3.org/)
+
+- CSS Validation Service [W3C](https://jigsaw.w3.org/css-validator/)
+
+- Web Accessibility Evaluation Tool [WAVE](http://wave.webaim.org/)
+
+- Color Contrast Accessibility Validator [a11y](https://color.a11y.com/?wc3)
+
+- [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità.
+
+- [Color Contrast Checker - WebAIM](https://webaim.org/resources/contrastchecker/) che fornisce un rapporto per sapere quanto è accessibile un sito Web e come migliorarlo.
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) che è uno strumento automatizzato open-source per migliorare la qualità delle pagine web. Ha Audits per prestazioni, accessibilità, buone pratiche, applicazioni web progressive e altro.
+
+##### Perimetro dell'indagine
+
+Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono state selezionate le seguenti pagine:
+
+- Home page del sito [il Fatto Quotidiano](https://www.ilfattoquotidiano.it/)
+
+- Un articolo estratto dalla Home page
+
+- La pagina [Archivi](https://www.ilfattoquotidiano.it/archivi/)
+
+- La pagina di [Login](https://shop.ilfattoquotidiano.it/login/)
+
+- La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
+
+##### Requisiti di conformità
+Nella valutazione di conformità dei vari criteri di successo l'esito è stato espresso nei termini di:
+
+**Positivo**
+: Tutte le pagine esaminate rispettano completamente le direttive espresse da quel criterio di successo
+
+**Negativo**
+: Una o più pagine esaminate non rispettano il criterio di successo
+
+**Non applicabile**
+: Per tutte le pagine esaminate il criterio di successo non è applicabile
+
+##### Glossario
+
+spec
+: Abbreviazione di "specifica"
+
+WCAG
+: Web Content Accessibility Guidelines, attualmente alla versione 2.1
+
+CHAPTCHA
+: Sigla per "Completely Automated Public Turing test to tell Computers and Humans Apart" (Test di Turing pubblico e completamente automatizzato, allo scopo di distinguere gli esseri umani dai computer)
+
+link
+: Collegamento tra due pagine Web
+
+input
+: Un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
+
+HTML
+: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine Web
+
+CSS
+: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
+
+CSS pixel
+: Un CSS pixel è l'unità di misura canonica per tutte le lunghezze e misure in CSS. Questa unità è indipendente dalla densità e distinta dai pixel hardware effettivi presenti in un display.
+
+Pagina Web
+: Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
+
+Browser Web
+: Qualsiasi programma che recuperi e presenti contenuti Web agli utenti
+
+##### Risultati del report
+
+Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità.
+
+I video preregistrati non forniscono nessuna trascrizione testuale equivalente, nè presentano sottotitoli.
+
+Le informazioni trasmesse determinate programmaticamente non rispettano la semantica del Web. Il vantaggio della scrittura di HTML semantico deriva da quello che dovrebbe essere l'obiettivo principale di qualsiasi pagina web: il desiderio di comunicare.
+
+Il sito fa largo uso di immagini di testo che non sono essenziali per le informazioni che intendono veicolare, quando sarebbe stato più opportuno utilizzare puro testo.
+
+Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è possibile accedere tramite la tastiera.
+
+Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
+
+#####  Sommario dei risultati
+
 ## Percepibile
 source: perceivable
 
@@ -35,17 +145,18 @@ source: non-text-content
 > Decorazioni, formattazioni, contenuti invisibili
 > : Se il contenuto non testuale è puramente decorativo, è utilizzato solamente per formattazione visuale oppure non è presentato agli utenti, allora è implementato in modo da poter essere ignorato dalla tecnologia assistiva.
 
-##### Violazioni riscontrate
+##### Violazioni riscontrate:
 
 Manca una descrizione testuale per l'icona "search" nella barra di navigazione.
 
-Non sono presenti gli attributi `alt` che forniscono una descrizione testuale dell'immagine, la quale ne descrive i contenuti per chi non può vederla (in particolare nelle foto degli articoli).
+Non sono presenti gli attributi "alt" che forniscono una descrizione testuale dell'immagine, la quale ne descrive i contenuti per chi non può vederla (in particolare nelle foto degli articoli).
 
-Al momento, le immagini senza l'attributo `alt` sono 69.
+Al momento, le immagini senza l'attributo "alt" sono 69.
 
-Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini senza l'attributo `alt`
+Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini senza l'attributo "alt"
 
 ```javascript
+  // Lista delle immagini alle quali manca l'attributo alt
   Array.prototype.filter.call(document.querySelectorAll('img'), i => !i.alt)
 ```
 
@@ -81,7 +192,7 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
 
 **Rimedi proposti**
 
-Inserire il valore dell'attributo `alt` sugli elementi `img`
+Inserire il valore dell'attributo **alt** sugli elementi *img*
 
 Usare gli *aria-label* per fornire etichette agli oggetti
 
@@ -190,6 +301,8 @@ source: captions-live
 
 > Per tutti i contenuti audio in tempo reale sotto forma di media sincronizzati sono forniti sottotitoli.
 
+##### Violazioni riscontrate:
+
 Al momento sono presenti solo video preregistrati, quindi questo punto non si applica.
 
 #### Audiodescrizione (preregistrata)
@@ -209,6 +322,8 @@ outcome: na
 source: sign-language-prerecorded
 
 > Per tutti i contenuti audio preregistrati sotto forma di media sincronizzati è fornita l'interpretazione tramite lingua dei segni.
+
+##### Violazioni riscontrate:
 
 Non sono presenti contenuti audio preregistrati, quindi questo criterio di successo non si applica.
 
@@ -286,9 +401,10 @@ L'elemento *p* non può essere figlio di un elemento di tipo *span*
 
 - Non vengono utilizzati i punti di riferimento ARIA per identificare le regioni di una pagina
 
+- Non vengono implementati i *`role="heading"`* per identificare i titoli
 
 - Non c'è un utilizzo appropriato di elementi semantici per contrassegnare la struttura delle pagine (es: molti titoli sono un *`p`* dentro un *`h2`*)
-  
+
 - Non viene utilizzata della marcatura semantica per contrassegnare il testo enfatizzato o speciale (es: non usano correttamente il tag *`quote`* per le citazioni)
 
 - Violata la separazione delle informazioni e della struttura dalla presentazione per abilitare presentazioni diverse
@@ -301,6 +417,8 @@ outcome: na
 source: meaningful-sequence
 
 > Quando la sequenza in cui il contenuto è presentato influisce sul suo significato, la corretta sequenza di lettura può essere determinata programmaticamente.
+
+##### Violazioni riscontrate:
 
 La lista nella quale gli articoli vengono mostrati non influisce sul significato dei singoli articoli, quindi questo criterio di successo non si applica.
 
@@ -324,7 +442,7 @@ source: orientation
 
 ##### Osservazioni
 
-Il sito funziona su monitor di diverse forme e orientamenti.
+Il sito funziona su monitor di diverse forme e orientamenti, quindi questo punto è rispettato.
 
 #### Identificare lo scopo degli input
 livello: AA
@@ -332,10 +450,10 @@ outcome: no
 source: identify-input-purpose
 
 > Lo scopo di ciascun campo di input per le informazioni sull'utente può essere determinato programmaticamente quando:
->
-> - Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
->
-> - Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
+
+> Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
+
+> Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
 
 ##### Violazioni riscontrate:
 
@@ -381,7 +499,7 @@ source: identify-purpose
 
 ##### Violazioni riscontrate:
 
-Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manca un tag `main` per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
+Alcuni tag HTML5 sono utilizzati correttamente (footer, header, nav, aside..), ma manga un tag `main` per indentificare il contenuto primario della pagina. Inoltre, i form non sono strutturati correttamente, e quindi non tutte le aree della pagina sono comprensibili.
 
 ### Distinguibile
 source: distinguishable
@@ -431,11 +549,11 @@ source: contrast-minimum
 Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto ottimale come:
 
  - Il tasto condividi e il numero di commenti nelle preview degli articoli della Home page e nelle pagine di archivio
-  
+
  - L'ora e il punteggio dei commenti
-  
+
  - I tasti per cambiare giornata nella pagina del meteo
-  
+
  - I titoli degli articoli nella sezione "Top Blog"
 
 #### Ridimensionamento del testo
@@ -468,9 +586,9 @@ source: images-of-text
 Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili), quando un testo sarebbe stato più opportuno, come:
 
  - Il box "Abbonati" nella Homepage
-  
+
  - Il logo "Meteo" dove la scritta non è necessaria che sia inclusa nell'immagine
-  
+
  - La scritta 'la vignetta di' nel box della vignetta di Natangelo non è necessaria che sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali).
 
 #### Contrasto (avanzato)
@@ -494,27 +612,27 @@ source: contrast-enhanced
 Alcuni esempi:
 
  - Nella pagina di login:
-  
-    - la stellina accanto alle voci "Nome utente o email" e "Password" non ha un contrasto sufficiente
-  
+
+    - la stellina accanto alle voci 'Nome utente o email' e 'Password' non ha un contrasto sufficiente
+
     - tutti i pulsanti
-  
-    - la scritta "Non sei ancora registrato?" non ha un contrasto adeguato
-  
+
+    - la scritta 'Non sei ancora registrato?' non ha un contrasto adeguato
+
  - Nella pagina del meteo
-  
-    - il pulsante "Accedi"
-  
-    - la scritta "modifica località" è poco visibile
-  
+
+    - il pulsante 'Accedi'
+
+    - la scritta 'modifica località' è poco visibile
+
     - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo)
-  
+
     - il selettore dell'ora
-  
+
  - Nella pagina di un articolo
-  
+
     - il numero dei commenti
-  
+
     - le categorie nell'aside
 
 #### Sottofondo sonoro basso o non presente
@@ -543,29 +661,26 @@ outcome: no
 source: visual-presentation
 
 > Per la presentazione visiva di blocchi di testo, è disponibile una modalità per conseguire i seguenti obiettivi:
->
-> - I colori del testo in primo piano e dello sfondo possono essere scelti dall'utente.
-> - La larghezza non supera gli 80 caratteri o glifi (40 se CJK).
-> - Il testo non è giustificato (allineato sia al margine destro che al sinistro).
-> - Lo spazio tra righe (interlinea) è almeno di uno spazio e mezzo all'interno del paragrafo e lo spazio tra paragrafi, è almeno una volta e mezzo l'interlinea.
-> - Il testo può essere ridimensionato fino al 200 percento senza il supporto di tecnologie assistive in modo da non richiedere all'utente di dover scorrere orizzontalmente per leggere una riga di testo in una finestra a tutto schermo.
+
+  > I colori del testo in primo piano e dello sfondo possono essere scelti dall'utente.
+  > La larghezza non supera gli 80 caratteri o glifi (40 se CJK).
+  > Il testo non è giustificato (allineato sia al margine destro che al sinistro).
+  > Lo spazio tra righe (interlinea) è almeno di uno spazio e mezzo all'interno del paragrafo e lo spazio tra paragrafi, è almeno una volta e mezzo l'interlinea.
+  > Il testo può essere ridimensionato fino al 200 percento senza il supporto di tecnologie assistive in modo da non richiedere all'utente di dover scorrere orizzontalmente per leggere una riga di testo in una finestra a tutto schermo.
 
 ##### Violazioni riscontrate:
 
-I punti violati sono:
+L'unico punto passato è 'il testo non è giustificato'
 
- - Il sito non permette di cambiare i colori in primo piano e dello sfondo
+ - [ ] Il sito non permette di cambiare i colori in primo piano e dello sfondo
 
- - La larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
+ - [ ] La larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
 
- - Non è possibile ingrandire il testo e se si ingrandisce con lo Zoom con il browser al 200% compaiono delle barre di scorrimento orizzontali
+ - [x] Il testo non è giustificato
 
-Risultano rispettati invece i seguenti punti
+ - [x] Lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
 
- - Il testo non è giustificato
-  
- - Lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
-
+ - [ ] Non è possibile ingrandire il testo e se si ingrandisce con lo Zoom con il browser al 200% compaiono delle barre di scorrimento orizzontali
 
 #### Immagini di testo (senza eccezioni)
 livello: AAA
@@ -584,13 +699,18 @@ outcome: yes
 source: reflow
 
 > Il contenuto può essere ripresentato senza perdita di informazioni o funzionalità e senza richiedere lo scorrimento in due dimensioni per:
->
-> - Contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel;
-> - Contenuto a scorrimento orizzontale ad un'altezza equivalente a 256 CSS pixel.
->
+
+  > Contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel;
+
+  > Contenuto a scorrimento orizzontale ad un'altezza equivalente a 256 CSS pixel.
+
 > Tranne per le parti del contenuto che richiedono layout bidimensionale per l'utilizzo o per comprenderne il senso.
 
 ##### Osservazioni
+
+ - [x] Il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
+
+ - [x] Non c'è contenuto a scorrimento orizzontale
 
 Ingrandendo a 400% il sito è usabile e rispetta le richieste, ma intorno al 200% bisogna scrollare orizzontalmente ed i testi importanti come titoli, sottotitoli sono "tagliati fuori".
 
@@ -605,7 +725,7 @@ source: non-text-contrast
 > : Le informazioni visive richieste per identificare i componenti dell'interfaccia utente e gli stati (ad eccezione dei componenti inattivi o dove l'aspetto del componente è determinato dal programma utente e non modificato dall'autore);
 
 > Oggetti grafici
-> : Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
+> : Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse.
 
 ##### Osservazioni
 
@@ -617,27 +737,23 @@ outcome: no
 source: text-spacing
 
 > Nei contenuti implementati utilizzando linguaggi di markup che supportano le seguenti proprietà di stile per il testo, non si verifica alcuna perdita di contenuto o funzionalità impostando quanto segue senza modificare altre proprietà di stile:
->
-> - Altezza della linea (interlinea) di almeno 1,5 volte la dimensione del carattere;
-> - Spaziatura dopo i paragrafi di almeno 2 volte la dimensione del carattere;
-> - Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere;
-> - Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere.
->
+
+  > Altezza della linea (interlinea) di almeno 1,5 volte la dimensione del carattere;
+  > Spaziatura dopo i paragrafi di almeno 2 volte la dimensione del carattere;
+  > Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere;
+  > Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere.
+
 > Eccezione: le lingue e le scritture che non utilizzano una o più di queste proprietà nel testo scritto sono conformi quando si può applicare il criterio alle sole proprietà esistenti per quella combinazione di lingua e scrittura.
 
 ##### Violazioni riscontrate:
 
-I punti che risultano violati sono:
+ - [x] L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere
 
- - Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere
-  
- - Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere
- 
-Mentre risultano rispettati:
+ - [x] La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere
 
- - L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere
-  
- - La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere
+ - [ ] Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere
+
+ - [ ] Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere
 
 #### Contenuto con Hover o Focus
 livello: AA
@@ -659,11 +775,11 @@ source: content-on-hover-or-focus
 
 ##### Osservazioni
 
- - Congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
-  
- - Passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
-  
- - Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
+ - [x] Congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
+
+ - [x] Passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
+
+ - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
 ## Utilizzabile
 source: operable
@@ -684,7 +800,7 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Le voci di menu a scomparsa nell'intestazione (ad esempio "FQ IN EDICOLA") non sono navigabili da tastiera in quanto l'area a scomparsa non è visibile.
+Le voci di menu a scomparsa nell'intestazione (ad esempio 'FQ IN EDICOLA') non sono navigabili da tastiera in quanto l'area a scomparsa non si apre.
 
 **Screen d'esempio**
 
@@ -692,7 +808,7 @@ Le voci di menu a scomparsa nell'intestazione (ad esempio "FQ IN EDICOLA") non s
 
 ##### Rimedi proposti
 
-Mostrare l'area a scomparsa quando il focus si trova in un elemento dentro tale area.
+Basterebbe ordinare il tabindex in modo tale che quei 3 componenti siano raggiungibili e quando il focus è su qui 3 componenti basta far si che il menù a scomparsa compaia.
 
 #### Nessun impedimento all'uso della tastiera
 livello: A
@@ -712,18 +828,22 @@ outcome: no
 
 > Tutte le funzionalità del contenuto sono utilizzabili tramite un'interfaccia di tastiera senza richiedere tempi specifici per la pressione dei singoli tasti.
 
-##### Violazioni riscontrate
+##### Violazioni riscontrate:
 
-Non vale per lo stesso motivo del punto [2.1.1 Tastiera](#keyboard)
+Non lo è per lo stesso motivo del due sopra. (vedi sopra x2).
 
 **Screen d'esempio**
 
 ![Esempio di tastiera (nessuna eccezione)](img/tastiera.gif)
 
+##### Rimedi proposti
+
+Basterebbe ordinare il tabindex in modo tale che quei 3 componenti siano raggiungibili e quando il focus è su qui 3 componenti basta far si che il menù a scomparsa compaia.
+
 #### Tasti di scelta rapida
 livello: A
 source: character-key-shortcuts
-outcome: na
+outcome: yes
 
 > Se nel contenuto viene implementata una scorciatoia da tastiera utilizzando sole lettere (maiuscole e minuscole), segni di punteggiatura, numeri o simboli, allora è vera almeno una delle seguenti condizioni:
 >
@@ -732,7 +852,9 @@ outcome: na
 > - Attivazione solo al focus: La scorciatoia da tastiera per un componente dell'interfaccia utente è attiva solo quando questo è attivo.
 >
 
-Le pagine esaminate non contengono nessun tipo di scorciatoie da tastiera.
+##### Osservazioni
+
+Non hanno implementato nessuna scorciatoia da tastiera quindi questo punto è banalmente rispettato.
 
 ### Adeguata disponibilità di tempo
 source: enough-time
@@ -745,7 +867,7 @@ source: timing-adjustable
 outcome: no
 
 > Per ogni temporizzazione presente nel contenuto, è soddisfatto almeno uno dei seguenti casi:
-> 
+>
 > - Spegnimento: All'utente è consentito disattivare il limite di tempo prima di raggiungerlo; oppure
 > - Regolazione: All'utente viene consentito di regolare il limite di tempo prima di raggiungerlo in un'ampia gamma che sia almeno dieci volte superiore alla durata dell'impostazione predefinita; oppure
 > - Estensione: L'utente viene avvisato prima dello scadere del tempo; gli sono dati almeno 20 secondi per estendere il limite tramite un'azione semplice (per esempio: "premere la barra spaziatrice") e gli è consentito di estendere il limite per almeno 10 volte; oppure
@@ -756,14 +878,14 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-La home page si auto-ricarica:
- - non è possibile disattivare il meccanismo
+La home page si auto-ricarica e:
+ - non è possibile disattivarlo
  - non è possibile regolarlo
  - l'utente non viene avvisato prima dello scadere del tempo e non è possibile estendere il limite
  - il limite di tempo non è un evento fondamentale
  - il limite di tempo non è essenziale per l'attività
  - il limite di tempo è inferiore alle 20 ore (sono 10 minuti)
- 
+
 **Code snippets**
 
 ```
@@ -777,7 +899,8 @@ La home page si auto-ricarica:
 
 ##### Rimedi proposti
 
-Rimuovere il metatag refresh. Alternativamente lo si potrebbe rimpiazzare con un controllo in JavaScript che permetta all'utente di disattivare il timeout e regolarlo.
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
 
 #### Pausa, stop, nascondi
 livello: A
@@ -793,11 +916,24 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Mentre i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti, non è possibile disattivare l'auto-aggiornamento della pagina.
+ - [x] i video che compaiono in sovraimpressione possono essere stoppati e/o nascosti
+ - [ ] non è possibile disattivare l'autoaggiornamento
+
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
 
 ##### Rimedi proposti
 
-Rispettare il punto [2.2.1 Regolazione tempi di esecuzione](#timing-adjustable)
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
 
 #### Nessun tempo di esecuzione
 livello: AAA
@@ -811,9 +947,21 @@ outcome: no
 Nonostante il refresh non sia una parte esseziale del contenuto, la home
 page si auto-ricarica ogni 10 minuti.
 
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
+
 ##### Rimedi proposti
 
-Rispettare il punto [2.2.1 Regolazione tempi di esecuzione](#timing-adjustable)
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
 
 #### Interruzioni
 livello: AAA
@@ -827,9 +975,21 @@ outcome: no
 La home page viene ricaricata ogni 10 minuti: tale azione non è
 considerabile un'emergenza.
 
+**Code snippets**
+
+```
+<meta name="viewport" content="width=1050px">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="Refresh" content="600; URL=https://www.ilfattoquotidiano.it?refresh_ce">
+<title>Il Fatto Quotidiano - News su politica, cronaca, giustizia ed economia</title>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//st.ilfattoquotidiano.it">
+```
+
 ##### Rimedi proposti
 
-Rispettare il punto [2.2.1 Regolazione tempi di esecuzione](#timing-adjustable)
+Bastarebbe rimpiazzare il metatag refresh con un controllo in javascript
+che permetta almeno uno dei punti sopra citati.
 
 #### Riautenticazione
 livello: AAA
@@ -840,8 +1000,8 @@ outcome: yes
 
 ##### Osservazioni
 
-Se durante la scrittura di un commento la sessione scade, il commento non viene perso ma riproposto dopo il login.
-
+Se uno scrive un commento, la sessione scade, il commento non viene
+perso ma viene riproposto tale e quale dopo un login.
 
 #### Termine del tempo
 livello: AAA
@@ -852,7 +1012,7 @@ outcome: yes
 
 ##### Osservazioni
 
-L'inattività non permette di perdere i commenti scritti ma non ancora inviati.
+L'inattività non permette di perdere i commenti.
 
 ### Convulsioni e reazioni fisiche
 source: seizures-and-physical-reactions
@@ -884,7 +1044,9 @@ outcome: yes
 ##### Osservazioni
 
 La pagina web non contiene nulla che lampeggi per più di tre volte in
-un secondo.
+un secondo. Si faccia riferimento comunque al punto precedente per il
+discorso dei video.
+
 
 #### Animazione da interazioni
 livello: AAA
@@ -904,12 +1066,12 @@ disabilitare l'animazione (transazione) e non è essenziale.
 
 ##### Rimedi proposti
 
-Basterebbe aggiungere un controllo per attivare o diabilitare le animazioni
+Basterebbe aggiungere uno switch per attivare o diabilitare le animazioni
 
 ### Navigabile
 source: navigable
 
-> Un movimento animato innescato dall'interazione può essere disabilitato, a meno che l'animazione non sia essenziale per la funzionalità o le informazioni trasmesse.
+>Un movimento animato innescato dall'interazione può essere disabilitato, a meno che l'animazione non sia essenziale per la funzionalità o le informazioni trasmesse.
 
 #### Salto di blocchi
 livello: A
@@ -921,7 +1083,7 @@ outcome: no
 ##### Violazioni riscontrate:
 
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
-che si ripetono su piu pagine.
+che si ripetono su piu pagine, come ad esmepio il menù in alto e da scorrere tutto anche se è presente in ogni pagina.
 
 **Screen d'esempio**
 
@@ -963,11 +1125,12 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Mancano degli aria-label sui box del meteo e della vignetta nella homepage.
+Mancano dei aria-label sui box del meteo e della vignetta in homepage. Le
+altre pagine sono a posto.
 
 **Code snippets**
 
-```html
+```
 <div id="text-165" class="widget widget_text">
    <div class="textwidget"><a href="http://meteo.ilfattoquotidiano.it/"><img class=" lazyloaded" src="https://st.ilfattoquotidiano.it/wp-content/uploads/2015/01/icona-sidebar.png" data-src="https://st.ilfattoquotidiano.it/wp-content/uploads/2015/01/icona-sidebar.png" width="230" height="55" scrolling="no" alt="Meteo" style="margin-top:-10px"></a></div>
    <div class="clear"></div>
@@ -976,7 +1139,7 @@ Mancano degli aria-label sui box del meteo e della vignetta nella homepage.
 
 ##### Rimedi proposti
 
-Aggiungere degli aria-label
+Basta aggiungere gli aria-label
 
 #### Differenti modalità
 livello: AA
@@ -987,11 +1150,15 @@ outcome: yes
 
 ##### Osservazioni
 
-Questo punto risulta rispettato, confrontando con la lista di tecniche
+Questo punto è rispettato, confrontando con la lista di tecniche
 sufficienti per il successo del criterio:
 
- - forniscono link per navigare a pagine correlati
- - forniscono una funzionalità di ricerca
+ - [x] forniscono link per navigare a pagine correlati
+ - [ ] non forniscono una TOC
+ - [ ] non hanno una site map
+ - [x] forniscono una funzionalità di ricerca
+ - [ ] non forniscono una lista di link a tutte le altre pagine
+ - non tutte le pagine sono linkate dalla home page
 
 #### Intestazioni ed etichette
 livello: AA
@@ -1057,7 +1224,7 @@ così come anche il box della vignetta.
 
 ##### Rimedi proposti
 
-Aggiungere una destrizione
+Basta aggiungere una destrizione
 
 #### Intestazioni di sezione
 livello: AAA
@@ -1069,7 +1236,7 @@ outcome: yes
 ##### Osservazioni
 
 I titoli vengono usati correttamente (ma si veda comunque il punto
-[2.4.10 Intestazioni di sezione](#informazioni-e-correlazioni) per gli
+[Intestazioni di sezione](#informazioni-e-correlazioni) per gli
 errori semantici)
 
 ### Modalità di input
@@ -1080,13 +1247,13 @@ source: input-modalities
 #### Movimenti del puntatore
 livello: A
 source: pointer-gestures
-outcome: na
+outcome: yes
 
 > Tutte le funzionalità che per il loro utilizzo richiedono gesti multi punto o basati su percorsi possono essere gestite con un puntatore singolo senza gesti basati sul percorso, a meno che questi non siano essenziali.
 
 ##### Osservazioni
 
-Non sono presenti componenti dell'interfaccia utente che richiedano per il loro utilizzo gesti multi punto o basati su percorsi.
+Non sono richiesti gesti multi punto o basati su percorsi.
 
 #### Cancellazione delle azioni del puntatore
 livello: A
@@ -1100,7 +1267,9 @@ outcome: yes
 > - Inversione: L'evento di rilascio (up-event) inverte qualsiasi risultato dell'evento di selezione (down-event) precedente;
 > - Essenziale: È essenziale completare la funzione sull'evento di selezione (down-event).
 
-Non sono presenti down-event nelle pagine esaminate.
+##### Osservazioni
+
+non sono presenti down-event nelle pagine esaminate.
 
 #### Etichetta nel nome
 livello: A
@@ -1116,11 +1285,11 @@ outcome: no
 
 **Code snippets**
 
-```html
+```
 <div class="input-wrap">
    <input type="text" name="q" id="q" onfocus="this.value = '';">
 </div>
-```	
+```
 
 ```
 <label for="username">Nome utente o email<span class="required">*</span></label>
@@ -1128,17 +1297,19 @@ outcome: no
 
 ##### Rimedi proposti
 
-Cambiare il valore dell'attributo `name` oppure usare un `aria-label`/`aria-labelledby`.
+Basta cambiare il 'name' e il 'for'
 
 #### Azionamento da movimento
 livello: A
 source: motion-actuation
-outcome: na
+outcome: yes
 
 > Le funzionalità che possono essere azionate dal movimento del dispositivo o dell'utente possono anche essere attivate dai componenti dell'interfaccia utente e la risposta al movimento può essere disabilitata per impedire l'attivazione accidentale, tranne quando:
-> 
+>
 > - Interfaccia supportata: Il movimento viene utilizzato per attivare la funzionalità attraverso un'interfaccia compatibile con l'accessibilità;
 > - Essenziale: Il movimento è essenziale per la funzione e non farlo invaliderebbe l'attività.
+
+##### Osservazioni
 
 Non sono presenti funzionalità che richiedano di essere attivate dal
 movimento del dispositivo o dell'utente.
@@ -1149,7 +1320,7 @@ source: target-size
 outcome: no
 
 > La dimensione dell'obiettivo per gli input tramite puntatore è di almeno 44 per 44 CSS pixel, tranne quando:
-> 
+>
 > - Equivalente: L'obiettivo è disponibile attraverso un link o un controllo equivalenti sulla stessa pagina, di almeno 44 per 44 CSS pixel;
 > - In linea: L'obiettivo è in una frase o in un blocco di testo;
 > - Sotto controllo del programma utente: La dimensione dell'obiettivo è determinata dal programma utente e non viene modificata dall'autore;
@@ -1157,7 +1328,7 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Il link vuoto nella barra laterale non è alto abbastanza.
+Il link vuoto nella barra laterale non è alto abbastanza
 
 **Screen d'esempio**
 
@@ -1165,7 +1336,7 @@ Il link vuoto nella barra laterale non è alto abbastanza.
 
 ##### Rimedi proposti
 
-Il link vuoto evidenziato dallo screenshot è quasi sicuramente non voluto. La sua rimozione basterebbe per poter considerare questo punto passato.
+Basta rendere il link più visibile e cambiare le sue dimensioni
 
 #### Meccanismi di input simultanei
 livello: AAA
@@ -1204,7 +1375,7 @@ la lingua.
 
 ##### Rimedio proposto
 
-Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language` appropriato.
+Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language`.
 
 #### Parti in lingua
 livello: AA
@@ -1248,7 +1419,7 @@ modo insolito.
 Si possono usare più tecniche per risolvere questa problematica,
 ad esempio
 
- - inserire dei link a delle pagine esplicative
+ - inserire dei link a delle pagine esplicative (wikipedia ad esempio)
  - aggiungere una tabella di definizione in calce agli articoli
 
 #### Abbreviazioni
@@ -1438,7 +1609,9 @@ La già citata textarea per i commenti.
 
 ##### Rimedi proposti
 
-Fornire un messaggio di errore appropriato quando l'utente prova ad inviare un commento troppo corto.
+Fornire un messaggio di errore accurato quando l'utente prova ad inviare
+un commento vuoto.
+
 
 #### Prevenzione degli errori
 livello: AA
@@ -1473,8 +1646,7 @@ outcome: yes
 > Fornire degli aiuti contestuali.
 
 È presente una pagina di aiuto, il cui link è presente nel footer,
-e sono presenti aiuti contestuali (ad esempio sotto l'area dei commenti
-c'è un testo informativo sulla lunghezza minima dei commenti).
+e ci sono degli aiuti contestuali.
 
 #### Prevenzione degli errori (tutti)
 livello: AAA
@@ -1483,7 +1655,7 @@ outcome: yes
 
 > Per le pagine Web che richiedano l'invio di informazioni da parte
 > dell'utente, è soddisfatta almeno una delle seguenti condizioni:
-> 
+>
 > Reversibilità
 > : Le azioni sono reversibili.
 >
@@ -1493,7 +1665,7 @@ outcome: yes
 > Conferma
 > : È disponibile un meccanismo per la revisione, conferma e correzione delle informazioni prima del loro invio definitivo.
 
-È possibile cancellare i commenti una volta inviati: tra le pagine esaminate questa è l'unica azione dove l'utente deve inviare delle proprie informazioni.
+TODO: ma pare di si
 
 ## Robusto
 source: robust
@@ -1525,11 +1697,14 @@ outcome: no
 
 ##### Violazioni riscontrate
 
-Sono presenti innumerevoli errori nell'HTML delle pagine esaminate, perciò ci limiteremo a evidenziarne i più gravi:
+copiare dal validatore:
 
- - apertura e chiusura non corretta dei tag
- - alcuni `id` non sono univoci
- - sono presenti dei tag `p` annidati all'interno di tag `h2`
+ - apertura e chiusura corretta dei tag
+ - attributi non duplicati
+ - id univoci
+
+sappiamo per certo che i tag non sono corretti (chiusi due volti i p
+per esempio).
 
 ##### Rimedi proposti
 
@@ -1572,8 +1747,12 @@ outcome: no
 
 ##### Violazioni riscontrare
 
-L'area per commentare un articolo non fornisce un feedback adeguato in caso di insuccesso nell'invio.
+Non sono presenti messaggi di stato che possano essere determinati
+programmaticamente.
 
 ##### Rimedi proposti
 
-Fornire feedback appropriati come risposta all'invio di commenti.
+Usare l'attributo `role` nella pagina per indicare
+
+Infatti, abbiamo visto come per moltissime componenti della pagina non
+sia possibile stabilire programmaticamente il ruolo.
