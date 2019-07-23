@@ -2,7 +2,7 @@ title: Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
 # Linee guida per l'accessibilità dei contenuti Web (WCAG) 2.1
 
-## Introduzione
+## Introduzione {#introduzione}
 
 La valutazione di conformità è stata effettuata nei riguardi delle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/). Tali linee guida prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
@@ -38,7 +38,7 @@ Sono stati utilizzati diversi strumenti come supporto alla valutazione di confor
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) che è uno strumento automatizzato open-source per migliorare la qualità delle pagine web. Ha Audits per prestazioni, accessibilità, buone pratiche, applicazioni web progressive e altro.
 
-### Perimetro dell'indagine
+### Perimetro dell'indagine {#perimetro-dell-indagine}
 
 Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono state selezionate le seguenti pagine:
 
@@ -52,7 +52,7 @@ Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono sta
 
 - La pagina delle [Previsioni Meteo](http://meteo.ilfattoquotidiano.it/)
 
-### Risultati del report
+### Risultati del report {#risultati-del-report}
 
 Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
 
@@ -66,7 +66,8 @@ Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è p
 
 Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
 
-### Requisiti di conformità
+### Requisiti di conformità {#requisiti-di-conformita}
+
 Nella valutazione di conformità dei vari criteri di successo l'esito è stato espresso nei termini di:
 
 **Positivo**
@@ -78,7 +79,7 @@ Nella valutazione di conformità dei vari criteri di successo l'esito è stato e
 **Non applicabile**
 : Per tutte le pagine esaminate il criterio di successo non è applicabile
 
-### Glossario
+### Glossario {#glossario}
 
 [↓ Salta glossario](#sommario-dei-risultati)
 
@@ -127,6 +128,6 @@ Breadcrumb
 Screenshot, screen
 : foto di una parte o di tutto il monitor.
 
-### Sommario dei risultati
+### Sommario dei risultati {#sommario-dei-risultati}
 
 [↓ Salta sommario risultati](#toc)

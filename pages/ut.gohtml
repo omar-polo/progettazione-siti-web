@@ -2,7 +2,7 @@
 	<div class="ut container">
 		<h1>User Testing</h1>
 	
-		<h2>Introduzione</h2>
+		<h2 id="introduzione">Introduzione</h2>
 		<p>
 			Lo user testing ha l'obiettivo di individuare difetti d'usabilità attraverso l'osservazione dell'interazione tra utente e sistema. Si compone delle seguenti fasi:
 		</p>
@@ -24,7 +24,7 @@
 			<dd>Vengono rielaborate le annotazioni, viene discusso con l'utente quello che è successo durante l'esecuzione, ponendo particolare attenzione ai problemi emersi.</dd>
 		</dl>
 		
-		<h2>Perimetro dell'indagine</h2>
+		<h2 id="perimetro-dell-indagine">Perimetro dell'indagine</h2>
 		<p>Dopo aver esaminato il sito, sono stati formulati <strong>{{ len .Results }} casi d'uso</strong>:</p>
 		<ol>
 			{{ range .Results }}
@@ -41,10 +41,10 @@
 			{{ end }}
 		</ol>
 		
-		<h2>Sommario dei risultati</h2>
+		<h2 id="sommario-dei-risultati">Sommario dei risultati</h2>
 		<p>TODO: parlare dei principali problemi riscontrati, come la mappa durante lo scrolling, l'incasinatezza della home page ecc</p>
 		
-		<h2>Metodologia</h2>
+		<h2 id="metodologia">Metodologia</h2>
 		<h3>Briefing</h3>
 		
 		<p>Prima del testing vengono illustrati al partecipante lo scopo dell'user testing e le modalità di svolgimento. Dopo essersi assicurati che l'utente abbia compreso, gli viene gentilmente chiesto di compilare il seguente questionario:</p>
@@ -153,7 +153,7 @@
 			</tbody>
 		</table>
 		
-		<h2>Risultati</h2>
+		<h2 id="risultati">Risultati</h2>
 		
 		{{ range $i, $r := .Results }}
 			<section class="user-task">
