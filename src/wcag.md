@@ -164,8 +164,6 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
 
 ![Esempio di icone senza descrizione testuale](img/contenuti-non-testuali.png)
 
-![Esempio di icone senza descrizione testuale](img/social-non-testuali.png)
-
 **Code snippets**
 
 ```html
@@ -178,16 +176,6 @@ Abbiamo utilizzato questo script JavaScript per ricavare la lista delle immagini
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/bersani675-320x132.jpg" alt="" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/viagola675-320x132.jpg" alt="" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="" width="320" height="132">
-
-  <!-- Social Icons -->
-  <a href="http://www.facebook.com/ilFattoQuotidiano" target="_blank" itemprop="sameAs">
-  <i class="icon-fb"></i>Facebook</a>
-  <a href="http://www.twitter.com/FattoQuotidiano" target="_blank" itemprop="sameAs">
-  <i class="icon-tw"></i>Twitter</a>
-  <a href="http://www.youtube.com/antefattoblog" target="_blank" itemprop="sameAs">
-  <i class="icon-yt"></i>YouTube</a>
-  <a href="https://www.instagram.com/ilfattoquotidianoit/" target="_blank" itemprop="sameAs">
-  <i class="icon-instagram"></i>Instagram</a>
 ```
 
 **Rimedi proposti**
@@ -206,16 +194,6 @@ Usare gli *aria-label* per fornire etichette agli oggetti
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/bersani675-320x132.jpg" alt="Incontro tra Bersani e Renzi" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…2/viagola675-320x132.jpg" alt="Di Battista: ho rosicato vedere amici giurare come ministri" width="320" height="132">​
   <img class="lazyload" data-src="https://st.ilfattoquotid…vecchia-1300-320x132.jpg" alt="Servizio pubblico: Malasanità" width="320" height="132">
-
-  <!-- Social Icons -->
-  <a href="http://www.facebook.com/ilFattoQuotidiano" target="_blank" itemprop="sameAs">
-  <i class="icon-fb" aria-label="Facebook"></i>Facebook</a>
-  <a href="http://www.twitter.com/FattoQuotidiano" target="_blank" itemprop="sameAs">
-  <i class="icon-tw" aria-label="Twitter"></i>Twitter</a>
-  <a href="http://www.youtube.com/antefattoblog" target="_blank" itemprop="sameAs">
-  <i class="icon-yt" aria-label="YouTube"></i>YouTube</a>
-  <a href="https://www.instagram.com/ilfattoquotidianoit/" target="_blank" itemprop="sameAs">
-  <i class="icon-instagram" aria-label="Instagram"></i>Instagram</a>
 ```
 
 ### Media temporizzati
