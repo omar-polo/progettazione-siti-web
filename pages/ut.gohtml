@@ -2,7 +2,7 @@
 	<div class="ut container">
 		<h1>User Testing</h1>
 	
-		<h2>Introduzione</h2>
+		<h2 id="introduzione">Introduzione</h2>
 		<p>
 			Lo user testing ha l'obiettivo di individuare difetti d'usabilità attraverso l'osservazione dell'interazione tra utente e sistema. Si compone delle seguenti fasi:
 		</p>
@@ -24,7 +24,7 @@
 			<dd>Vengono rielaborate le annotazioni, viene discusso con l'utente quello che è successo durante l'esecuzione, ponendo particolare attenzione ai problemi emersi.</dd>
 		</dl>
 		
-		<h2>Perimetro dell'indagine</h2>
+		<h2 id="perimetro-dell-indagine">Perimetro dell'indagine</h2>
 		<p>Dopo aver esaminato il sito, sono stati formulati <strong>{{ len .Results }} casi d'uso</strong>:</p>
 		<ol>
 			{{ range .Results }}
@@ -41,23 +41,23 @@
 			{{ end }}
 		</ol>
 		
-		<h2>Sommario dei risultati</h2>
+		<h2 id="sommario-dei-risultati">Sommario dei risultati</h2>
 		<p>TODO: parlare dei principali problemi riscontrati, come la mappa durante lo scrolling, l'incasinatezza della home page ecc</p>
 		
-		<h2>Metodologia</h2>
+		<h2 id="metodologia">Metodologia</h2>
 		<h3>Briefing</h3>
 		
 		<p>Prima del testing vengono illustrati al partecipante lo scopo dell'user testing e le modalità di svolgimento. Dopo essersi assicurati che l'utente abbia compreso, gli viene gentilmente chiesto di compilare il seguente questionario:</p>
 		
 		<p>Domande del questionario</p>
 		<ul>
-			<li>Età</li>
-			<li>Sesso</li>
-			<li>Professione</li>
-			<li>Autovalutazione delle competenze digitali: 1 (scarso) fino a 5 (ottimo)</li>
-			<li>Frequenza di utilizzo del web</li>
-			<li>Hai mai usato un sito di informazioni sui viaggi?</li>
-			<li>Hai mai usato il sito "infoviaggiando.it"?</li>
+			<li><p>Età</p></li>
+			<li><p>Sesso</p></li>
+			<li><p>Professione</p></li>
+			<li><p>Autovalutazione delle competenze digitali: 1 (scarso) fino a 5 (ottimo)</p></li>
+			<li><p>Frequenza di utilizzo del web</p></li>
+			<li><p>Hai mai usato un sito di informazioni sui viaggi?</p></li>
+			<li><p>Hai mai usato il sito "infoviaggiando.it"?</p></li>
 		</ul>
 		
 		<h3>Profili utente</h3>
@@ -118,15 +118,15 @@
 		
 		<p>Definiamo due metriche principali riguandante i problemi di usabilità: impatto e frequenza. L'impatto si può misurare come</p>
 		<ol>
-			<li>il problema riscontrato dall'utente è facilmente superabile</li>
-			<li>il problema richiede un notevole sforzo per essere aggirato</li>
-			<li>il problema blocca la possibilità di completare il compito</li>
+			<li><p>il problema riscontrato dall'utente è facilmente superabile</p></li>
+			<li><p>il problema richiede un notevole sforzo per essere aggirato</p></li>
+			<li><p>il problema blocca la possibilità di completare il compito</p></li>
 		</ol>
 		<p>Mentre per la frequenza si ha</p>
 		<ol>
-			<li>il problema si verifica poche volte</li>
-			<li>il problema si verifica ogni volta durante lo svolgimento del compito</li>
-			<li>il problema si verifica molte volte durante lo svolgimento del compito</li>
+			<li><p>il problema si verifica poche volte</p></li>
+			<li><p>il problema si verifica ogni volta durante lo svolgimento del compito</p></li>
+			<li><p>il problema si verifica molte volte durante lo svolgimento del compito</p></li>
 		</ol>
 		
 		<p>In base all'impatto e alla frequenza definiamo la <em>gravità di un problema</em> come:</p>
@@ -153,7 +153,7 @@
 			</tbody>
 		</table>
 		
-		<h2>Risultati</h2>
+		<h2 id="risultati">Risultati</h2>
 		
 		{{ range $i, $r := .Results }}
 			<section class="user-task">
@@ -202,7 +202,7 @@
 									{{ end }}
 								</dd>
 			
-								<dt>Opinioni dell'utente</dt>
+								<dt>Opinioni e comportamento dell'utente</dt>
 								<dd>
 									{{ if $u.Opinions }}
 										{{ $u.Opinions | markdown }}

@@ -10,7 +10,7 @@ title:Info
 
 -   Livello di conformità soddisfatto: Livello AA
 
--   Tecnologie usate per i contenuti Web: [HTML5](https://w3c.github.io/html/), [CSS3](https://www.w3.org/TR/css3-roadmap/#intro), [JavaScript](https://www.ecma-international.org/ecma-262/), [Go Language](https://golang.org/)
+-   Tecnologie usate per i contenuti Web: [HTML5](https://w3c.github.io/html/), [CSS3](https://www.w3.org/TR/css3-roadmap/#intro), [JavaScript](https://www.ecma-international.org/ecma-262/), [Go Lang](https://golang.org/)
 
 ### Validazione del codice
 
@@ -25,6 +25,3 @@ La validità dei fogli di stile a cascata (CSS) è stata verificata con lo strum
 #### Scorciatoie da tastiera
 
 In questa sezione sono elencate le combinazioni da tastiera che possono essere utilizzate in Mozilla Firefox e Google Chrome.
-
-
-

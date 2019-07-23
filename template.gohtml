@@ -36,13 +36,14 @@
 
 		<!-- header -->
 		<header class="container" role="group">
-			<div class="color-square" title="Università degli Studi di Udine">
-				<span class="sr-only">Università degli Studi di Udine</span>
-				<div aria-hidden="true" class="square-1"></div>
-				<div aria-hidden="true" class="square-2"></div>
-				<div aria-hidden="true" class="square-3"></div>
-			</div>
 			<nav class="navigation" aria-label="main navigation" role="doc-pagelist">
+				<div class="color-square" title="Università degli Studi di Udine">
+					<span class="sr-only">Università degli Studi di Udine</span>
+					<div aria-hidden="true" class="square-1"></div>
+					<div aria-hidden="true" class="square-2"></div>
+					<div aria-hidden="true" class="square-3"></div>
+				</div>
+			
 				<!-- Menu -->
 				<ul class="menu" role="group">
 					<li class="menu-Home">
@@ -56,7 +57,7 @@
 					</li>
 					{{ if .HasSearch }}
 						<li class="search">
-							<i aria-hidden="true" class="fas fa-search" title="Search" aria-label="Search"></i>
+							<i aria-hidden="true" class="fas fa-search" title="Search"></i>
 							<span class="sr-only">Ricerca</span>
 						</li>
 					{{ end }}
@@ -67,7 +68,7 @@
 				<div class="searchbox" role="search" aria-labelledby="search-input">
 					<p>I risultati compariranno man mano che digiti.</p>
 					<noscript>Questa funzionalità richiede ECMAScript.</noscript>
-					<input id="search-input" list="search" placeholder="Cerca" type="search" aria-label="Campo per cercare del contenuto del sito">
+					<input id="search-input" placeholder="Cerca" type="search" aria-label="Campo per cercare del contenuto del sito">
 					<div id="results">
 						<ul></ul>
 					</div>
@@ -89,7 +90,7 @@
 			<p>Copyright &copy; 2019 Tutti i diritti riservati.</p>
 			<p>
 				<a href="https://github.com/omar-polo/progettazione-siti-web" target="_blank" rel="noopener" accesskey="G">
-					[G] Code hosted on <i aria-hidden="true" class="fab fa-github" title="GitHub"></i>
+					[G] Codice hostato su <i aria-hidden="true" class="fab fa-github" title="GitHub"></i>
 					<span class="sr-only">GitHub</span>
 				</a>
 			</p>
