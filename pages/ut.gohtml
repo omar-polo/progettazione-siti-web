@@ -203,7 +203,13 @@
 								</dd>
 			
 								<dt>Opinioni dell'utente</dt>
-								<dd>{{ $u.Opinions | markdown }}</dd>
+								<dd>
+									{{ if $u.Opinions }}
+										{{ $u.Opinions | markdown }}
+									{{ else }}
+										<p>Nessuna.</p>
+									{{ end }}
+								</dd>
 							</dl>
 						</section>
 					{{ end }}
