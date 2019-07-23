@@ -86,7 +86,22 @@
         line-height: 1.5rem;
     }
 
-    pre {
-        font-size: 10pt;
+    pre code {
+        font-size: 9pt;
+        line-height: 1rem;
+    }
+
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    a[href]:after {
+        content: "(" attr(href) ")"
+    }
+
+    table, img, figure, p {
+        page-break-inside: avoid;
     }
 }
