@@ -122,7 +122,10 @@ Braille
 : Un sistema di lettura e scrittura tattile a rilievo per non vedenti e ipovedenti.
 
 Breadcrumb
-: letteralmente "Briciole di pane". TODO
+: letteralmente "Briciole di pane". È una tecnica di navigazione per interfacce utente: il loro scopo è quello di indicare all'utente in quale pagina si trovano e come raggiungere tale pagina attraverso una sequenza di pagine del sito. Ad esempio: "Home → Sezioni → Mondo".
+
+Screenshot, screen
+: foto di una parte o di tutto il monitor.
 
 ### Sommario dei risultati
 

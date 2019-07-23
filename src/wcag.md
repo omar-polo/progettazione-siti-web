@@ -1068,7 +1068,7 @@ outcome: yes
 ##### Osservazioni
 
 I titoli vengono usati correttamente (ma si veda comunque il punto
-[Intestazioni di sezione](#informazioni-e-correlazioni) per gli
+[2.4.10 Intestazioni di sezione](#informazioni-e-correlazioni) per gli
 errori semantici)
 
 ### Modalità di input
@@ -1079,13 +1079,13 @@ source: input-modalities
 #### Movimenti del puntatore
 livello: A
 source: pointer-gestures
-outcome: yes
+outcome: na
 
 > Tutte le funzionalità che per il loro utilizzo richiedono gesti multi punto o basati su percorsi possono essere gestite con un puntatore singolo senza gesti basati sul percorso, a meno che questi non siano essenziali.
 
 ##### Osservazioni
 
-Non sono richiesti gesti multi punto o basati su percorsi.
+Non sono presenti componenti dell'interfaccia utente che richiedano per il loro utilizzo gesti multi punto o basati su percorsi.
 
 #### Cancellazione delle azioni del puntatore
 livello: A
@@ -1099,9 +1099,7 @@ outcome: yes
 > - Inversione: L'evento di rilascio (up-event) inverte qualsiasi risultato dell'evento di selezione (down-event) precedente;
 > - Essenziale: È essenziale completare la funzione sull'evento di selezione (down-event).
 
-##### Osservazioni
-
-non sono presenti down-event nelle pagine esaminate.
+Non sono presenti down-event nelle pagine esaminate.
 
 #### Etichetta nel nome
 livello: A
@@ -1117,7 +1115,7 @@ outcome: no
 
 **Code snippets**
 
-```
+```html
 <div class="input-wrap">
    <input type="text" name="q" id="q" onfocus="this.value = '';">
 </div>
@@ -1129,19 +1127,17 @@ outcome: no
 
 ##### Rimedi proposti
 
-Basta cambiare il 'name' e il 'for'
+Cambiare il valore dell'attributo `name` oppure usare un `aria-label`/`aria-labelledby`.
 
 #### Azionamento da movimento
 livello: A
 source: motion-actuation
-outcome: yes
+outcome: na
 
 > Le funzionalità che possono essere azionate dal movimento del dispositivo o dell'utente possono anche essere attivate dai componenti dell'interfaccia utente e la risposta al movimento può essere disabilitata per impedire l'attivazione accidentale, tranne quando:
 > 
 > - Interfaccia supportata: Il movimento viene utilizzato per attivare la funzionalità attraverso un'interfaccia compatibile con l'accessibilità;
 > - Essenziale: Il movimento è essenziale per la funzione e non farlo invaliderebbe l'attività.
-
-##### Osservazioni
 
 Non sono presenti funzionalità che richiedano di essere attivate dal
 movimento del dispositivo o dell'utente.
@@ -1160,7 +1156,7 @@ outcome: no
 
 ##### Violazioni riscontrate:
 
-Il link vuoto nella barra laterale non è alto abbastanza
+Il link vuoto nella barra laterale non è alto abbastanza.
 
 **Screen d'esempio**
 
@@ -1168,7 +1164,7 @@ Il link vuoto nella barra laterale non è alto abbastanza
 
 ##### Rimedi proposti
 
-Basta rendere il link più visibile e cambiare le sue dimensioni
+Il link vuoto evidenziato dallo screenshot è quasi sicuramente non voluto. La sua rimozione basterebbe per poter considerare questo punto passato.
 
 #### Meccanismi di input simultanei
 livello: AAA
@@ -1207,7 +1203,7 @@ la lingua.
 
 ##### Rimedio proposto
 
-Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language`.
+Aggingere l'attributo `lang` oppure un *header* HTTP `Content-Language` appropriato.
 
 #### Parti in lingua
 livello: AA
@@ -1251,7 +1247,7 @@ modo insolito.
 Si possono usare più tecniche per risolvere questa problematica,
 ad esempio
 
- - inserire dei link a delle pagine esplicative (wikipedia ad esempio)
+ - inserire dei link a delle pagine esplicative
  - aggiungere una tabella di definizione in calce agli articoli
 
 #### Abbreviazioni
@@ -1441,9 +1437,7 @@ La già citata textarea per i commenti.
 
 ##### Rimedi proposti
 
-Fornire un messaggio di errore accurato quando l'utente prova ad inviare
-un commento vuoto.
-
+Fornire un messaggio di errore appropriato quando l'utente prova ad inviare un commento troppo corto.
 
 #### Prevenzione degli errori
 livello: AA
@@ -1478,7 +1472,8 @@ outcome: yes
 > Fornire degli aiuti contestuali.
 
 È presente una pagina di aiuto, il cui link è presente nel footer,
-e ci sono degli aiuti contestuali.
+e sono presenti aiuti contestuali (ad esempio sotto l'area dei commenti
+c'è un testo informativo sulla lunghezza minima dei commenti).
 
 #### Prevenzione degli errori (tutti)
 livello: AAA
@@ -1497,7 +1492,7 @@ outcome: yes
 > Conferma
 > : È disponibile un meccanismo per la revisione, conferma e correzione delle informazioni prima del loro invio definitivo.
 
-TODO: ma pare di si
+È possibile cancellare i commenti una volta inviati: tra le pagine esaminate questa è l'unica azione dove l'utente deve inviare delle proprie informazioni.
 
 ## Robusto
 source: robust
@@ -1529,14 +1524,11 @@ outcome: no
 
 ##### Violazioni riscontrate
 
-copiare dal validatore:
+Sono presenti innumerevoli errori nell'HTML delle pagine esaminate, perciò ci limiteremo a evidenziarne i più gravi:
 
- - apertura e chiusura corretta dei tag
- - attributi non duplicati
- - id univoci
-
-sappiamo per certo che i tag non sono corretti (chiusi due volti i p
-per esempio).
+ - apertura e chiusura non corretta dei tag
+ - alcuni `id` non sono univoci
+ - sono presenti dei tag `p` annidati all'interno di tag `h2`
 
 ##### Rimedi proposti
 
@@ -1579,15 +1571,8 @@ outcome: no
 
 ##### Violazioni riscontrare
 
-Non sono presenti messaggi di stato che possano essere determinati
-programmaticamente.
+L'area per commentare un articolo non fornisce un feedback adeguato in caso di insuccesso nell'invio.
 
 ##### Rimedi proposti
 
-Usare l'attributo `role` nella pagina per indicare 
-
-Infatti, abbiamo visto come per moltissime componenti della pagina non
-sia possibile stabilire programmaticamente il ruolo.
-
-
-
+Fornire feedback appropriati come risposta all'invio di commenti.
