@@ -48,7 +48,7 @@ livello:
 basso
 
 tempo:
-4 minuti 12 secondi
+2 minuti (interrotto per tempo scaduto)
 
 percorso:
  - sicurezza
@@ -56,14 +56,12 @@ percorso:
  - infrastrutture
  - telecamere
  - notizie
- - servizi
- - calcolo pedaggi
 
 problemi:
-Molto confusionario e poco chiaro nella divisione delle funzionalità
 
 opinioni:
-nessuno
+
+Trova il sito "confusionario e poco chiaro". 
 
 ### Task 2
 
@@ -71,7 +69,7 @@ esito:
 passato
 
 livello:
-basso
+alto
 
 tempo:
 45 secondi
@@ -81,10 +79,9 @@ percorso:
  - previsioni meteo
 
 problemi:
-nessuno
 
 opinioni:
-Diceva che era meglio fare una pagina apposita per il meteo perchè si aspettava cose diverse dalla pagina servizi
+Suggerisce la creazione di una pagina apposita per il meteo perchè non si aspettava che si trovasse nella pagina dei servizi.
 
 ### Task 3
 
@@ -92,7 +89,7 @@ esito:
 passato
 
 livello:
-basso
+medio
 
 tempo:
 1 minuto e 42 secondi
@@ -102,10 +99,10 @@ percorso:
  - notizie
 
 problemi:
-nessuno
+minore: effettuare lo scrolling nella home page può attivare lo zoom della mappa se il cursore si posiziona sopra per errore
 
 opinioni:
-se ti serve il traffico dal punto A al punto B quando fai la ricerca ti mostra dov'é il traffico mostrandoti il percorso e i punti precisi in cui prevedono che ci sia il traffico
+Suggerisce la creazione di una pagina dove venga richiesto all'utente il percorso che desidera effettuare (da un punto A a un punto B) e dove il traffico mostrato riguardi solo quello specifico tratto di autostrada.
 
 ### Task 4
 
@@ -113,7 +110,7 @@ esito:
 passato
 
 livello:
-basso
+medio
 
 tempo:
 10 secondi
@@ -122,10 +119,8 @@ percorso:
  - telecamere
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 5
 
@@ -133,7 +128,7 @@ esito:
 passato
 
 livello:
-basso
+medio
 
 tempo:
 30 secondi
@@ -142,10 +137,8 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 6
 
@@ -165,10 +158,9 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
 
 opinioni:
-Sarebbe meglio darti l'opzione di selezionare un percorso e poi in automatico ti dice il benzinaio che si trova nbel percorso dove la benzina o il diesel costano meno
+Suggerisce, come ha già fatto, la creazione di una pagina dove l'utente possa inserire gli estremi di un percorso, e dove il sistema fornisca le informazioni pertinenti, come il costo previsto e, appunto, le stazioni di servizio ordinate per costo.
 
 ## utente 2
 sesso: maschio
@@ -194,7 +186,7 @@ percorso:
  - home page pulsante calcolo pedaggi
 
 problemi:
-Non è immediato trovare il pulsante per il calcolo del pedaggio.
+minore: Non è immediato trovare il pulsante per il calcolo del pedaggio.
 
 opinioni:
 nessuno
@@ -218,10 +210,9 @@ percorso:
  - previsioni del meteo
 
 problemi:
-È troppo incasinato è nascosto all'utente
 
 opinioni:
-nessuno
+Si lamenta (di nuovo) di quanto il sito sia "incasinato".
 
 ### Task 3
 
@@ -244,7 +235,6 @@ importante: Difficile capite dove sono si trova un casello perchè il traffico �
 minore: Lo zoom sulla mappa crea problemi con lo scrolling del sito
 
 opinioni:
-nessuno
 
 ### Task 4
 
@@ -252,7 +242,7 @@ esito:
 passato
 
 livello:
-basso
+medio
 
 tempo:
 30 secondi
@@ -261,10 +251,8 @@ percorso:
  - telecamere
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 5
 
@@ -281,10 +269,10 @@ percorso:
  - infrastrutture
 
 problemi:
-critico: Mentre è facile vedere dove sono le stazione di benzina più vicina nella mappa complessiva alcuni filtri non funzionano
+importante: alcuni filtri non funzionano
 
 opinioni:
-I filtri non funzionano e provando ad usare i filtri non ha passato il test
+Alcuni filtri non funzionano, ciò gli ha fatto perdere diverso tempo e a superare il limite per questo task.
 
 ### Task 6
 
@@ -305,10 +293,9 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
+importante: difficoltà nel trovare le informazioni
 
 opinioni:
-Non è immediato il trovare le informazioni
 
 ## utente 3
 sesso: femmina
@@ -336,7 +323,6 @@ percorso:
  - calcolo pedaggi
 
 problemi:
-nessuno
 
 opinioni:
 Trova che la home page sia troppo confusionaria: "ho avuto paura di perdermi" afferma. In ogni caso, risolve velocemente il task.
@@ -358,10 +344,8 @@ percorso:
  - venezia
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 3
 
@@ -369,19 +353,17 @@ esito:
 non passato
 
 livello:
-medio-basso
+basso
 
 tempo:
-4 minuti e 4 secondi
+3 minuti (fermato per superamento limite di tempo)
 
 percorso:
  - home page
  - click su "Notizie ai viaggiatori e previsioni traffico"
  - click sulla data richiesta
  - non è sicura del nome dell'autostrada/del fatto che riguardi la tratta che le interessi
- - click su mappa del sito
- - click su Previsioni traffico
- - si convice che "autovie venete" è quello che le interessa
+ - mappa del sito
 
 problemi:
 importante: Lo zoom della mappa durante lo scrolling se il cursore ci si posiziona sopra.
@@ -401,7 +383,7 @@ livello:
 basso
 
 tempo:
-2 minuti e 12
+1 minuto (supero limite tempo)
 
 percorso:
  - click su "Vedi tutte le telecamere" (sotto la mappa)
@@ -410,9 +392,6 @@ percorso:
  - torna nella home page
  - click su "Telecamere" nella navbar
  - usa il widget con l'anteprima delle telecamere sotto la mappa cercando quella che le interessa
- - click su "come usare le telecamere"
- - legge il testo
- - clicca sulla telecamera corretta nella mappa
 
 problemi:
 minore: lo scrolling che triggera lo zoom della mappa.
@@ -420,7 +399,7 @@ minore: lo scrolling che triggera lo zoom della mappa.
 opinioni:
 Non ha riconosciuto le icone sulla mappa come cliccabili, e quindi anche
 se in relativamente poco tempo (~35 secondi) ha raggiunto la pagina
-corretta, è poi tornata nella home per cercare ancora.
+corretta, è poi tornata nella home per cercare un altro percorso.
 
 
 ### Task 5
@@ -440,10 +419,8 @@ percorso:
  - trova la stazione richiesta sulla mappa
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 6
 
@@ -468,10 +445,9 @@ percorso:
  - nota la lista delle stazione di servizio sotto la mappa e trova quello richiesto.
 
 problemi:
-Zoom della mappa durante lo scrolling.
+importante: zoom della mappa durante lo scrolling.
 
 opinioni:
-nessuno
 
 ## utente 4
 sesso: femmina
@@ -500,7 +476,7 @@ problemi:
 Home page troppo confusionaria
 
 opinioni:
-La home page ha troppe cose e non sono ben mostrate
+Trova che la home page contenga "troppe cose e non sono ben mostrate".
 
 ### Task 2
 
@@ -516,13 +492,12 @@ tempo:
 percorso:
  - notizie
  - servizi
- - previsioni meteo
 
 problemi:
-Individuare la pagina in cui sono presenti le previsioni meteo
+importante: fatica nell'individuare la pagina
 
 opinioni:
-La pagina meteo meriterebbe un link a se stante nel menù
+Suggerisce l'aggiunta di un link a sè stante nel menù per la pagina meteo. Ha avuto difficoltà a individuare la pagina in cui sono presenti le previsioni meteo.
 
 ### Task 3
 
@@ -540,10 +515,10 @@ percorso:
  - notizie
 
 problemi:
-Non si capisce quale delle 3 autostrade devi scegliere
+importante: scegliere l'autostrada richiesta
 
 opinioni:
-Sarebbe meglio iinvece di dividere le autostrate in solo 3 blocchi divederle ogni due caselli (caselli adiacenti)
+Afferma che sarebbe meglio, invece di divere le autostrade in solo 3 blocchi, dividerle in tratte tra caselli.
 
 ### Task 4
 
@@ -560,10 +535,9 @@ percorso:
  - telecamere
 
 problemi:
-Lo zoom della mappa
+importante: Lo zoom della mappa
 
 opinioni:
-nessuno
 
 ### Task 5
 
@@ -581,10 +555,9 @@ percorso:
  - infrastrutture
 
 problemi:
-Lo zoom della mappa
+importante: Lo zoom della mappa
 
 opinioni:
-nessuno
 
 ### Task 6
 
@@ -601,7 +574,6 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
 
 opinioni:
-Sarebbe stato meglio che per ogni tratta il benzinaio con i costi minori fosse evidenziato
+Suggerisce che, per ogni tratta, si evidenzi la stazione di servizio con i costi minori.
