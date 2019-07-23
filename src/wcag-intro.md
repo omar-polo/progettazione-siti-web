@@ -54,15 +54,13 @@ Per la valutazione dei criteri di conformità alle linee guida WCAG 2.1 sono sta
 
 ### Risultati del report {#risultati-del-report}
 
-Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
+Il sito analizzato presenta grosse problematiche di accessibilità e ciò rende difficile la fruizione dei contenuti agli utenti con particolari necessità.
 
-I video preregistrati non forniscono nessuna trascrizione testuale equivalente, nè presentano sottotitoli.
+Viene fatto un largo uso di immagini di testo non essenziali per veicolari informazioni per le quali sarebbe stato più opportuno del puro testo. La funzionalità di auto-refresh nella home page è un ulteriore esempio di grave deficenza del sito: oltre il suo essere fastidiosa per l'utente medio, può provocare non pochi problemi ad alcuni utenti dato che non può essere fermato o regolato.
 
-Le informazioni trasmesse determinate programmaticamente non rispettano la semantica del Web. Il vantaggio della scrittura di HTML semantico deriva da quello che dovrebbe essere l'obiettivo principale di qualsiasi pagina web: il desiderio di comunicare.
+Le pagine esaminate non sempre sfruttano correttamente gli elementi semantici dell'HTML, fino ad arrivare a contenere frammenti non corretti o palesemente malformati.
 
-Il sito fa largo uso di immagini di testo che non sono essenziali per le informazioni che intendono veicolare, quando sarebbe stato più opportuno utilizzare puro testo.
-
-Dal punto di vista dell'utilizzabilità, nelle voci di menu a scomparsa non è possibile accedere tramite la tastiera.
+Alcune sezioni delle pagine richiedono l'ausilio di un mouse, rendendo difficile la vita a utenti che, per varie problematiche, devono navigare le pagine web da tastiera. I feedback inoltre sono assenti in alcuni casi.
 
 Il sito, quindi, risulta **NON CONFORME** a nessun livello di conformità previsto dalle linee guida WCAG 2.1.
 
