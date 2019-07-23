@@ -175,7 +175,7 @@ esperienza: 4
 ### Task 1
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -184,16 +184,17 @@ tempo:
 30 secondi
 
 percorso:
-TODO
+ - home page pulsante calcolo pedaggi
 
 problemi:
+Non è immediato trovare il pulsante per il calcolo del pedaggio.
 
 opinioni:
 
 ### Task 2
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -202,16 +203,21 @@ tempo:
 1 minuto e 45 secondi
 
 percorso:
-TODO
+ - infotraffico
+ - notizie
+ - infotraffico
+ - calcolo pedaggio
+ - previsioni del meteo
 
 problemi:
+È troppo incasinato è nascosto all'utente
 
 opinioni:
 
 ### Task 3
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -220,16 +226,20 @@ tempo:
 1 minuto e 50 secondi
 
 percorso:
-TODO
+ - notizie
+ - pedaggio
+ - notizie
 
 problemi:
+importante: Difficile capite dove sono si trova un casello perchè il traffico è diviso per tratte complessive autostradali (AUTOVIE VENETE, AUTOSTRADA BS-PD, CAV)
+minore: Lo zoom sulla mappa crea problemi con lo scrolling del sito
 
 opinioni:
 
 ### Task 4
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -238,7 +248,7 @@ tempo:
 30 secondi
 
 percorso:
-TODO
+ - telecamere
 
 problemi:
 
@@ -256,11 +266,13 @@ tempo:
 2 minuti e 15 secondi
 
 percorso:
-TODO
+ - infrastrutture
 
 problemi:
+critico: Mentre è facile vedere dove sono le stazione di benzina più vicina nella mappa complessiva alcuni filtri non funzionano
 
 opinioni:
+I filtri non funzionano e provando ad usare i filtri non ha passato il test
 
 ### Task 6
 
@@ -274,11 +286,16 @@ tempo:
 3 minuti e 4 secondi
 
 percorso:
-TODO
+ - servizi
+ - cerca nel sito
+ - telecamere
+ - notizie
+ - infrastrutture
 
 problemi:
 
 opinioni:
+Non è immediato il trovare le informazioni
 
 ## utente 3
 sesso: femmina
@@ -295,7 +312,7 @@ esito:
 passato
 
 livello:
-medio / alto
+alto
 
 tempo:
 42 secondi
@@ -436,4 +453,114 @@ problemi:
 Zoom della mappa durante lo scrolling.
 
 opinioni:
-nessuno
+
+## utente 4
+sesso: femmina
+età: 51 anni
+professione: impiegata
+frequenza-web: 0-1 ore al giorno
+siti-viaggi: No
+infoviaggiando: No
+esperienza: 1
+
+### Task 1
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+30 secondi
+
+percorso:
+
+problemi:
+
+opinioni:
+
+### Task 2
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+1 minuto e 45 secondi
+
+percorso: 
+
+problemi:
+
+opinioni:
+
+### Task 3
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+1 minuto e 50 secondi
+
+percorso:
+
+problemi:
+
+opinioni:
+
+### Task 4
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+30 secondi
+
+percorso:
+
+problemi:
+
+opinioni:
+
+### Task 5
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+2 minuti e 15 secondi
+
+percorso:
+
+problemi:
+
+opinioni:
+
+### Task 6
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+3 minuti e 4 secondi
+
+percorso:
+
+problemi:
+
+opinioni:

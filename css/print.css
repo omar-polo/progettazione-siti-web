@@ -15,7 +15,16 @@
     }
 
     h1 {
+        font-size: 18pt;
         page-break-before: always;
+    }
+
+    h2 {
+        font-size: 16pt;
+    }
+
+    h3 {
+        font-size: 16pt; 
     }
 
     body {
@@ -78,6 +87,6 @@
     }
 
     pre {
-        font-size: 12pt;
+        font-size: 10pt;
     }
 }
