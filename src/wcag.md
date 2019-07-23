@@ -1082,7 +1082,7 @@ outcome: no
 ##### Violazioni riscontrate:
 
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
-che si ripetono su piu pagine, come ad esmepio il menù in alto e da scorrere tutto anche se è oresente in ogni pagina.
+che si ripetono su piu pagine, come ad esmepio il menù in alto e da scorrere tutto anche se è presente in ogni pagina.
 
 **Screen d'esempio**
 
