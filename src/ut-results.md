@@ -182,7 +182,7 @@ esperienza: 4
 ### Task 1
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -191,18 +191,18 @@ tempo:
 30 secondi
 
 percorso:
-TODO
+ - home page pulsante calcolo pedaggi
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+Non è immediato trovare il pulsante per il calcolo del pegaggio
 
 ### Task 2
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -211,18 +211,22 @@ tempo:
 1 minuto e 45 secondi
 
 percorso:
-TODO
+ - infotraffico
+ - notizie
+ - infotraffico
+ - calcolo pedaggio
+ - previsioni del meteo
 
 problemi:
-tanti
+E' difficile da trovare
 
 opinioni:
-poche
+E' troppo incasinato è nascosto all'utente
 
 ### Task 3
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -231,18 +235,20 @@ tempo:
 1 minuto e 50 secondi
 
 percorso:
-TODO
+ - notizie
+ - pedaggio
+ - notizie
 
 problemi:
-tanti
+Difficile capite dove sono si trova un casello perchè il traffico è diviso per tratte complessive autostradali (AUTOVIE VENETE, AUTOSTRADA BS-PD, CAV)
 
 opinioni:
-poche
+Lo zoom sulla mappa crea problemi con lo scrolling del sito
 
 ### Task 4
 
 esito:
-non passato
+passato
 
 livello:
 basso
@@ -251,13 +257,13 @@ tempo:
 30 secondi
 
 percorso:
-TODO
+ - telecamere
 
 problemi:
-tanti
+nessuno
 
 opinioni:
-poche
+nessuno
 
 ### Task 5
 
@@ -271,13 +277,14 @@ tempo:
 2 minuti e 15 secondi
 
 percorso:
-TODO
+ - infrastrutture
+ 
 
 problemi:
-tanti
+I filtri non funzionano e provando ad usare i filtri non ha passato il test
 
 opinioni:
-poche
+Mentre è facile vedere dove sono le stazione di benzina più vicina nella mappa complessiva alcuni filtri non funzionano
 
 ### Task 6
 
@@ -291,13 +298,17 @@ tempo:
 3 minuti e 4 secondi
 
 percorso:
-TODO
+ - servizi
+ - cerca nel sito
+ - telecamere
+ - notizie
+ - infrastrutture
 
 problemi:
-tanti
+Non è immediato il trovare le informazioni
 
 opinioni:
-poche
+nessuno
 
 ## utente 3
 sesso: femmina
@@ -462,3 +473,144 @@ Zoom della mappa durante lo scrolling.
 
 opinioni:
 nessuno
+
+## utente 4
+sesso: femmina
+età: 51 anni
+professione: impiegata
+frequenza-web: 0-1 ore al giorno
+siti-viaggi: No
+infoviaggiando: No
+esperienza: 1
+
+### Task 1
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+30 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
+
+### Task 2
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+1 minuto e 45 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
+
+### Task 3
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+1 minuto e 50 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
+
+### Task 4
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+30 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
+
+### Task 5
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+2 minuti e 15 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
+
+### Task 6
+
+esito:
+non passato
+
+livello:
+basso
+
+tempo:
+3 minuti e 4 secondi
+
+percorso:
+ - 
+ - 
+ - 
+
+problemi:
+tanti
+
+opinioni:
+poche
