@@ -83,39 +83,6 @@ Nella valutazione di conformità dei vari criteri di successo l'esito è stato e
 
 [↓ Salta glossario](#sommario-dei-risultati)
 
-spec
-: Abbreviazione di "specifica"
-
-WCAG
-: Web Content Accessibility Guidelines, attualmente alla versione 2.1
-
-CHAPTCHA
-: Sigla per "Completely Automated Public Turing test to tell Computers and Humans Apart" (Test di Turing pubblico e completamente automatizzato, allo scopo di distinguere gli esseri umani dai computer)
-
-link
-: Collegamento tra due pagine Web
-
-input
-: Un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
-
-HTML
-: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine Web
-
-CSS
-: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
-
-CSS pixel
-: Un CSS pixel è l'unità di misura canonica per tutte le lunghezze e misure in CSS. Questa unità è indipendente dalla densità e distinta dai pixel hardware effettivi presenti in un display. 
-
-Pagina Web
-: Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
-
-Browser Web
-: Qualsiasi programma che recuperi e presenti contenuti Web agli utenti
-
-Header HTTP
-: Un'intestazione HTTP, come prevista dal protocollo. Sono piccole informazioni che precedono il contenuto della pagina web
-
 ARIA
 : *Accessible Rich Internet Applications*. ARIA definisce le modalità con cui sviluppatori di browser, media player, dispositivi mobili e tecnologie assistive, cosí come gli sviluppatori di contenuti, possono migliorare l'accessibilità cross-platform.
 
@@ -125,8 +92,41 @@ Braille
 Breadcrumb
 : letteralmente "Briciole di pane". È una tecnica di navigazione per interfacce utente: il loro scopo è quello di indicare all'utente in quale pagina si trovano e come raggiungere tale pagina attraverso una sequenza di pagine del sito. Ad esempio: "Home → Sezioni → Mondo".
 
+Browser Web
+: Qualsiasi programma che recuperi e presenti contenuti Web agli utenti
+
+CHAPTCHA
+: Sigla per "Completely Automated Public Turing test to tell Computers and Humans Apart" (Test di Turing pubblico e completamente automatizzato, allo scopo di distinguere gli esseri umani dai computer)
+
+CSS
+: Cascading Style Sheet, linguaggio usato per definire la resa grafica degli elementi di una pagina Web
+
+CSS pixel
+: Un CSS pixel è l'unità di misura canonica per tutte le lunghezze e misure in CSS. Questa unità è indipendente dalla densità e distinta dai pixel hardware effettivi presenti in un display. 
+
+Header HTTP
+: Un'intestazione HTTP, come prevista dal protocollo. Sono piccole informazioni che precedono il contenuto della pagina web
+
+HTML
+: Hyper Text Markup Language, linguaggio di markup con il quale sono realizzate le pagine Web
+
+input
+: Un elemento HTML che permette all'utente di inserire un contenuto (sia esso testo, file, preferenza o altro)
+
+link
+: Collegamento tra due pagine Web
+
+Pagina Web
+: Risorsa non incorporata ottenuta da un unico URI utilizzando HTTP più qualunque altra risorsa utilizzata per il rendering
+
 Screenshot, screen
 : foto di una parte o di tutto il monitor.
+
+spec
+: Abbreviazione di "specifica"
+
+WCAG
+: Web Content Accessibility Guidelines, attualmente alla versione 2.1
 
 ### Sommario dei risultati {#sommario-dei-risultati}
 
