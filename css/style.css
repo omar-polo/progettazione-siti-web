@@ -79,6 +79,7 @@ git status
 
 html, body {
 	min-height: 100vh;
+	width: 100%;
 }
 
 body {
@@ -123,13 +124,24 @@ abbr {
 	display: flex;
 	flex-direction: row;
 	padding: 1rem 1rem 0;
-	justify-content: flex-end;
+	justify-content: space-between;
 	border-bottom: 3px solid var(--navigation-color);
+	align-items: flex-end;
 }
 
 .navigation ul {
 	list-style: none;
 	margin-bottom: -3px;
+}
+
+@media only screen and (max-width: 640px) {
+	.navigation {
+		flex-wrap: wrap;
+	}
+
+	.navigation ul {
+		width: 100%;
+	}
 }
 
 .navigation li {
@@ -339,13 +351,12 @@ dt {
 }
 
 .color-square {
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	width: 80px;
 	height: 20px;
-	margin: 1.4rem 0 0 1rem;
+	margin-bottom: 10px;
 }
 
 .color-square:hover .square-1,
@@ -943,7 +954,12 @@ kbd {
 .summary tbody > tr > td {
 	text-align: left;
 	line-height: 2.5rem;
-	padding-left: 110px;
+}
+
+@media only screen and (min-width: 640px) {
+	.summary tbody > tr > td {
+		padding-left: 110px;
+	}
 }
 
 .summary tbody > tr.not-passed {
