@@ -81,7 +81,6 @@ percorso:
  - previsioni meteo
 
 problemi:
-nessuno
 
 opinioni:
 Diceva che era meglio fare una pagina apposita per il meteo perchè si aspettava cose diverse dalla pagina servizi
@@ -102,7 +101,6 @@ percorso:
  - notizie
 
 problemi:
-nessuno
 
 opinioni:
 se ti serve il traffico dal punto A al punto B quando fai la ricerca ti mostra dov'é il traffico mostrandoti il percorso e i punti precisi in cui prevedono che ci sia il traffico
@@ -122,10 +120,8 @@ percorso:
  - telecamere
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 5
 
@@ -142,10 +138,8 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 6
 
@@ -165,7 +159,6 @@ percorso:
  - infrastrutture
 
 problemi:
-nessuno
 
 opinioni:
 Sarebbe meglio darti l'opzione di selezionare un percorso e poi in automatico ti dice il benzinaio che si trova nbel percorso dove la benzina o il diesel costano meno
@@ -194,10 +187,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ### Task 2
 
@@ -214,10 +205,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ### Task 3
 
@@ -234,10 +223,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ### Task 4
 
@@ -254,10 +241,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ### Task 5
 
@@ -274,10 +259,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ### Task 6
 
@@ -294,10 +277,8 @@ percorso:
 TODO
 
 problemi:
-tanti
 
 opinioni:
-poche
 
 ## utente 3
 sesso: femmina
@@ -325,7 +306,6 @@ percorso:
  - calcolo pedaggi
 
 problemi:
-nessuno
 
 opinioni:
 Trova che la home page sia troppo confusionaria: "ho avuto paura di perdermi" afferma. In ogni caso, risolve velocemente il task.
@@ -347,10 +327,8 @@ percorso:
  - venezia
 
 problemi:
-Nessuno
 
 opinioni:
-Nessuna osservazione fatta.
 
 ### Task 3
 
@@ -373,8 +351,7 @@ percorso:
  - si convice che "autovie venete" è quello che le interessa
 
 problemi:
-Lo zoom della mappa durante lo scrolling se il cursore ci si posiziona
-sopra.
+importante: Lo zoom della mappa durante lo scrolling se il cursore ci si posiziona sopra.
 
 opinioni:
 Dopo due minuti ha avuto bisogno di un piccolo incoraggiamento per
@@ -405,7 +382,7 @@ percorso:
  - clicca sulla telecamera corretta nella mappa
 
 problemi:
-Lo scrolling che triggera lo zoom della mappa.
+minore: lo scrolling che triggera lo zoom della mappa.
 
 opinioni:
 Non ha riconosciuto le icone sulla mappa come cliccabili, e quindi anche
@@ -430,10 +407,8 @@ percorso:
  - trova la stazione richiesta sulla mappa
 
 problemi:
-nessuno
 
 opinioni:
-nessuno
 
 ### Task 6
 

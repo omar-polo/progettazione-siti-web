@@ -7,8 +7,8 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"strings"
 	"regexp"
+	"strings"
 )
 
 // Parser definisce un semplice tipo `parser' su cui sono definite
@@ -66,7 +66,7 @@ func (p *Parser) SyntaxError(reasons ...interface{}) error {
 
 func (p *Parser) ParseMetadata() (map[string]string, error) {
 	m := make(map[string]string)
-	
+
 	for {
 		line, err := p.ReadLine()
 		if err != nil {
@@ -172,9 +172,9 @@ type WCAGParser struct {
 
 // Questo workaround è necessario in quanto devo poter giocare con i
 // puntatori, cosa che altrimenti non potrei fare.
-func (w *WCAGParser) ReadLine() (string, error)          { return (&w.p).ReadLine() }
-func (w *WCAGParser) Rollback()                          { (&w.p).Rollback() }
-func (w *WCAGParser) SyntaxError(e ...interface{}) error { return (&w.p).SyntaxError(e...) }
+func (w *WCAGParser) ReadLine() (string, error)                 { return (&w.p).ReadLine() }
+func (w *WCAGParser) Rollback()                                 { (&w.p).Rollback() }
+func (w *WCAGParser) SyntaxError(e ...interface{}) error        { return (&w.p).SyntaxError(e...) }
 func (w *WCAGParser) ParseMetadata() (map[string]string, error) { return (&w.p).ParseMetadata() }
 
 // Effettua il parsing dell'intera pagina. La pagina viene vista come
@@ -229,7 +229,7 @@ func WCAGSection(p *WCAGParser) (Section, error) {
 	if err != nil {
 		return s, err
 	}
-	
+
 	// 3. Read quote
 	q, err := WCAGQuote(p)
 	s.Quote = q
@@ -323,7 +323,7 @@ func WCAGParseTitle(p *WCAGParser) (string, int, error) {
 
 func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 	m, err := p.ParseMetadata()
-	
+
 	if _, ok := m["source"]; !ok {
 		fmt.Println(p.SyntaxError("missing `source'"))
 	}
@@ -336,7 +336,7 @@ func WCAGMetadata(p *WCAGParser) (map[string]string, error) {
 			fmt.Println(p.SyntaxError("missing `outcome'"))
 		}
 	}
-	
+
 	return m, err
 }
 
@@ -363,7 +363,7 @@ func WCAGQuote(p *WCAGParser) (string, error) {
 			p.Rollback()
 			break
 		}
-		
+
 		line = quoteRe.ReplaceAllString(line, "")
 		l = append(l, line)
 	}
@@ -405,10 +405,10 @@ type Task struct {
 
 func TasksParse(p *Parser) ([]Task, error) {
 	var t []Task
-	
+
 	// skip the intro
 	TaskReadUntilSep(p)
-	
+
 	for {
 		tt, err := TaskParse(p)
 		t = append(t, tt)
@@ -423,10 +423,10 @@ func TasksParse(p *Parser) ([]Task, error) {
 func TaskParse(p *Parser) (Task, error) {
 	t := Task{}
 	tt := make(map[string]string)
-	
+
 	var err error
 	var k, v string
-	
+
 	// 1. read all the key-value pairs
 	for i := 0; i < 3; i++ {
 		k, v, err = TaskKV(p)
@@ -435,12 +435,12 @@ func TaskParse(p *Parser) (Task, error) {
 			break
 		}
 	}
-	
+
 	// 2. read up until the sep
 	TaskReadUntilSep(p)
-	
+
 	// 3. reassemble the task and return
-	
+
 	var ok bool
 
 	// 3.1 get the background
@@ -448,19 +448,19 @@ func TaskParse(p *Parser) (Task, error) {
 	if !ok {
 		return t, p.SyntaxError("missing `story' field!")
 	}
-	
+
 	// 3.2 get the timing
 	t.Timing, ok = tt["tempo"]
 	if !ok {
 		return t, p.SyntaxError("missing `tempo' field!")
 	}
-	
+
 	// 3.3 get the path
 	t.Path, ok = tt["percorso"]
 	if !ok {
 		return t, p.SyntaxError("missing `path' field!")
 	}
-	
+
 	return t, err
 }
 
@@ -469,44 +469,44 @@ var sepRe = regexp.MustCompile("^#+.*$")
 func TaskKV(p *Parser) (key string, val string, err error) {
 	var line string
 	var l []string
-	
+
 	kRe := regexp.MustCompile(`^[a-zA-Z]+:$`)
-	
+
 	// 1. get the key
 	for {
 		line, err = p.ReadLine()
-		
+
 		if err != nil {
 			break
 		}
-		
+
 		if line == "" {
 			continue
 		}
-		
+
 		if kRe.MatchString(line) {
 			// save the key, but drop the ':'
 			key = line[:len(line)-1]
 			break
 		}
 	}
-	
+
 	// 2. get the value
 	for {
 		line, err = p.ReadLine()
-		
+
 		if err != nil {
 			break
 		}
-		
+
 		if kRe.MatchString(line) || sepRe.MatchString(line) {
 			p.Rollback()
 			break
 		}
-		
+
 		l = append(l, line)
 	}
-	
+
 	// 3. join the value and return
 	val = strings.Join(l, "\n")
 
@@ -523,25 +523,52 @@ func TaskReadUntilSep(p *Parser) (string, error) {
 		if err != nil {
 			break
 		}
-		
+
 		if sepRe.MatchString(line) {
 			break
 		}
-		
+
 		l = append(l, line)
 	}
-	
+
 	return strings.Join(l, "\n"), err
 }
 
 // parser per i risultati
+
+type Gravity int
+
+const (
+	Minor Gravity = iota
+	Important
+	Critic
+	NA
+)
+
+func (g Gravity) String() string {
+	switch g {
+	case Minor:
+		return "minore"
+	case Important:
+		return "importante"
+	case Critic:
+		return "critico"
+	default:
+		return "n/a"
+	}
+}
+
+type Problem struct {
+	Gravity Gravity
+	Text    string
+}
 
 type UTResult struct {
 	Outcome  string
 	Level    string
 	Timing   string
 	Path     string
-	Problems string
+	Problems []Problem
 	Opinions string
 }
 
@@ -554,10 +581,10 @@ type UserResults struct {
 func UTParse(p *Parser) ([]UserResults, error) {
 	// skip the introduction
 	TaskReadUntilSep(p)
-	
+
 	// Rewind so the next ReadLine will return "## utente X"
 	p.Rollback()
-	
+
 	var urs []UserResults
 	for {
 		ur, err := UTUserResults(p)
@@ -570,7 +597,7 @@ func UTParse(p *Parser) ([]UserResults, error) {
 	}
 }
 
-// parse a sigle user block 
+// parse a sigle user block
 func UTUserResults(p *Parser) (UserResults, error) {
 	ur := UserResults{}
 
@@ -579,17 +606,17 @@ func UTUserResults(p *Parser) (UserResults, error) {
 	if err != nil {
 		return ur, err
 	}
-	
+
 	if !sepRe.MatchString(line) {
 		return ur, p.SyntaxError("Expecting a heading for the user")
 	}
-	
+
 	// read the metadata
 	ur.Metadata, err = p.ParseMetadata()
 	if err != nil {
 		return ur, err
 	}
-	
+
 	for {
 		// Peek next line
 		line, err := p.ReadLine()
@@ -600,12 +627,12 @@ func UTUserResults(p *Parser) (UserResults, error) {
 			continue
 		}
 		p.Rollback()
-		
+
 		// if it's a new user, return
 		if strings.HasPrefix(line, "## ") {
 			return ur, nil
 		}
-		
+
 		// otherwise, read the next section
 		r, err := UTParseResult(p)
 		ur.Results = append(ur.Results, r)
@@ -625,11 +652,11 @@ func UTParseResult(p *Parser) (UTResult, error) {
 	if err != nil {
 		return ut, err
 	}
-	
+
 	if !sepRe.MatchString(line) {
 		return ut, p.SyntaxError("Expecting a heading for the task")
 	}
-	
+
 	for {
 		// Peek next line
 		line, err = p.ReadLine()
@@ -637,12 +664,12 @@ func UTParseResult(p *Parser) (UTResult, error) {
 			break
 		}
 		p.Rollback()
-		
+
 		// if it's a heading, exit loop
 		if strings.HasPrefix(line, "##") {
 			break
 		}
-		
+
 		// otherwise read the KVs
 		var k, v string
 		k, v, err = TaskKV(p)
@@ -651,32 +678,72 @@ func UTParseResult(p *Parser) (UTResult, error) {
 		}
 		m[k] = v
 	}
-	
+
 	var ok bool
-	
+
 	if ut.Outcome, ok = m["esito"]; !ok {
 		return ut, p.SyntaxError("missing `esito'")
 	}
-	
+
 	if ut.Level, ok = m["livello"]; !ok {
 		return ut, p.SyntaxError("missing `livello'")
 	}
-	
+
 	if ut.Timing, ok = m["tempo"]; !ok {
 		return ut, p.SyntaxError("missing `tempo'")
 	}
-	
+
 	if ut.Path, ok = m["percorso"]; !ok {
 		return ut, p.SyntaxError("missing `percorso'")
 	}
-	
-	if ut.Problems, ok = m["problemi"]; !ok {
+
+	if _, ok = m["problemi"]; !ok {
 		return ut, p.SyntaxError("missing `problemi'")
 	}
-	
+
 	if ut.Opinions, ok = m["opinioni"]; !ok {
 		return ut, p.SyntaxError("missing `opinioni'")
 	}
-	
+
+	// fix "problemi"
+	mre := regexp.MustCompile(`^(na|minore|importante|critico): (.*)$`)
+	for _, l := range strings.Split(m["problemi"], "\n") {
+		if l == "" {
+			continue
+		}
+
+		if s := mre.FindStringSubmatch(l); s != nil {
+			g := NA
+
+			switch s[1] {
+			case "minore":
+				g = Minor
+			case "importante":
+				g = Important
+			case "critico":
+				g = Critic
+			case "na":
+				g = NA
+			default:
+				return ut, p.SyntaxError(fmt.Sprintf("invalid gravity %q", s[1]))
+			}
+
+			if g == NA {
+				fmt.Println(p.SyntaxError("la gravità è n/a"))
+			}
+
+			ut.Problems = append(ut.Problems, Problem{
+				Gravity: g,
+				Text:    s[2],
+			})
+		} else {
+			fmt.Println(p.SyntaxError("manca la gravità del problema"))
+			ut.Problems = append(ut.Problems, Problem{
+				Gravity: NA,
+				Text:    l,
+			})
+		}
+	}
+
 	return ut, err
 }
