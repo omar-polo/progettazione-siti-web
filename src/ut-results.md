@@ -473,7 +473,7 @@ percorso:
  - calcolo pedaggio
 
 problemi:
-Home page troppo confusionaria
+importante: la home page risulta troppo confusionaria
 
 opinioni:
 Trova che la home page contenga "troppe cose e non sono ben mostrate".
