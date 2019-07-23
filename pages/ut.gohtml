@@ -1,29 +1,29 @@
 {{ define "content" }}
 	<div class="ut container">
 		<h1>User Testing</h1>
-	
+
 		<h2 id="introduzione">Introduzione</h2>
 		<p>
 			Lo user testing ha l'obiettivo di individuare difetti d'usabilità attraverso l'osservazione dell'interazione tra utente e sistema. Si compone delle seguenti fasi:
 		</p>
-		
+
 		<dl>
 			<dt>Pianificazione</dt>
 			<dd>Si decidono i compiti da far eseguire agli utenti e si scelgono i profili utente più adatti;</dd>
-			
+
 			<dt>Reclutamento</dt>
 			<dd>Si contattano gli utenti;</dd>
-			
+
 			<dt>Briefing</dt>
 			<dd>Gli utenti vengono introdotti al test. Gli viene chiesto di compilare un questionario di screening per completare il loro profilo, il tutto sotto l'autorizzazione dell'utente;</dd>
-			
+
 			<dt>Esecuzione</dt>
 			<dd>Viene esposto all'utente il compito e viene invitato a pensare ad alta voce. Il compito degli esaminatori è quello di controllare come l'utente interagisce con il sito. Se l'utente è in difficoltà, lo sperimentatore lo stimola, senza fornire suggerimenti e senza comportarsi in modo da invalidare il test;</dd>
-			
+
 			<dt>Debriefing</dt>
 			<dd>Vengono rielaborate le annotazioni, viene discusso con l'utente quello che è successo durante l'esecuzione, ponendo particolare attenzione ai problemi emersi.</dd>
 		</dl>
-		
+
 		<h2 id="perimetro-dell-indagine">Perimetro dell'indagine</h2>
 		<p>Dopo aver esaminato il sito, sono stati formulati <strong>{{ len .Results }} casi d'uso</strong>:</p>
 		<ol>
@@ -33,22 +33,29 @@
 					<dl>
 						<dt>Tempo massimo</dt>
 						<dd>{{ .Task.Timing }}</dd>
-						
+
 						<dt>Percorso previsto</dt>
 						<dd class="path">{{ .Task.Path | markdown }}</dd>
 					</dl>
 				</li>
 			{{ end }}
 		</ol>
-		
+
 		<h2 id="sommario-dei-risultati">Sommario dei risultati</h2>
-		<p>TODO: parlare dei principali problemi riscontrati, come la mappa durante lo scrolling, l'incasinatezza della home page ecc</p>
-		
+		<p>I principali problemi riscontrati sono stati i seguenti:</p>
+		<ul>
+			<li>nelle pagine in cui è presente una mappa lo zoom con la rotellina del mouse ha creato molto fastidio agli utenti selezionati per l'user testing</li>
+			<li>la home page è risultata molto caotica per la ricerca di specifiche funzioni presenti</li>
+			<li>la funzionalita dei vari link nel menù non è sempre ben chiara, un esempio è la pagina servizi</li>
+			<li>la pagina per le previsioni del traffico è risultata essere di difficile comprensione</li>
+			<li>le informazioni sono risultate essere troppo sparse per il sito</li>
+		</ul>
+
 		<h2 id="metodologia">Metodologia</h2>
 		<h3>Briefing</h3>
-		
+
 		<p>Prima del testing vengono illustrati al partecipante lo scopo dell'user testing e le modalità di svolgimento. Dopo essersi assicurati che l'utente abbia compreso, gli viene gentilmente chiesto di compilare il seguente questionario:</p>
-		
+
 		<p>Domande del questionario</p>
 		<ul>
 			<li><p>Età</p></li>
@@ -59,9 +66,9 @@
 			<li><p>Hai mai usato un sito di informazioni sui viaggi?</p></li>
 			<li><p>Hai mai usato il sito "infoviaggiando.it"?</p></li>
 		</ul>
-		
+
 		<h3>Profili utente</h3>
-		
+
 		<div class="user-survey-results">
 			{{ range $i, $v := .Surveys }}
 				<section class="user-survey-result">
@@ -93,29 +100,29 @@
 				</section>
 			{{ end }}
 		</div>
-		
+
 		<h3>Situazione operativa</h3>
 		<p>I test sono stati effettuati nel giardino dei rizzi, in un tavolo all'ombra di un albero. Dato anche il periodo dell'anno, c'era poca gente nei dintorni e i test si sono svolti in tranquillità.</p>
-		
+
 		<p>I partecipanti sono stati invitati a pensare ad alta voce, per permetterci di comprendere i loro ragionamenti e le motivazioni dietro alle azioni che compivano. Inutile dire che i pensieri espressi dagli utenti sono stati prezioni nella compilazione di questo documento. In alcune occasioni si è reso necessario invitare l'utente a provare a proseguire.</p>
-		
+
 		<h3>Indici di valutazione</h3>
 		<p>Abbiamo valutato il <em>risultato degli utenti</em> e la <em>gravità dei problemi</em> con le seguenti scale.</p>
-		
+
 		<h4>Indice di successo</h4>
 		<dl>
 			<dt>Alto</dt>
 			<dd>L'utente completa il task entro i tempi previsti. La sua navigazione è chiara e non ha difficoltà ad eseguire il task.</dd>
-			
+
 			<dt>Medio</dt>
 			<dd>L'utente completa il task entro i tempi previsti. La sua navigazione è abbastanza pulita, e non sembra eccessivamente in difficoltà.</dd>
 
 			<dt>Basso</dt>
 			<dd>L'utente supera il tempo massimo oppure completa il task con poco tempo rimasto. La sua navigazione è confusa, cambia pagina spesso ed è evidente abbia difficoltà a fare quanto richiesto</dd>
 		</dl>
-		
+
 		<h4>Indice di gravità del problema</h4>
-		
+
 		<p>Definiamo due metriche principali riguandante i problemi di usabilità: impatto e frequenza. L'impatto si può misurare come</p>
 		<ol>
 			<li><p>il problema riscontrato dall'utente è facilmente superabile</p></li>
@@ -128,9 +135,9 @@
 			<li><p>il problema si verifica ogni volta durante lo svolgimento del compito</p></li>
 			<li><p>il problema si verifica molte volte durante lo svolgimento del compito</p></li>
 		</ol>
-		
+
 		<p>In base all'impatto e alla frequenza definiamo la <em>gravità di un problema</em> come:</p>
-		
+
 		<table class="gravity">
 			<caption>Gravità del problema in base all'impatto e alla frequenza.</caption>
 			<thead>
@@ -152,40 +159,40 @@
 				<tr class="critic"><td>critico</td><td>3</td><td>3</td></tr>
 			</tbody>
 		</table>
-		
+
 		<h2 id="risultati">Risultati</h2>
-		
+
 		{{ range $i, $r := .Results }}
 			<section class="user-task">
 				<h3>Caso d'uso {{ $i | inc }}</h3>
-				
+
 				<p>{{ $r.Task.Background }}</p>
-				
+
 				<p>Tempo previsto: {{ $r.Task.Timing }}</p>
-				
+
 				<div class="path">
 					<p>Percorso previsto:</p>
 					{{ $r.Task.Path | markdown }}
 				</div>
-				
+
 				<div class="user-task-results-wrapper">
 					{{ range $j, $u := $r.Users }}
 						<section class="user-task-result">
 							<h4>Utente {{ $j | inc }}</h4>
-						
+
 							<dl>
 								<dt>Esito</dt>
 								<dd>{{ $u.Outcome }}</dd>
-			
+
 								<dt>Tempo impiegato</dt>
 								<dd>{{ $u.Timing }}</dd>
-			
+
 								<dt>Livello di successo</dt>
 								<dd class="level-{{ $u.Level }}">{{ $u.Level }}</dd>
-				
+
 								<dt>Percorso dell'utente</dt>
 								<dd>{{ $u.Path | markdown }}</dd>
-			
+
 								<dt>Problemi</dt>
 								<dd>
 									{{ if $u.Problems }}
@@ -201,7 +208,7 @@
 										<p>Nessuno.</p>
 									{{ end }}
 								</dd>
-			
+
 								<dt>Opinioni e comportamento dell'utente</dt>
 								<dd>
 									{{ if $u.Opinions }}
