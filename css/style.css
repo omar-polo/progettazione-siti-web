@@ -1008,7 +1008,7 @@ kbd {
 .ut p,
 .ut dl {
 	margin: 1rem 5px;
-	line-height: 1rem;
+	line-height: 2rem;
 }
 
 .ut dt {
@@ -1188,7 +1188,7 @@ kbd {
 .ut ul.problem-list span {
 	display: inline-block;
 	background-color: var(--grey-quote);
-	padding: 4px 9px;
+	padding: 0 9px;
 	border-radius: 9px;
 	margin: 0 10px 0 0;
 }
