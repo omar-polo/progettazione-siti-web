@@ -1022,6 +1022,10 @@ kbd {
 	padding-left: 1rem;
 }
 
+.ut .user-survey-results {
+	margin: 2rem 0;
+}
+
 .ut .user-survey-result {
 	border: 1px solid #dedede;
 	padding: 10px;
@@ -1044,7 +1048,11 @@ kbd {
 		max-width: unset;
 		
 		width: 44%;
-		margin: 10px 3%;
+		margin: 10px 1% 10px 5%;
+	}
+	
+	.ut .user-survey-result:nth-child(2n) {
+		margin: 10px 5% 10px 1%;
 	}
 
 	.ut .user-survey-result:last-of-type {
@@ -1174,6 +1182,7 @@ kbd {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
+	margin: 1rem 0;
 }
 
 .ut ul.problem-list span {
@@ -1181,7 +1190,7 @@ kbd {
 	background-color: var(--grey-quote);
 	padding: 4px 9px;
 	border-radius: 9px;
-	margin: 0 5px;
+	margin: 0 10px 0 0;
 }
 
 .ut ul.problem-list .minore span {
@@ -1194,4 +1203,9 @@ kbd {
 
 .ut ul.problem-list .critico span {
 	background-color: var(--light-red);
+}
+
+.ut dl ul {
+	margin-top: 0;
+	margin-bottom: 0;
 }
