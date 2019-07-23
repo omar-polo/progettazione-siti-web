@@ -1131,11 +1131,8 @@ outcome: yes
 Questo punto è rispettato, confrontando con la lista di tecniche
 sufficienti per il successo del criterio:
 
- - [x] forniscono link per navigare a pagine correlati
- - [ ] non forniscono una TOC
- - [ ] non hanno una site map
- - [x] forniscono una funzionalità di ricerca
- - [ ] non forniscono una lista di link a tutte le altre pagine
+ - forniscono link per navigare a pagine correlati
+ - forniscono una funzionalità di ricerca
  - non tutte le pagine sono linkate dalla home page
 
 #### Intestazioni ed etichette
@@ -1314,7 +1311,7 @@ Il link vuoto nella barra laterale non è alto abbastanza
 
 ##### Rimedi proposti
 
-Basta rendere il link più visibile e cambiare le sue dimensioni
+Ingrandire l'area cliccalible mostrata nello screenshot (anche se è probabile sia semplicemente un errore da rimuovere).
 
 #### Meccanismi di input simultanei
 livello: AAA
