@@ -782,20 +782,6 @@ pre code {
 
 /* fine wcag */
 
-/* pagina User testing */
-
-.ut h1 {
-	font-size: 1.5rem;
-	padding: 10px;
-}
-
-.ut h2 {
-	font-size: 1.3rem;
-	padding: 10px;
-}
-
-/* fine pagina User testing */
-
 /* Pagina Info */
 
 .info h1 {
@@ -984,18 +970,22 @@ kbd {
 
 .ut h1 {
 	font-size: 1.6rem;
+	margin: 1rem 0;
 }
 
 .ut h2 {
 	font-size: 1.5rem;
+	margin: .7rem 0;
 }
 
 .ut h3 {
 	font-size: 1.4rem;
+	margin: .4rem 0;
 }
 
 .ut h4 {
 	font-size: 1.3rem;
+	margin: .4rem 0;
 }
 
 .ut h5 {
@@ -1062,4 +1052,110 @@ kbd {
 	}
 }
 
+.ut table.gravity {
+	margin-left: auto;
+	margin-right: auto;
+	caption-side: bottom;
+}
 
+.ut table.gravity caption {
+	margin: .5rem 0;
+	font-style: italic;
+}
+
+.ut table.gravity thead tr {
+	border-top: 3px solid var(--grey-quote);
+}
+
+.ut table.gravity th {
+	font-weight: bold;
+}
+
+.ut table.gravity tr {
+	border-width: 3px 0;
+	border-style: solid;
+	border-color: var(--bg-color);
+}
+
+.ut table.gravity td,
+.ut table.gravity th {
+	padding: .5rem;
+}
+
+.ut table.gravity td {
+	text-align: right;
+}
+
+.ut table.gravity td:nth-child(1) {
+	text-align: left;
+}
+
+.ut table .minor {
+	background-color: var(--light-green);
+}
+
+.ut table .important {
+	background-color: var(--light-orange);
+}
+
+.ut table .critic {
+	background-color: var(--light-red);
+}
+
+.ut .path p {
+	display: inline;
+}
+
+.ut .path ul {
+	display: inline;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ut .path li {
+	display: inline;
+}
+
+.ut .path li::after {
+	content: ' » ';
+}
+
+.ut .path li:last-of-type::after {
+	content: '';
+}
+
+.user-task {
+	margin: 2rem 0;
+}
+
+.ut .user-task-result {
+	border: 1px solid #dedede;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 4px;
+	background-color: #fefefe;
+	box-shadow: 0 5px 15px #dfdfdf;
+}
+
+@media only screen and (min-width: 880px) {
+	.ut .user-task-results-wrapper {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start
+	}
+	
+	.ut .user-task-result {
+		max-width: 999px;
+		max-width: unset;
+		
+		width: 44%;
+		margin: 10px 3%;
+	}
+
+	.ut .user-task-result:last-of-type {
+		margin-right: auto;
+	}
+}
