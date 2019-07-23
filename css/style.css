@@ -669,6 +669,10 @@ dt {
 	content: "\2014 ";
 }
 
+.wcag blockquote > ul {
+	line-height: 2rem;
+}
+
 .wcag dl {
 	clear: both;
 }
@@ -687,6 +691,7 @@ dt {
 .wcag ul {
 	list-style: square;
 	padding-left: 2rem;
+	line-height: 1.5rem;
 }
 
 pre code {
