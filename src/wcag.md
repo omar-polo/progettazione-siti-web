@@ -5,18 +5,18 @@
 La valutazione di conformità si è basata sulle linee guida [**WCAG 2.1**](https://www.w3.org/Translations/WCAG21-it/) che prevedono diversi livelli di orientamento che comprendono *principi* globali, *linee guida* generali, *criteri di successo* verificabili e una ricca raccolta di tecniche *sufficienti* e *consigliate*.
 
 Principi
-: Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*. 
+: Al livello più alto, sono definiti i quattro principi che fanno da pilastri all'accessibilità del Web: *percepibile*, *utilizzabile*, *comprensibile* e *robusto*.
 
 Linee guida
-: Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse. 
+: Dai quattro principi derivano tredici linee guida. Le linee guida forniscono gli obiettivi di base su cui gli autori dovrebbero lavorare per rendere il contenuto più accessibile agli utenti con disabilità diverse.
 
 Criteri di successo
 : Per ogni linea guida, sono forniti criteri di successo verificabili per consentire l'utilizzo delle WCAG 2.1 dove sono necessari test dei requisiti e della conformità. Vengono definiti tre livelli di conformità: A (minimo), AA e AAA (massimo).
 
 Tecniche sufficienti e consigliate
-: Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida. 
+: Le tecniche sono informative e possono essere di due categorie: quelle sufficienti a soddisfare il criterio di successo e quelle consigliate. Le tecniche consigliate vanno oltre ciò che viene richiesto da ciascun singolo criterio di successo e consentono di rispettare meglio le linee guida.
 
-Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile. 
+Tutti questi livelli di orientamento (principi, linee guida, criteri di successo, tecniche sufficienti e consigliate) concorrono a fornire indicazioni su come rendere il contenuto più accessibile.
 
 Sono stati utilizzati diversi strumenti come supporto alla valutazione di conformità alle linee guida WCAG 2.1.
 
@@ -30,7 +30,7 @@ Sono stati utilizzati diversi strumenti come supporto alla valutazione di confor
 
 - Color Contrast Accessibility Validator [a11y](https://color.a11y.com/?wc3)
 
-- [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità. 
+- [Accessibility Inspector](https://developer.mozilla.org/it/docs/Tools/Accessibility_inspector?utm_source=devtools&utm_medium=a11y-panel-description ) che fornisce un mezzo per accedere alle informazioni importanti esposte alle tecnologie assistive nella pagina corrente tramite l'albero di accessibilità.
 
 - [Color Contrast Checker - WebAIM](https://webaim.org/resources/contrastchecker/) che fornisce un rapporto per sapere quanto è accessibile un sito Web e come migliorarlo.
 
@@ -96,7 +96,7 @@ Browser Web
 
 ##### Risultati del report
 
-Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità. 
+Il sito analizzato non presenta nessuna alternativa per i contenuti non testuali e ciò rende difficile la fruibilità dei contenuti agli utenti con particolari necessità.
 
 I video preregistrati non forniscono nessuna trascrizione testuale equivalente, nè presentano sottotitoli.
 
@@ -404,7 +404,7 @@ L'elemento *p* non può essere figlio di un elemento di tipo *span*
 - Non vengono implementati i *`role="heading"`* per identificare i titoli
 
 - Non c'è un utilizzo appropriato di elementi semantici per contrassegnare la struttura delle pagine (es: molti titoli sono un *`p`* dentro un *`h2`*)
-  
+
 - Non viene utilizzata della marcatura semantica per contrassegnare il testo enfatizzato o speciale (es: non usano correttamente il tag *`quote`* per le citazioni)
 
 - Violata la separazione delle informazioni e della struttura dalla presentazione per abilitare presentazioni diverse
@@ -452,7 +452,7 @@ source: identify-input-purpose
 > Lo scopo di ciascun campo di input per le informazioni sull'utente può essere determinato programmaticamente quando:
 
 > Il campo di input ha uno scopo noto, identificato nella sezione scopo dell'input per i componenti dell'interfaccia utente;
-  
+
 > Il contenuto è implementato utilizzando tecnologie che supportino l'identificazione del significato atteso dei dati inseriti del modulo.
 
 ##### Violazioni riscontrate:
@@ -548,11 +548,11 @@ source: contrast-minimum
 Nella maggior parte dei testi i livelli di contrasto sono adeguati, ma ci sono alcuni elementi della pagina che non hanno un livello di contrasto ottimale come:
 
  - Il tasto condividi e il numero di commenti nelle preview degli articoli della Home page e nelle pagine di archivio
-  
+
  - L'ora e il punteggio dei commenti
-  
+
  - I tasti per cambiare giornata nella pagina del meteo
-  
+
  - I titoli degli articoli nella sezione "Top Blog"
 
 #### Ridimensionamento del testo
@@ -585,9 +585,9 @@ source: images-of-text
 Vengono usate solo un paio di immagini testuali (non essenziali e/o personalizzabili), quando un testo sarebbe stato più opportuno, come:
 
  - Il box "Abbonati" nella Homepage
-  
+
  - Il logo "Meteo" dove la scritta non è necessaria che sia inclusa nell'immagine
-  
+
  - La scritta 'la vignetta di' nel box della vignetta di Natangelo non è necessaria che sia inclusa nell'immagine (mentre la scritta 'Natangelo', in quanto firma, rientra nella categoria delle essenziali).
 
 #### Contrasto (avanzato)
@@ -611,27 +611,27 @@ source: contrast-enhanced
 Alcuni esempi:
 
  - Nella pagina di login:
-  
+
     - la stellina accanto alle voci 'Nome utente o email' e 'Password' non ha un contrasto sufficiente
-  
+
     - tutti i pulsanti
-  
+
     - la scritta 'Non sei ancora registrato?' non ha un contrasto adeguato
-  
+
  - Nella pagina del meteo
-  
+
     - il pulsante 'Accedi'
-  
+
     - la scritta 'modifica località' è poco visibile
-  
+
     - tutti i pulsanti per selezionare le varie zone del mondo (Italia, Europa, Mondo)
-  
+
     - il selettore dell'ora
-  
+
  - Nella pagina di un articolo
-  
+
     - il numero dei commenti
-  
+
     - le categorie nell'aside
 
 #### Sottofondo sonoro basso o non presente
@@ -672,13 +672,13 @@ source: visual-presentation
 L'unico punto passato è 'il testo non è giustificato'
 
  - [ ] Il sito non permette di cambiare i colori in primo piano e dello sfondo
-  
+
  - [ ] La larghezza del testo dipende dalla dimensione della finestra e non è possibile imporre un limite a 80 caratteri
-  
+
  - [x] Il testo non è giustificato
-  
+
  - [x] Lo spazio tra le righe è almeno di 1.5 e lo spazio tra paragrafi è almeno una volta e mezzo l'interlinea
-  
+
  - [ ] Non è possibile ingrandire il testo e se si ingrandisce con lo Zoom con il browser al 200% compaiono delle barre di scorrimento orizzontali
 
 #### Immagini di testo (senza eccezioni)
@@ -708,7 +708,7 @@ source: reflow
 ##### Osservazioni
 
  - [x] Il contenuto a scorrimento verticale con una larghezza equivalente a 320 CSS pixel non richiede di scorrere in due dimensioni
-  
+
  - [x] Non c'è contenuto a scorrimento orizzontale
 
 Ingrandendo a 400% il sito è usabile e rispetta le richieste, ma intorno al 200% bisogna scrollare orizzontalmente ed i testi importanti come titoli, sottotitoli sono "tagliati fuori".
@@ -724,7 +724,7 @@ source: non-text-contrast
 > : Le informazioni visive richieste per identificare i componenti dell'interfaccia utente e gli stati (ad eccezione dei componenti inattivi o dove l'aspetto del componente è determinato dal programma utente e non modificato dall'autore);
 
 > Oggetti grafici
-> : Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse. 
+> : Parti di grafica necessarie per comprendere il contenuto, tranne quando una particolare presentazione di grafica sia essenziale per le informazioni trasmesse.
 
 ##### Osservazioni
 
@@ -747,13 +747,13 @@ source: text-spacing
 ##### Violazioni riscontrate:
 
  - [x] L'altezza della linea (interlinea) è di 1,5 volte la dimensione del carattere
-  
+
  - [x] La spaziatura dopo i paragrafi è almeno 2 volte la dimensione del carattere
-  
+
  - [ ] Spaziatura tra le lettere di almeno 0,12 volte la dimensione del carattere
-  
+
  - [ ] Spaziatura tra le parole di almeno 0,16 volte la dimensione del carattere
-   
+
 #### Contenuto con Hover o Focus
 livello: AA
 outcome: yes
@@ -775,9 +775,9 @@ source: content-on-hover-or-focus
 ##### Osservazioni
 
  - [x] Congedabile: tutte le aree a scomparsa oscurano parte dei contenuti
-  
+
  - [x] Passibile: il contenuto aggiuntivo, una volta comparso per via di hover, rimane visibile se il puntatore (o il focus da tastiera) si spostano all'interno dell'area comparsa
-  
+
  - [x] Persistente: il contenuto aggiuntivo rimane visibile fino a quando l'evento Hover o Focus non viene rimosso
 
 ## Utilizzabile
@@ -866,7 +866,7 @@ source: timing-adjustable
 outcome: no
 
 > Per ogni temporizzazione presente nel contenuto, è soddisfatto almeno uno dei seguenti casi:
-> 
+>
 > - Spegnimento: All'utente è consentito disattivare il limite di tempo prima di raggiungerlo; oppure
 > - Regolazione: All'utente viene consentito di regolare il limite di tempo prima di raggiungerlo in un'ampia gamma che sia almeno dieci volte superiore alla durata dell'impostazione predefinita; oppure
 > - Estensione: L'utente viene avvisato prima dello scadere del tempo; gli sono dati almeno 20 secondi per estendere il limite tramite un'azione semplice (per esempio: "premere la barra spaziatrice") e gli è consentito di estendere il limite per almeno 10 volte; oppure
@@ -884,7 +884,7 @@ La home page si auto-ricarica e:
  - il limite di tempo non è un evento fondamentale
  - il limite di tempo non è essenziale per l'attività
  - il limite di tempo è inferiore alle 20 ore (sono 10 minuti)
- 
+
 **Code snippets**
 
 ```
@@ -1082,7 +1082,7 @@ outcome: no
 ##### Violazioni riscontrate:
 
 Non è presente nessun meccanismo per saltare i blocchi di contenuto
-che si ripetono su piu pagine.
+che si ripetono su piu pagine, come ad esmepio il menù in alto e da scorrere tutto anche se è oresente in ogni pagina.
 
 **Screen d'esempio**
 
@@ -1288,7 +1288,7 @@ outcome: no
 <div class="input-wrap">
    <input type="text" name="q" id="q" onfocus="this.value = '';">
 </div>
-```	
+```
 
 ```
 <label for="username">Nome utente o email<span class="required">*</span></label>
@@ -1304,7 +1304,7 @@ source: motion-actuation
 outcome: yes
 
 > Le funzionalità che possono essere azionate dal movimento del dispositivo o dell'utente possono anche essere attivate dai componenti dell'interfaccia utente e la risposta al movimento può essere disabilitata per impedire l'attivazione accidentale, tranne quando:
-> 
+>
 > - Interfaccia supportata: Il movimento viene utilizzato per attivare la funzionalità attraverso un'interfaccia compatibile con l'accessibilità;
 > - Essenziale: Il movimento è essenziale per la funzione e non farlo invaliderebbe l'attività.
 
@@ -1319,7 +1319,7 @@ source: target-size
 outcome: no
 
 > La dimensione dell'obiettivo per gli input tramite puntatore è di almeno 44 per 44 CSS pixel, tranne quando:
-> 
+>
 > - Equivalente: L'obiettivo è disponibile attraverso un link o un controllo equivalenti sulla stessa pagina, di almeno 44 per 44 CSS pixel;
 > - In linea: L'obiettivo è in una frase o in un blocco di testo;
 > - Sotto controllo del programma utente: La dimensione dell'obiettivo è determinata dal programma utente e non viene modificata dall'autore;
@@ -1654,7 +1654,7 @@ outcome: yes
 
 > Per le pagine Web che richiedano l'invio di informazioni da parte
 > dell'utente, è soddisfatta almeno una delle seguenti condizioni:
-> 
+>
 > Reversibilità
 > : Le azioni sono reversibili.
 >
@@ -1751,10 +1751,7 @@ programmaticamente.
 
 ##### Rimedi proposti
 
-Usare l'attributo `role` nella pagina per indicare 
+Usare l'attributo `role` nella pagina per indicare
 
 Infatti, abbiamo visto come per moltissime componenti della pagina non
 sia possibile stabilire programmaticamente il ruolo.
-
-
-
