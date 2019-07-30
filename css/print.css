@@ -27,6 +27,10 @@
         font-size: 16pt; 
     }
 
+    h4 {
+        font-size: 14pt; 
+    }
+
     body {
         font-size: 12pt;
     }
@@ -44,7 +48,7 @@
         width: auto;
     }
 
-    header {
+    body > header {
         display: none !important;
     }
 
@@ -97,11 +101,16 @@
         flex: 0 0 100% !important;
     }
 
+    
     a[href]:after {
         content: "(" attr(href) ")"
     }
-
+    
     table, img, figure, p {
+        page-break-inside: avoid;
+    }
+
+    .user-survey-resul {
         page-break-inside: avoid;
     }
 }
